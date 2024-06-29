@@ -113,7 +113,7 @@
 
                 $('#myForm').on('submit', (function (e) {
                     e.preventDefault();
-                    let quillHtml = quill.getContents();
+                    let quillHtml = quill.root.innerHTML.trim();
                     let formData = new FormData(this);
                     // let artikel = quillHtml;
                     // let judul = document.getElementById("judul").value;
