@@ -3,7 +3,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h4 class="my-4 text-white text-center">Contact Us</h4>
+                <h4 class="my-4 text-white text-center">hubungi kami</h4>
 
                 <div class="footerContactUs">
 
@@ -14,12 +14,12 @@
 
                     <div class="perFooterContactUs">
                         <i class="fas text-white fa-phone-alt"></i>
-                        <p class="text-white">023423434234</p>
+                        <p class="text-white">(0321) 6855337</p>
                     </div>
 
                     <div class="perFooterContactUs">
                         <i class="fas text-white fa-road"></i>
-                        <p class="text-white">Jl. kh. abdul chalim</p>
+                        <p class="text-white">Jl. KH. Abdul Chalim, no.1 Desa Kembangbelor, Kecamatan Pacet, Kabupaten Mojokerto, 61374</p>
                     </div>
 
                 </div>

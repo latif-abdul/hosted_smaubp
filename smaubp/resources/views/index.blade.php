@@ -8,11 +8,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>TEAMWORK</h1>
+                    <h3>Sekolah</h3>
+                    <h1>Terakreditasi “A”</h1>
                 </div>
 
-                <h3>Teamwork In Our Endeavours</h3>
+                <!-- <h3>Teamwork In Our Endeavours</h3> -->
             </div>
         </section>
     </li>
@@ -24,11 +24,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>humility</h1>
+                    <h3>Kurikulum Muadalah</h3>
+                    <h1>Standar Al Azhar</h1>
                 </div>
 
-                <h3>Humility In Our Accomplishments</h3>
+                <!-- <h3>Humility In Our Accomplishments</h3> -->
             </div>
         </section>
     </li>
@@ -40,11 +40,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>Respect</h1>
+                    <h3>Sekolah Penuh</h3>
+                    <h1>Prestasi</h1>
                 </div>
 
-                <h3>Respect For One Another</h3>
+                <!-- <h3>Respect For One Another</h3> -->
             </div>
         </section>
     </li>
@@ -56,11 +56,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>integrity</h1>
+                    <h3>Program Unggulan</h3>
+                    <h1>Hafalan Al Qur’an</h1>
                 </div>
 
-                <h3>Integrity In Our Relationships</h3>
+                <!-- <h3>Integrity In Our Relationships</h3> -->
             </div>
         </section>
     </li>
@@ -72,11 +72,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>commitment</h1>
+                    <h3>Bimbingan Pesantren</h3>
+                    <h1>24 Jam</h1>
                 </div>
 
-                <h3>Commitment To The Work We Undertake</h3>
+                <!-- <h3>Commitment To The Work We Undertake</h3> -->
             </div>
         </section>
     </li>
@@ -89,11 +89,11 @@
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Our Values</h3>
-                    <h1>excellence</h1>
+                    <h3>Bimbingan Intensif</h3>
+                    <h1>Universitas</h1>
                 </div>
 
-                <h3>Excellence In Whatever We Do</h3>
+                <!-- <h3>Excellence In Whatever We Do</h3> -->
             </div>
         </section>
     </li>
@@ -107,7 +107,7 @@
 
 
 <div class="sambutan container">
-    <h1>WELCOME TO SMA-MAU BP</h1>
+    <h1>WELCOME TO SMA - MAU Berbasis Pesantren Amanatul Ummah - “The Most Prestigious Tahfidz School”</h1>
     <p>
         “SMA-MA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an” menjamin murid
         muridnya menghafal Al Qur’an , lulus 100% berklasifisi “A”, serta lulusannya diterima di Perguruan Tinggi
@@ -393,8 +393,8 @@
                     <div class="counter-item">
 
                         <div><i class="fa fa-cloud-download"></i></div>
-                        <h2><span class="counter-num"> 446 </span><span>+</span></h2>
-                        <p>Lulusan yang Hafidz 30 Juz</p>
+                        <h2><span class="counter-num"> 61+ </span><span>+</span></h2>
+                        <p>Wisudawan Tahfidz 30 juz</p>
                     </div>
 
                 </div>
@@ -405,8 +405,8 @@
                     <div class="counter-item">
 
                         <div><i class="fa fa--people-fill"></i></div>
-                        <h2><span class="counter-num"> 644 </span><span>+</span></h2>
-                        <p>Wisudawan Tahfidz</p>
+                        <h2><span class="counter-num"> 29+ </span><span>+</span></h2>
+                        <p>Wisudawan Tahfidz 15 Juz</p>
                     </div>
 
                 </div>
@@ -416,8 +416,8 @@
                     <div class="counter-item">
 
                         <div><i class="fa fa-heart-o"></i></div>
-                        <h2><span class="counter-num"> 648 </span><span>+</span></h2>
-                        <p>Jumlah Prestasi Siswa</p>
+                        <h2><span class="counter-num"> 62+ </span><span>+</span></h2>
+                        <p>Wisudawan Tahfidz 9 Juz</p>
                     </div>
 
                 </div>
@@ -428,8 +428,8 @@
                     <div class="counter-item">
 
                         <div><i class="fa fa-check"></i></div>
-                        <h2><span class="counter-num"> 1066 </span><span>+</span></h2>
-                        <p>Jumlah Alumni</p>
+                        <h2><span class="counter-num"> 275+ </span><span>+</span></h2>
+                        <p>Prestasi</p>
                     </div>
 
                 </div>
@@ -458,7 +458,7 @@
 
 <!-- sosmed icon -->
 <div class="iconBox">
-    <a href="https://api.whatsapp.com/send?phone=6285853049405" class="perIconBox wa">
+    <a href="https://api.whatsapp.com/send?phone=082228642852" class="perIconBox wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -471,9 +471,9 @@
         <i class="fab fa-instagram"></i>
     </a>
 
-    <!-- <a href="" class="perIconBox yt">
+    <a href="https://youtube.com/@sistrentv6209?si=Qv6vTCGA6LF3Ok2R" class="perIconBox yt">
             <i class="fab fa-youtube"></i>
-        </a> -->
+        </a>
     <!-- <a href="" class="perIconBox linkin">
             <i class="fab fa-linkedin-in"></i>
         </a> -->
