@@ -302,10 +302,10 @@
 
     <div class="artikelHome">
 
-    @foreach ($artikel as $art)
+    <!-- @foreach ($artikel as $art)
     
     
-        <!-- <a class="perArtikelHome">
+        <a class="perArtikelHome">
             <img src="{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
             <h3>{{$art->judul}}</h3>
             <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
