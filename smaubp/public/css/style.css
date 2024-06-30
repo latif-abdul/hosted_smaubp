@@ -889,7 +889,6 @@ body {
 
 .imgArtikel {
   width: 100%;
-  /* height: 700px; */
   margin-bottom: 50px;
 }
 
@@ -1166,10 +1165,6 @@ iframe {
     bottom: 250px;
   }
 
-  /* .imgArtikel {
-    height: 400px;
-  } */
-
   .detailArtikel h2 {
     font-size: 1.7rem;
   }
@@ -1214,10 +1209,6 @@ iframe {
     width: 80%;
     height: 250px;
   }
-
-  /* .imgArtikel {
-    height: 200px;
-  } */
 
   .navbar .navbar-brand img {
     width: 33px;
