@@ -305,7 +305,7 @@
         @csrf
         @foreach ($artikel as $art)
         <a class="perArtikelHome">
-            <img src="{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
+            <img src="/uploads/{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
             <h3>{{$art->judul}}</h3>
             <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
             <p>
@@ -314,66 +314,6 @@
             </p>
         </a>
         @endforeach
-
-        <a class="perArtikelHome">
-            <img src="images/1.jpg" alt="Foto Artikel" data-delay="240ms">
-            <h3>Artikel</h3>
-            <small>Di tulis oleh : <span>A</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
-
-
-        <a class="perArtikelHome">
-            <img src="images/1.jpg" alt="Foto Artikel" data-delay="260ms">
-            <h3>Artikel</h3>
-            <small>Di tulis oleh : <span>A</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
-
-
-        <a class="perArtikelHome">
-            <img src="images/1.jpg" alt="Foto Artikel" data-delay="280ms">
-            <h3>Artikel</h3>
-            <small>Di tulis oleh : <span>A</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus
-                    explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
-
-
-        <a class="perArtikelHome">
-            <img src="images/1.jpg" alt="Foto Artikel" data-delay="300ms">
-            <h3>Artikel</h3>
-            <small>Di tulis oleh : <span>A</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus
-                    explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
-
-
-        <a class="perArtikelHome">
-            <img src="images/1.jpg" alt="Foto Artikel" data-delay="320ms">
-            <h3>Artikel</h3>
-            <small>Di tulis oleh : <span>A</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus
-                    explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
-
-
-
     </div>
 </div>
 
