@@ -5,6 +5,9 @@
 <form method="POST" action="/admin/siswa_baru" enctype="multipart/form-data">
 @csrf
 <div>
+  <br>
+  <br>
+  <br>
   <h2>PENDAFTARAN SANTRI</h2>
   </div>
   <p>SELAMAT DATANG CALON GENERASI SMART QUR'ANI !</p>
