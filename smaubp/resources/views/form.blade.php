@@ -151,7 +151,7 @@
                 </div>
             </div>
             <br>
-            <div class="alert alert-success" id="successAlert" role="alert">
+            <!-- <div class="alert alert-success" id="successAlert" role="alert">
                 Your form has been submitted successfully!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -165,8 +165,14 @@
                     $('.alert').alert();
                     console.log('cek')
                 });
-            </script>
+            </script> -->
 <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
+@if (session()->has('success'))
+                <div class="alert alert-success show" id="successAlert">
+                    {{ session()->get('success') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
 </div>
 </form>
 </div>

@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [ShowController::class, 'index']);
 Route::get('/ekskul', function () {
     return view('ekstrakulikuler');
 })->name('eksul');
@@ -66,8 +64,4 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::put('/admin/siswa_baru/update_tanggal_pengumuman/{id}', [SiswaController::class, 'update_tanggal_pengumuman']);
 });
 
-
-Route::get('/', function () {
-    return view('index');
-});
 Route::get('/home', [HomeController::class, 'index'])->name('home');

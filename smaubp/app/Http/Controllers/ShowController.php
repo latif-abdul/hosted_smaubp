@@ -9,7 +9,7 @@ class ShowController extends Controller
 {
     public function index()
     {
-        // $artikel = Artikel::all()->take(5)->orderBy('updated_at', 'DESC');
-        return view('index');
+        $artikel = Artikel::all()->take(5)->sortByDesc('updated_at');
+        return view('index', compact('artikel'));
     }
 }
