@@ -10,7 +10,7 @@
 <div class="container mainDetailArtikel">
     <div class="row">
         <div class="col-md-8">
-            {{$artikel->artikel}}
+            {!!$artikel->artikel!!}
 
             
         </div>
