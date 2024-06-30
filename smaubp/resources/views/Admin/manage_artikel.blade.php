@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="content">
-        <form method="POST" action="" enctype="multipart/form-data" id="myForm">
+        <form method="POST" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
             <!-- {{$formAction}} -->
             <!-- <div class="md-editor" id="1717708093069">
     <div class="md-header btn-toolbar"> -->
@@ -52,7 +52,7 @@
         <div class="md-controls"><a class="md-control md-control-fullscreen" href="#"><span
                     class="glyphicon glyphicon-fullscreen"></span></a></div> -->
             <!-- </div> -->
-            <!-- @if(isset($artikel)) @method('PUT') @else @method('POST') @endif -->
+            @if(isset($artikel)) @method('PUT') @else @method('POST') @endif
             @csrf
             <div class="form-group">
                 <label for="judul">Judul *</label>
@@ -87,8 +87,9 @@
                 </div>
             </div>
             <!-- Create the editor container -->
+            <input type="hidden" name="artikel" value="{{{old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')}}}">
             <div id="editor" class="ql-editor">
-                {{{old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')}}}
+                {!!old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')!!}
                 <!-- <p>tes</p> -->
             </div>
             <br>
@@ -110,52 +111,55 @@
                 // $(document).ready(function () {
                 //     quill.setContent("{{{old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')}}}");
                 // });
+                quill.on('text-change', function (delta, oldDelta, source) {
+                    document.querySelector("input[name='artikel']").value = quill.root.innerHTML;
+                });
 
-                $('#myForm').on('submit', (function (e) {
-                    e.preventDefault();
-                    let quillHtml = quill.root.innerHTML.trim();
-                    let quillText = quill.getText();
-                    let formData = new FormData(this);
-                    // let artikel = quillHtml;
-                    // let judul = document.getElementById("judul").value;
-                    // let penulis = document.getElementById("penulis").value;
-                    // let gambar = $('#gambar').prop('files')[0];
-                    // let _token = "{{ csrf_token() }}";
+            //     $('#myForm').on('submit', (function (e) {
+            //         e.preventDefault();
+            //         let quillHtml = quill.root.innerHTML.trim();
+            //         let quillText = quill.getText();
+            //         let formData = new FormData(this);
+            //         // let artikel = quillHtml;
+            //         // let judul = document.getElementById("judul").value;
+            //         // let penulis = document.getElementById("penulis").value;
+            //         // let gambar = $('#gambar').prop('files')[0];
+            //         // let _token = "{{ csrf_token() }}";
 
-                    formData.append('artikel', quillText);
-                    // formData.append('judul', judul);
-                    // formData.append('penulis', penulis);
-                    // formData.append('gambar', gambar);
-                    // formData.append('_token', _token);
-                    $.ajax({
-                        type: "{{{isset($artikel) ? 'PUT' : 'POST'}}}",
-                        url: url,
-                        processData: false,
-                        contentType: false,
-                        // contentType: 'multipart/form-data',
-                        cache: false,
-                        data: formData,
-                        // data: {
-                        //     _token: "{{ csrf_token() }}",
-                        //     artikel: quillHtml,
-                        //     judul: document.getElementById("judul").value,
-                        //     gambar: document.getElementById("gambar").files[0],
-                        //     penulis: document.getElementById("penulis").value,
-                        // },
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
-                        },
-                        success: function (data, status, xhr) {
-                            if (xhr.status == 200) {
-                                alert("Successfully sent to database");
-                            }
-                        }, error: function () {
-                            alert("Could not send to database");
-                        }
-                    });
-                }));
+            //         formData.append('artikel', quillText);
+            //         // formData.append('judul', judul);
+            //         // formData.append('penulis', penulis);
+            //         // formData.append('gambar', gambar);
+            //         // formData.append('_token', _token);
+            //         $.ajax({
+            //             type: "{{{isset($artikel) ? 'PUT' : 'POST'}}}",
+            //             url: url,
+            //             processData: false,
+            //             contentType: false,
+            //             // contentType: 'multipart/form-data',
+            //             cache: false,
+            //             data: formData,
+            //             // data: {
+            //             //     _token: "{{ csrf_token() }}",
+            //             //     artikel: quillHtml,
+            //             //     judul: document.getElementById("judul").value,
+            //             //     gambar: document.getElementById("gambar").files[0],
+            //             //     penulis: document.getElementById("penulis").value,
+            //             // },
+            //             beforeSend: function (xhr) {
+            //                 xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
+            //             },
+            //             success: function (data, status, xhr) {
+            //                 if (xhr.status == 200) {
+            //                     alert("Successfully sent to database");
+            //                 }
+            //             }, error: function () {
+            //                 alert("Could not send to database");
+            //             }
+            //         });
+            //     }));
 
-            </script>
+             </script>
         </form>
     </div>
 </div>

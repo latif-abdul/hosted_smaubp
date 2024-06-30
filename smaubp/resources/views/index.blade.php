@@ -304,7 +304,7 @@
 
         @csrf
         @foreach ($artikel as $art)
-        <a class="perArtikelHome">
+        <a class="perArtikelHome" href="/artikel/{{$art->id}}">
             <img src="/uploads/{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
             <h3>{{$art->judul}}</h3>
             <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
