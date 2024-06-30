@@ -8,6 +8,7 @@
   <br>
   <br>
   <br>
+  <br>
   <h2>PENDAFTARAN SANTRI</h2>
   </div>
   <p>SELAMAT DATANG CALON GENERASI SMART QUR'ANI !</p>
