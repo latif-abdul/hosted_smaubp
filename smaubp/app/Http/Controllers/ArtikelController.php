@@ -58,7 +58,8 @@ class ArtikelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $artikel = Artikel::find($id);
+        return view('perArtikel', compact('artikel'));
     }
 
     /**

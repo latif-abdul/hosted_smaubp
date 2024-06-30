@@ -114,6 +114,7 @@
                 $('#myForm').on('submit', (function (e) {
                     e.preventDefault();
                     let quillHtml = quill.root.innerHTML.trim();
+                    let quillText = quill.getText();
                     let formData = new FormData(this);
                     // let artikel = quillHtml;
                     // let judul = document.getElementById("judul").value;
@@ -121,7 +122,7 @@
                     // let gambar = $('#gambar').prop('files')[0];
                     // let _token = "{{ csrf_token() }}";
 
-                    formData.append('artikel', quillHtml);
+                    formData.append('artikel', quillText);
                     // formData.append('judul', judul);
                     // formData.append('penulis', penulis);
                     // formData.append('gambar', gambar);
