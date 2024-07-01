@@ -182,17 +182,17 @@ class SiswaController extends Controller
         if ($siswa === null) {
             $st = 'Mohon Maaf';
             $color = 'danger';
-            $msg = 'Mohon Maaf, ' . $request->no_pendaftaran . ' Tidak diterima';
+            $msg = 'Mohon Maaf, No Pendaftaran ' . $request->no_pendaftaran . ' Dinyatakan Tidak Lulus. Jangan Putus Asa dan Tetap Semangat';
         } else {
             if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
                 if ($siswa->status == 1) {
                     $st = 'Selamat';
                     $color = 'success';
-                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' Diterima';
+                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' dengan Nomor Pendaftaran '.$siswa->no_pendaftaran.'Dinyatakan Lulus';
                 } else {
                     $st = 'Mohon Maaf';
                     $color = 'danger';
-                    $msg = 'Mohon Maaf, ' . $siswa->nama_lengkap . ' Tidak diterima';
+                    $msg = 'Mohon Maaf, ' . $siswa->nama_lengkap . ' Dinyatakan Tidak Lulus. Jangan Putus Asa dan Tetap Semangat';
                 }
             } else {
                 $st = '';
