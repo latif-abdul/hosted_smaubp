@@ -49,6 +49,8 @@ Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
+
+
 Auth::routes();
 
 Route::group( ['middleware' => 'auth' ], function()
@@ -63,6 +65,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
     Route::put('/admin/siswa_baru/update_tanggal_pengumuman/{id}', [SiswaController::class, 'update_tanggal_pengumuman']);
+    Route::post('/admin/siswa_baru/import', [SiswaController::class,'import_excel']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
