@@ -38,6 +38,27 @@
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
                     @endif
+
+                    <form method="post" action="{{$formAction2}}" enctype="multipart/form-data">
+
+
+                        {{ csrf_field() }}
+
+                        <label>Pilih file excel</label>
+                        <div class="form-group">
+                            <input type="file" name="file" required="required">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Import</button>
+                        <a class=" btn btn-success" href="/template/template import siswa.xlsx">Download Template</a>
+
+                    </form>
+
+                    @if (session()->has('success'))
+                        <div class="alert alert-success show" id="successAlert">
+                            {{ session()->get('success') }}
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
+                    @endif
                     <!-- <div class="table-responsive table-full-width">
 
                         <table class="table table-hover table-striped">

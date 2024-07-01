@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use App\Imports\SiswaImport;
 
 class SiswaController extends Controller
 {
@@ -21,7 +22,8 @@ class SiswaController extends Controller
         $siswa = Santris::all();
         $tanggal_pengumuman = Pengumuman::find("2");
         $formAction = "/admin/siswa_baru/update_tanggal_pengumuman/2";
-        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction'));
+        $formAction2 = "/admin/siswa_baru/import";
+        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2'));
     }
 
     /**
@@ -207,4 +209,27 @@ class SiswaController extends Controller
         return back()->with('success', 'Successfully saved in database')
             ->header('Content-Type', 'text/plain');
     }
+
+    public function import_excel(Request $request) 
+	{
+		// validasi
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+ 
+		// menangkap file excel
+		$file = $request->file('file');
+ 
+		// membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+ 
+		// upload ke folder file_siswa di dalam folder public
+		$file->move('file_siswa',$nama_file);
+ 
+		// import data
+		Excel::import(new SiswaImport, public_path('/file_siswa/'.$nama_file));
+ 
+		// alihkan halaman kembali
+		return back()->with('success','Data Siswa Berhasil Diimport!');
+	}
 }
