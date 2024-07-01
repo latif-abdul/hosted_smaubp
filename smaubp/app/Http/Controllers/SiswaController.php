@@ -188,7 +188,7 @@ class SiswaController extends Controller
                 if ($siswa->status == 1) {
                     $st = 'Selamat';
                     $color = 'success';
-                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' dengan Nomor Pendaftaran '.$siswa->no_pendaftaran.'Dinyatakan Lulus';
+                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' dengan Nomor Pendaftaran '.$siswa->no_pendaftaran.' Dinyatakan Lulus';
                 } else {
                     $st = 'Mohon Maaf';
                     $color = 'danger';
