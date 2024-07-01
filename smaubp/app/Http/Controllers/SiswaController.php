@@ -228,9 +228,9 @@ class SiswaController extends Controller
  
 		// import data
 		Excel::import(new SiswaImport, public_path('/file_siswa/'.$nama_file));
-        return response(public_path('/file_siswa/'.$nama_file));
+        // return response(storage_path('/file_siswa/'.$nama_file));
  
 		// alihkan halaman kembali
-		// return back()->with('success','Data Siswa Berhasil Diimport!');
+		return back()->with('success','Data Siswa Berhasil Diimport!');
 	}
 }
