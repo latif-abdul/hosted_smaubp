@@ -142,7 +142,7 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Santris::find($id)->delete();
     }
 
     public function redirectToWhatsapp(string $id)
