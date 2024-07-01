@@ -179,22 +179,28 @@ class SiswaController extends Controller
     {
         $siswa = Santris::where('no_pendaftaran', $request->no_pendaftaran)->first();
         $pengumuman = Pengumuman::find(2);
-        if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
-            if ($siswa->status == 1) {
-                $st = 'Selamat';
-                $color = 'success';
-                $msg = 'Selamat, ' . $siswa->nama_lengkap . ' Diterima';
-            } else {
-                $st = 'Mohon Maaf';
-                $color = 'danger';
-                $msg = 'Mohon Maaf, ' . $siswa->nama_lengkap . ' Tidak diterima';
-            }
+        if ($siswa === null) {
+            $st = 'Mohon Maaf';
+            $color = 'danger';
+            $msg = 'Mohon Maaf, ' . $request->no_pendaftaran . ' Tidak diterima';
         } else {
-            $st = '';
-            $color = 'warning';
-            $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
+            if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
+                if ($siswa->status == 1) {
+                    $st = 'Selamat';
+                    $color = 'success';
+                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' Diterima';
+                } else {
+                    $st = 'Mohon Maaf';
+                    $color = 'danger';
+                    $msg = 'Mohon Maaf, ' . $siswa->nama_lengkap . ' Tidak diterima';
+                }
+            } else {
+                $st = '';
+                $color = 'warning';
+                $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
+            }
+            ;
         }
-        ;
         return view("pengumuman", compact(['msg', 'st', 'color']));
     }
 
@@ -210,27 +216,27 @@ class SiswaController extends Controller
             ->header('Content-Type', 'text/plain');
     }
 
-    public function import_excel(Request $request) 
-	{
-		// validasi
-		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
-		]);
- 
-		// menangkap file excel
-		$file = $request->file('file');
- 
-		// membuat nama file unik
-		$nama_file = rand().$file->getClientOriginalName();
- 
-		// upload ke folder file_siswa di dalam folder public
-		$file->move('file_siswa',$nama_file);
- 
-		// import data
-		Excel::import(new SiswaImport, '/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/file_siswa/'.$nama_file);
+    public function import_excel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand() . $file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+        $file->move('file_siswa', $nama_file);
+
+        // import data
+        Excel::import(new SiswaImport, '/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/file_siswa/' . $nama_file);
         // return response(storage_path('/file_siswa/'.$nama_file));
- 
-		// alihkan halaman kembali
-		return back()->with('success','Data Siswa Berhasil Diimport!');
-	}
+
+        // alihkan halaman kembali
+        return back()->with('success', 'Data Siswa Berhasil Diimport!');
+    }
 }
