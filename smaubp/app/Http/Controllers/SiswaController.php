@@ -227,7 +227,7 @@ class SiswaController extends Controller
 		$file->move('file_siswa',$nama_file);
  
 		// import data
-		Excel::import(new SiswaImport, '/file_siswa/'.$nama_file);
+		Excel::import(new SiswaImport, url('/file_siswa/'.$nama_file));
  
 		// alihkan halaman kembali
 		return back()->with('success','Data Siswa Berhasil Diimport!');
