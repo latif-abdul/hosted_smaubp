@@ -227,7 +227,7 @@ class SiswaController extends Controller
 		$file->move('file_siswa',$nama_file);
  
 		// import data
-		Excel::import(new SiswaImport, public_path('/file_siswa/'.$nama_file));
+		Excel::import(new SiswaImport, '/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/file_siswa/'.$nama_file);
         // return response(storage_path('/file_siswa/'.$nama_file));
  
 		// alihkan halaman kembali
