@@ -49,6 +49,14 @@ class DafulController extends Controller
         // } else {
         $daful = Daful::create(["id_santris" => $santri->id]);
 
+        // $this->validate($request, [
+        //     'akta_kelahiran' => 'required|mimes:jpeg,jpg,png',
+        //     'kartu_keluarga' => 'required|mimes:jpeg,jpg,png',
+        //     'skl' => 'required|mimes:jpeg,jpg,png',
+        //     'bukti_transfer' => 'required|mimes:jpeg,jpg,png',
+        //     'foto' => 'required|mimes:jpeg,jpg,png',
+        // ]);
+
         if ($request->hasFile('akta_kelahiran')) {
             $daful->akta_kelahiran = $santri->nama_lengkap . time() . '-' . $request->file('akta_kelahiran')->getClientOriginalName();
             $request->file('akta_kelahiran')->move('uploads', $daful->akta_kelahiran);

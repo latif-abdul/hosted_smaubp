@@ -9,6 +9,8 @@
             <br>
             <br>
             <h2>DAFTAR ULANG SISWA</h2>
+            <h6>Format Upload File JPEG, JPG, PNG</h6>
+            <br>
         </div>
         <div class="content">
             <div class="row">
@@ -22,7 +24,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="no_wa">Nomor Whatsapp Aktif yang bisa dihubungi</label>
-                        <input type="text" id="no_wa" class="form-control" name="no_wa" required>
+                        <input type="number" id="no_wa" class="form-control" name="no_wa" required>
                     </div>
                 </div>
             </div>
