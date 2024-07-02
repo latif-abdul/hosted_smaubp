@@ -23,7 +23,7 @@ class SiswaImport implements ToModel, WithStartRow
         return new Santris([
             'no_pendaftaran' => $row[1],
             'nama_lengkap' => $row[2], 
-            'status' => 1,
+            'status' => 0,
         ]);
     }
 }

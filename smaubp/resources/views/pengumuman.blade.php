@@ -19,6 +19,9 @@
                 <!-- <hr> -->
                 <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
             </div>
+            @if($st == "Selamat")
+            <a href="" class="btn btn-primary">Daftar Ulang</a>
+            @endif
             @endif
         </div>
     </div>

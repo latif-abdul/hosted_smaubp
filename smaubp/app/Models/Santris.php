@@ -29,6 +29,20 @@ class Santris extends Model
         'foto',
         'bukti_pembayaran',
         'no_pendaftaran',
-        'status'
+        'status',
+        'no_wa'
     ];
+
+    public function daful()
+    {
+        return $this->hasMany(Daful::class, 'id_santris', 'id');
+    }
+
+    public function scopeWithDafulWhere($query, $attribute, $value)
+    {
+        return $query->with('daful')->whereHas('daful', function ($query) use ($attribute, $value) {
+            $query->where($attribute, $value);
+        });
+    }
+    
 }

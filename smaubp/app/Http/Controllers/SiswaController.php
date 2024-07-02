@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use App\Models\Santris;
+use App\Models\Daful;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -20,9 +21,25 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Santris::all();
+        // $siswa_terverifikasi = $siswa->daful()
+        //     ->where("verifikasi_akta_kelahiran", 1)
+        //     ->where("verifikasi_kk", 1)
+        //     ->where("verifikasi_skl", 1)
+        //     ->where("verifikasi_bukti_transfer", 1)
+        //     ->where("verifikasi_foto", 1)
+        //     ->get()
+        // ;
+        // $queries = DB::getQueryLog();
+        // $siswa_belum_terverifikasi = $siswa
+        //     ->where("verifikasi_akta_kelahiran", '!=', 1)
+        //     ->where("verifikasi_kk", '!=', 1)
+        //     ->where("verifikasi_skl", '!=', 1)
+        //     ->where("verifikasi_bukti_transfer", '!=', 1)
+        //     ->where("verifikasi_foto", '!=', 1);
         $tanggal_pengumuman = Pengumuman::find("2");
         $formAction = "/admin/siswa_baru/update_tanggal_pengumuman/2";
         $formAction2 = "/admin/siswa_baru/import";
+        // return response($siswa_terverifikasi);
         return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2'));
     }
 
@@ -143,13 +160,14 @@ class SiswaController extends Controller
     public function destroy(string $id)
     {
         Santris::find($id)->delete();
+        return back()->with('delete', 'Successfully delete');
     }
 
     public function redirectToWhatsapp(string $id)
     {
         $siswa = Santris::where('id', $id)->first();
-        if ($siswa->no_pendaftaran != null) {
-            $phoneNumber = $siswa->nomor_hp_ayah; // Replace with actual phone number
+        if ($siswa->no_wa != null) {
+            $phoneNumber = $siswa->no_wa; // Replace with actual phone number
             $phoneNumber = preg_replace('/^\D+/', '', $phoneNumber);
 
             // Check if the phone number starts with "08"
@@ -158,14 +176,15 @@ class SiswaController extends Controller
                 $phoneNumber = '+62' . substr($phoneNumber, 1);
             }
 
-            $message = "No Pendaftaran :" . $siswa->no_pendaftaran . "\nNama Lengkap :" . $siswa->nama_lengkap . "\nEmail :" . $siswa->email . "\nJenis Kelamin :" . $siswa->jenis_kelamin . "\nTempat Lahir :" . $siswa->tempat_lahir . "\nTanggal Lahir :" . $siswa->tanggal_lahir . "\nAsal Sekolah :" . $siswa->asal_sekolah . "\nAlamat Sekolah :" . $siswa->alamat_sekolah . "\nNama Ayah :" . $siswa->nama_ayah . "\nNama Ibu :" . $siswa->nama_ibu . "\n"; // Replace with desired message
+            // $message = "No Pendaftaran :" . $siswa->no_pendaftaran . "\nNama Lengkap :" . $siswa->nama_lengkap . "\nEmail :" . $siswa->email . "\nJenis Kelamin :" . $siswa->jenis_kelamin . "\nTempat Lahir :" . $siswa->tempat_lahir . "\nTanggal Lahir :" . $siswa->tanggal_lahir . "\nAsal Sekolah :" . $siswa->asal_sekolah . "\nAlamat Sekolah :" . $siswa->alamat_sekolah . "\nNama Ayah :" . $siswa->nama_ayah . "\nNama Ibu :" . $siswa->nama_ibu . "\n"; // Replace with desired message
 
-            $encodedMessage = urlencode($message);
-            $whatsappUrl = "https://wa.me/$phoneNumber/?text=$encodedMessage";
+            // $encodedMessage = urlencode($message);
+            // $whatsappUrl = "https://wa.me/$phoneNumber/?text=$encodedMessage";
+            $whatsappUrl = "https://wa.me/$phoneNumber";
 
             return redirect()->away($whatsappUrl);
         } else {
-            return response()->json(["Harap isi No Pendaftaran dahulu"]);
+            return response()->json(["Harap isi No Whatsapp dahulu"]);
         }
         // return redirect()->away($whatsappUrl);
     }
@@ -179,28 +198,22 @@ class SiswaController extends Controller
     {
         $siswa = Santris::where('no_pendaftaran', $request->no_pendaftaran)->first();
         $pengumuman = Pengumuman::find(2);
-        if ($siswa === null) {
-            $st = 'Mohon Maaf';
-            $color = 'danger';
-            $msg = 'Mohon Maaf, No Pendaftaran ' . $request->no_pendaftaran . ' Dinyatakan Tidak Lulus. Jangan Putus Asa dan Tetap Semangat';
-        } else {
-            if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
-                if ($siswa->status == 1) {
-                    $st = 'Selamat';
-                    $color = 'success';
-                    $msg = 'Selamat, ' . $siswa->nama_lengkap . ' dengan Nomor Pendaftaran '.$siswa->no_pendaftaran.' Dinyatakan Lulus';
-                } else {
-                    $st = 'Mohon Maaf';
-                    $color = 'danger';
-                    $msg = 'Mohon Maaf, ' . $siswa->nama_lengkap . ' Dinyatakan Tidak Lulus. Jangan Putus Asa dan Tetap Semangat';
-                }
+        if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
+            if ($siswa === null) {
+                $st = 'Mohon Maaf';
+                $color = 'danger';
+                $msg = 'Mohon Maaf, No Pendaftaran ' . $request->no_pendaftaran . ' Dinyatakan Tidak Lulus. Jangan Putus Asa dan Tetap Semangat';
             } else {
-                $st = '';
-                $color = 'warning';
-                $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
+                $st = 'Selamat';
+                $color = 'success';
+                $msg = 'Selamat, ' . $siswa->nama_lengkap . ' dengan Nomor Pendaftaran ' . $siswa->no_pendaftaran . ' Dinyatakan Lulus';
             }
-            ;
+        } else {
+            $st = '';
+            $color = 'warning';
+            $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
         }
+        ;
         return view("pengumuman", compact(['msg', 'st', 'color']));
     }
 

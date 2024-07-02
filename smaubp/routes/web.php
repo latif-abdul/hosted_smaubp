@@ -49,7 +49,8 @@ Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
-
+Route::get('/daful', [DafulController::class,'index']);
+Route::post('/daful', [DafulController::class, 'store']);
 
 Auth::routes();
 
@@ -66,6 +67,10 @@ Route::group( ['middleware' => 'auth' ], function()
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
     Route::put('/admin/siswa_baru/update_tanggal_pengumuman/{id}', [SiswaController::class, 'update_tanggal_pengumuman']);
     Route::post('/admin/siswa_baru/import', [SiswaController::class,'import_excel']);
+    Route::get('admin/siswa_baru/{id}/delete', [SiswaController::class,'destroy']);
+    Route::get('/admin/daful/{id}', [DafulController::class,'show']);
+    Route::put('/admin/daful/{id}', [DafulController::class,'update']);
+    Route::get('/admin/daful/download/{imagePath}', [DafulController::class, 'downloadImage']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

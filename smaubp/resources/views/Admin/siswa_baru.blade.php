@@ -59,105 +59,89 @@
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
                     @endif
-                    <!-- <div class="table-responsive table-full-width">
-
-                        <table class="table table-hover table-striped">
-                            <thead>
-                                <th>No Pendaftaran</th>
-                                <th>Nama</th>
-                                <th>Action</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($siswa as $santri)
-                                        <tr>
-                                        <td>{{$santri->no_pendaftaran}}</td>
-                                        <td>{{$santri->nama_lengkap}}</td>
-                                        <td>
-                                            <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
-                                                    class="fa-solid fa-trash"></i></a>
-                                            <a class="btn" href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
-                                                    class="fa-brands fa-whatsapp"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div class="alert alert-info d-none hide" id="successAlert" style="position:fixed">
-                            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="false">&times;</span>
-                            </button>
-                            <span id="messages_content">Your form has been submitted successfully!</span>
-                        </div>
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                            crossorigin="anonymous"></script>
-                    </div> -->
+                    
+                    <br>
+                    <br>
                     <div class="header_wrap">
-                        <div class="num_rows">
+                                <div class="num_rows">
 
-                            <div class="form-group"> <!--		Show Numbers Of Rows 		-->
-                                <select class="form-control" name="state" id="maxRows">
+                                    <div class="form-group"> <!--		Show Numbers Of Rows 		-->
+                                        <select class="form-control" name="state" id="maxRows">
 
 
-                                    <option value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
-                                    <option value="50">50</option>
-                                    <option value="70">70</option>
-                                    <option value="100">100</option>
-                                    <option value="5000">Show ALL Rows</option>
-                                </select>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="70">70</option>
+                                            <option value="100">100</option>
+                                            <option value="5000">Show ALL Rows</option>
+                                        </select>
 
+                                    </div>
+                                </div>
+                                <div class="tb_search">
+                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
+                                        placeholder="Search.." class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="tb_search">
-                            <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
-                                placeholder="Search.." class="form-control">
-                        </div>
-                    </div>
-                    <table class="table table-striped table-class" id="table-id">
+                            <table class="table table-striped table-class" id="table-id">
 
 
-                        <thead>
-                            <th>No Pendaftaran</th>
-                            <th>Nama</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            @foreach ($siswa as $santri)
-                                <tr>
-                                    <td>{{$santri->no_pendaftaran}}</td>
-                                    <td>{{$santri->nama_lengkap}}</td>
-                                    <td>
-                                        <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
-                                                class="fa-solid fa-trash"></i></a>
-                                        <a class="btn" href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
-                                                class="fa-brands fa-whatsapp"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <thead>
+                                    <th>No Pendaftaran</th>
+                                    <th>Nama</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($siswa as $santri)
+                                        <tr>
+                                            <td>{{$santri->no_pendaftaran}}</td>
+                                            <td>{{$santri->nama_lengkap}}</td>
+                                            <td>
+                                                <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
+                                                        class="fa-solid fa-eye"></i></a>
+                                                <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
+                                                        class="fa-solid fa-trash"></i></a>
+                                                <a class="btn btn-success"
+                                                    href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                        class="fa-brands fa-whatsapp"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @if (session()->has('delete'))
+                                <div class="alert alert-success show" id="successAlert">
+                                    {{ session()->get('delete') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger show" id="successAlert">
+                                    {{ session()->get('error') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
 
-                    <!--		Start Pagination -->
-                    <!-- <div class='pagination-container'> -->
-                    <nav>
-                        <ul class="pagination">
-                            <!--	Here the JS Function Will Add the Rows -->
-                        </ul>
-                    </nav>
-                    <!-- </div> -->
-                    <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+                            <!--		Start Pagination -->
+                            <!-- <div class='pagination-container'> -->
+                            <nav>
+                                <ul class="pagination">
+                                    <!--	Here the JS Function Will Add the Rows -->
+                                </ul>
+                            </nav>
+                            <!-- </div> -->
+                            <div class="rows_count">Showing 11 to 20 of 91 entries</div>
 
-                    <!-- 		End of Container -->
+                            <!-- 		End of Container -->
 
 
 
-                    <!--  Developed By Yasser Mas -->
+                            <!--  Developed By Yasser Mas -->
+
                 </div>
             </div>
         </div>
