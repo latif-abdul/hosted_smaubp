@@ -122,6 +122,6 @@ class DafulController extends Controller
     }
 
     public function downloadImage(string $imagePath){
-        return Response::download(public_path().'/uploads/'.$imagePath);
+        return Response::download('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/'.$imagePath);
     }
 }
