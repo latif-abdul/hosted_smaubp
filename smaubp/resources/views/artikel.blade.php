@@ -15,11 +15,7 @@
             <img src="/uploads/{{$art->gambar}}" alt="Artikel">
             <div class="textArtikel">
                 <h3>{{$art->judul}}</h3>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                    temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                    eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                </p>
+
             </div>
         </div>
     </a>
