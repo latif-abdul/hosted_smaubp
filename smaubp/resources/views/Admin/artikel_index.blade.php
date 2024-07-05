@@ -8,7 +8,7 @@
                     <h4 class="title">Artikel</h4>
                 </div>
                 <div class="container">
-                    <button class="btn btn-info btn-fill">Tambah</button>
+                    <a href="/admin/artikel/create" class="btn btn-info btn-fill">Tambah</a>
                 </div>
                 <div class="content">
                     <div class="header_wrap">

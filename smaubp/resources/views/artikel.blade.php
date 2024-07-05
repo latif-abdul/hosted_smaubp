@@ -1,96 +1,28 @@
 @extends('app')
 @section('content')
-    <div class="container titleArtikel">
-        <!-- <h1>Latest Post</h1> -->
-        <h1>Postingan Terbaru</h1>
-    </div>
+<div class="container titleArtikel">
+    <!-- <h1>Latest Post</h1> -->
+    <h1>Postingan Terbaru</h1>
+</div>
 
-    <div class="container artikel">
+<div class="container artikel">
 
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
+    @foreach ($artikel as $art)
+
+    @endforeach
+    <a href="/artikel/{{$art->id}}" class="text-decoration-none">
+        <div class="perArtikel">
+            <img src="/uploads/{{$art->gambar}}" alt="Artikel">
+            <div class="textArtikel">
+                <h3>{{$art->judul}}</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
+                    temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
+                    eveniet! Repellat architecto eos aut, ipsum laborum ratione?
+                </p>
             </div>
-        </a>
-
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
-            </div>
-        </a>
-
-        <a href="perArtikel.html" class="text-decoration-none">
-            <div class="perArtikel">
-                <img src="images/5e72f72cca561-respect-desktop2.jpg" alt="Artikel">
-                <div class="textArtikel">
-                    <h3>Cara Membuat Website</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi eaque officiis dignissimos
-                        temporibus reprehenderit distinctio. Ipsam laudantium explicabo sed ratione nisi officiis
-                        eveniet! Repellat architecto eos aut, ipsum laborum ratione?
-                    </p>
-                </div>
-            </div>
-        </a>
-    </div>
+        </div>
+    </a>
 
     <!-- 
     <div class="container artikelPagination">
@@ -116,7 +48,8 @@
             <i class="fab fa-facebook-f"></i>
         </a> -->
 
-        <a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="perIconBox ig">
+        <a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            class="perIconBox ig">
             <i class="fab fa-instagram"></i>
         </a>
 
@@ -127,4 +60,5 @@
             <i class="fab fa-linkedin-in"></i>
         </a> -->
     </div>
-@endsection
+    </div>
+    @endsection

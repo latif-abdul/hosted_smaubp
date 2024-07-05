@@ -97,6 +97,13 @@
                 data-target="#exampleModal">Simpan</button>
             <a href="/admin/artikel" class="btn btn-primary btn-fill">Kembali</a>
 
+            @if (session()->has('success'))
+                <div class="alert alert-success show" id="successAlert">
+                    {{ session()->get('success') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
+
             <!-- Include the Quill library -->
             <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 

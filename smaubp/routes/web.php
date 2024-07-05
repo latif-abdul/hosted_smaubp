@@ -21,9 +21,7 @@ Route::get('/artikel/{id}', [ArtikelController::class, 'show']);
 Route::get('/ekskul', function () {
     return view('ekstrakulikuler');
 })->name('eksul');
-Route::get('/artikel', function () {
-    return view('artikel');
-})->name('artikel');
+Route::get('/artikel', [ShowController::class, 'show_artikel']);
 Route::get('/tentang', function () {
     return view('tentang kami');
 })->name('tentang');

@@ -44,7 +44,7 @@
                     <tr>
                         <td>Gelombang 3</td>
                         <td>25 Maret - 25 Mei 2024</td>
-                        <td>26 Mei 2024</td>
+                        <td>Sampai kuota terpenuhi</td>
                     </tr>
                 </tbody>
             </table>

@@ -85,9 +85,9 @@ class ArtikelController extends Controller
         }
 
         if ($request->hasFile('gambar')) {
-            $artikel->gambar = time() . '-' . $request->file('gambar')->getClientOriginalName();
-            $request->file('gambar')->move('uploads', $artikel->gambar);
-            $artikel->save();
+            $gambar = time() . '-' . $request->file('gambar')->getClientOriginalName();
+            $request->file('gambar')->move('uploads', $gambar);
+            Artikel::find($id)->update(['gambar'=>$gambar]);
         }
 
         return redirect()->back()->with('success', 'Artikel updated successfully')
