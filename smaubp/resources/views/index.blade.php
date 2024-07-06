@@ -267,7 +267,7 @@
                                     <!-- <td class="column-2">Coming Soon</td> -->
                                     <td class="column-3">1 Agustus &#8211;23 Desember 2023</td>
                                     <td class="column-4">25 Desember 2023 &#8211;16 Maret 2024</td>
-                                    <td class="column-5">25 Maret &#8211;26 Mei 2024</td>
+                                    <td class="column-5">25 Maret 2024 &#8211;Sampai kuota terpenuhi</td>
                                 </tr>
                                 <tr class="row-3 odd">
                                     <td class="column-1">
@@ -276,7 +276,7 @@
                                     <!-- <td class="column-2">Coming Soon</td> -->
                                     <td class="column-3">24 Desember 2023</td>
                                     <td class="column-4">17 Maret 2024</td>
-                                    <td class="column-5">26 Mei 2024</td>
+                                    <td class="column-5">Sampai kuota terpenuhi</td>
                                 </tr>
                                 <!-- <tr class="row-4 even">
                                                                             <td class="column-1">

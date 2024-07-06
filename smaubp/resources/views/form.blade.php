@@ -145,13 +145,13 @@
           <div class="col-md-6">
             <div class="file-field">
               <label>Foto</label>
-              <input type="file" class="form-control" name="foto">
+              <input type="file" class="form-control" name="foto" required>
             </div>
           </div>
           <div class="col-md-6">
             <div class="file-field">
               <label>Bukti Pembayaran</label>
-              <input type="file" class="form-control" name="bukti_pembayaran">
+              <input type="file" class="form-control" name="bukti_pembayaran" required>
             </div>
           </div>
         </div>

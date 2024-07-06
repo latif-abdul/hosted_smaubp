@@ -43,7 +43,7 @@
                     </tr>
                     <tr>
                         <td>Gelombang 3</td>
-                        <td>25 Maret - 25 Mei 2024</td>
+                        <td>25 Maret - Sampai kuota terpenuhi</td>
                         <td>Sampai kuota terpenuhi</td>
                     </tr>
                 </tbody>
@@ -150,8 +150,8 @@
                 <div class="shareArtikel mb-4">
 
                     <div class="containerIconShare">
-                        <!-- <a href="/form" class="btn btn-primary mr-3"> -->
-                        <a href="https://bit.ly/44fRtwQ" class="btn btn-primary mr-3">
+                        <a href="/form" class="btn btn-primary mr-3">
+                        <!-- <a href="https://bit.ly/44fRtwQ" class="btn btn-primary mr-3"> -->
                             Daftar
                         </a>
 
