@@ -139,15 +139,15 @@ class SiswaController extends Controller
         }
 
         if ($request->hasFile('foto')) {
-            $siswa->foto = time() . '-' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move('uploads', $siswa->foto);
-            $siswa->save();
+            $foto = time() . '-' . $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->move('uploads', $foto);
+            Santris::find($id)->update(['foto'=>$foto]);
         }
 
         if ($request->hasFile('bukti_pembayaran')) {
-            $siswa->bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
-            $request->file('bukti_pembayaran')->move('uploads', $siswa->bukti_pembayaran);
-            $siswa->save();
+            $bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
+            $request->file('bukti_pembayaran')->move('uploads', $bukti_pembayaran);
+            Santris::find($id)->update(['bukti_pembayaran'=>$bukti_pembayaran]);
         }
         // return response()->json(DB::getQueryLog());
         return redirect()->back()->with('success', 'Santri updated successfully')
