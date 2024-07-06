@@ -8,8 +8,6 @@
 <div class="container artikel">
 
     @foreach ($artikel as $art)
-
-    @endforeach
     <a href="/artikel/{{$art->id}}" class="text-decoration-none">
         <div class="perArtikel">
             <img src="/uploads/{{$art->gambar}}" alt="Artikel">
@@ -19,6 +17,8 @@
             </div>
         </div>
     </a>
+    @endforeach
+    
 
     <!-- 
     <div class="container artikelPagination">
