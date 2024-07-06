@@ -99,7 +99,8 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Artikel::find($id)->delete();
+        return back()->with('delete', 'Successfully delete');
     }
 
 
