@@ -32,13 +32,13 @@
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Akta Kelahiran</label>
-                        <input type="file" class="form-control" name="akta_kelahiran">
+                        <input type="file" class="form-control" name="akta_kelahiran" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Kartu Keluarga</label>
-                        <input type="file" class="form-control" name="kartu_keluarga">
+                        <input type="file" class="form-control" name="kartu_keluarga" required>
                     </div>
                 </div>
             </div>
@@ -47,13 +47,13 @@
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Surat Keterangan Lulus (SKL) atau halaman biodata rapor</label>
-                        <input type="file" class="form-control" name="skl">
+                        <input type="file" class="form-control" name="skl" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Bukti transfer pembayaran daftar ulang</label>
-                        <input type="file" class="form-control" name="bukti_transfer">
+                        <input type="file" class="form-control" name="bukti_transfer" required>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Pas Foto berwarna</label>
-                        <input type="file" class="form-control" name="foto">
+                        <input type="file" class="form-control" name="foto" required>
                     </div>
                 </div>
             </div>
