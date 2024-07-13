@@ -265,18 +265,18 @@
                                         <strong>Waktu Pendaftaran</strong>
                                     </td>
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">1 Agustus &#8211;23 Desember 2023</td>
-                                    <td class="column-4">25 Desember 2023 &#8211;16 Maret 2024</td>
-                                    <td class="column-5">25 Maret 2024 &#8211;Sampai kuota terpenuhi</td>
+                                    <td class="column-3">10 Juli &#8211;30 September 2024</td>
+                                    <td class="column-4">2 Oktober 2024 &#8211;1 Maret 2025</td>
+                                    <td class="column-5">3 Maret &#8211;28 Juni 2025</td>
                                 </tr>
                                 <tr class="row-3 odd">
                                     <td class="column-1">
                                         <strong>Pelaksanaan Ujian</strong>
                                     </td>
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">24 Desember 2023</td>
-                                    <td class="column-4">17 Maret 2024</td>
-                                    <td class="column-5">Sampai kuota terpenuhi</td>
+                                    <td class="column-3">1 Oktober 2024</td>
+                                    <td class="column-4">2 Maret 2025</td>
+                                    <td class="column-5">29 Juni 2025</td>
                                 </tr>
                                 <!-- <tr class="row-4 even">
                                                                             <td class="column-1">

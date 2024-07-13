@@ -33,18 +33,18 @@
                 <tbody>
                     <tr>
                         <td>Gelombang 1</td>
-                        <td>16 Agustus - 23 Desember 2023</td>
-                        <td>24 Desember 2023</td>
+                        <td>10 Juli - 30 September 2024</td>
+                        <td>1 Oktober 2024</td>
                     </tr>
                     <tr>
                         <td>Gelombang 2</td>
-                        <td>31 Desember 2023 - 16 Maret 2024</td>
-                        <td>17 Maret 2024</td>
+                        <td>2 Oktober 2024 - 1 Maret 2025</td>
+                        <td>2 Maret 2025</td>
                     </tr>
                     <tr>
                         <td>Gelombang 3</td>
-                        <td>25 Maret - Sampai kuota terpenuhi</td>
-                        <td>Sampai kuota terpenuhi</td>
+                        <td>3 Maret - 28 Juni 2025</td>
+                        <td>29 Juni 2025</td>
                     </tr>
                 </tbody>
             </table>
