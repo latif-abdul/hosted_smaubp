@@ -84,8 +84,9 @@ class SiswaController extends Controller
         //     //     ->withErrors($validator)
         //     //     ->withInput();
         // }
-
         $siswa = Santris::create($request->all());
+        $siswa->no_wa = $request->nomor_hp_ayah;
+        $siswa->save();
 
         if (!Storage::exists('siswa_images')) {
             Storage::makeDirectory('siswa_images');
@@ -105,6 +106,7 @@ class SiswaController extends Controller
 
         return back()->with('success', 'Santri created successfully')
             ->header('Content-Type', 'text/plain');
+        // return response($response->no)
     }
 
     /**

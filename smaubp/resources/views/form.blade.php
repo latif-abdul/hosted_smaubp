@@ -180,6 +180,13 @@
     @endif
       </div>
     </form>
+    <script>
+      $(document).ready(function () {
+        $("input[name='nomor_hp_ayah'").change(function (delta, oldDelta, source) {
+          document.querySelector("input[name='no_wa']").value = $("input[name='nomor_hp_ayah'").value;
+        });
+      });
+    </script>
   </div>
 </div>
 @endsection
