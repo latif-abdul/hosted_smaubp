@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
   <div>
-    <form method="POST" action="/admin/siswa_baru" enctype="multipart/form-data">
+    <form method="POST" action="/daftar" enctype="multipart/form-data">
       @csrf
       <div>
         <br>

@@ -49,6 +49,7 @@ Route::get('/pengumuman', function () {
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
 Route::get('/daful', [DafulController::class,'index']);
 Route::post('/daful', [DafulController::class, 'store']);
+Route::post('/daftar', [SiswaController::class, 'store']);
 
 Auth::routes();
 
