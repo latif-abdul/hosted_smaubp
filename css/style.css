@@ -2109,6 +2109,16 @@ p {
 
 #successAlert {
   position: fixed;
-  top: 65px;
+  top: 95px;
   right: 10px;
+}
+
+.mainDetailArtikel {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.mainDetailArtikel {
+  text-align: justify;
+  text-justify: inter-word;
 }
