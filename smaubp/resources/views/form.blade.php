@@ -140,6 +140,8 @@
           <label for="jalur_masuk">Jalur Masuk *</label><br>
           <input type="radio" id="OP" name="jalur_masuk" value="reguler" required>
           <label for="OP">Reguler</label>
+          <input type="radio" id="OP" name="jalur_masuk" value="prestasi" required>
+          <label for="OP">Prestasi</label>
         </div>
         <div class="row">
           <div class="col-md-6">

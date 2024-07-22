@@ -167,6 +167,8 @@
                 <label for="jalur_masuk">Jalur Masuk *</label><br>
                 <input type="radio" id="OP" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Reguler</label>
+                <input type="radio" id="OP" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
+          <label for="OP">Prestasi</label>
             </div>
             <div class="row">
                 <div class="col-md-6">
