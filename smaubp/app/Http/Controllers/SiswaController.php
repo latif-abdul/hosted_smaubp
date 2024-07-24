@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use App\Imports\SiswaImport;
 
@@ -143,13 +144,13 @@ class SiswaController extends Controller
         if ($request->hasFile('foto')) {
             $foto = time() . '-' . $request->file('foto')->getClientOriginalName();
             $request->file('foto')->move('uploads', $foto);
-            Santris::find($id)->update(['foto'=>$foto]);
+            Santris::find($id)->update(['foto' => $foto]);
         }
 
         if ($request->hasFile('bukti_pembayaran')) {
             $bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
             $request->file('bukti_pembayaran')->move('uploads', $bukti_pembayaran);
-            Santris::find($id)->update(['bukti_pembayaran'=>$bukti_pembayaran]);
+            Santris::find($id)->update(['bukti_pembayaran' => $bukti_pembayaran]);
         }
         // return response()->json(DB::getQueryLog());
         return redirect()->back()->with('success', 'Santri updated successfully')
@@ -253,5 +254,40 @@ class SiswaController extends Controller
 
         // alihkan halaman kembali
         return back()->with('success', 'Data Siswa Berhasil Diimport!');
+    }
+
+    public function downloadPDF($id)
+    {
+        $siswa = Santris::find($id);
+
+        $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+
+        $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
+        $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
+        $foto = base64_encode(file_get_contents(public_path('uploads/'.$siswa->foto)));
+
+        $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
+        $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
+        $type_foto = pathinfo(public_path('uploads/'.$siswa->foto), PATHINFO_EXTENSION);
+
+        $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
+        $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
+        $base64_foto = 'data:image/' . $type_foto . ';base64,' . $foto;
+
+        $contxt = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE,
+            ]
+        ]);
+
+        $pdf = PDF::setOptions(['isHTML5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf->getDomPDF()->setHttpContext($contxt);
+        $pdf->loadView('Admin.pdf', compact(['base64_logo', 'base64_SQ', 'siswa', 'tanggal_lahir', 'today', 'base64_foto']));
+
+        $pdf->render();
+        return $pdf->download($siswa->nama_lengkap.'.pdf');
     }
 }

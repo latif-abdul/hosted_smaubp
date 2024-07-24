@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -46,31 +47,44 @@ Route::get('/form', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
+Route::get('/pdf', function () {
+    $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
+    $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
+
+    $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
+        $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
+
+        $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
+        $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
+
+    return view('Admin.pdf', compact(['base64_logo', 'base64_SQ']));
+})->name('pdf');
+
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
-Route::get('/daful', [DafulController::class,'index']);
+Route::get('/daful', [DafulController::class, 'index']);
 Route::post('/daful', [DafulController::class, 'store']);
 Route::post('/daftar', [SiswaController::class, 'store']);
 
 Auth::routes();
 
-Route::group( ['middleware' => 'auth' ], function()
-{
-    Route::resources([ 
-        'admin/contact'=> ContactController::class,
-        'admin/artikel'=> ArtikelController::class,
-        'admin/siswa_baru'=> SiswaController::class, 
+Route::group(['middleware' => 'auth'], function () {
+    Route::resources([
+        'admin/contact' => ContactController::class,
+        'admin/artikel' => ArtikelController::class,
+        'admin/siswa_baru' => SiswaController::class,
         'admin/ekskul' => EkskulController::class,
-        'admin'=> AdminController::class,
+        'admin' => AdminController::class,
     ]);
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
     Route::put('/admin/siswa_baru/update_tanggal_pengumuman/{id}', [SiswaController::class, 'update_tanggal_pengumuman']);
-    Route::post('/admin/siswa_baru/import', [SiswaController::class,'import_excel']);
-    Route::get('/admin/siswa_baru/{id}/delete', [SiswaController::class,'destroy']);
-    Route::get('/admin/artikel/{id}/delete', [ArtikelController::class,'destroy']);
-    Route::get('/admin/daful/{id}', [DafulController::class,'show']);
-    Route::put('/admin/daful/{id}', [DafulController::class,'update']);
+    Route::post('/admin/siswa_baru/import', [SiswaController::class, 'import_excel']);
+    Route::get('/admin/siswa_baru/{id}/delete', [SiswaController::class, 'destroy']);
+    Route::get('/admin/artikel/{id}/delete', [ArtikelController::class, 'destroy']);
+    Route::get('/admin/daful/{id}', [DafulController::class, 'show']);
+    Route::put('/admin/daful/{id}', [DafulController::class, 'update']);
     Route::get('/admin/daful/download/{imagePath}', [DafulController::class, 'downloadImage']);
+    Route::get('/admin/siswa_baru/downloadpdf/{id}', [SiswaController::class, 'downloadPDF']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
