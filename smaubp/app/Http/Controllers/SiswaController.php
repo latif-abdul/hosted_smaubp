@@ -260,16 +260,19 @@ class SiswaController extends Controller
     {
         $siswa = Santris::find($id);
 
-        $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
-        $today = Carbon::now()->isoFormat('D MMMM Y');
+        if ($siswa->tanggal_lahir != null) {
+            $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
+            $today = Carbon::now()->isoFormat('D MMMM Y');
+        }else{
+            $tanggal_lahir = "";
+        }
+        $logo = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/logo_pdf.png'));
+        $smart_quranic = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/smart quranic.png'));
+        $foto = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/' . $siswa->foto));
 
-        $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
-        $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
-        $foto = base64_encode(file_get_contents(public_path('uploads/'.$siswa->foto)));
-
-        $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
-        $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
-        $type_foto = pathinfo(public_path('uploads/'.$siswa->foto), PATHINFO_EXTENSION);
+        $type_logo = pathinfo('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/logo_pdf.png', PATHINFO_EXTENSION);
+        $type_SQ = pathinfo('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/smart quranic.png', PATHINFO_EXTENSION);
+        $type_foto = pathinfo('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/' . $siswa->foto, PATHINFO_EXTENSION);
 
         $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
         $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
@@ -288,7 +291,7 @@ class SiswaController extends Controller
         $pdf->loadView('Admin.pdf', compact(['base64_logo', 'base64_SQ', 'siswa', 'tanggal_lahir', 'today', 'base64_foto']));
 
         $pdf->render();
-        return $pdf->download($siswa->nama_lengkap.'.pdf');
+        return $pdf->download($siswa->nama_lengkap . '.pdf');
     }
 
     public function pdf($id)
@@ -300,11 +303,11 @@ class SiswaController extends Controller
 
         $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
         $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
-        $foto = base64_encode(file_get_contents(public_path('uploads/'.$siswa->foto)));
+        $foto = base64_encode(file_get_contents(public_path('uploads/' . $siswa->foto)));
 
         $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
         $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
-        $type_foto = pathinfo(public_path('uploads/'.$siswa->foto), PATHINFO_EXTENSION);
+        $type_foto = pathinfo(public_path('uploads/' . $siswa->foto), PATHINFO_EXTENSION);
 
         $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
         $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
