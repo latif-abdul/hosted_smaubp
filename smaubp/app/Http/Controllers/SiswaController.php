@@ -290,4 +290,39 @@ class SiswaController extends Controller
         $pdf->render();
         return $pdf->download($siswa->nama_lengkap.'.pdf');
     }
+
+    public function pdf($id)
+    {
+        $siswa = Santris::find($id);
+
+        $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+
+        $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
+        $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
+        $foto = base64_encode(file_get_contents(public_path('uploads/'.$siswa->foto)));
+
+        $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
+        $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
+        $type_foto = pathinfo(public_path('uploads/'.$siswa->foto), PATHINFO_EXTENSION);
+
+        $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
+        $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
+        $base64_foto = 'data:image/' . $type_foto . ';base64,' . $foto;
+
+        $contxt = stream_context_create([
+            'ssl' => [
+                'verify_peer' => FALSE,
+                'verify_peer_name' => FALSE,
+                'allow_self_signed' => TRUE,
+            ]
+        ]);
+
+        $pdf = PDF::setOptions(['isHTML5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $pdf->getDomPDF()->setHttpContext($contxt);
+        $pdf->loadView('Admin.pdf', compact(['base64_logo', 'base64_SQ', 'siswa', 'tanggal_lahir', 'today', 'base64_foto']));
+
+        $pdf->render();
+        return view('Admin.pdf', compact(['base64_logo', 'base64_SQ', 'siswa', 'tanggal_lahir', 'today', 'base64_foto']));
+    }
 }

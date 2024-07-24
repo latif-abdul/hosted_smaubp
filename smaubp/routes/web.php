@@ -47,18 +47,7 @@ Route::get('/form', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
-Route::get('/pdf', function () {
-    $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
-    $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
-
-    $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
-        $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
-
-        $base64_logo = 'data:image/' . $type_logo . ';base64,' . $logo;
-        $base64_SQ = 'data:image/' . $type_SQ . ';base64,' . $smart_quranic;
-
-    return view('Admin.pdf', compact(['base64_logo', 'base64_SQ']));
-})->name('pdf');
+Route::get('/pdf/{id}', [SiswaController::class, 'pdf'])->name('pdf');
 
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
 Route::get('/daful', [DafulController::class, 'index']);
