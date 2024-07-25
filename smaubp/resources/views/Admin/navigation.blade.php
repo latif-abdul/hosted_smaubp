@@ -82,12 +82,12 @@
     </nav>
 </div> -->
 <div class="main-panel">
-<nav class="navbar navbar-expand-lg navbar-light bg-light me-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav navbar-left pull-right">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle  me-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{Auth::user()->name}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
