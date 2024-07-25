@@ -47,12 +47,16 @@ Route::get('/form', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
+// Route::get('/edit_profile', function () {
+//     return view('Admin.edit_profile');
+// })->name('edit_profile');
 Route::get('/pdf/{id}', [SiswaController::class, 'pdf'])->name('pdf');
 
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
 Route::get('/daful', [DafulController::class, 'index']);
 Route::post('/daful', [DafulController::class, 'store']);
 Route::post('/daftar', [SiswaController::class, 'store']);
+
 
 Auth::routes();
 
@@ -74,6 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/admin/daful/{id}', [DafulController::class, 'update']);
     Route::get('/admin/daful/download/{imagePath}', [DafulController::class, 'downloadImage']);
     Route::get('/admin/siswa_baru/downloadpdf/{id}', [SiswaController::class, 'downloadPDF']);
+    Route::get('/edit_profile', [ProfileController::class, 'index']);
+    Route::put('/edit_profile', [ProfileController::class, 'update']);
+    Route::get('/change_password', [ProfileController::class, 'change_password']);
+    Route::put('/change_password', [ProfileController::class, 'update_password']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
