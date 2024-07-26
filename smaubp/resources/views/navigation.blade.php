@@ -1,57 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-light navbarKu fixed-top">
-        <div class="container">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="Logo SMK N 2 Purbalingga">
-                <h1>SMA-MAU BP<br>Amanatul Ummah</h1>
-            </a>
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>Moderna</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Kegiatan<br>Sekolah</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('ppdb') }}">PPDB</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('artikel') }}">Artikel</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            More
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                            <a class="dropdown-item" href="{{ url('ekskul') }}">Tentang Kami</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('kontak') }}">Contact Us</a>
-                        </div>
-                    </li>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active " href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-                    <!-- <input class="form-control sm-2" type="search" placeholder="Cari Artikel" aria-label="Search">
-
-                    <button class="btn btn-primary sm-0" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button> -->
-
-                </form>
-            </div>
-
-        </div>
-    </nav>
+    </div>
+  </header><!-- End Header -->
