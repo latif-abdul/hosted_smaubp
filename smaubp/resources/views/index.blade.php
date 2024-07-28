@@ -254,7 +254,7 @@
 
                     <div class="counter-item">
 
-                        <div><i class="fa fa-cloud-download"></i></div>
+                        <!-- <div><i class="fa fa-cloud-download"></i></div> -->
                         <h2><span class="counter-num"> 61+ </span><span>+</span></h2>
                         <p>Wisudawan Tahfidz 30 juz</p>
                     </div>
@@ -266,7 +266,7 @@
 
                     <div class="counter-item">
 
-                        <div><i class="fa fa--people-fill"></i></div>
+                        <!-- <div><i class="fa fa--people-fill"></i></div> -->
                         <h2><span class="counter-num"> 29+ </span><span>+</span></h2>
                         <p>Wisudawan Tahfidz 15 Juz</p>
                     </div>
@@ -277,7 +277,7 @@
 
                     <div class="counter-item">
 
-                        <div><i class="fa fa-heart-o"></i></div>
+                        <!-- <div><i class="fa fa-heart-o"></i></div> -->
                         <h2><span class="counter-num"> 62+ </span><span>+</span></h2>
                         <p>Wisudawan Tahfidz 9 Juz</p>
                     </div>
@@ -289,7 +289,7 @@
 
                     <div class="counter-item">
 
-                        <div><i class="fa fa-check"></i></div>
+                        <!-- <div><i class="fa fa-check"></i></div> -->
                         <h2><span class="counter-num"> 275+ </span><span>+</span></h2>
                         <p>Prestasi</p>
                     </div>
