@@ -1,103 +1,23 @@
 @extends('app')
 @section('content')
 <ul id="autoWidth" class="cs-hidden">
+    @foreach($slideshow as $ss)
     <li class="item-a">
         <section class="slideshow">
-            <img class="satu" src="images/banner-shd.png" alt="Team Work">
+            <img class="satu" src="images/banner-shd.png" alt="Team Work" style="background-image: url('{{url('uploads/'.$ss->gambar)}}');">
             <div class="shadow"></div>
             <div class="container">
                 <div class="mainText">
                     <div class="garis"></div>
-                    <h3>Sekolah</h3>
-                    <h1>Terakreditasi “A”</h1>
+                    <h3>{{$ss->text_1}}</h3>
+                    <h1>{{$ss->text_2}}</h1>
                 </div>
 
                 <!-- <h3>Teamwork In Our Endeavours</h3> -->
             </div>
         </section>
     </li>
-
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="dua" src="images/banner-shd.png" alt="Team Work">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>Kurikulum Muadalah</h3>
-                    <h1>Standar Al Azhar</h1>
-                </div>
-
-                <!-- <h3>Humility In Our Accomplishments</h3> -->
-            </div>
-        </section>
-    </li>
-
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="tiga" src="images/banner-shd.png" alt="Team Work">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>Sekolah Penuh</h3>
-                    <h1>Prestasi</h1>
-                </div>
-
-                <!-- <h3>Respect For One Another</h3> -->
-            </div>
-        </section>
-    </li>
-
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="empat" src="images/banner-shd.png" alt="Team Work">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>Program Unggulan</h3>
-                    <h1>Hafalan Al Qur’an</h1>
-                </div>
-
-                <!-- <h3>Integrity In Our Relationships</h3> -->
-            </div>
-        </section>
-    </li>
-
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="lima" src="images/banner-shd.png" alt="Team Work">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>Bimbingan Pesantren</h3>
-                    <h1>24 Jam</h1>
-                </div>
-
-                <!-- <h3>Commitment To The Work We Undertake</h3> -->
-            </div>
-        </section>
-    </li>
-
-
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="enam" src="images/banner-shd.png" alt="Team Work">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>Bimbingan Intensif</h3>
-                    <h1>Universitas</h1>
-                </div>
-
-                <!-- <h3>Excellence In Whatever We Do</h3> -->
-            </div>
-        </section>
-    </li>
-
+    @endforeach
 </ul>
 
 

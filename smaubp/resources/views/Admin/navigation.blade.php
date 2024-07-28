@@ -40,9 +40,9 @@
                 </a>
             </li>
             <li>
-                <a href="icons.html">
-                    <i class="pe-7s-science"></i>
-                    <p>Contact Us</p>
+                <a href="/setting">
+                    <i class="fa-solid fa-gear"></i>
+                    <p>Setting</p>
                 </a>
             </li>
             <li>

@@ -61,4 +61,34 @@
         </form>
     </div>
 </div>
+<script>
+    function addActivityField() {
+        // Get the container element for activity fields
+        var activityContainer = document.getElementById("activityContainer");
+
+        // Create a new div element for the activity field
+        var activityField = document.createElement("div");
+        activityField.className = "col-md";
+
+        // Create an input element for the activity name
+        var input = document.createElement("input");
+        input.type = "text";
+        input.className = "form-control";
+        input.placeholder = "Kegiatan";
+        input.id = "activity"
+        input.name = "activity[]";  // Use an array name to capture multiple activities
+
+        // Add the label and input to the activity field div
+        activityField.appendChild(input);
+
+        // Add the activity field div to the container
+        activityContainer.appendChild(activityField);
+    }
+    function removeLastActivityField() {
+        var activityContainer = document.getElementById("activityContainer");
+        if (activityContainer.children.length > 1) {
+            activityContainer.removeChild(activityContainer.lastChild);
+        }
+    }
+</script>
 @endsection

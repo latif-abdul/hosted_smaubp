@@ -47,9 +47,9 @@ Route::get('/form', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
-// Route::get('/edit_profile', function () {
-//     return view('Admin.edit_profile');
-// })->name('edit_profile');
+// Route::get('/setting', function () {
+//     return view('Admin.setting');
+// })->name('setting');
 Route::get('/pdf/{id}', [SiswaController::class, 'pdf'])->name('pdf');
 
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         'admin/siswa_baru' => SiswaController::class,
         'admin/ekskul' => EkskulController::class,
         'admin' => AdminController::class,
+        'setting' => SettingController::class,
     ]);
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
@@ -82,6 +83,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/edit_profile', [ProfileController::class, 'update']);
     Route::get('/change_password', [ProfileController::class, 'change_password']);
     Route::put('/change_password', [ProfileController::class, 'update_password']);
+    Route::put('/setting', [SettingController::class, 'update']);
+    Route::delete('setting', function(){});
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
