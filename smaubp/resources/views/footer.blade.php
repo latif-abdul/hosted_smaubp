@@ -60,7 +60,7 @@
                 <div class="footerAbout">
                     <a href="{{ url('artikel') }}" class="text-white">Artikel</a>
                     <a href="" class="text-white">Tentang Kami</a>
-                    <a href="" class="text-white">Contact Us</a>
+                    <a href="https://api.whatsapp.com/send?phone=6282336576055" class="text-white">Contact Us</a>
                     <a href="" class="text-white">Ekstrakulikuler</a>
                 </div>
             </div>
