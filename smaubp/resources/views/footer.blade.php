@@ -2,13 +2,13 @@
 
 <!-- sosmed icon -->
 <div class="iconBox">
-    <a href="https://api.whatsapp.com/send?phone=6282228642852" class="perIconBox wa">
+    <a href="https://api.whatsapp.com/send?phone=6282336576055" class="perIconBox wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- <a href="" class="perIconBox fb">
+    <a href="https://www.tiktok.com/@smaubpamanatulummah?_t=8oTv5ZSsQ8v&_r=1" class="perIconBox fb">
         <i class="fab fa-tiktok"></i>
-    </a> -->
+    </a>
 
     <a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
         class="perIconBox ig">
@@ -22,7 +22,7 @@
             <i class="fab fa-linkedin-in"></i>
         </a> -->
 </div>
-<footer class="footer" style="position:absolute;width:100%">
+<footer class="footer">
 
 <div class="container">
         <div class="row">
@@ -93,6 +93,9 @@
 <script src="js/jquery.counterup.min.js"></script>
 <!-- <script src="http://code.jquery.com/jquery.js"></script> -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="{{url('js/glightbox.min.js')}}"></script>
+  <script src="{{url('js/isotope.pkgd.min.js')}}"></script>
+  <script src="{{url('js/swiper-bundle.min.js')}}"></script>
 </body>
 
 </html>
