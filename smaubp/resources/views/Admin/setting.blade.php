@@ -5,7 +5,7 @@
         @if(isset($slideshow)) @method('PUT') @else @method('POST') @endif
         @csrf
         <div class="header">
-            <h2 class="title">Setting</h2>
+            <h2 class="title">Setting Slideshow</h2>
         </div>
         <div class="content" id="imageContainer">
             @foreach($slideshow as $ss)
