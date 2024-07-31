@@ -1,4 +1,4 @@
-<div class="footer">
+<footer class="footer" style="position:absolute;width:100%">
 
 <div class="container">
         <div class="row">
@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-</div>
+</footer>
 <script src="js/script.js"></script>
 <script src="js/scrollCue.min.js"></script>
 <script>scrollCue.init();</script>

@@ -3,7 +3,7 @@
 <head>
     @include ('header')
 </head>
-<body>
+<body style="@yield('bg')">
     @include('navigation')
     @yield('content')
     @include('footer')

@@ -47,15 +47,16 @@ Route::get('/form', function () {
 Route::get('/pengumuman', function () {
     return view('pengumuman');
 })->name('pengumuman');
-// Route::get('/setting', function () {
-//     return view('Admin.setting');
-// })->name('setting');
+// Route::get('/galeri', function () {
+//     return view('Admin.galeri');
+// })->name('galeri');
 Route::get('/pdf/{id}', [SiswaController::class, 'pdf'])->name('pdf');
 
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
 Route::get('/daful', [DafulController::class, 'index']);
 Route::post('/daful', [DafulController::class, 'store']);
 Route::post('/daftar', [SiswaController::class, 'store']);
+Route::get('/galleries', [GaleriController::class, 'show_all']);
 
 
 Auth::routes();
@@ -68,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
         'admin/ekskul' => EkskulController::class,
         'admin' => AdminController::class,
         'setting' => SettingController::class,
+        'galeri' => GaleriController::class,
     ]);
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);

@@ -30,6 +30,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('galleries') }}">Galeri</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             More
