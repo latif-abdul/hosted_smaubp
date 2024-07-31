@@ -6,9 +6,9 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <a href="" class="perIconBox fb">
+    <!-- <a href="" class="perIconBox fb">
         <i class="fab fa-tiktok"></i>
-    </a>
+    </a> -->
 
     <a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
         class="perIconBox ig">
