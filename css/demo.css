@@ -138,7 +138,7 @@ th {
     background-color: var(--colorPrimaryEighth, #c8dadf);
   }
   .upload_svg {
-    fill: var(--colorPrimaryNormal, #0576bd);
+    fill: #0576bd;
   }
   .btn-upload {
     color: #fff;

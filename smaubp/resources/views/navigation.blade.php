@@ -2,7 +2,7 @@
         <div class="container">
 
             <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="Logo SMK N 2 Purbalingga">
+                <img src="{{url('images/logo.png')}}" alt="Logo SMK N 2 Purbalingga">
                 <h1>SMA-MAU BP<br>Amanatul Ummah</h1>
             </a>
 
