@@ -53,15 +53,15 @@
         </div>
         <hr>
     </form>
-    <!-- <form method="post" action="}" enctype="multipart/form-data" id="myForm">
+    <form method="post" action="}" enctype="multipart/form-data" id="myForm">
         @csrf
         <div class="header">
             <h2 class="title">Sambutan</h2>
         </div>
         <div class="content">
-
+            
         </div>
-    </form> -->
+    </form>
 </div>
 <script>
     counter = 0;

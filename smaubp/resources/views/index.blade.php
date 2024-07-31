@@ -2,21 +2,22 @@
 @section('content')
 <ul id="autoWidth" class="cs-hidden">
     @foreach($slideshow as $ss)
-    <li class="item-a">
-        <section class="slideshow">
-            <img class="satu" src="images/banner-shd.png" alt="Team Work" style="background-image: url('{{url('uploads/'.$ss->gambar)}}');">
-            <div class="shadow"></div>
-            <div class="container">
-                <div class="mainText">
-                    <div class="garis"></div>
-                    <h3>{{$ss->text_1}}</h3>
-                    <h1>{{$ss->text_2}}</h1>
-                </div>
+        <li class="item-a">
+            <section class="slideshow">
+                <img class="satu" src="images/banner-shd.png" alt="Team Work"
+                    style="background-image: url('{{url('uploads/' . $ss->gambar)}}');">
+                <div class="shadow"></div>
+                <div class="container">
+                    <div class="mainText">
+                        <div class="garis"></div>
+                        <h3>{{$ss->text_1}}</h3>
+                        <h1>{{$ss->text_2}}</h1>
+                    </div>
 
-                <!-- <h3>Teamwork In Our Endeavours</h3> -->
-            </div>
-        </section>
-    </li>
+                    <!-- <h3>Teamwork In Our Endeavours</h3> -->
+                </div>
+            </section>
+        </li>
     @endforeach
 </ul>
 
@@ -101,41 +102,22 @@
 <div class="jurusan">
     <div class="container">
         <h2>Prestasi SMA-MAU BP Amanatul Ummah</h2>
-
-        <div class="boxJurusan" data-cues="slideInRight">
-
-            <div class="perBox">
-                <img src="images/1.jpg" alt="RPL" data-delay="200ms">
-                <!-- <h3>Rekayasa Perangkat Lunak</h3> -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="row portfolio-container">
+                    @foreach ($galeri as $gallery)
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class="portfolio-wrap">
+                                <img src="{{url('uploads/' . $gallery->gambar)}}" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>{{$gallery->prestasi}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-
-            <div class="perBox">
-                <img src="images/2.jpeg" alt="ATU" data-delay="200ms">
-                <!-- <h3>Agribisnis Ternak Unggas</h3> -->
-            </div>
-
-            <div class="perBox">
-                <img src="images/3.jpeg" alt="APHP" data-delay="200ms">
-                <!-- <h3>Agribisnis Pengolahan Hasil Pangan</h3> -->
-            </div>
-
-            <div class="perBox">
-                <img src="images/4.jpeg" alt="API" data-delay="200ms">
-                <!-- <h3>Agribisnis Perikanan Ikan</h3> -->
-            </div>
-
-            <!-- <div class="perBox">
-                    <img src="images/6.jpg" alt="AKUTANSI">
-                    <h3>Akutansi Keuangan & Lembaga</h3>
-                </div> -->
-
-
-            <div class="perBox">
-                <img src="images/5.jpeg" alt="TKR">
-                <!-- <h3>Teknik Kendaraan Ringan</h3> -->
-            </div>
-
-        </div>
+        </section>
     </div>
 </div>
 
@@ -224,15 +206,15 @@
 
         @csrf
         @foreach ($artikel as $art)
-        <a class="perArtikelHome" href="/artikel/{{$art->id}}">
-            <img src="/uploads/{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
-            <h3>{{$art->judul}}</h3>
-            <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
-            <p>
-                <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                    delectus quasi amet libero iusto sequi at. -->
-            </p>
-        </a>
+            <a class="perArtikelHome" href="/artikel/{{$art->id}}">
+                <img src="/uploads/{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
+                <h3>{{$art->judul}}</h3>
+                <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
+                <p>
+                    <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
+                        delectus quasi amet libero iusto sequi at. -->
+                </p>
+            </a>
         @endforeach
     </div>
 </div>
@@ -308,5 +290,20 @@
 
 
 </section>
-
+<script>
+    window.addEventListener('load', () => {
+        var $grid = $('.portfolio-container').isotope({
+            itemSelector: '.portfolio-item',
+            // layoutMode: 'fitColumns',
+            // percentPosition: true,
+            // masonry: {
+            //     columnWidth: 100
+            // }
+        });
+        // layout Isotope after each image loads
+        $grid.imagesLoaded().progress(function () {
+            $grid.isotope('layout');
+        });
+    })
+</script>
 @endsection

@@ -5,7 +5,9 @@
 </head>
 <body style="@yield('bg')">
     @include('navigation')
+    <main>
     @yield('content')
+    </main>
     @include('footer')
 </body>
 </html>

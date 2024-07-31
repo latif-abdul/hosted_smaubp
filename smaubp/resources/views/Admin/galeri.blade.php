@@ -5,7 +5,7 @@
         <h2 class="title">Gallery</h2>
     </div>
     <div class="content">
-        <form action="/galeri" enctype="multipart/form-data" id="myForm" method="POST">
+        <!-- <form action="/galeri" enctype="multipart/form-data" id="myForm" method="POST">
             @method('POST')
             @csrf
             <fieldset class="upload_dropZone text-center mb-3 p-4">
@@ -29,13 +29,11 @@
 
             </fieldset>
             <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
-        </form>
-        @if (session()->has('success'))
-            <div class="alert alert-success show" id="successAlert">
-                {{ session()->get('success') }}
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-            </div>
-        @endif
+        </form> -->
+
+        <div class="container">
+            <a class="btn btn-info btn-fill" href="/galeri/create">Tambah</a>
+        </div>
 
         <svg style="display:none">
             <defs>
@@ -73,16 +71,20 @@
 
 
             <thead>
+                <th>prestasi</th>
                 <th>Gambar</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 @foreach ($galeri as $gallery)
                     <tr>
+                        <td>{{$gallery->prestasi}}</td>
                         <td>
                             <img src="{{url('uploads/' . $gallery->gambar)}}" width="10%">
                         </td>
                         <td>
+                            <a class="btn btn-primary" href="/galeri/{{$gallery->id}}/edit"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
                             <form action="/galeri/{{$gallery->id}}" method="POST">
                                 @method('DELETE')
                                 @csrf
