@@ -1,3 +1,27 @@
+
+
+<!-- sosmed icon -->
+<div class="iconBox">
+    <a href="https://api.whatsapp.com/send?phone=6282228642852" class="perIconBox wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="" class="perIconBox fb">
+        <i class="fab fa-tiktok"></i>
+    </a>
+
+    <a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        class="perIconBox ig">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://youtube.com/@sistrentv6209?si=Qv6vTCGA6LF3Ok2R" class="perIconBox yt">
+            <i class="fab fa-youtube"></i>
+        </a>
+    <!-- <a href="" class="perIconBox linkin">
+            <i class="fab fa-linkedin-in"></i>
+        </a> -->
+</div>
 <footer class="footer" style="position:absolute;width:100%">
 
 <div class="container">
