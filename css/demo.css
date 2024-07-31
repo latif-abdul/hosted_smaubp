@@ -125,7 +125,7 @@ th {
 .upload_dropZone {
     color: #0f3c4b;
     background-color: var(--colorPrimaryPale, #c8dadf);
-    outline: 2px dashed var(--colorPrimaryHalf, #c1ddef);
+    outline: 2px dashed #c1ddef;
     outline-offset: -12px;
     transition:
       outline-offset 0.2s ease-out,
