@@ -58,7 +58,7 @@
             <div class="col-md-4">
                 <h4 class="my-4 text-center text-white">About</h4>
                 <div class="footerAbout">
-                    <a href="/artikel" class="text-white">Artikel</a>
+                    <a href="{{ url('artikel') }}" class="text-white">Artikel</a>
                     <a href="" class="text-white">Tentang Kami</a>
                     <a href="" class="text-white">Contact Us</a>
                     <a href="" class="text-white">Ekstrakulikuler</a>
