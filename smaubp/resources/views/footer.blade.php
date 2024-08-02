@@ -1,5 +1,3 @@
-
-
 <!-- sosmed icon -->
 <div class="iconBox">
     <a href="https://api.whatsapp.com/send?phone=6282336576055" class="perIconBox wa">
@@ -16,15 +14,15 @@
     </a>
 
     <a href="https://youtube.com/@sistrentv6209?si=Qv6vTCGA6LF3Ok2R" class="perIconBox yt">
-            <i class="fab fa-youtube"></i>
-        </a>
+        <i class="fab fa-youtube"></i>
+    </a>
     <!-- <a href="" class="perIconBox linkin">
             <i class="fab fa-linkedin-in"></i>
         </a> -->
 </div>
 <footer class="footer">
 
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h4 class="my-4 text-white text-center">hubungi kami</h4>
@@ -43,7 +41,8 @@
 
                     <div class="perFooterContactUs">
                         <i class="fas text-white fa-road"></i>
-                        <p class="text-white">Jl. KH. Abdul Chalim, no.1 Desa Kembangbelor, Kecamatan Pacet, Kabupaten Mojokerto, 61374</p>
+                        <p class="text-white">Jl. KH. Abdul Chalim, no.1 Desa Kembangbelor, Kecamatan Pacet, Kabupaten
+                            Mojokerto, 61374</p>
                     </div>
 
                 </div>
@@ -71,8 +70,7 @@
                 <form>
 
                     <div class="form-group">
-                        <input class="form-control" type="search" placeholder="Example@gmail.com"
-                            aria-label="Search">
+                        <input class="form-control" type="search" placeholder="Example@gmail.com" aria-label="Search">
                         <button class="btn btn-primary btn-newsletter" type="submit">Kirim</button>
                     </div>
 
@@ -94,8 +92,8 @@
 <!-- <script src="http://code.jquery.com/jquery.js"></script> -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="{{url('js/glightbox.min.js')}}"></script>
-  <script src="{{url('js/isotope.pkgd.min.js')}}"></script>
-  <script src="{{url('js/swiper-bundle.min.js')}}"></script>
+<script src="{{url('js/isotope.pkgd.min.js')}}"></script>
+<script src="{{url('js/swiper-bundle.min.js')}}"></script>
 </body>
 
 </html>

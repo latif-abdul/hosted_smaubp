@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sambutan;
 use App\Models\SlideShow;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class SettingController extends Controller
     {
         // $formAction =
         $slideshow = SlideShow::all();
-        return view('Admin.setting', compact('slideshow'));
+        $sambutan = Sambutan::all();
+        return view('Admin.setting', compact('slideshow', 'sambutan'));
     }
 
     public function store(Request $request)

@@ -38,65 +38,43 @@
     </p>
 </div>
 
+@foreach ($sambutan as $sbt)
 
-<div class="kepsek" data-cues="slideInUp">
-    <div class="container">
-        <img src="{{ asset('images/darimun.jpeg') }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
+    <div class="kepsek" data-cues="slideInUp">
+        <div class="container">
 
-        <div class="visiMisi">
+            @if (($loop->index + 1) % 2 == 1)
+                <img src="{{ url('uploads/'.$sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
+            @endif
+            <div class="visiMisi">
 
-            <!-- <div class="visi">
-                    <h5>Our Vision</h5>
-                    <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
-                        kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
-                        yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
-                    </h3>
-                </div> -->
+                <!-- <div class="visi">
+                        <h5>Our Vision</h5>
+                        <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
+                            kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
+                            yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
+                        </h3>
+                    </div> -->
 
-            <div class="misi">
-                <h5>Prof. Dr. KH. Asep Saifuddin Chalim, M.A</h5>
-                <h6 class="text-secondary">Pengasuh Pondok Pesantren Amanatul Ummah</h6>
-                <p>
-                    <br>
-                    “SMA-MA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an”
-                    menjamin murid muridnya menghafal Al Qur’an , lulus 100% berklasifisi “A”, serta lulusannya diterima
-                    di
-                    Perguruan Tinggi Favorit sesuai pilihannya, baik di dalam negeri maupun luar negeri. Proses
-                    pembelajaran menggunakan sistem yang kompetitif, penuh kejujuran, dan rasa percaya diri, dalam
-                    bentuk dauroh, try out, dan pembahasan tuntas.”
-                </p>
+                <div class="misi">
+                    <h5>{{$sbt->nama}}</h5>
+                    <h6 class="text-secondary">{{$sbt->jabatan}}</h6>
+                    <p>
+                        <br>
+                        {{$sbt->sambutan}}
+                    </p>
+                </div>
+
             </div>
-
+            @if (($loop->index + 1) % 2 == 0)
+                <img src="{{ url('uploads/'.$sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
+            @endif
         </div>
-
     </div>
-</div>
+<br>
+@endforeach
 
 <br>
-
-<div class="kepsek" data-cues="slideInUp">
-    <div class="container">
-
-        <div class="visiMisi">
-
-            <div class="misi">
-                <h5>Gus, H. Muhammad Ilyas, Lc. M.A</h5>
-                <h6 class="text-secondary">Koordinator SMA-MAU BP Amanatul Ummah</h6>
-                <p>
-                    <br>
-                    “SMA-MAU BP menerapkan pembelajaran yang berimbang antara Kurikulum Nasional, Kurikulum berstandar
-                    Al Azhar, serta pembelajaran Tahfidzul Qur’an sebagai keunggulan dengan tujuan lulusan SMAU BP mampu
-                    bersaing di bidang keilmuan Tingkat Nasional dan Internasional”
-                </p>
-            </div>
-
-        </div>
-
-        <img src="{{ asset('images/Gus Ilyas 2023.JPG') }}" alt="pendiri SMA-MAU Ummah" data-delay="5000ms">
-
-    </div>
-</div>
-
 
 <!-- jurusan -->
 <div class="jurusan">
@@ -212,7 +190,7 @@
                 <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
                 <p>
                     <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                        delectus quasi amet libero iusto sequi at. -->
+                            delectus quasi amet libero iusto sequi at. -->
                 </p>
             </a>
         @endforeach

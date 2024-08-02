@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
         'admin' => AdminController::class,
         'setting' => SettingController::class,
         'galeri' => GaleriController::class,
+        'sambutan' => SambutanController::class,
     ]);
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
@@ -86,6 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/change_password', [ProfileController::class, 'change_password']);
     Route::put('/change_password', [ProfileController::class, 'update_password']);
     Route::put('/setting', [SettingController::class, 'update']);
+    Route::put('/sambutan', [SambutanController::class, 'update']);
     Route::delete('setting', function(){});
 });
 
