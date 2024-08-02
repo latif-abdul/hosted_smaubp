@@ -93,6 +93,7 @@
                     <div class="col-md-1">
                         <a class="btn btn-danger" onclick="remove({{$ss->id}})">-</a>
                     </div>
+                    <hr style="width:95%";>
                 </div>
             @endforeach
         </div>
@@ -305,11 +306,15 @@
         inputId.type = "hidden";
         inputId.name = "id[]";
 
+        var hr =document.createElement("hr");
+        hr.style = "width:95%";
+
         // Add the image field div to the container
         row.appendChild(inputId);
         row.appendChild(colMd0);
         row.appendChild(colMd);
         row.appendChild(colMd1);
+        row.appendChild(hr);
 
         Container.appendChild(row);
     }
