@@ -85,29 +85,34 @@ class SiswaController extends Controller
         //     //     ->withErrors($validator)
         //     //     ->withInput();
         // }
-        $siswa = Santris::create($request->all());
-        $siswa->no_wa = $request->nomor_hp_ayah;
-        $siswa->save();
-
-        if (!Storage::exists('siswa_images')) {
-            Storage::makeDirectory('siswa_images');
-        }
-
-        if ($request->hasFile('foto')) {
-            $siswa->foto = time() . '-' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move('uploads', $siswa->foto);
+        try {
+            $siswa = Santris::create($request->all());
+            $siswa->no_wa = $request->nomor_hp_ayah;
             $siswa->save();
-        }
 
-        if ($request->hasFile('bukti_pembayaran')) {
-            $siswa->bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
-            $request->file('bukti_pembayaran')->move('uploads', $siswa->bukti_pembayaran);
-            $siswa->save();
-        }
+            if (!Storage::exists('siswa_images')) {
+                Storage::makeDirectory('siswa_images');
+            }
 
-        return back()->with('success', 'Santri created successfully')
-            ->header('Content-Type', 'text/plain');
-        // return response($response->no)
+            if ($request->hasFile('foto')) {
+                $siswa->foto = time() . '-' . $request->file('foto')->getClientOriginalName();
+                $request->file('foto')->move('uploads', $siswa->foto);
+                $siswa->save();
+            }
+
+            if ($request->hasFile('bukti_pembayaran')) {
+                $siswa->bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
+                $request->file('bukti_pembayaran')->move('uploads', $siswa->bukti_pembayaran);
+                $siswa->save();
+            }
+
+
+            return back()->with('success', 'Santri created successfully')
+                ->header('Content-Type', 'text/plain');
+            // return response($response->no)
+        } catch (\Exception $e) {
+            return back()->with('failed', $e->getMessage());
+        }
     }
 
     /**
@@ -134,27 +139,31 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // DB::connection()->enableQueryLog();
-        $siswa = Santris::find($id)->update($request->all());
+        try {
+            // DB::connection()->enableQueryLog();
+            $siswa = Santris::find($id)->update($request->all());
 
-        if (!Storage::exists('siswa_images')) {
-            Storage::makeDirectory('siswa_images');
-        }
+            if (!Storage::exists('siswa_images')) {
+                Storage::makeDirectory('siswa_images');
+            }
 
-        if ($request->hasFile('foto')) {
-            $foto = time() . '-' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move('uploads', $foto);
-            Santris::find($id)->update(['foto' => $foto]);
-        }
+            if ($request->hasFile('foto')) {
+                $foto = time() . '-' . $request->file('foto')->getClientOriginalName();
+                $request->file('foto')->move('uploads', $foto);
+                Santris::find($id)->update(['foto' => $foto]);
+            }
 
-        if ($request->hasFile('bukti_pembayaran')) {
-            $bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
-            $request->file('bukti_pembayaran')->move('uploads', $bukti_pembayaran);
-            Santris::find($id)->update(['bukti_pembayaran' => $bukti_pembayaran]);
+            if ($request->hasFile('bukti_pembayaran')) {
+                $bukti_pembayaran = time() . '-' . $request->file('bukti_pembayaran')->getClientOriginalName();
+                $request->file('bukti_pembayaran')->move('uploads', $bukti_pembayaran);
+                Santris::find($id)->update(['bukti_pembayaran' => $bukti_pembayaran]);
+            }
+            // return response()->json(DB::getQueryLog());
+            return redirect()->back()->with('success', 'Santri updated successfully')
+                ->header('Content-Type', 'text/plain');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('failed', $e->getMessage());
         }
-        // return response()->json(DB::getQueryLog());
-        return redirect()->back()->with('success', 'Santri updated successfully')
-            ->header('Content-Type', 'text/plain');
     }
 
     /**
@@ -222,14 +231,18 @@ class SiswaController extends Controller
 
     public function update_tanggal_pengumuman(Request $request, string $id)
     {
-        DB::connection()->enableQueryLog();
-        $pengumuman = Pengumuman::find($id)->update($request->all());
-        $queries = DB::getQueryLog();
-        // return dd($queries);
-        // $pengumuman->save();
-        // return response()->json($request);
-        return back()->with('success', 'Successfully saved in database')
-            ->header('Content-Type', 'text/plain');
+        try {
+            DB::connection()->enableQueryLog();
+            $pengumuman = Pengumuman::find($id)->update($request->all());
+            $queries = DB::getQueryLog();
+            // return dd($queries);
+            // $pengumuman->save();
+            // return response()->json($request);
+            return back()->with('success', 'Successfully saved in database')
+                ->header('Content-Type', 'text/plain');
+        } catch (\Exception $e) {
+            return back()->with('failed', $e->getMessage());
+        }
     }
 
     public function import_excel(Request $request)
@@ -263,7 +276,7 @@ class SiswaController extends Controller
         if ($siswa->tanggal_lahir != null) {
             $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
             $today = Carbon::now()->isoFormat('D MMMM Y');
-        }else{
+        } else {
             $tanggal_lahir = "";
         }
         $logo = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/logo_pdf.png'));

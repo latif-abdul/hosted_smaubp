@@ -239,7 +239,14 @@
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
             @endif
-            <!-- <script>
+            @if (session()->has('failed'))
+                <div class="alert alert-danger show" id="successAlert">
+                    {{ session()->get('failed') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
+            <!-- <
+             script>
                 // const url = '{{$formAction}}';
 
                 $('#myForm').on('submit', (function (e) {
