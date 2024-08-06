@@ -16,7 +16,7 @@
               <ol>
                 <li>Silakan melakukan pembayaran formulir online sebesar Rp 400.000 ke rekening BSI (Bank Syariah
                   Mandiri)
-                  7073341967 a.n SITI MUSIRROH (SMAU BP AU PACET)</li>
+                  8080000139 a.n SMA MA BP AMANATUL UMMAH PACET</li>
                 <li>Isikan data santri, upload bukti pembayaran dan berkas-berkas yang diperlukan.</li>
                 <li>Submit formulir dan tunggu verifikasi admin.</li>
               </ol>
