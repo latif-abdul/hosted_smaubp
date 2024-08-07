@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [ShowController::class, 'index']);
-Route::get('/artikel/{id}', [ArtikelController::class, 'show']);
+Route::get('/artikel/{id}', [ArtikelController::class, 'show2']);
 Route::get('/ekskul', function () {
     return view('ekstrakulikuler');
 })->name('eksul');
