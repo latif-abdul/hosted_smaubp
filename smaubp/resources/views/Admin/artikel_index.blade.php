@@ -48,6 +48,8 @@
                                     <td>{{$art->judul}}</td>
                                     <td>{{$art->penulis}}</td>
                                     <td>
+                                        <a class="btn btn-secondary" href="/admin/artikel/{{$art->id}}"><i
+                                                class="fa-solid fa-eye"></i></a>
                                         <a class="btn btn-primary" href="/admin/artikel/{{$art->id}}/edit"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
                                         <a class="btn btn-danger" href="/admin/artikel/{{$art->id}}/delete"><i

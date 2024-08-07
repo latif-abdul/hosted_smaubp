@@ -17,4 +17,9 @@ class Artikel extends Model
         'gambar',
         'artikel',
     ];
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'id_artikel', 'id');
+    }
 }

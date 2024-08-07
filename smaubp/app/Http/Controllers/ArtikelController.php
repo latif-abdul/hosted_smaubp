@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Validator;
@@ -60,6 +61,12 @@ class ArtikelController extends Controller
     public function show(string $id)
     {
         $artikel = Artikel::find($id);
+        return view('Admin.show_artikel', compact('artikel'));
+    }
+
+    public function show2(string $id)
+    {
+        $artikel = Artikel::find($id);
         return view('perArtikel', compact('artikel'));
     }
 
@@ -102,6 +109,17 @@ class ArtikelController extends Controller
         Artikel::find($id)->delete();
         return back()->with('delete', 'Successfully delete');
     }
+
+    public function postComment(Request $request){
+        $artikel = Comment::create($request->all());
+        return response()->json($data = $artikel, $status = 200);
+    }
+
+    public function getComment(string $id){
+        $comment = Comment::where('id_artikel', $id)->where('id_comment', null)->with('reply')->get();
+        return response()->json($data = $comment, $status = 200);
+    }
+    
 
 
 }

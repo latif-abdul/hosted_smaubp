@@ -57,6 +57,9 @@ Route::get('/daful', [DafulController::class, 'index']);
 Route::post('/daful', [DafulController::class, 'store']);
 Route::post('/daftar', [SiswaController::class, 'store']);
 Route::get('/galleries', [GaleriController::class, 'show_all']);
+Route::post('/post_comment', [ArtikelController::class, 'postComment']);
+Route::get('/get_comment/{id}', [ArtikelController::class, 'getComment']);
+// Route::post('/artikel/{id}', [ArtikelController::class])
 
 
 Auth::routes();
