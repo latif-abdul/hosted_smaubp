@@ -424,6 +424,8 @@
                                 divForm.appendChild(nama)
                                 divForm.appendChild(email)
                                 divForm.appendChild(comment)
+                                divForm.appendChild(id_artikel)
+                                divForm.appendChild(id_comment)
                                 divForm.appendChild(submitComment)
 
                                 postComment.appendChild(divForm)
