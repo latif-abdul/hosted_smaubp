@@ -79,6 +79,22 @@
         </div>
     </div>
 </footer>
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState !== "complete") {
+            document.querySelector(
+                "body").style.visibility = "hidden";
+            document.querySelector(
+                "#loader").style.visibility = "visible";
+        } 
+        else {
+            document.querySelector(
+                "#loader").style.display = "none";
+            document.querySelector(
+                "body").style.visibility = "visible";
+        }
+    };
+</script>
 <script src="js/script.js"></script>
 <script src="js/scrollCue.min.js"></script>
 <script>scrollCue.init();</script>

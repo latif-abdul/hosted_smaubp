@@ -1,3 +1,4 @@
+<div id="loader" class="center"></div>
 <nav class="navbar navbar-expand-lg navbar-light navbarKu fixed-top">
         <div class="container">
 
