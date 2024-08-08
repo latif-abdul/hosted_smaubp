@@ -346,6 +346,7 @@ footer {
   height: 150px;
   margin-right: 20px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .artikel .perArtikel h3 {
