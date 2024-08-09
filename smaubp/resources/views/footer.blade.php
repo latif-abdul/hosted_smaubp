@@ -45,10 +45,7 @@
                             Mojokerto, 61374</p>
                     </div>
 
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3407.9225237344845!2d112.55723445474571!3d-7.650284919799873!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7877dfa11a2371%3A0x8c80a5aca5c81c16!2sSMAU%20BP%20Amanatul%20Ummah!5e0!3m2!1sen!2sid!4v1707806767840!5m2!1sen!2sid"
-                        width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+
 
                 </div>
 
