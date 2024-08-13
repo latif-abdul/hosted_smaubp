@@ -7,6 +7,14 @@
 <meta name="description" content="">
 
 <title>SMA-MAU BP Amanatul Ummah</title>
+<script type="application/ld+json">
+    {
+      "@context" : "{{url()}}"",
+      "@type" : "WebSite",
+      "name" : "SMA MAU BP Amanatul Ummah",
+      "url" : "{{url()}}"
+    }
+</script>
 <link rel="stylesheet" href="{{url('css/style.css')}}">
 <link rel="shortcut icon" href="{{url('images/logo.png')}}" type="image/x-icon">
 
