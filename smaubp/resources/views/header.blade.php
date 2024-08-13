@@ -6,7 +6,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 
-<title>Artikel SMA-MAU BP Amanatul Ummah</title>
+<title>SMA-MAU BP Amanatul Ummah</title>
 <link rel="stylesheet" href="{{url('css/style.css')}}">
 <link rel="shortcut icon" href="{{url('images/logo.png')}}" type="image/x-icon">
 
