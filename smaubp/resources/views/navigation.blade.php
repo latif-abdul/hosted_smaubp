@@ -42,9 +42,12 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                             <a class="dropdown-item" href="{{ url('ekskul') }}">Tentang Kami</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://klikpresensi.my.id/">Absensi</a>
                             <!-- <div class="dropdown-divider"></div> -->
                             <!-- <a class="dropdown-item" href="{{ url('kontak') }}">Contact Us</a> -->
                         </div>
+                        
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
