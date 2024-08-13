@@ -9,10 +9,10 @@
 <title>SMA-MAU BP Amanatul Ummah</title>
 <script type="application/ld+json">
     {
-      "@context" : "{{url()}}"",
+      "@context" : "https://www.smaubp-tahfidz.sch.id",
       "@type" : "WebSite",
       "name" : "SMA MAU BP Amanatul Ummah",
-      "url" : "{{url()}}"
+      "url" : "https://www.smaubp-tahfidz.sch.id"
     }
 </script>
 <link rel="stylesheet" href="{{url('css/style.css')}}">
