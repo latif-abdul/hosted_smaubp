@@ -7,19 +7,27 @@ use App\Models\Sambutan;
 use App\Models\SlideShow;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use Spatie\ImageOptimizer\OptimizerChainFactory;
 
 class ShowController extends Controller
 {
     public function index()
     {
         $slideshow = SlideShow::all();
+        // $optimizerChain = OptimizerChainFactory::create();
+        // $stringToAdd = "/uploads/";
+        // $slideshowPath = array_map(function($value) use ($stringToAdd) {
+        //     return $value . $stringToAdd;
+        // }, $slideshow->gambar);
+        // $optimizerChain->optimize($slideshowPath);
         $sambutan = Sambutan::all();
-        $artikel = Artikel::all()->take(5)->sortByDesc('updated_at');
+        $artikel = Artikel::all()->sortByDesc('updated_at')->take(5);
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
         return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan'));
     }
 
-    public function show_artikel(){
+    public function show_artikel()
+    {
         $artikel = Artikel::all()->sortByDesc('updated_at');
         return view('artikel', compact('artikel'));
     }
