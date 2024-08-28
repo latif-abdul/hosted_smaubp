@@ -67,6 +67,9 @@ class ArtikelController extends Controller
     public function show2(string $id)
     {
         $artikel = Artikel::find($id);
+        if ($artikel === null){
+            return view('artikel_not_found')->with('failed', 'Artikel Not Found');
+        }
         return view('perArtikel', compact('artikel'));
     }
 
