@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
         'admin/artikel' => ArtikelController::class,
         'admin/siswa_baru' => SiswaController::class,
         'admin/ekskul' => EkskulController::class,
+        'admin/pencapaian_alumni' => PencapaianAlumniController::class,
         'admin' => AdminController::class,
         'setting' => SettingController::class,
         'galeri' => GaleriController::class,
@@ -92,6 +93,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/setting', [SettingController::class, 'update']);
     Route::put('/sambutan', [SambutanController::class, 'update']);
     Route::delete('setting', function(){});
+    Route::post('/admin/pencapaian_alumni/import', [PencapaianAlumniController::class, 'import_excel']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

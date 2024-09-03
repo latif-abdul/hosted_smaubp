@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use App\Models\PencapaianAlumni;
 use App\Models\Sambutan;
 use App\Models\SlideShow;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class ShowController extends Controller
         $sambutan = Sambutan::all();
         $artikel = Artikel::all()->sortByDesc('updated_at')->take(5);
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
-        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan'));
+        $alumni = PencapaianAlumni::all();
+        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni'));
     }
 
     public function show_artikel()

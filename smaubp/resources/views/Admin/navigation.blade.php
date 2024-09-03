@@ -46,6 +46,12 @@
                 </a>
             </li>
             <li>
+                <a href="/admin/pencapaian_alumni">
+                    <i class="fa-solid fa-trophy"></i>
+                    <p>Pencapaian Alumni</p>
+                </a>
+            </li>
+            <li>
                 <a href="maps.html">
                     <i class="pe-7s-map-marker"></i>
                     <p>Maps</p>

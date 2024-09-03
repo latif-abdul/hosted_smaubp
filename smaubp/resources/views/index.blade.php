@@ -198,6 +198,68 @@
 </div>
 
 
+<section
+    class="elementor-section elementor-top-section elementor-element elementor-element-dcd0ec2 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+    data-id="dcd0ec2" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-226d511"
+            data-id="226d511" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-adb73b8 animated-slow elementor-invisible elementor-widget elementor-widget-heading"
+                    data-id="adb73b8" data-element_type="widget"
+                    data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default">
+                        Pencapaian Alumni
+                        </h2>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-b0445fe animated-slow elementor-invisible elementor-widget elementor-widget-text-editor"
+                    data-id="b0445fe" data-element_type="widget"
+                    data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:500}"
+                    data-widget_type="text-editor.default">
+                    <div class="elementor-widget-container">
+                        <p>
+                        <table id="tablepress-1" class="tablepress tablepress-id-1">
+                            <thead>
+                                <tr class="row-1 odd">
+                                    <th class="column-1">Nama</th>
+                                    <th class="column2">Universitas</th>
+                                    <th class="column-3">Program Studi</th>
+                                    <th class="column-4">Perolehan Hafalan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="row-hover">
+                                @foreach ($alumni as $palumni)
+                                
+                                
+                                <tr class="row-2 even">
+                                    <td class="column-1">{{$palumni->name}}</td>
+                                    <!-- <td class="column-2">Coming Soon</td> -->
+                                    <td class="column-3">{{$palumni->universitas}}</td>
+                                    <td class="column-4">{{$palumni->prodi}}</td>
+                                    <td class="column-5">{{$palumni->perolehan_hafalan}}</td>
+                                </tr>
+                                @endforeach
+                               
+                                <!-- <tr class="row-4 even">
+                                                                            <td class="column-1">
+                                                                                <strong>Pengumuman Hasil Tes</strong>
+                                                                            </td>
+                                                                            <td class="column-2">H+7 Tanggal Tes</td>
+                                                                            <td class="column-3">H+7 Tanggal Tes</td>
+                                                                            <td class="column-4">H+7 Tanggal Tes</td>
+                                                                            <td class="column-5">H+7 Tanggal Tes</td>
+                                                                        </tr> -->
+                            </tbody>
+                        </table>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
