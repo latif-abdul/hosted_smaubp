@@ -101,8 +101,8 @@ class PencapaianAlumniController extends Controller
         $file->move('file_siswa', $nama_file);
 
         // import data
-        // Excel::import(new PencapaianAlumniImports, '/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/file_siswa/' . $nama_file);
-        Excel::import(new PencapaianAlumniImports, public_path('file_siswa/' . $nama_file));
+        Excel::import(new PencapaianAlumniImports, '/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/file_siswa/' . $nama_file);
+        // Excel::import(new PencapaianAlumniImports, public_path('file_siswa/' . $nama_file));
         // return response(storage_path('/file_siswa/'.$nama_file));
 
         // alihkan halaman kembali
