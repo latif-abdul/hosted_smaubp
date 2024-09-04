@@ -2424,3 +2424,11 @@ p {
   .form input, .form textarea{
     margin-top : 7px;
   }
+
+  table tr {
+    display: none;
+  }
+  
+  table tr.active {
+    display: table-row;
+  }

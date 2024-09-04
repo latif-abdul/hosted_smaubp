@@ -30,3 +30,4 @@ document.addEventListener("DOMContentLoaded", function() {
   // Panggil fungsi fadeInBoxes ketika halaman selesai dimuat
   fadeInBoxes();
 });
+

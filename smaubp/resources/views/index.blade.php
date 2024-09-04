@@ -219,7 +219,7 @@
                     data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:500}"
                     data-widget_type="text-editor.default">
                     <div class="elementor-widget-container">
-                        <p>
+                        <center>
                         <table id="tablepress-1" class="tablepress tablepress-id-1">
                             <thead>
                                 <tr class="row-1 odd">
@@ -253,7 +253,10 @@
                                                                         </tr> -->
                             </tbody>
                         </table>
+                        <br>
+                        <center><a class="btn btn-primary load_more" href="#">View More</a></center>
                         </p>
+                        <script src="{{url('js/expandable-table.js')}}"></script>
                     </div>
                 </div>
             </div>
