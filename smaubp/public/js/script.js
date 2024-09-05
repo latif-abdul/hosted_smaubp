@@ -31,3 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
   fadeInBoxes();
 });
 
+$(document).ready(function () {
+  $("#successAlert").fadeTo(2000, 500).slideUp(500, function () {
+    $("#successAlert").slideUp(500);
+  });
+});
+

@@ -60,7 +60,7 @@
                         </tbody>
                     </table>
                     @if (session()->has('delete'))
-                        <div class="alert alert-success show" id="successAlert">
+                        <div class="alert alert-success" id="successAlert">
                             {{ session()->get('delete') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>

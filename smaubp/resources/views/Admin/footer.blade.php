@@ -7,6 +7,7 @@
     </p>
   </div>
 </footer>
+<script src="{{url('js/demo.js')}}"></script>
 <script>
   getPagination('#table-id');
   $('#maxRows').trigger('change');

@@ -2,38 +2,38 @@
 @section('content')
 <div class="card">
     <form method="post" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
-        @if(isset($siswa)) @method('PUT') @else @method('POST') @endif
+        @if(isset($menu)) @method('PUT') @else @method('POST') @endif
         @csrf
         <div class="header">
-            <h2 class="title">PENDAFTARAN SANTRI</h2>
+            <h2 class="title">Menu</h2>
         </div>
         <div class="content">
             <div class="form-group">
                 <label for="name">Nama</label>
                 <input type="text" id="name" class="form-control" name="name" required
-                    value="{{{old('name', isset($siswa->name) ? $siswa->name : '')}}}">
+                    value="{{{old('name', isset($menu->name) ? $menu->name : '')}}}">
             </div>
 
             <div class="form-group">
-                <label for="universitas">Universitas</label>
-                <input type="text" id="universitas" class="form-control" name="universitas" required
-                    value="{{{old('universitas', isset($siswa->universitas) ? $siswa->universitas : '')}}}">
+                <label for="url">URL</label>
+                <input type="text" id="url" class="form-control" name="url" required
+                    value="{{{old('url', isset($menu->url) ? $menu->url : '')}}}">
             </div>
 
-            <div class="form-group">
-                <label for="prodi">Program Studi</label>
-                <input type="text" id="prodi" class="form-control" name="prodi" required
-                    value="{{{old('prodi', isset($siswa->prodi) ? $siswa->prodi : '')}}}">
+            @foreach ($role as $rl)
+            
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="{{$rl->id}}" name="role[]" id="flexCheckDefault" {{{old('role', isset($selectedRole) && in_array($rl->id, $selectedRole) ? 'checked' : '')}}}>
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{$rl->name}}
+                </label>
             </div>
+            
+            @endforeach
 
-            <div class="form-group">
-                <label for="perolehan_hafalan">Perolehan Hafalan</label>
-                <input type="text" id="perolehan_hafalan" class="form-control" name="perolehan_hafalan" required
-                    value="{{{old('perolehan_hafalan', isset($siswa->perolehan_hafalan) ? $siswa->perolehan_hafalan : '')}}}">
-            </div>
 
             <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
-            <a href="/admin/pencapaian_alumni" class="btn btn-primary btn-fill">Kembali</a>
+            <a href="/admin/menu" class="btn btn-primary btn-fill">Kembali</a>
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">
                     {{ session()->get('success') }}
@@ -54,7 +54,7 @@
                     e.preventDefault();
                     let formData = new FormData(this);
                     $.ajax({
-                        type: "{{{isset($siswa) ? 'PUT' : 'POST'}}}",
+                        type: "{{{isset($menu) ? 'PUT' : 'POST'}}}",
                         url: '{{$formAction}}',
                         processData: false,
                         contentType: false,

@@ -177,7 +177,7 @@
             </script> -->
               <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
               @if (session()->has('success'))
-          <div class="alert alert-success show" id="successAlert">
+          <div class="alert alert-success" id="successAlert">
           {{ session()->get('success') }}
           <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
           </div>

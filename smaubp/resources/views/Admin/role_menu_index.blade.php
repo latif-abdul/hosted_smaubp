@@ -8,29 +8,9 @@
                     <h4 class="title">Pencapaian Alumni</h4>
                 </div>
                 <div class="container">
-                    <a class="btn btn-info btn-fill" href="/admin/pencapaian_alumni/create">Tambah</a>
+                    <a class="btn btn-info btn-fill" href="/admin/menu/create">Tambah</a>
                 </div>
                 <div class="content">
-                    <form method="post" action="{{$formAction}}" enctype="multipart/form-data">
-
-
-                        {{ csrf_field() }}
-
-                        <label>Pilih file excel</label>
-                        <div class="form-group">
-                            <input type="file" name="file" required="required">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Import</button>
-                        <a class=" btn btn-success" href="/template/Template pencapaian alumni.xlsx">Download Template</a>
-
-                    </form>
-
-                    @if (session()->has('success'))
-                        <div class="alert alert-success" id="successAlert">
-                            {{ session()->get('success') }}
-                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                        </div>
-                    @endif
 
                     <br>
                     <br>
@@ -62,18 +42,18 @@
 
                         <thead>
                             <th>Nama</th>
-                            <th>Universitas</th>
+                            <th>URL</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            @foreach ($siswa as $santri)
+                            @foreach ($menu as $mn)
                                 <tr>
-                                    <td>{{$santri->name}}</td>
-                                    <td>{{$santri->universitas}}</td>
+                                    <td>{{$mn->name}}</td>
+                                    <td>{{$mn->url}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="/admin/pencapaian_alumni/{{$santri->id}}/edit"><i
+                                        <a class="btn btn-primary" href="/admin/menu/{{$mn->id}}/edit"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="/admin/pencapaian_alumni/{{$santri->id}}/delete"><i
+                                        <a class="btn btn-danger" href="/admin/menu/{{$mn->id}}/delete"><i
                                                 class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>

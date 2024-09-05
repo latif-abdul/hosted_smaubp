@@ -33,7 +33,7 @@
                         </div>
                     </form>
                     @if (session()->has('success'))
-                        <div class="alert alert-success show" id="successAlert">
+                        <div class="alert alert-success" id="successAlert">
                             {{ session()->get('success') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
@@ -54,7 +54,7 @@
                     </form>
 
                     @if (session()->has('success'))
-                        <div class="alert alert-success show" id="successAlert">
+                        <div class="alert alert-success" id="successAlert">
                             {{ session()->get('success') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
@@ -117,13 +117,13 @@
                         </tbody>
                     </table>
                     @if (session()->has('delete'))
-                        <div class="alert alert-success show" id="successAlert">
+                        <div class="alert alert-success" id="successAlert">
                             {{ session()->get('delete') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
                     @endif
                     @if (session()->has('error'))
-                        <div class="alert alert-danger show" id="successAlert">
+                        <div class="alert alert-danger" id="successAlert">
                             {{ session()->get('error') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>
