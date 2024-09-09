@@ -57,13 +57,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md">
-                            @if(isset($artikel->gambar))
-                                <img src="/uploads/{{$artikel->gambar}}" width="80%">
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="judul">Judul *</label>
