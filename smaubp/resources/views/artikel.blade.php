@@ -8,17 +8,22 @@
 <div class="container artikel">
 
     @foreach ($artikel as $art)
-    <a href="/artikel/{{$art->id}}" class="text-decoration-none">
-        <div class="perArtikel">
-            <img src="/uploads/{{$art->gambar}}" alt="Artikel">
-            <div class="textArtikel">
-                <h3>{{$art->judul}}</h3>
+        <a href="/artikel/{{$art->id}}" class="text-decoration-none">
+            <div class="perArtikel">
+                @foreach($art->images as $img)
+                    @if ($loop->first)
+                        <img src="/uploads/{{$img->gambar}}" alt="Foto Artikel" data-delay="220ms">
+                    @endif
 
+                @endforeach
+                <div class="textArtikel">
+                    <h3>{{$art->judul}}</h3>
+
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
     @endforeach
-    
+
 
     <!-- 
     <div class="container artikelPagination">
@@ -56,5 +61,5 @@
             <i class="fab fa-linkedin-in"></i>
         </a> -->
     </div>
-    </div>
-    @endsection
+</div>
+@endsection

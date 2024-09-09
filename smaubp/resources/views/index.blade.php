@@ -44,17 +44,17 @@
         <div class="container">
 
             @if (($loop->index + 1) % 2 == 1)
-                <img src="{{ url('uploads/'.$sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
+                <img src="{{ url('uploads/' . $sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
             @endif
             <div class="visiMisi">
 
                 <!-- <div class="visi">
-                        <h5>Our Vision</h5>
-                        <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
-                            kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
-                            yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
-                        </h3>
-                    </div> -->
+                                <h5>Our Vision</h5>
+                                <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
+                                    kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
+                                    yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
+                                </h3>
+                            </div> -->
 
                 <div class="misi">
                     <h5>{{$sbt->nama}}</h5>
@@ -67,11 +67,11 @@
 
             </div>
             @if (($loop->index + 1) % 2 == 0)
-                <img src="{{ url('uploads/'.$sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
+                <img src="{{ url('uploads/' . $sbt->foto) }}" alt="pendiri SMA-MAU Ummah" data-delay="2000ms">
             @endif
         </div>
     </div>
-<br>
+    <br>
 @endforeach
 
 <br>
@@ -185,12 +185,17 @@
         @csrf
         @foreach ($artikel as $art)
             <a class="perArtikelHome" href="/artikel/{{$art->id}}">
-                <img src="/uploads/{{$art->gambar}}" alt="Foto Artikel" data-delay="220ms">
+                @foreach($art->images as $img)
+                    @if ($loop->first)
+                        <img src="/uploads/{{$img->gambar}}" alt="Foto Artikel" data-delay="220ms">
+                    @endif
+
+                @endforeach
                 <h3>{{$art->judul}}</h3>
                 <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
                 <p>
                     <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                            delectus quasi amet libero iusto sequi at. -->
+                                    delectus quasi amet libero iusto sequi at. -->
                 </p>
             </a>
         @endforeach
@@ -210,7 +215,7 @@
                     data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <h2 class="elementor-heading-title elementor-size-default">
-                        Pencapaian Alumni
+                            Pencapaian Alumni
                         </h2>
                     </div>
                 </div>
@@ -220,29 +225,28 @@
                     data-widget_type="text-editor.default">
                     <div class="elementor-widget-container">
                         <center>
-                        <table id="tablepress-1" class="tablepress tablepress-id-1">
-                            <thead>
-                                <tr class="row-1 odd">
-                                    <th class="column-1">Nama</th>
-                                    <th class="column2">Universitas</th>
-                                    <th class="column-3">Program Studi</th>
-                                    <th class="column-4">Perolehan Hafalan</th>
-                                </tr>
-                            </thead>
-                            <tbody class="row-hover">
-                                @foreach ($alumni as $palumni)
-                                
-                                
-                                <tr class="row-2 even">
-                                    <td class="column-1">{{$palumni->name}}</td>
-                                    <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">{{$palumni->universitas}}</td>
-                                    <td class="column-4">{{$palumni->prodi}}</td>
-                                    <td class="column-5">{{$palumni->perolehan_hafalan}}</td>
-                                </tr>
-                                @endforeach
-                               
-                                <!-- <tr class="row-4 even">
+                            <table id="tablepress-1" class="tablepress tablepress-id-1">
+                                <thead>
+                                    <tr class="row-1 odd">
+                                        <th class="column-1">Nama</th>
+                                        <th class="column2">Universitas</th>
+                                        <th class="column-3">Program Studi</th>
+                                        <th class="column-4">Perolehan Hafalan</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="row-hover">
+                                    @foreach ($alumni as $palumni)
+
+
+                                        <tr class="row-2 even">
+                                            <td class="column-1">{{$palumni->name}}</td>
+                                            <!-- <td class="column-2">Coming Soon</td> -->
+                                            <td class="column-3">{{$palumni->universitas}}</td>
+                                            <td class="column-4">{{$palumni->prodi}}</td>
+                                            <td class="column-5">{{$palumni->perolehan_hafalan}}</td>
+                                        </tr>
+                                    @endforeach
+                                    <!-- <tr class="row-4 even">
                                                                             <td class="column-1">
                                                                                 <strong>Pengumuman Hasil Tes</strong>
                                                                             </td>
@@ -251,12 +255,12 @@
                                                                             <td class="column-4">H+7 Tanggal Tes</td>
                                                                             <td class="column-5">H+7 Tanggal Tes</td>
                                                                         </tr> -->
-                            </tbody>
-                        </table>
-                        <br>
-                        <center><a class="btn btn-primary load_more" href="#">View More</a></center>
-                        </p>
-                        <script src="{{url('js/expandable-table.js')}}"></script>
+                                </tbody>
+                            </table>
+                            <br>
+                            <center><a class="btn btn-primary load_more" href="#">View More</a></center>
+                            </p>
+                            <script src="{{url('js/expandable-table.js')}}"></script>
                     </div>
                 </div>
             </div>

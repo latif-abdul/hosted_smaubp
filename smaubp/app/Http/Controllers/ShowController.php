@@ -22,15 +22,17 @@ class ShowController extends Controller
         // }, $slideshow->gambar);
         // $optimizerChain->optimize($slideshowPath);
         $sambutan = Sambutan::all();
-        $artikel = Artikel::all()->sortByDesc('updated_at')->take(5);
+        // $artikel = Artikel::all()->sortByDesc('updated_at')->take(5);
+        $artikel = Artikel::with('images')->get()->sortByDesc('updated_at')->take(5);
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
         $alumni = PencapaianAlumni::all();
         return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni'));
+        // return response($artikel);
     }
 
     public function show_artikel()
     {
-        $artikel = Artikel::all()->sortByDesc('updated_at');
+        $artikel = Artikel::with('images')->get()->sortByDesc('updated_at');
         return view('artikel', compact('artikel'));
     }
 }
