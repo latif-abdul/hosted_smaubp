@@ -54,11 +54,6 @@
             <!-- </div> -->
             @if(isset($artikel)) @method('PUT') @else @method('POST') @endif
             @csrf
-            <div class="form-group">
-                <label for="judul">Judul *</label>
-                <input type="text" id="judul" class="form-control" name="judul"
-                    value="{{{old('judul', isset($artikel->judul) ? $artikel->judul : '')}}}" required>
-            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
@@ -71,10 +66,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Gambar</label>
-                                <input type="file" class="form-control" name="gambar" id="gambar">
+                                <label for="judul">Judul *</label>
+                                <input type="text" id="judul" class="form-control" name="judul"
+                                    value="{{{old('judul', isset($artikel->judul) ? $artikel->judul : '')}}}" required>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="penulis">Penulis *</label>
@@ -85,9 +82,37 @@
                         </div>
                     </div>
                 </div>
+                <fieldset class="upload_dropZone text-center mb-3 p-4">
+
+                    <legend class="visually-hidden">Image uploader</legend>
+
+                    <svg class="upload_svg" width="60" height="60" aria-hidden="true">
+                        <use href="#icon-imageUpload"></use>
+                    </svg>
+
+                    <p class="small my-2">Drag &amp; Drop background image(s) inside dashed region<br><i>or</i></p>
+
+                    <input id="upload_image_background" data-post-name="image_background"
+                        data-post-url="https://someplace.com/image/uploads/backgrounds/"
+                        class="position-absolute invisible" type="file" multiple
+                        accept="image/jpeg, image/png, image/svg+xml" name="gambar[]" />
+
+                    <label class="btn btn-info mb-3" style="color:white;" for="upload_image_background">Choose
+                        file(s)</label>
+
+                    <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
+                    @isset($gambar)   
+                    @foreach ($gambar as $img)
+                            <img class="upload_img mt-2" alt="3.jpeg" src="{{url('/uploads/' . $img->gambar)}}">
+                        @endforeach
+                        @endisset
+                    </div>
+
+                </fieldset>
             </div>
             <!-- Create the editor container -->
-            <input type="hidden" name="artikel" value="{{{old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')}}}">
+            <input type="hidden" name="artikel"
+                value="{{{old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')}}}">
             <div id="editor" class="ql-editor">
                 {!!old('artikel', isset($artikel->artikel) ? $artikel->artikel : '')!!}
                 <!-- <p>tes</p> -->
@@ -122,51 +147,51 @@
                     document.querySelector("input[name='artikel']").value = quill.root.innerHTML;
                 });
 
-            //     $('#myForm').on('submit', (function (e) {
-            //         e.preventDefault();
-            //         let quillHtml = quill.root.innerHTML.trim();
-            //         let quillText = quill.getText();
-            //         let formData = new FormData(this);
-            //         // let artikel = quillHtml;
-            //         // let judul = document.getElementById("judul").value;
-            //         // let penulis = document.getElementById("penulis").value;
-            //         // let gambar = $('#gambar').prop('files')[0];
-            //         // let _token = "{{ csrf_token() }}";
+                //     $('#myForm').on('submit', (function (e) {
+                //         e.preventDefault();
+                //         let quillHtml = quill.root.innerHTML.trim();
+                //         let quillText = quill.getText();
+                //         let formData = new FormData(this);
+                //         // let artikel = quillHtml;
+                //         // let judul = document.getElementById("judul").value;
+                //         // let penulis = document.getElementById("penulis").value;
+                //         // let gambar = $('#gambar').prop('files')[0];
+                //         // let _token = "{{ csrf_token() }}";
 
-            //         formData.append('artikel', quillText);
-            //         // formData.append('judul', judul);
-            //         // formData.append('penulis', penulis);
-            //         // formData.append('gambar', gambar);
-            //         // formData.append('_token', _token);
-            //         $.ajax({
-            //             type: "{{{isset($artikel) ? 'PUT' : 'POST'}}}",
-            //             url: url,
-            //             processData: false,
-            //             contentType: false,
-            //             // contentType: 'multipart/form-data',
-            //             cache: false,
-            //             data: formData,
-            //             // data: {
-            //             //     _token: "{{ csrf_token() }}",
-            //             //     artikel: quillHtml,
-            //             //     judul: document.getElementById("judul").value,
-            //             //     gambar: document.getElementById("gambar").files[0],
-            //             //     penulis: document.getElementById("penulis").value,
-            //             // },
-            //             beforeSend: function (xhr) {
-            //                 xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
-            //             },
-            //             success: function (data, status, xhr) {
-            //                 if (xhr.status == 200) {
-            //                     alert("Successfully sent to database");
-            //                 }
-            //             }, error: function () {
-            //                 alert("Could not send to database");
-            //             }
-            //         });
-            //     }));
+                //         formData.append('artikel', quillText);
+                //         // formData.append('judul', judul);
+                //         // formData.append('penulis', penulis);
+                //         // formData.append('gambar', gambar);
+                //         // formData.append('_token', _token);
+                //         $.ajax({
+                //             type: "{{{isset($artikel) ? 'PUT' : 'POST'}}}",
+                //             url: url,
+                //             processData: false,
+                //             contentType: false,
+                //             // contentType: 'multipart/form-data',
+                //             cache: false,
+                //             data: formData,
+                //             // data: {
+                //             //     _token: "{{ csrf_token() }}",
+                //             //     artikel: quillHtml,
+                //             //     judul: document.getElementById("judul").value,
+                //             //     gambar: document.getElementById("gambar").files[0],
+                //             //     penulis: document.getElementById("penulis").value,
+                //             // },
+                //             beforeSend: function (xhr) {
+                //                 xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
+                //             },
+                //             success: function (data, status, xhr) {
+                //                 if (xhr.status == 200) {
+                //                     alert("Successfully sent to database");
+                //                 }
+                //             }, error: function () {
+                //                 alert("Could not send to database");
+                //             }
+                //         });
+                //     }));
 
-             </script>
+            </script>
         </form>
     </div>
 </div>

@@ -14,12 +14,16 @@ class Artikel extends Model
     protected $fillable = [
         'judul',
         'penulis',
-        'gambar',
         'artikel',
     ];
 
     public function comment()
     {
         return $this->hasMany(Comment::class, 'id_artikel', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(GambarArtikel::class, 'id_artikel', 'id');
     }
 }

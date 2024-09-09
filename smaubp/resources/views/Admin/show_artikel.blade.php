@@ -6,12 +6,34 @@
             <h1 class="fw-bolder mb-1 mt-5">{{$artikel->judul}}</h1>
         </div>
 
-        
+
 
         <div class="container mainDetailArtikel">
             <div class="row">
                 <div class="col-md-8">
-                <figure class="mb-4"><img class="img-fluid rounded" src="/uploads/{{$artikel->gambar}}" alt="..." /></figure>
+                    <figure class="mb-4">
+                        <div id="carouselExample" class="carousel slide">
+                            <div class="carousel-inner">
+                                @isset($gambar)
+                                    @foreach ($gambar as $img)
+                                        <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
+                                            <img src="{{url('/uploads/'.$img->gambar)}}" class="d-block w-100" alt="...">
+                                        </div>
+                                    @endforeach
+                                @endisset
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </figure>
                     <div class="post-content" id="comment-container">
                         {!!$artikel->artikel!!}
                         <hr>
@@ -30,8 +52,8 @@
                                         <input type="hidden" name="id_artikel" value="{{$artikel->id}}">
                                         <input type="hidden" id="name" class="form-control" name="name" required
                                             placeholder="Nama" value="{{Auth::user()->name}}">
-                                        <input type="hidden" id="email" class="form-control" placeholder="Email" required
-                                            name="email" value="{{Auth::user()->email}}">
+                                        <input type="hidden" id="email" class="form-control" placeholder="Email"
+                                            required name="email" value="{{Auth::user()->email}}">
                                         <textarea class="form-control" placeholder="Post a Comment"
                                             id="floatingTextarea2" style="height: 100px" name="comment"></textarea>
                                         <!-- <label for="floatingTextarea2">Post a Comment</label> -->

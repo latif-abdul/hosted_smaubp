@@ -40,9 +40,13 @@ class ArtikelController extends Controller
         }
 
         if ($request->hasFile('gambar')) {
-            $artikel->gambar = time() . '-' . $request->file('gambar')->getClientOriginalName();
-            $request->file('gambar')->move('uploads', $artikel->gambar);
-            $artikel->save();
+            for ($i = 0; $i < count($request->gambar); $i++) {
+                $filename = time() . '-' . $request->gambar[$i]->getClientOriginalName();
+                $request->gambar[$i]->move('uploads', $filename);
+                $slideShow = $artikel->images()->create([
+                    "gambar" => $filename,
+                ]);
+            }
         }
 
         // if ($request->hasFile('bukti_pembayaran')) {
@@ -61,16 +65,20 @@ class ArtikelController extends Controller
     public function show(string $id)
     {
         $artikel = Artikel::find($id);
-        return view('Admin.show_artikel', compact('artikel'));
+        $gambar = $artikel->images()->get();
+        return view('Admin.show_artikel', compact('artikel', 'gambar'));
+        // return response($gambar);
     }
 
     public function show2(string $id)
     {
         $artikel = Artikel::find($id);
-        if ($artikel === null){
+        $gambar = $artikel->images()->get();
+        if ($artikel === null) {
             return view('artikel_not_found')->with('failed', 'Artikel Not Found');
         }
-        return view('perArtikel', compact('artikel'));
+        return view('perArtikel', compact('artikel', 'gambar'));
+        // return response($gambar);
     }
 
     /**
@@ -80,7 +88,9 @@ class ArtikelController extends Controller
     {
         $formAction = "/admin/artikel/$id";
         $artikel = Artikel::where('id', $id)->first();
-        return view('Admin.manage_artikel', compact(['artikel', 'formAction']));
+        $gambar = $artikel->images()->get();
+        return view('Admin.manage_artikel', compact(['artikel', 'formAction', 'gambar']));
+        // return response($gambar);
     }
 
     /**
@@ -97,7 +107,7 @@ class ArtikelController extends Controller
         if ($request->hasFile('gambar')) {
             $gambar = time() . '-' . $request->file('gambar')->getClientOriginalName();
             $request->file('gambar')->move('uploads', $gambar);
-            Artikel::find($id)->update(['gambar'=>$gambar]);
+            Artikel::find($id)->update(['gambar' => $gambar]);
         }
 
         return redirect()->back()->with('success', 'Artikel updated successfully')
@@ -113,16 +123,18 @@ class ArtikelController extends Controller
         return back()->with('delete', 'Successfully delete');
     }
 
-    public function postComment(Request $request){
+    public function postComment(Request $request)
+    {
         $artikel = Comment::create($request->all());
         return response()->json($data = $artikel, $status = 200);
     }
 
-    public function getComment(string $id){
+    public function getComment(string $id)
+    {
         $comment = Comment::where('id_artikel', $id)->where('id_comment', null)->with('reply')->get();
         return response()->json($data = $comment, $status = 200);
     }
-    
+
 
 
 }
