@@ -3,8 +3,8 @@
 <div class="container detailArtikel">
     <h2>{{$artikel->judul}}</h2>
 </div>
-<figure class="mb-4">
-    <div id="carouselExample" class="carousel slide">
+<!-- <figure class="mb-4"> -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @isset($gambar)
                 @foreach ($gambar as $img)
@@ -14,16 +14,16 @@
                 @endforeach
             @endisset
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="sr-only">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="sr-only">Next</span>
         </button>
     </div>
-</figure>
+<!-- </figure> -->
 <div class="container mainDetailArtikel">
     <div class="row">
         <div class="col-md-8">
