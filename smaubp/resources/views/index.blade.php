@@ -28,7 +28,7 @@
 
 
 <div class="sambutan container">
-    <h1>WELCOME TO SMA - MAU Berbasis Pesantren Amanatul Ummah - “The Most Prestigious Tahfidz School”</h1>
+    <h1>WELCOME TO SMA UNggulan Berbasis Pesantren Amanatul Ummah - “The Most Prestigious Tahfidz School”</h1>
     <p>
         “SMA-MA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an” menjamin murid
         muridnya menghafal Al Qur’an , lulus 100% berklasifisi “A”, serta lulusannya diterima di Perguruan Tinggi
@@ -215,7 +215,7 @@
                     data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <h2 class="elementor-heading-title elementor-size-default">
-                            Pencapaian Alumni
+                            Prestasi Alumni Tahun 2024
                         </h2>
                     </div>
                 </div>

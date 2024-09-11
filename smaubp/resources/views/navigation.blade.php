@@ -4,7 +4,7 @@
 
             <a class="navbar-brand" href="#">
                 <img src="{{url('images/logo.png')}}" alt="Logo SMK N 2 Purbalingga">
-                <h1>SMA-MAU BP<br>Amanatul Ummah</h1>
+                <h1>SMA UNGGULAN BP<br>Amanatul Ummah</h1>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
