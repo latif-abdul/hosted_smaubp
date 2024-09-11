@@ -2428,10 +2428,10 @@ img.profile-photo-sm {
   margin-top: 7px;
 }
 
-table tr {
+#tablepress-1 tr {
   display: none;
 }
 
-table tr.active {
+#tablepress-1 tr.active {
   display: table-row;
 }

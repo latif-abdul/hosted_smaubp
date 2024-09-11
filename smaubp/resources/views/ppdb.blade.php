@@ -151,7 +151,7 @@
 
                     <div class="containerIconShare">
                         <a href="/form" class="btn btn-primary mr-3">
-                        <!-- <a href="https://bit.ly/44fRtwQ" class="btn btn-primary mr-3"> -->
+                            <!-- <a href="https://bit.ly/44fRtwQ" class="btn btn-primary mr-3"> -->
                             Daftar
                         </a>
 
