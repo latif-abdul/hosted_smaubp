@@ -53,7 +53,7 @@ class SettingController extends Controller
                     "text_1" => $request->text_1[$i],
                     "text_2" => $request->text_2[$i]
                 ]);
-                if($request->hasFile('image[].'.$i)){
+                if(array_key_exists($i,$request->image)){
                     $filename = time() . '-' . $request->image[$i]->getClientOriginalName();
                     $request->image[$i]->move('uploads', $filename);
                     $slideShow = SlideShow::find($request->id[$i])->update([
@@ -64,6 +64,8 @@ class SettingController extends Controller
         }
 
         return back()->with('success', 'success updated');
+        // $i = 0;
+        // return response($request);
     }
 
     public function destroy($id){
