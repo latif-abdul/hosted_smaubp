@@ -38,3 +38,18 @@ $(document).ready(function () {
   });
 });
 
+window.addEventListener('load', () => {
+  var $grid = $('.portfolio-container').isotope({
+      itemSelector: '.portfolio-item',
+      // layoutMode: 'fitColumns',
+      // percentPosition: true,
+      // masonry: {
+      //     columnWidth: 100
+      // }
+  });
+  // layout Isotope after each image loads
+  $grid.imagesLoaded().progress(function () {
+      $grid.isotope('layout');
+  });
+})
+

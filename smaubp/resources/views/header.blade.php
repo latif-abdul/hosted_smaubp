@@ -56,7 +56,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
-    #loader {
+    /* #loader {
         border: 12px solid #f3f3f3;
         border-radius: 50%;
         border-top: 12px solid #444444;
@@ -78,5 +78,5 @@
         100% {
             transform: rotate(360deg);
         }
-    }
+    } */
 </style>
