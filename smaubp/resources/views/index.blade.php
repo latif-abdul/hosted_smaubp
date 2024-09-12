@@ -28,7 +28,7 @@
 
 
 <div class="sambutan container">
-    <h1>WELCOME TO SMA UNggulan Berbasis Pesantren Amanatul Ummah - “The Most Prestigious Tahfidz School”</h1>
+    <h1>WELCOME TO SMA UNggulan Berbasis Pesantren Amanatul Ummah - “Sekolahnya Para Champions”</h1>
     <p>
         “SMA-MA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an” menjamin murid
         muridnya menghafal Al Qur’an , lulus 100% berklasifisi “A”, serta lulusannya diterima di Perguruan Tinggi
@@ -79,7 +79,7 @@
 <!-- jurusan -->
 <div class="jurusan">
     <div class="container">
-        <h2>Prestasi SMA-MAU BP Amanatul Ummah</h2>
+        <h2>Prestasi SMA-Unggulan BP Amanatul Ummah</h2>
         <section id="portfolio" class="portfolio">
             <div class="container">
                 <div class="row portfolio-container">
