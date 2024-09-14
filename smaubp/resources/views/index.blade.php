@@ -219,6 +219,11 @@
                         </h2>
                     </div>
                 </div>
+                <div>
+                    @foreach ($dir as $fileinfo)
+                        <img src="{{$fileinfo->getFilename()}}"
+                    @endforeach
+                </div>
                 <div class="elementor-element elementor-element-b0445fe animated-slow elementor-invisible elementor-widget elementor-widget-text-editor"
                     data-id="b0445fe" data-element_type="widget"
                     data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:500}"
@@ -338,19 +343,19 @@
 
 </section>
 <script>
-    window.addEventListener('load', () => {
-        var $grid = $('.portfolio-container').isotope({
-            itemSelector: '.portfolio-item',
-            // layoutMode: 'fitColumns',
-            // percentPosition: true,
-            // masonry: {
-            //     columnWidth: 100
-            // }
-        });
-        // layout Isotope after each image loads
-        // $grid.imagesLoaded().progress(function () {
-        //     $grid.isotope('layout');
-        // });
-    })
+    // window.addEventListener('load', () => {
+    //     var $grid = $('.portfolio-container').isotope({
+    //         itemSelector: '.portfolio-item',
+    //         // layoutMode: 'fitColumns',
+    //         // percentPosition: true,
+    //         // masonry: {
+    //         //     columnWidth: 100
+    //         // }
+    //     });
+    //     // layout Isotope after each image loads
+    //     // $grid.imagesLoaded().progress(function () {
+    //     //     $grid.isotope('layout');
+    //     // });
+    // })
 </script>
 @endsection

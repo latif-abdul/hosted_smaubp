@@ -6,6 +6,7 @@ use App\Models\Galeri;
 use App\Models\PencapaianAlumni;
 use App\Models\Sambutan;
 use App\Models\SlideShow;
+use DirectoryIterator;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use Spatie\ImageOptimizer\OptimizerChainFactory;
@@ -26,8 +27,9 @@ class ShowController extends Controller
         $artikel = Artikel::with('images')->get()->sortByDesc('updated_at')->take(5);
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
         $alumni = PencapaianAlumni::all();
-        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni'));
-        // return response($artikel);
+        $dir = new DirectoryIterator(public_path('logo kampus'));
+        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni', 'dir'));
+        // return response($dir);
     }
 
     public function show_artikel()
