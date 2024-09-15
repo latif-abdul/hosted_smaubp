@@ -75,7 +75,7 @@
 @endforeach
 
 <br>
-
+<h1>Program Tahfidzul Al-Qur'an</h1>
 <div class="container mainDetailArtikel">
     <p>Pelaksanaan program tahfidzul qur’an di SMAU BP dilaksanakan secara komprehensif setiap hari Senin – Jum’at
         dengan
