@@ -219,9 +219,11 @@
                         </h2>
                     </div>
                 </div>
-                <div>
+                <div align="center">
                     @foreach ($dir as $fileinfo)
-                        <img src="{{$fileinfo->getFilename()}}"
+                        @if (!$fileinfo->isDot())
+                        <img src="/logo kampus/{{$fileinfo->getFilename()}}" width="3%">
+                        @endif
                     @endforeach
                 </div>
                 <div class="elementor-element elementor-element-b0445fe animated-slow elementor-invisible elementor-widget elementor-widget-text-editor"

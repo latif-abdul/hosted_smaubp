@@ -29,6 +29,11 @@ class ShowController extends Controller
         $alumni = PencapaianAlumni::all();
         $dir = new DirectoryIterator(public_path('logo kampus'));
         return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni', 'dir'));
+        // foreach ($dir as $fileinfo){
+        //     if(!$fileinfo->isDot()){
+        //         var_dump($fileinfo->getFilename());
+        //     }
+        // }
         // return response($dir);
     }
 
@@ -36,5 +41,10 @@ class ShowController extends Controller
     {
         $artikel = Artikel::with('images')->get()->sortByDesc('updated_at');
         return view('artikel', compact('artikel'));
+    }
+
+    public function program_tahfidz(){
+        $dir = new DirectoryIterator(public_path('Tahfidzul Qur_an'));
+        return view('program_tahfidz', compact('dir'));
     }
 }
