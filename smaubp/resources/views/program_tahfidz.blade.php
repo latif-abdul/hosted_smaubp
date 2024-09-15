@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 <div class="container detailArtikel">
-    <h2>Program Tahfidz Al-Qur'an</h2>
+    <h2>Program Tahfidzul Al-Qur'an</h2>
 </div>
 
 <img src="/Tahfidzul Qur_an/XII-7 bersama Gus-Ning.jpg" alt="Img Artikel" class="imgArtikel">

@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('program_tahfidz') }}">Program Tahfidz</a>
+                        <a class="nav-link" href="{{ url('program_tahfidz') }}">Program Tahfidzul Al-Qur'an</a>
                     </li>
 
                     <li class="nav-item">
