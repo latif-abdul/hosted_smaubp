@@ -1,4 +1,4 @@
-</div>
+<!-- </div> -->
 <footer class="footer" style="position: absolute;bottom: 0;width:100%">
   <div class="container-fluid">
     <p class="copyright pull-right">
@@ -154,17 +154,17 @@
 <script>
   /* Bootstrap 5 JS included */
 
-console.clear();
-('use strict');
+  // console.clear();
+  ('use strict');
 
 
-// Drag and drop - single or multiple image files
-// https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
-// https://codepen.io/joezimjs/pen/yPWQbd?editors=1000
-(function () {
+  // Drag and drop - single or multiple image files
+  // https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
+  // https://codepen.io/joezimjs/pen/yPWQbd?editors=1000
+  // (function  () {
 
   'use strict';
-  
+
   // Four objects of interest: drop zones, input elements, gallery elements, and the files.
   // dataRefs = {files: [image files], input: element ref, gallery: element ref}
 
@@ -175,7 +175,7 @@ console.clear();
 
   const highlight = event =>
     event.target.classList.add('highlight');
-  
+
   const unhighlight = event =>
     event.target.classList.remove('highlight');
 
@@ -183,7 +183,7 @@ console.clear();
     const zone = element.closest('.upload_dropZone') || false;
     const gallery = zone.querySelector('.upload_gallery') || false;
     const input = zone.querySelector('input[type="file"]') || false;
-    return {input: input, gallery: gallery};
+    return { input: input, gallery: gallery };
   }
 
   const handleDrop = event => {
@@ -191,6 +191,7 @@ console.clear();
     dataRefs.files = event.dataTransfer.files;
     handleFiles(dataRefs);
   }
+
 
 
   const eventHandlers = zone => {
@@ -218,8 +219,23 @@ console.clear();
     // Handle browse selected files
     dataRefs.input.addEventListener('change', event => {
       dataRefs.files = event.target.files;
+      console.log(dataRefs);
       handleFiles(dataRefs);
+
     }, false);
+
+    // $(document).ready(function () {
+    //   for (const file of dataRefs.files) {
+    //     document.getElementById('remove_' + file.name).addEventListener('click', event => {
+    //       removeFile(dataRefs, event.target.parentElement.closest('.upload_img').getAttribute('alt'));
+    //       console.log('success');
+    //     }, false);
+    //   }
+    // });
+    // document.getElementById('remove').addEventListener('click', event => {
+    //   removeFile(dataRefs,event.target.parentElement.closest('.upload_img').getAttribute('alt'));
+    //   console.log('success');
+    // }, false);
 
   }
 
@@ -233,25 +249,61 @@ console.clear();
 
   // No 'image/gif' or PDF or webp allowed here, but it's up to your use case.
   // Double checks the input "accept" attribute
-  const isImageFile = file => 
+  const isImageFile = file =>
     ['image/jpeg', 'image/png', 'image/svg+xml'].includes(file.type);
 
 
   function previewFiles(dataRefs) {
     if (!dataRefs.gallery) return;
     for (const file of dataRefs.files) {
+      console.log(dataRefs);
       let reader = new FileReader();
       reader.readAsDataURL(file);
-      reader.onloadend = function() {
+      reader.onloadend = function () {
+        let preview = document.createElement('div');
+        preview.className = 'preview';
+        preview.style = 'position: relative;';
         let img = document.createElement('img');
         img.className = 'upload_img mt-2';
+        img.style = 'width=100%';
         img.setAttribute('alt', file.name);
         img.src = reader.result;
-        dataRefs.gallery.appendChild(img);
+        let close = document.createElement('span');
+        close.className = 'file-delete';
+        close.id = 'remove_' + file.name
+        close.addEventListener('click', event => {
+          removeFile(dataRefs, img.getAttribute('alt'));
+          console.log('success');
+        }, false);
+        // close.onclick = removeFile(dataRefs, img.getAttribute('alt'))
+        // close.addEventListener('click', event => {
+
+        //   let files = [...dataRefs.files];
+
+        //   files = files.filter(item => {
+        //     return item.name != img.getAttribute('alt') ? item : null;
+        //   });
+
+        //   // if (!files.length) return;
+
+        //   dataRefs.files = files;
+
+        //   previewFiles(dataRefs);
+        //   imageUpload(dataRefs);
+
+        // }, false);
+        let span = document.createElement('span');
+        span.innerHTML = '+';
+        close.appendChild(span);
+        preview.appendChild(img);
+        preview.appendChild(close);
+        // dataRefs.gallery.append(close);
+        dataRefs.gallery.appendChild(preview);
       }
     }
   }
 
+  const formData = new FormData();
   // Based on: https://flaviocopes.com/how-to-upload-files-fetch/
   const imageUpload = dataRefs => {
 
@@ -264,32 +316,36 @@ console.clear();
     const name = dataRefs.input.getAttribute('data-post-name');
     if (!name) return;
 
-    const formData = new FormData();
+
     formData.append(name, dataRefs.files);
+    console.log(formData.getAll('image_background'));
 
     fetch(url, {
       method: 'POST',
-      body: formData
+      body: formData,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
+      },
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('posted: ', data);
-      if (data.success === true) {
-        previewFiles(dataRefs);
-      } else {
-        console.log('URL: ', url, '  name: ', name)
-      }
-    })
-    .catch(error => {
-      console.error('errored: ', error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        console.log('posted: ', data);
+        if (data.success === true) {
+          previewFiles(dataRefs);
+        } else {
+          console.log('URL: ', url, '  name: ', name)
+        }
+      })
+      .catch(error => {
+        console.error('errored: ', error);
+      });
   }
-
 
   // Handle both selected and dropped files
   const handleFiles = dataRefs => {
 
     let files = [...dataRefs.files];
+    console.log(files)
 
     // Remove unaccepted file types
     files = files.filter(item => {
@@ -301,10 +357,26 @@ console.clear();
 
     if (!files.length) return;
     dataRefs.files = files;
-
+    // console.log(files);
     previewFiles(dataRefs);
     imageUpload(dataRefs);
   }
 
-})();
+  const removeFile = (dataRefs, filename) => {
+    let files = [...dataRefs.files];
+    files = files.filter(item => {
+      return item.name != filename ? item : null;
+    });
+
+    // if (!files.length) return;
+
+    dataRefs.files = files;
+    console.log(dataRefs);
+    previewFiles(dataRefs);
+    imageUpload(dataRefs);
+  }
+
+  // })();
+
+  var testPass = 0
 </script>
