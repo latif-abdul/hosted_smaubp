@@ -49,12 +49,12 @@
             <div class="visiMisi">
 
                 <!-- <div class="visi">
-                                <h5>Our Vision</h5>
-                                <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
-                                    kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
-                                    yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
-                                </h3>
-                            </div> -->
+                                    <h5>Our Vision</h5>
+                                    <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
+                                        kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
+                                        yaitu terwujudnya kesejahteraan dan tegaknya keadilan utamanya di negara Republik Indonesia.
+                                    </h3>
+                                </div> -->
 
                 <div class="misi">
                     <h5>{{$sbt->nama}}</h5>
@@ -77,11 +77,11 @@
 <br>
 <h2 align="center">Program Tahfidzul Al-Qur'an</h2>
 <div class="kepsek" data-cues="slideInUp">
-        <div class="container">
-        <img src="/Tahfidzul Qur_an/XII-7 bersama Gus-Ning.jpg" alt="Img Artikel" class="imgArtikel">
+    <div class="container">
+        <img src="/Tahfidzul Qur_an/XII-7 bersama Gus-Ning.jpg" alt="Img Artikel" class="imgArtikel" style="margin-top:10px">
         <div class="visiMisi">
 
-<!-- <div class="visi">
+            <!-- <div class="visi">
                 <h5>Our Vision</h5>
                 <h3>Terwujudnya manusia yang unggul, utuh dan berakhlakul karimah guna kemulyaan dan kejayaan Islam dan kaum muslimin , 
                     kemulyaan dan kejayaan seluruh bangsa Indonesia dan untuk terwujudnya cita cita luhur kemerdekaan
@@ -89,22 +89,26 @@
                 </h3>
             </div> -->
 
-<div class="misi">
-    <!-- <h5></h5> -->
-    <p>Pelaksanaan program tahfidzul qur’an di SMAU BP dilaksanakan secara komprehensif setiap hari Senin – Jum’at
-        dengan
-        menerapkan 3 metode yaitu; tartil, tahfidz dan taqrir. Dari metode tersebut, santri SMAU BP mampu menerapkan
-        metodologi
-        pembelajaran yang ketat dan bertanggung jawab. Alhamdulilah dengan penerapan metode ini, terlihat peningkatan
-        jumlah santri
-        yang mampu menghafal 30 juz. Pada tahun 2024 SMAU BP Amanatul Ummah mewisuda sejumlah 79 santri kategori 30 Juz,
-        92 santri kategori
-        15 Juz, 62 santri kategori 9 Juz</p>
-</div>
+            <div class="misi">
+                <!-- <h5></h5> -->
+                <p>Pelaksanaan program tahfidzul qur’an di SMAU BP dilaksanakan secara komprehensif setiap hari Senin –
+                    Jum’at
+                    dengan
+                    menerapkan 3 metode yaitu; tartil, tahfidz dan taqrir. Dari metode tersebut, santri SMAU BP mampu
+                    menerapkan
+                    metodologi
+                    pembelajaran yang ketat dan bertanggung jawab. Alhamdulilah dengan penerapan metode ini, terlihat
+                    peningkatan
+                    jumlah santri
+                    yang mampu menghafal 30 juz. Pada tahun 2024 SMAU BP Amanatul Ummah mewisuda sejumlah 79 santri
+                    kategori 30 Juz,
+                    92 santri kategori
+                    15 Juz, 62 santri kategori 9 Juz</p>
+            </div>
 
+        </div>
+    </div>
 </div>
-        </div>
-        </div>
 
 <!-- jurusan -->
 <div class="jurusan">
@@ -175,16 +179,16 @@
                                         <strong>Waktu Pendaftaran</strong>
                                     </td>
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">10 Juli &#8211;30 September 2024</td>
-                                    <td class="column-4">2 Oktober 2024 &#8211;1 Maret 2025</td>
-                                    <td class="column-5">3 Maret &#8211;28 Juni 2025</td>
+                                    <td class="column-3">10 Juli &#8211;19 Oktober 2024</td>
+                                    <td class="column-4">20 Oktober 2024 &#8211;1 Maret 2025</td>
+                                    <td class="column-5">2 Maret &#8211;29 Juni 2025</td>
                                 </tr>
                                 <tr class="row-3 odd">
                                     <td class="column-1">
                                         <strong>Pelaksanaan Ujian</strong>
                                     </td>
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">1 Oktober 2024</td>
+                                    <td class="column-3">20 Oktober 2024</td>
                                     <td class="column-4">2 Maret 2025</td>
                                     <td class="column-5">29 Juni 2025</td>
                                 </tr>
@@ -200,6 +204,7 @@
                             </tbody>
                         </table>
                         </p>
+                        <center><a class="btn btn-primary" href="/form">Daftar</a></center>
                     </div>
                 </div>
             </div>
@@ -225,7 +230,7 @@
                 <small>Di tulis oleh : <span>{{$art->penulis}}</span></small>
                 <p>
                     <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti quo, iure repellendus explicabo
-                                    delectus quasi amet libero iusto sequi at. -->
+                                        delectus quasi amet libero iusto sequi at. -->
                 </p>
             </a>
         @endforeach
@@ -252,7 +257,7 @@
                 <div align="center">
                     @foreach ($dir as $fileinfo)
                         @if (!$fileinfo->isDot())
-                        <img src="/logo kampus/{{$fileinfo->getFilename()}}" width="3%">
+                            <img src="/logo kampus/{{$fileinfo->getFilename()}}" width="3%">
                         @endif
                     @endforeach
                 </div>

@@ -33,17 +33,17 @@
                 <tbody>
                     <tr>
                         <td>Gelombang 1</td>
-                        <td>10 Juli - 30 September 2024</td>
-                        <td>1 Oktober 2024</td>
+                        <td>10 Juli - 19 Oktober 2024</td>
+                        <td>20 Oktober 2024</td>
                     </tr>
                     <tr>
                         <td>Gelombang 2</td>
-                        <td>2 Oktober 2024 - 1 Maret 2025</td>
+                        <td>20 Oktober 2024 - 1 Maret 2025</td>
                         <td>2 Maret 2025</td>
                     </tr>
                     <tr>
                         <td>Gelombang 3</td>
-                        <td>3 Maret - 28 Juni 2025</td>
+                        <td>3 Maret - 29 Juni 2025</td>
                         <td>29 Juni 2025</td>
                     </tr>
                 </tbody>
