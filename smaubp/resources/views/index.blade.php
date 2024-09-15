@@ -90,7 +90,7 @@
             </div> -->
 
 <div class="misi">
-    <h5></h5>
+    <!-- <h5></h5> -->
     <p>Pelaksanaan program tahfidzul qur’an di SMAU BP dilaksanakan secara komprehensif setiap hari Senin – Jum’at
         dengan
         menerapkan 3 metode yaitu; tartil, tahfidz dan taqrir. Dari metode tersebut, santri SMAU BP mampu menerapkan
