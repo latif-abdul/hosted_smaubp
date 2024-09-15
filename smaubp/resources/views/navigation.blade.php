@@ -30,9 +30,9 @@
                         <a class="nav-link" href="{{ url('artikel') }}">Artikel</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ url('program_tahfidz') }}">Program Tahfidzul Al-Qur'an</a>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Galeri</a>
