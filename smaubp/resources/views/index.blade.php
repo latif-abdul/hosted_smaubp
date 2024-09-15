@@ -90,7 +90,7 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row portfolio-container">
-                @foreach ($dir as $fileinfo)
+                @foreach ($dir2 as $fileinfo)
                     @if (!$fileinfo->isDot())
                         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                             <div class="portfolio-wrap">
