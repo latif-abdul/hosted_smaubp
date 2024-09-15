@@ -28,7 +28,7 @@ class ShowController extends Controller
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
         $alumni = PencapaianAlumni::all();
         $dir = new DirectoryIterator(public_path('logo kampus'));
-        $dir = new DirectoryIterator(public_path('Tahfidzul Qur_an'));
+        $dir2 = new DirectoryIterator(public_path('Tahfidzul Qur_an'));
         return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni', 'dir', 'dir2'));
         // foreach ($dir as $fileinfo){
         //     if(!$fileinfo->isDot()){
