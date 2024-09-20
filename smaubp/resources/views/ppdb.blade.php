@@ -159,6 +159,13 @@
                             Pengumuman
                         </a>
                     </div>
+                    <br>
+                    <div class="containerIconShare">
+                        <a href="/download_file?path=uploads%2FBrosur%202024%20SMAU%20BP%20Amanatul%20Ummah.pdf" class="btn btn-primary mr-3">
+                            <!-- <a href="https://bit.ly/44fRtwQ" class="btn btn-primary mr-3"> -->
+                            Download Brosur
+                        </a>
+                    </div>
                 </div>
 
                 <hr>

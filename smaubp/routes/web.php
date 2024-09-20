@@ -60,6 +60,7 @@ Route::get('/galleries', [GaleriController::class, 'show_all']);
 Route::post('/post_comment', [ArtikelController::class, 'postComment']);
 Route::get('/get_comment/{id}', [ArtikelController::class, 'getComment']);
 Route::get('/program_tahfidz', [ShowController::class, 'program_tahfidz']);
+Route::get('/download_file', [ShowController::class, 'download']);
 // Route::post('/artikel/{id}', [ArtikelController::class])
 
 

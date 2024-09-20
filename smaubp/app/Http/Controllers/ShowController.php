@@ -9,6 +9,7 @@ use App\Models\SlideShow;
 use DirectoryIterator;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
+use Response;
 use Spatie\ImageOptimizer\OptimizerChainFactory;
 
 class ShowController extends Controller
@@ -47,5 +48,12 @@ class ShowController extends Controller
     public function program_tahfidz(){
         $dir = new DirectoryIterator(public_path('Tahfidzul Qur_an'));
         return view('program_tahfidz', compact('dir'));
+    }
+
+    public function download(Request $request){
+        $headers = array(
+            'Content-Type: application/pdf',
+          );
+        return Response::download(public_path($request->path), 'Brosur 2024 SMAU BP Amanatul Ummah.pdf', $headers);
     }
 }
