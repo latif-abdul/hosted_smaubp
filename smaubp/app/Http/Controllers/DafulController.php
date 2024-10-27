@@ -67,11 +67,11 @@ class DafulController extends Controller
             $request->file('kartu_keluarga')->move('uploads', $daful->kartu_keluarga);
             $daful->save();
         }
-        if ($request->hasFile('skl')) {
-            $daful->skl = $santri->nama_lengkap . time() . '-' . $request->file('skl')->getClientOriginalName();
-            $request->file('skl')->move('uploads', $daful->skl);
-            $daful->save();
-        }
+        // if ($request->hasFile('skl')) {
+        //     $daful->skl = $santri->nama_lengkap . time() . '-' . $request->file('skl')->getClientOriginalName();
+        //     $request->file('skl')->move('uploads', $daful->skl);
+        //     $daful->save();
+        // }
         if ($request->hasFile('bukti_transfer')) {
             $daful->bukti_transfer = $santri->nama_lengkap . time() . '-' . $request->file('bukti_transfer')->getClientOriginalName();
             $request->file('bukti_transfer')->move('uploads', $daful->bukti_transfer);
