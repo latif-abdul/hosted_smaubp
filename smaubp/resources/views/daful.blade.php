@@ -44,21 +44,18 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="file-field">
                         <label>Surat Keterangan Lulus (SKL) atau halaman biodata rapor</label>
                         <input type="file" class="form-control" name="skl" required>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Bukti transfer pembayaran daftar ulang</label>
                         <input type="file" class="form-control" name="bukti_transfer" required>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
                 <div class="col-md-6">
                     <div class="file-field">
                         <label>Pas Foto berwarna</label>
@@ -67,6 +64,15 @@
                 </div>
             </div>
             <br>
+            <!-- <div class="row">
+                <div class="col-md-6">
+                    <div class="file-field">
+                        <label>Pas Foto berwarna</label>
+                        <input type="file" class="form-control" name="foto" required>
+                    </div>
+                </div>
+            </div>
+            <br> -->
             <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">

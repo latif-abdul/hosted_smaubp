@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                 <label class="">
                         SKL
                     </label>
@@ -77,6 +77,26 @@
                         </label>
                     </div>
                     <a class=" btn btn-success" href="/admin/daful/download/{{$daful->skl}}">Download File</a>
+                </div> -->
+                <div class="col-md-6">
+                <label class="">
+                        Foto
+                    </label>
+                    <div class="row">
+                        <div class="col-md">
+                            @if(isset($daful->foto))
+                                <img src="/uploads/{{$daful->foto}}" width="80%">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1"
+                            name="verifikasi_foto" {{{old('status', isset($daful->verifikasi_foto) && $daful->verifikasi_foto == "1" ? 'checked' : '')}}}>
+                        <label class="form-check-label" for="defaultCheck1">
+                            Terverifikasi
+                        </label>
+                    </div>
+                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->foto}}">Download File</a>
                 </div>
                 <div class="col-md-6">
                 <label class="">
@@ -100,7 +120,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                 <label class="">
                         Foto
                     </label>
@@ -119,7 +139,7 @@
                         </label>
                     </div>
                     <a class=" btn btn-success" href="/admin/daful/download/{{$daful->foto}}">Download File</a>
-                </div>
+                </div> -->
 
             </div>
 
