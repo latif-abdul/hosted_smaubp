@@ -281,7 +281,7 @@ class SiswaController extends Controller
         }
         $logo = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/logo_pdf.png'));
         $smart_quranic = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/smart quranic.png'));
-        $foto = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/' + $siswa->foto));
+        $foto = base64_encode(file_get_contents('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/' . $siswa->foto));
 
         $type_logo = pathinfo('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/logo_pdf.png', PATHINFO_EXTENSION);
         $type_SQ = pathinfo('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/images/smart quranic.png', PATHINFO_EXTENSION);
@@ -316,7 +316,7 @@ class SiswaController extends Controller
 
         $logo = base64_encode(file_get_contents(public_path('images/logo_pdf.png')));
         $smart_quranic = base64_encode(file_get_contents(public_path('images/smart quranic.png')));
-        $foto = base64_encode(file_get_contents(public_path('uploads/' + $siswa->foto)));
+        $foto = base64_encode(file_get_contents(public_path('uploads/' . $siswa->foto)));
 
         $type_logo = pathinfo(public_path('images/logo_pdf.png'), PATHINFO_EXTENSION);
         $type_SQ = pathinfo(public_path('images/smart quranic.png'), PATHINFO_EXTENSION);
