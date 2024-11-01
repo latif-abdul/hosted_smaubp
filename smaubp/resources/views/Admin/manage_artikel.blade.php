@@ -86,7 +86,7 @@
                     <p class="small my-2">Drag &amp; Drop background image(s) inside dashed region<br><i>or</i></p>
 
                     <input id="upload_image_background" data-post-name="image_background"
-                        data-post-url="https://someplace.com/image/uploads/backgrounds/"
+                        data-post-url="{{$formAction}}"
                         class="position-absolute invisible" type="file" multiple
                         accept="image/jpeg, image/png, image/svg+xml" name="gambar[]" />
 
@@ -94,10 +94,34 @@
                         file(s)</label>
 
                     <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
-                    @isset($gambar)   
-                    @foreach ($gambar as $img)
+                        @isset($gambar)
+                        <script>
+                            const dataTransfer = new DataTransfer();
+                        </script>
+                        @foreach ($gambar as $img)
                             <img class="upload_img mt-2" alt="3.jpeg" src="{{url('/uploads/' . $img->gambar)}}">
+                            <script>
+                                $(document).ready(function () {
+                                    fetch("{{url('/uploads/' . $img->gambar)}}")
+                                        .then((res) => {
+                                            console.log(testPass)
+                                            dataTransfer.items.add(res);
+                                        })
+                                        .catch((e) => console.error(e));
+                                    // const myFile = new File('{{$img->gambar}}');
+                                    // const reader = new FileReader();
+
+                                    // // Now let's create a DataTransfer to get a FileList
+                                    // const dataTransfer = new DataTransfer();
+                                    
+                                    // // fileInput.files = dataTransfer.files;
+
+                                });
+                            </script>
                         @endforeach
+                            <script>
+                                handleFiles(dataTransfer);
+                            </script>
                         @endisset
                     </div>
 
@@ -113,7 +137,7 @@
             <br>
             <button type="submit" class="btn btn-primary btn-fill" data-toggle="modal"
                 data-target="#exampleModal">Simpan</button>
-            <a href="/admin/artikel" class="btn btn-primary btn-fill">Kembali</a>
+            <a href="{{url()->previous()}}" class="btn btn-primary btn-fill">Kembali</a>
 
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">

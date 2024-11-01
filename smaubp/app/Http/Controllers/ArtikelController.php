@@ -16,7 +16,9 @@ class ArtikelController extends Controller
     public function index()
     {
         $artikel = Artikel::all();
-        return view("Admin.artikel_index", compact("artikel"));
+        $title = "Artikel";
+        $base_url = "/admin/artikel";
+        return view("Admin.artikel_index", compact("artikel", "title", "base_url"));
     }
 
     /**
@@ -66,7 +68,8 @@ class ArtikelController extends Controller
     {
         $artikel = Artikel::find($id);
         $gambar = $artikel->images()->get();
-        return view('Admin.show_artikel', compact('artikel', 'gambar'));
+        $comment_url = '';
+        return view('Admin.show_artikel', compact('artikel', 'gambar', 'comment_url'));
         // return response($gambar);
     }
 
@@ -74,10 +77,11 @@ class ArtikelController extends Controller
     {
         $artikel = Artikel::find($id);
         $gambar = $artikel->images()->get();
+        $comment_url = '';
         if ($artikel === null) {
             return view('artikel_not_found')->with('failed', 'Artikel Not Found');
         }
-        return view('perArtikel', compact('artikel', 'gambar'));
+        return view('perArtikel', compact('artikel', 'gambar', 'comment_url'));
         // return response($gambar);
     }
 
@@ -98,16 +102,23 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $artikel = Artikel::find($id)->update($request->all());
+        $artikel = Artikel::find($id);
+        $artikel->update($request->all());
 
         if (!Storage::exists('artikel_images')) {
             Storage::makeDirectory('artikel_images');
         }
 
         if ($request->hasFile('gambar')) {
-            $gambar = time() . '-' . $request->file('gambar')->getClientOriginalName();
-            $request->file('gambar')->move('uploads', $gambar);
-            Artikel::find($id)->update(['gambar' => $gambar]);
+            $slideShow = $artikel->images()->delete();
+            for ($i = 0; $i < count($request->name); $i++) {
+                $filename = time() . '-' . $request->name[$i]->getClientOriginalName();
+                $request->name[$i]->move('uploads', $filename);
+                
+                $slideShow = $artikel->images()->create([
+                    "gambar" => $filename,
+                ]);
+            }
         }
 
         return redirect()->back()->with('success', 'Artikel updated successfully')
