@@ -52,6 +52,12 @@
                 </a>
             </li>
             <li>
+                <a href="/galeri">
+                    <i class="fa-solid fa-image"></i>
+                    <p>Galeri</p>
+                </a>
+            </li>
+            <!-- <li>
                 <a href="maps.html">
                     <i class="pe-7s-map-marker"></i>
                     <p>Maps</p>
@@ -62,7 +68,7 @@
                     <i class="pe-7s-bell"></i>
                     <p>Notifications</p>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>
@@ -88,21 +94,22 @@
     </nav>
 </div> -->
 <div class="main-panel">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <ul class="navbar-nav navbar-left pull-right">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle  me-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{Auth::user()->name}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/edit_profile">Edit Profile</a>
-          <a class="dropdown-item" href="/change_password">Change Password</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-left pull-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle  me-5" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{Auth::user()->name}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/edit_profile">Edit Profile</a>
+                        <a class="dropdown-item" href="/change_password">Change Password</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+    </nav>
 
-<div class="content">@yield('content')</div>
+    <div class="content">@yield('content')</div>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="prestasi">Prestasi</label>
+                        <label for="prestasi">Name</label>
                         <input type="text" id="prestasi" class="form-control" name="prestasi"
                             value="{{{old('prestasi', isset($galeri->prestasi) ? $galeri->prestasi : '')}}}" required>
                     </div>

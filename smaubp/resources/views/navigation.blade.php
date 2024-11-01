@@ -35,7 +35,8 @@
                     </li> -->
 
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Galeri</a>
+                        <!-- <a class="nav-link" href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Galeri</a> -->
+                         <a class="nav-link" href="{{ url('galleries') }}">Galeri</a>
                     </li>
 
                     <li class="nav-item">
