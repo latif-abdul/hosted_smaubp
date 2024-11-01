@@ -30,6 +30,10 @@
                         <a class="nav-link" href="{{ url('artikel') }}">Artikel</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('artikel_santri') }}">Artikel Santri</a>
+                    </li>
+
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ url('program_tahfidz') }}">Program Tahfidzul Al-Qur'an</a>
                     </li> -->

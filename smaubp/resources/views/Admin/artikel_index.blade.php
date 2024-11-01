@@ -5,10 +5,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Artikel</h4>
+                    <h4 class="title">{{$title}}</h4>
                 </div>
                 <div class="container">
-                    <a href="/admin/artikel/create" class="btn btn-info btn-fill">Tambah</a>
+                    <a href="{{$base_url}}/create" class="btn btn-info btn-fill">Tambah</a>
                 </div>
                 <div class="content">
                     <div class="header_wrap">
@@ -38,8 +38,8 @@
 
 
                         <thead>
-                            <th>No Pendaftaran</th>
-                            <th>Nama</th>
+                            <th>Judul</th>
+                            <th>Penulis</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -48,11 +48,11 @@
                                     <td>{{$art->judul}}</td>
                                     <td>{{$art->penulis}}</td>
                                     <td>
-                                        <a class="btn btn-secondary" href="/admin/artikel/{{$art->id}}"><i
+                                        <a class="btn btn-secondary" href="{{$base_url}}/{{$art->id}}"><i
                                                 class="fa-solid fa-eye"></i></a>
-                                        <a class="btn btn-primary" href="/admin/artikel/{{$art->id}}/edit"><i
+                                        <a class="btn btn-primary" href="{{$base_url}}/{{$art->id}}/edit"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="/admin/artikel/{{$art->id}}/delete"><i
+                                        <a class="btn btn-danger" href="{{$base_url}}/{{$art->id}}/delete"><i
                                                 class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>

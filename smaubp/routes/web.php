@@ -19,10 +19,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [ShowController::class, 'index']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'show2']);
+Route::get('/artikel_santri/{id}', [ArtikelSantriController::class, 'show2']);
 Route::get('/ekskul', function () {
     return view('ekstrakulikuler');
 })->name('eksul');
 Route::get('/artikel', [ShowController::class, 'show_artikel']);
+Route::get('/artikel_santri', [ShowController::class, 'show_artikel_santri']);
 Route::get('/tentang', function () {
     return view('tentang kami');
 })->name('tentang');
@@ -59,6 +61,8 @@ Route::post('/daftar', [SiswaController::class, 'store']);
 Route::get('/galleries', [GaleriController::class, 'show_all']);
 Route::post('/post_comment', [ArtikelController::class, 'postComment']);
 Route::get('/get_comment/{id}', [ArtikelController::class, 'getComment']);
+Route::post('/post_comment_santri', [ArtikelSantriController::class, 'postComment']);
+Route::get('/get_comment_santri/{id}', [ArtikelSantriController::class, 'getComment']);
 Route::get('/program_tahfidz', [ShowController::class, 'program_tahfidz']);
 Route::get('/download_file', [ShowController::class, 'download']);
 // Route::post('/artikel/{id}', [ArtikelController::class])
@@ -70,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resources([
         'admin/contact' => ContactController::class,
         'admin/artikel' => ArtikelController::class,
+        'admin/artikel_santri' => ArtikelSantriController::class,
         'admin/siswa_baru' => SiswaController::class,
         'admin/ekskul' => EkskulController::class,
         'admin/pencapaian_alumni' => PencapaianAlumniController::class,

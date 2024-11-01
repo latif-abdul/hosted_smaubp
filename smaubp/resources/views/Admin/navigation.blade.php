@@ -33,6 +33,13 @@
                     <p>Artikel</p>
                 </a>
             </li>
+            
+            <li>
+                <a href="/admin/artikel_santri">
+                    <i class="pe-7s-note2"></i>
+                    <p>Artikel Santri</p>
+                </a>
+            </li>
             <li>
                 <a href="/admin/siswa_baru">
                     <i class="pe-7s-user"></i>

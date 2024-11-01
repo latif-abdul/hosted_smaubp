@@ -82,7 +82,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "{{url('/get_comment/' . $artikel->id)}}",
+            url: "{{url('/get_comment'.$comment_url.'/' . $artikel->id)}}",
             processData: false,
             contentType: false,
             cache: false,
@@ -214,7 +214,7 @@
                             let formData = new FormData(this);
                             $.ajax({
                                 type: "POST",
-                                url: "{{url('/post_comment')}}",
+                                url: "{{url('/post_comment'.$comment_url.'')}}",
                                 processData: false,
                                 contentType: false,
                                 cache: false,
@@ -320,7 +320,7 @@
         let formData = new FormData(this);
         $.ajax({
             type: "POST",
-            url: "{{url('/post_comment')}}",
+            url: "{{url('/post_comment'.$comment_url.'')}}",
             processData: false,
             contentType: false,
             cache: false,
@@ -436,7 +436,7 @@
                         divForm.appendChild(email)
                         divForm.appendChild(comment)
                         divForm.appendChild(id_artikel)
-                        divForm.appendChild(id_comment)
+                        divForm.appendChild(id)
                         divForm.appendChild(submitComment)
 
                         postComment.appendChild(divForm)
@@ -448,7 +448,7 @@
                             let formData = new FormData(this);
                             $.ajax({
                                 type: "POST",
-                                url: "{{url('/post_comment')}}",
+                                url: "{{url('/post_comment'.$comment_url.'')}}",
                                 processData: false,
                                 contentType: false,
                                 cache: false,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArtikelSantri;
 use App\Models\Galeri;
 use App\Models\PencapaianAlumni;
 use App\Models\Sambutan;
@@ -42,7 +43,16 @@ class ShowController extends Controller
     public function show_artikel()
     {
         $artikel = Artikel::with('images')->get()->sortByDesc('updated_at');
-        return view('artikel', compact('artikel'));
+        $base_url = "/artikel";
+        return view('artikel', compact('artikel', 'base_url'));
+    }
+
+    public function show_artikel_santri()
+    {
+        $artikel = ArtikelSantri::with('images')->get()->sortByDesc('updated_at');
+        $base_url = "/artikel_santri";
+        // return response($artikel);
+        return view('artikel', compact('artikel', 'base_url'));
     }
 
     public function program_tahfidz(){

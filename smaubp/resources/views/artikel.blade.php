@@ -8,7 +8,7 @@
 <div class="container artikel">
 
     @foreach ($artikel as $art)
-        <a href="/artikel/{{$art->id}}" class="text-decoration-none">
+        <a href="{{$base_url}}/{{$art->id}}" class="text-decoration-none">
             <div class="perArtikel">
                 @foreach($art->images as $img)
                     @if ($loop->first)
