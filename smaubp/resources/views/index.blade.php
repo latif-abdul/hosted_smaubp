@@ -76,7 +76,7 @@
 @endforeach
 
 <br>
-<h2 align="center">Program Tahfidzul Al-Qur'an</h2>
+<h2 align="center">Program Tahfidzul Qur'an</h2>
 <div class="kepsek" data-cues="slideInUp">
     <div class="container">
         <img src="/Tahfidzul Qur_an/XII-7 bersama Gus-Ning.jpg" alt="Img Artikel" class="imgArtikel" style="margin-top:10px">
