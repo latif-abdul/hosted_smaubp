@@ -5,14 +5,20 @@ namespace App\Exports;
 use App\Models\Daful;
 use App\Models\Santris;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class DafulExport implements FromCollection
+class DafulExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Daful::with('santri')->select('nama_lengkap')->get();
+        return Santris::rightJoin('daful', 'Daful.id_santris', '=', 'santris.id')->distinct()->get(['nama_lengkap']);
+    }
+
+    public function headings(): array
+    {
+        return ["Nama"];
     }
 }
