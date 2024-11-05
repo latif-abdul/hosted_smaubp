@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Daful;
+use App\Models\Santris;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class DafulExport implements FromCollection
@@ -12,6 +13,6 @@ class DafulExport implements FromCollection
     */
     public function collection()
     {
-        return Daful::with('daful')->select('nama_lengkap')->get();
+        return Santris::with('daful')->select('nama_lengkap')->get();
     }
 }
