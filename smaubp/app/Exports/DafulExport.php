@@ -13,6 +13,6 @@ class DafulExport implements FromCollection
     */
     public function collection()
     {
-        return Santris::with('daful')->select('nama_lengkap')->get();
+        return Daful::with('santri')->select('nama_lengkap')->get();
     }
 }
