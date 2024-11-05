@@ -12,6 +12,6 @@ class DafulExport implements FromCollection
     */
     public function collection()
     {
-        return Daful::all();
+        return Daful::with('daful')->select('nama_lengkap')->get();
     }
 }
