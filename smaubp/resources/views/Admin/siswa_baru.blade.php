@@ -61,7 +61,7 @@
                     @endif
 
                     <br>
-                    <a class="btn btn-primary" href="{{url('/admin/daful/export')}}">Export Data Daftar Ulang</a>
+                    <a class="btn btn-primary" href="{{url('/admin/export_daful')}}">Export Data Daftar Ulang</a>
                     <br>
                     <div class="header_wrap">
                         <div class="num_rows">
