@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DafulExport;
 use Illuminate\Http\Request;
 use App\Models\Santris;
 use App\Models\Daful;
@@ -138,6 +139,6 @@ class DafulController extends Controller
     public function export_excel()
     {
         $today = Carbon::now()->isoFormat('D MMMM Y');
-        return Excel::download(new SiswaExport, 'Daftar Ulang '.$today.'.xlsx');
+        return Excel::download(new DafulExport, 'Daftar Ulang '.$today.'.xlsx');
     }
 }
