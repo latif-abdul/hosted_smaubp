@@ -14,7 +14,7 @@ class DafulExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Santris::rightJoin('daful', 'Daful.id_santris', '=', 'santris.id')->distinct()->get(['nama_lengkap']);
+        return Santris::rightJoin('daful', 'daful.id_santris', '=', 'santris.id')->distinct()->get(['nama_lengkap']);
     }
 
     public function headings(): array
