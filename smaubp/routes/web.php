@@ -101,6 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/sambutan', [SambutanController::class, 'update']);
     Route::delete('setting', function(){});
     Route::post('/admin/pencapaian_alumni/import', [PencapaianAlumniController::class, 'import_excel']);
+    Route::get('/admin/daful/export', [DafulController::class, 'export_excel']);
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

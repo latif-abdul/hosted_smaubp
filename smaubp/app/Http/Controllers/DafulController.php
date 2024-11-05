@@ -8,6 +8,8 @@ use App\Models\Daful;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Excel;
+use Carbon\Carbon;
 
 class DafulController extends Controller
 {
@@ -131,5 +133,11 @@ class DafulController extends Controller
 
     public function downloadImage(string $imagePath){
         return Response::download('/home/u346878522/domains/smaubp-tahfidz.sch.id/public_html/uploads/'.$imagePath);
+    }
+
+    public function export_excel()
+    {
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+        return Excel::download(new SiswaExport, 'Daftar Ulang '.$today.'.xlsx');
     }
 }

@@ -61,6 +61,7 @@
                     @endif
 
                     <br>
+                    <a class="btn btn-primary" href="{{url('/admin/daful/export_excel')}}"></a>
                     <br>
                     <div class="header_wrap">
                         <div class="num_rows">
