@@ -156,7 +156,7 @@
                                 </ul>
                             </nav>
                             <!-- </div> -->
-                            <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+                            <div class="rows_count" id="rows_count">Showing 11 to 20 of 91 entries</div>
 
                             <!-- 		End of Container -->
 
@@ -211,9 +211,9 @@
                                                 <a class="btn btn-success"
                                                     href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
                                                         class="fa-brands fa-whatsapp"></i></a>
-                                                <a class="btn btn-info"
+                                                <!-- <a class="btn btn-info"
                                                     href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
-                                                        class="fa-solid fa-file-arrow-down"></i></a>
+                                                        class="fa-solid fa-file-arrow-down"></i></a> -->
                                             </td>
                                         </tr>
                                     @endforeach
@@ -240,7 +240,7 @@
                                 </ul>
                             </nav>
                             <!-- </div> -->
-                            <div class="rows_count-2">Showing 11 to 20 of 91 entries</div>
+                            <div class="rows_count" id="rows_count-2">Showing 11 to 20 of 91 entries</div>
 
                             <!-- 		End of Container -->
 
