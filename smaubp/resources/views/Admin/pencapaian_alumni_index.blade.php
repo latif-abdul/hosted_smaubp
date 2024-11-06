@@ -53,8 +53,8 @@
                             </div>
                         </div>
                         <div class="tb_search">
-                            <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
-                                placeholder="Search.." class="form-control">
+                        <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                        placeholder="Search.." class="form-control">
                         </div>
                     </div>
                     <table class="table table-striped table-class" id="table-id">

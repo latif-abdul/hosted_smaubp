@@ -151,7 +151,7 @@
     }
   }
   // All Table search script
-  function FilterkeyWord_all_table(tableId, searchInput) {
+  function FilterkeyWord_all_table(tableId, searchInput, maxRows) {
 
     // Count td if you want to search on all table instead of specific column
 
@@ -193,7 +193,7 @@
       }
     } else {
       //RESET TABLE
-      $('#maxRows').trigger('change');
+      $('#'+maxRows).trigger('change');
     }
   }
 </script>
