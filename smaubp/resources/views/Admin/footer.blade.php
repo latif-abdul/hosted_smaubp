@@ -9,8 +9,8 @@
 </footer>
 <script src="{{url('js/demo.js')}}"></script>
 <script>
-  getPagination('#table-id', '.pagination', '#maxRows', '.rows_count');
-  getPagination('#table-id-2', '.pagination-2', '#maxRows-2', '.rows_count-2');
+  getPagination('#table-id', '#pagination', '#maxRows', '.rows_count');
+  getPagination('#table-id-2', '#pagination-2', '#maxRows-2', '.rows_count-2');
   $('#maxRows').trigger('change');
   $('#maxRows-2').trigger('change');
   function getPagination(table, pagination, maxRow, rowsCount) {

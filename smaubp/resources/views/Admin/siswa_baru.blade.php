@@ -151,7 +151,7 @@
                             <!--		Start Pagination -->
                             <!-- <div class='pagination-container'> -->
                             <nav>
-                                <ul class="pagination">
+                                <ul class="pagination" id="pagination">
                                     <!--	Here the JS Function Will Add the Rows -->
                                 </ul>
                             </nav>
@@ -235,7 +235,7 @@
                             <!--		Start Pagination -->
                             <!-- <div class='pagination-container'> -->
                             <nav>
-                                <ul class="pagination-2">
+                                <ul class="pagination" id="pagination-2">
                                     <!--	Here the JS Function Will Add the Rows -->
                                 </ul>
                             </nav>
