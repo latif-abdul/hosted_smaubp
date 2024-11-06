@@ -117,7 +117,7 @@
     var input_value = document.getElementById("filter-batch").value;
     filter = input.value.toLowerCase();
     if (input_value != '') {
-      table = document.getElementById("table-id");
+      table = document.getElementsByClassName("table");
       tr = table.getElementsByTagName("tr");
 
       // Loop through all table rows, and hide those who don't match the search query

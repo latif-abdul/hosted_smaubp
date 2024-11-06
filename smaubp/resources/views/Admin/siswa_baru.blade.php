@@ -69,12 +69,14 @@
                         <select class="form-select" id="filter-batch" aria-label="filter-batch"
                             name="tahun_ajaran_id">
                             @foreach ($batch as $ta)
-                                <option value="{{$ta->id}}">{{$ta->name}}</option>
+                                <option value="{{$ta->name}}">{{$ta->name}}</option>
                             @endforeach
                         </select>
                         <label for="filter-batch">Batch</label>
                     </div>
+                    <br>
                     <button class="btn btn-warning"onclick="FilterBatch()">Filter</button>
+                    <br>
                     <br>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -208,6 +210,7 @@
                                 <thead>
                                     <th>No Pendaftaran</th>
                                     <th>Nama</th>
+                                    <th>Batch</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -215,6 +218,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
+                                            <td>{{$santri->name}}</td>
                                             <td>
                                                 <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                         class="fa-solid fa-eye"></i></a>
