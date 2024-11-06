@@ -106,20 +106,64 @@
     });
   }
 
-  // All Table search script
-  function FilterkeyWord_all_table() {
-
+  function FilterBatch() {
     // Count td if you want to search on all table instead of specific column
 
     var count = $('.table').children('tbody').children('tr:first-child').children('td').length;
 
     // Declare variables
     var input, filter, table, tr, td, i;
-    input = document.getElementById("search_input_all");
-    var input_value = document.getElementById("search_input_all").value;
+    input = document.getElementById("filter-batch");
+    var input_value = document.getElementById("filter-batch").value;
     filter = input.value.toLowerCase();
     if (input_value != '') {
-      table = document.getElementById("table-id");
+      table = document.getElementByC("table-id");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 1; i < tr.length; i++) {
+
+        var flag = 0;
+
+        for (j = 0; j < count; j++) {
+          td = tr[i].getElementsByTagName("td")[j];
+          if (td) {
+
+            var td_text = td.innerHTML;
+            if (td.innerHTML.toLowerCase().indexOf(filter) > -1) {
+              //var td_text = td.innerHTML;  
+              //td.innerHTML = 'shaban';
+              flag = 1;
+            } else {
+              //DO NOTHING
+            }
+          }
+        }
+        if (flag == 1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    } else {
+      //RESET TABLE
+      $('#maxRows').trigger('change');
+    }
+  }
+  // All Table search script
+  function FilterkeyWord_all_table(tableId, searchInput) {
+
+    // Count td if you want to search on all table instead of specific column
+
+    var count = $('#'+tableId).children('tbody').children('tr:first-child').children('td').length;
+
+    // Declare variables
+    var input, filter, table, tr, td, i;
+    input = document.getElementById(searchInput);
+    var input_value = document.getElementById(searchInput).value;
+    filter = input.value.toLowerCase();
+    if (input_value != '') {
+      table = document.getElementById(tableId);
       tr = table.getElementsByTagName("tr");
 
       // Loop through all table rows, and hide those who don't match the search query

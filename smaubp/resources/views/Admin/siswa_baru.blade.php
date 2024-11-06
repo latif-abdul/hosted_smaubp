@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="tb_search">
-                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
+                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all')"
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                                 <div class="tb_search">
-                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
+                                    <input type="text" id="search_input_all_2" onkeyup="FilterkeyWord_all_table('table-id-2', 'search_input_all_2')"
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
