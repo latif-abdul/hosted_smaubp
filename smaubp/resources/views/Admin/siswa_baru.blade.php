@@ -169,7 +169,7 @@
                                 <div class="num_rows">
 
                                     <div class="form-group"> <!--		Show Numbers Of Rows 		-->
-                                        <select class="form-control" name="state" id="maxRows">
+                                        <select class="form-control" name="state" id="maxRows-2">
 
 
                                             <option value="10">10</option>
@@ -235,12 +235,12 @@
                             <!--		Start Pagination -->
                             <!-- <div class='pagination-container'> -->
                             <nav>
-                                <ul class="pagination">
+                                <ul class="pagination-2">
                                     <!--	Here the JS Function Will Add the Rows -->
                                 </ul>
                             </nav>
                             <!-- </div> -->
-                            <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+                            <div class="rows_count-2">Showing 11 to 20 of 91 entries</div>
 
                             <!-- 		End of Container -->
 

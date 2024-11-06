@@ -9,13 +9,14 @@
 </footer>
 <script src="{{url('js/demo.js')}}"></script>
 <script>
-  getPagination('#table-id');
-  getPagination('#table-id-2');
+  getPagination('#table-id', '.pagination', '#maxRows', '.rows_count');
+  getPagination('#table-id-2', '.pagination-2', '#maxRows-2', '.rows_count-2');
   $('#maxRows').trigger('change');
-  function getPagination(table) {
+  $('#maxRows-2').trigger('change');
+  function getPagination(table, pagination, maxRow, rowsCount) {
 
-    $('#maxRows').on('change', function () {
-      $('.pagination').html('');						// reset pagination div
+    $(maxRow).on('change', function () {
+      $(pagination).html('');						// reset pagination div
       var trnum = 0;									// reset tr counter 
       var maxRows = parseInt($(this).val());			// get Max Rows from select option
 
@@ -31,25 +32,25 @@
         var pagenum = Math.ceil(totalRows / maxRows);	// ceil total(rows/maxrows) to get ..  
         //	numbers of pages 
         for (var i = 1; i <= pagenum;) {			// for each page append pagination li 
-          $('.pagination').append('<li data-page="' + i + '">\
+          $(pagination).append('<li data-page="' + i + '">\
 								      <span>'+ i++ + '<span class="sr-only">(current)</span></span>\
 								    </li>').show();
         }											// end for i 
 
 
       } 												// end if row count > max rows
-      $('.pagination li:first-child').addClass('active'); // add active class to the first li 
+      $(pagination + ' li:first-child').addClass('active'); // add active class to the first li 
 
 
       //SHOWING ROWS NUMBER OUT OF TOTAL DEFAULT
-      showig_rows_count(maxRows, 1, totalRows);
+      showig_rows_count(maxRows, 1, totalRows, rowsCount);
       //SHOWING ROWS NUMBER OUT OF TOTAL DEFAULT
 
-      $('.pagination li').on('click', function (e) {		// on click each page
+      $(pagination + ' li').on('click', function (e) {		// on click each page
         e.preventDefault();
         var pageNum = $(this).attr('data-page');	// get it's number
         var trIndex = 0;							// reset tr counter
-        $('.pagination li').removeClass('active');	// remove active class from all li 
+        $(pagination + ' li').removeClass('active');	// remove active class from all li 
         $(this).addClass('active');					// add active class to the clicked 
 
 
@@ -85,12 +86,12 @@
   // });
 
   //ROWS SHOWING FUNCTION
-  function showig_rows_count(maxRows, pageNum, totalRows) {
+  function showig_rows_count(maxRows, pageNum, totalRows, rowsCount) {
     //Default rows showing
     var end_index = maxRows * pageNum;
     var start_index = ((maxRows * pageNum) - maxRows) + parseFloat(1);
     var string = 'Showing ' + start_index + ' to ' + end_index + ' of ' + totalRows + ' entries';
-    $('.rows_count').html(string);
+    $(rowsCount).html(string);
   }
 
   // CREATING INDEX
