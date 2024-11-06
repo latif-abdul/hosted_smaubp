@@ -10,6 +10,7 @@
 <script src="{{url('js/demo.js')}}"></script>
 <script>
   getPagination('#table-id');
+  getPagination('#table-id-2');
   $('#maxRows').trigger('change');
   function getPagination(table) {
 

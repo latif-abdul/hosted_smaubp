@@ -188,7 +188,7 @@
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
-                            <table class="table table-striped table-class" id="table-id">
+                            <table class="table table-striped table-class" id="table-id-2">
 
 
                                 <thead>
