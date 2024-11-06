@@ -214,7 +214,7 @@ class SiswaController extends Controller
     public function pengumuman(Request $request)
     {
         $siswa = Santris::where('no_pendaftaran', $request->no_pendaftaran)->first();
-        $pengumuman = Pengumuman::find(2);
+        $pengumuman = Batch::find($siswa->batch_id);
         if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
             if ($siswa === null) {
                 $st = 'Mohon Maaf';
@@ -228,7 +228,7 @@ class SiswaController extends Controller
         } else {
             $st = '';
             $color = 'warning';
-            $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
+            $msg = 'Pengumuman akan diumumkan pada tanggal ' . Carbon::parse($pengumuman->tanggal_pengumuman)->isoFormat('D MMMM Y');
         }
         ;
         return view("pengumuman", compact(['msg', 'st', 'color']));

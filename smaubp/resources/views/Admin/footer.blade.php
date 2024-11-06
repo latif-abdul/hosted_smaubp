@@ -106,18 +106,22 @@
     });
   }
 
-  function FilterBatch() {
+  function clear(maxRows){
+    $('#'+maxRows).trigger('change');
+  }
+
+  function FilterBatch(tableId, filterBatch, maxRows) {
     // Count td if you want to search on all table instead of specific column
 
-    var count = $('.table').children('tbody').children('tr:first-child').children('td').length;
-
+    var count = $('#'+tableId).children('tbody').children('tr:first-child').children('td').length;
+    console.log(tableId)
     // Declare variables
     var input, filter, table, tr, td, i;
-    input = document.getElementById("filter-batch");
-    var input_value = document.getElementById("filter-batch").value;
+    input = document.getElementById(filterBatch);
+    var input_value = document.getElementById(filterBatch).value;
     filter = input.value.toLowerCase();
-    if (input_value != '') {
-      table = document.getElementsByClassName("table");
+    if (input_value != 'all') {
+      table = document.getElementById(tableId);
       tr = table.getElementsByTagName("tr");
 
       // Loop through all table rows, and hide those who don't match the search query
@@ -147,7 +151,7 @@
       }
     } else {
       //RESET TABLE
-      $('#maxRows').trigger('change');
+      $('#'+maxRows).trigger('change');
     }
   }
   // All Table search script
