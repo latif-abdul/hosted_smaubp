@@ -75,12 +75,12 @@
                     <!--		Start Pagination -->
                     <!-- <div class='pagination-container'> -->
                     <nav>
-                        <ul class="pagination">
+                        <ul class="pagination" id="pagination">
                             <!--	Here the JS Function Will Add the Rows -->
                         </ul>
                     </nav>
                     <!-- </div> -->
-                    <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+                    <div class="rows_count" id="rows_count">Showing 11 to 20 of 91 entries</div>
 
                     <!-- 		End of Container -->
 
