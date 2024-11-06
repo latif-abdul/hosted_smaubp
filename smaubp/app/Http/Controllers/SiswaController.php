@@ -21,7 +21,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Santris::all();
+        $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->where('daful.id_santris', '=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap']);
+        $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->where('daful.id_santris', '!=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap']);
         // $siswa_terverifikasi = $siswa->daful()
         //     ->where("verifikasi_akta_kelahiran", 1)
         //     ->where("verifikasi_kk", 1)
@@ -41,7 +42,7 @@ class SiswaController extends Controller
         $formAction = "/admin/siswa_baru/update_tanggal_pengumuman/2";
         $formAction2 = "/admin/siswa_baru/import";
         // return response($siswa_terverifikasi);
-        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2'));
+        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2', 'daful'));
     }
 
     /**

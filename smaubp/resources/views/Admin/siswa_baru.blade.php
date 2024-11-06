@@ -63,88 +63,196 @@
                     <br>
                     <a class="btn btn-primary" href="{{url('/export_daful')}}">Export Data Daftar Ulang</a>
                     <br>
-                    <div class="header_wrap">
-                        <div class="num_rows">
+                    <br>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0"
+                                role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">Pendaftar Baru</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab" href="#simple-tabpanel-1"
+                                role="tab" aria-controls="simple-tabpanel-1" aria-selected="false">Daftar Ulang</a>
+                        </li>
+                        <!-- <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab" href="#simple-tabpanel-2"
+                                role="tab" aria-controls="simple-tabpanel-2" aria-selected="false">Tab 3</a>
+                        </li> -->
+                    </ul>
+                    <div class="tab-content pt-5" id="tab-content">
+                        <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
+                            aria-labelledby="simple-tab-0">
+                            <div class="header_wrap">
+                                <div class="num_rows">
 
-                            <div class="form-group"> <!--		Show Numbers Of Rows 		-->
-                                <select class="form-control" name="state" id="maxRows">
+                                    <div class="form-group"> <!--		Show Numbers Of Rows 		-->
+                                        <select class="form-control" name="state" id="maxRows">
 
 
-                                    <option value="10">10</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
-                                    <option value="50">50</option>
-                                    <option value="70">70</option>
-                                    <option value="100">100</option>
-                                    <option value="5000">Show ALL Rows</option>
-                                </select>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="70">70</option>
+                                            <option value="100">100</option>
+                                            <option value="5000">Show ALL Rows</option>
+                                        </select>
 
+                                    </div>
+                                </div>
+                                <div class="tb_search">
+                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
+                                        placeholder="Search.." class="form-control">
+                                </div>
                             </div>
+                            <table class="table table-striped table-class" id="table-id">
+
+
+                                <thead>
+                                    <th>No Pendaftaran</th>
+                                    <th>Nama</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($siswa as $santri)
+                                        <tr>
+                                            <td>{{$santri->no_pendaftaran}}</td>
+                                            <td>{{$santri->nama_lengkap}}</td>
+                                            <td>
+                                                <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
+                                                        class="fa-solid fa-eye"></i></a> -->
+                                                <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
+                                                        class="fa-solid fa-trash"></i></a>
+                                                <a class="btn btn-success"
+                                                    href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                        class="fa-brands fa-whatsapp"></i></a>
+                                                <a class="btn btn-info"
+                                                    href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                        class="fa-solid fa-file-arrow-down"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @if (session()->has('delete'))
+                                <div class="alert alert-success" id="successAlert">
+                                    {{ session()->get('delete') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger" id="successAlert">
+                                    {{ session()->get('error') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
+
+                            <!--		Start Pagination -->
+                            <!-- <div class='pagination-container'> -->
+                            <nav>
+                                <ul class="pagination">
+                                    <!--	Here the JS Function Will Add the Rows -->
+                                </ul>
+                            </nav>
+                            <!-- </div> -->
+                            <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+
+                            <!-- 		End of Container -->
+
+
+
+                            <!--  Developed By Yasser Mas -->
                         </div>
-                        <div class="tb_search">
-                            <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
-                                placeholder="Search.." class="form-control">
+                        <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
+                            <div class="header_wrap">
+                                <div class="num_rows">
+
+                                    <div class="form-group"> <!--		Show Numbers Of Rows 		-->
+                                        <select class="form-control" name="state" id="maxRows">
+
+
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="70">70</option>
+                                            <option value="100">100</option>
+                                            <option value="5000">Show ALL Rows</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="tb_search">
+                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()"
+                                        placeholder="Search.." class="form-control">
+                                </div>
+                            </div>
+                            <table class="table table-striped table-class" id="table-id">
+
+
+                                <thead>
+                                    <th>No Pendaftaran</th>
+                                    <th>Nama</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($daful as $santri)
+                                        <tr>
+                                            <td>{{$santri->no_pendaftaran}}</td>
+                                            <td>{{$santri->nama_lengkap}}</td>
+                                            <td>
+                                                <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
+                                                        class="fa-solid fa-eye"></i></a>
+                                                <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                        class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
+                                                        class="fa-solid fa-trash"></i></a>
+                                                <a class="btn btn-success"
+                                                    href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                        class="fa-brands fa-whatsapp"></i></a>
+                                                <a class="btn btn-info"
+                                                    href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                        class="fa-solid fa-file-arrow-down"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @if (session()->has('delete'))
+                                <div class="alert alert-success" id="successAlert">
+                                    {{ session()->get('delete') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-danger" id="successAlert">
+                                    {{ session()->get('error') }}
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            @endif
+
+                            <!--		Start Pagination -->
+                            <!-- <div class='pagination-container'> -->
+                            <nav>
+                                <ul class="pagination">
+                                    <!--	Here the JS Function Will Add the Rows -->
+                                </ul>
+                            </nav>
+                            <!-- </div> -->
+                            <div class="rows_count">Showing 11 to 20 of 91 entries</div>
+
+                            <!-- 		End of Container -->
+
+
+
+                            <!--  Developed By Yasser Mas -->
                         </div>
+                        <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">Tab
+                            3 selected</div>
                     </div>
-                    <table class="table table-striped table-class" id="table-id">
+                    <br>
 
-
-                        <thead>
-                            <th>No Pendaftaran</th>
-                            <th>Nama</th>
-                            <th>Action</th>
-                        </thead>
-                        <tbody>
-                            @foreach ($siswa as $santri)
-                                <tr>
-                                    <td>{{$santri->no_pendaftaran}}</td>
-                                    <td>{{$santri->nama_lengkap}}</td>
-                                    <td>
-                                        <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                class="fa-solid fa-eye"></i></a>
-                                        <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
-                                                class="fa-solid fa-trash"></i></a>
-                                        <a class="btn btn-success"
-                                            href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
-                                                class="fa-brands fa-whatsapp"></i></a>
-                                        <a class="btn btn-info"
-                                            href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
-                                                class="fa-solid fa-file-arrow-down"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    @if (session()->has('delete'))
-                        <div class="alert alert-success" id="successAlert">
-                            {{ session()->get('delete') }}
-                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                        </div>
-                    @endif
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger" id="successAlert">
-                            {{ session()->get('error') }}
-                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                        </div>
-                    @endif
-
-                    <!--		Start Pagination -->
-                    <!-- <div class='pagination-container'> -->
-                    <nav>
-                        <ul class="pagination">
-                            <!--	Here the JS Function Will Add the Rows -->
-                        </ul>
-                    </nav>
-                    <!-- </div> -->
-                    <div class="rows_count">Showing 11 to 20 of 91 entries</div>
-
-                    <!-- 		End of Container -->
-
-
-
-                    <!--  Developed By Yasser Mas -->
 
                 </div>
             </div>
