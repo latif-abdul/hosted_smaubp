@@ -40,9 +40,7 @@ Route::get('/ektra', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
-Route::get('/ppdb', function () {
-    return view('ppdb');
-})->name('kontak');
+Route::get('/ppdb', [ShowController::class, 'ppdb'])->name('kontak');
 Route::get('/form', function () {
     return view('form');
 })->name('form');
@@ -82,6 +80,8 @@ Route::group(['middleware' => 'auth'], function () {
         'setting' => SettingController::class,
         'galeri' => GaleriController::class,
         'sambutan' => SambutanController::class,
+        'tahun_ajaran' => TahunAjaranController::class,
+        'batch' => BatchController::class,
     ]);
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);

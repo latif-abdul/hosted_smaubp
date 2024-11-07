@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use App\Models\Artikel;
+use App\Models\ArtikelSantri;
+use App\Models\Santris;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,7 +14,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('Admin.app');
+        $santriBaru = Santris::count();
+        $artikel = Artikel::count();
+        $artikelSantri = ArtikelSantri::count();
+        return view('Admin.dashboard', compact(['santriBaru', 'artikel', 'artikelSantri']));
     }
 
     /**

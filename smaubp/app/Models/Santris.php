@@ -30,7 +30,8 @@ class Santris extends Model
         'bukti_pembayaran',
         'no_pendaftaran',
         'status',
-        'no_wa'
+        'no_wa',
+        'batch_id',
     ];
 
     public function daful()

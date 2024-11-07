@@ -9,6 +9,7 @@
                 </div>
                 <div class="container">
                     <a class="btn btn-info btn-fill" href="/admin/siswa_baru/create">Tambah</a>
+                    <a class="btn btn-info btn-fill" href="/batch">Gelombang Pendaftaran</a>
                 </div>
                 <div class="content">
                     <form method="POST" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
@@ -82,8 +83,22 @@
                         <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
                             aria-labelledby="simple-tab-0">
                             <div class="header_wrap">
+                                <br>
+                                <div class="form-floating">
+                                    <select class="form-select" id="filter-batch" aria-label="filter-batch"
+                                        name="tahun_ajaran_id">
+                                        <option value="all">All</option>
+                                        @foreach ($batch as $ta)
+                                            <option value="{{$ta->name}}">{{$ta->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="filter-batch">Batch</label>
+                                </div>
+                                <br>
+                                <button class="btn btn-warning" onclick="FilterBatch('table-id', 'filter-batch', 'maxRows')">Filter</button>
+                                <br>
+                                <br>
                                 <div class="num_rows">
-
                                     <div class="form-group"> <!--		Show Numbers Of Rows 		-->
                                         <select class="form-control" name="state" id="maxRows">
 
@@ -110,6 +125,7 @@
                                 <thead>
                                     <th>No Pendaftaran</th>
                                     <th>Nama</th>
+                                    <th>Batch</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -117,9 +133,10 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
+                                            <td>{{$santri->name}}</td>
                                             <td>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                        class="fa-solid fa-eye"></i></a> -->
+                                                                    class="fa-solid fa-eye"></i></a> -->
                                                 <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
                                                 <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
@@ -166,6 +183,21 @@
                         </div>
                         <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
                             <div class="header_wrap">
+                                <br>
+                                <div class="form-floating">
+                                    <select class="form-select" id="filter-batch-2" aria-label="filter-batch"
+                                        name="tahun_ajaran_id">
+                                        <option value="all">All</option>
+                                        @foreach ($batch as $ta)
+                                            <option value="{{$ta->name}}">{{$ta->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="filter-batch">Batch</label>
+                                </div>
+                                <br>
+                                <button class="btn btn-warning" onclick="FilterBatch('table-id-2', 'filter-batch-2', 'maxRows-2')">Filter</button>
+                                <br>
+                                <br>
                                 <div class="num_rows">
 
                                     <div class="form-group"> <!--		Show Numbers Of Rows 		-->
@@ -194,6 +226,7 @@
                                 <thead>
                                     <th>No Pendaftaran</th>
                                     <th>Nama</th>
+                                    <th>Batch</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -201,6 +234,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
+                                            <td>{{$santri->name}}</td>
                                             <td>
                                                 <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                         class="fa-solid fa-eye"></i></a>
@@ -212,8 +246,8 @@
                                                     href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
                                                         class="fa-brands fa-whatsapp"></i></a>
                                                 <!-- <a class="btn btn-info"
-                                                    href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
-                                                        class="fa-solid fa-file-arrow-down"></i></a> -->
+                                                                href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                                    class="fa-solid fa-file-arrow-down"></i></a> -->
                                             </td>
                                         </tr>
                                     @endforeach

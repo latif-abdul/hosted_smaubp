@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batch;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use App\Models\Santris;
@@ -21,8 +22,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->where('daful.id_santris', '=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap']);
-        $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->where('daful.id_santris', '!=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap']);
+        $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')->where('daful.id_santris', '=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name']);
+        $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')->where('daful.id_santris', '!=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name']);
         // $siswa_terverifikasi = $siswa->daful()
         //     ->where("verifikasi_akta_kelahiran", 1)
         //     ->where("verifikasi_kk", 1)
@@ -39,10 +40,11 @@ class SiswaController extends Controller
         //     ->where("verifikasi_bukti_transfer", '!=', 1)
         //     ->where("verifikasi_foto", '!=', 1);
         $tanggal_pengumuman = Pengumuman::find("2");
+        $batch = Batch::where('deleted_at', '=', null)->get();
         $formAction = "/admin/siswa_baru/update_tanggal_pengumuman/2";
         $formAction2 = "/admin/siswa_baru/import";
         // return response($siswa_terverifikasi);
-        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2', 'daful'));
+        return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2', 'daful', 'batch'));
     }
 
     /**
@@ -89,6 +91,8 @@ class SiswaController extends Controller
         try {
             $siswa = Santris::create($request->all());
             $siswa->no_wa = $request->nomor_hp_ayah;
+            $batch = Batch::where('deleted_at', '=', null)->where('date_from', '<=', Carbon::now())->where('date_to', '>=', Carbon::now())->first();
+            $siswa->batch_id = $batch->id;
             $siswa->save();
 
             if (!Storage::exists('siswa_images')) {
@@ -210,7 +214,7 @@ class SiswaController extends Controller
     public function pengumuman(Request $request)
     {
         $siswa = Santris::where('no_pendaftaran', $request->no_pendaftaran)->first();
-        $pengumuman = Pengumuman::find(2);
+        $pengumuman = Batch::find($siswa->batch_id);
         if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
             if ($siswa === null) {
                 $st = 'Mohon Maaf';
@@ -224,7 +228,7 @@ class SiswaController extends Controller
         } else {
             $st = '';
             $color = 'warning';
-            $msg = 'Pengumuman akan diumumkan pada tanggal ' . date('d M Y', strtotime($pengumuman->tanggal_pengumuman));
+            $msg = 'Pengumuman akan diumumkan pada tanggal ' . Carbon::parse($pengumuman->tanggal_pengumuman)->isoFormat('D MMMM Y');
         }
         ;
         return view("pengumuman", compact(['msg', 'st', 'color']));
