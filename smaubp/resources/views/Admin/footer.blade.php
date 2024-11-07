@@ -154,20 +154,21 @@
       $('#'+maxRows).trigger('change');
     }
   }
+
   // All Table search script
-  function FilterkeyWord_all_table() {
+  function FilterkeyWord_all_table(tableId, searchInput, maxRows) {
 
     // Count td if you want to search on all table instead of specific column
 
-    var count = $('.table').children('tbody').children('tr:first-child').children('td').length;
+    var count = $('#'+tableId).children('tbody').children('tr:first-child').children('td').length;
 
     // Declare variables
     var input, filter, table, tr, td, i;
-    input = document.getElementById("search_input_all");
-    var input_value = document.getElementById("search_input_all").value;
+    input = document.getElementById(searchInput);
+    var input_value = document.getElementById(searchInput).value;
     filter = input.value.toLowerCase();
     if (input_value != '') {
-      table = document.getElementById("table-id");
+      table = document.getElementById(tableId);
       tr = table.getElementsByTagName("tr");
 
       // Loop through all table rows, and hide those who don't match the search query
@@ -197,7 +198,7 @@
       }
     } else {
       //RESET TABLE
-      $('#maxRows').trigger('change');
+      $('#'+maxRows).trigger('change');
     }
   }
 </script>
