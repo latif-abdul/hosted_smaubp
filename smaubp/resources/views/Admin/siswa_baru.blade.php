@@ -83,21 +83,21 @@
                         <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
                             aria-labelledby="simple-tab-0">
                             <div class="header_wrap">
-                                <br>
-                                <!-- <div class="form-floating">
+                                <!-- <br>
+                                <div class="form-floating">
                                     <select class="form-select" id="filter-batch" aria-label="filter-batch"
                                         name="tahun_ajaran_id">
                                         <option value="all">All</option>
                                         @foreach ($batch as $ta)
-                                            <option value="{{$ta->name}}">{{$ta->name}}</option>
+                                            <option value="{{$ta->name}} {{$ta->tahun_ajaran}}">{{$ta->name}} {{$ta->tahun_ajaran}}</option>
                                         @endforeach
                                     </select>
                                     <label for="filter-batch">Batch</label>
                                 </div>
                                 <br>
                                 <button class="btn btn-warning" onclick="FilterBatch('table-id', 'filter-batch', 'maxRows')">Filter</button>
-                                <br> -->
                                 <br>
+                                <br> -->
                                 <div class="num_rows">
                                     <div class="form-group"> <!--		Show Numbers Of Rows 		-->
                                         <select class="form-control" name="state" id="maxRows">
@@ -133,7 +133,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
-                                            <!-- <td>{{$santri->name}}</td> -->
+                                            <!-- <td>{{$santri->name}} {{$santri->tahun_ajaran}}</td> -->
                                             <td>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                                     class="fa-solid fa-eye"></i></a> -->
@@ -234,7 +234,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
-                                            <!-- <td>{{$santri->name}}</td> -->
+                                            <!-- <td>{{$santri->name}} {{$santri->tahun_ajaran}}</td> -->
                                             <td>
                                                 <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                         class="fa-solid fa-eye"></i></a>

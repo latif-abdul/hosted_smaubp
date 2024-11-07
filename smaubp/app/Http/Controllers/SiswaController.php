@@ -22,8 +22,20 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')->where('daful.id_santris', '=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name']);
-        $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')->where('daful.id_santris', '!=', null)->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name']);
+        $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
+            ->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
+            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran_id')
+            ->where('daful.id_santris', '=', null)
+            ->where('batch.deleted_at', '=', null)
+            ->where('tahun_ajaran.deleted_at', '=', null)
+            ->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
+        $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
+            ->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
+            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran_id')
+            ->where('daful.id_santris', '!=', null)
+            ->where('batch.deleted_at', '=', null)
+            ->where('tahun_ajaran.deleted_at', '=', null)
+            ->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
         // $siswa_terverifikasi = $siswa->daful()
         //     ->where("verifikasi_akta_kelahiran", 1)
         //     ->where("verifikasi_kk", 1)
@@ -40,7 +52,9 @@ class SiswaController extends Controller
         //     ->where("verifikasi_bukti_transfer", '!=', 1)
         //     ->where("verifikasi_foto", '!=', 1);
         $tanggal_pengumuman = Pengumuman::find("2");
-        $batch = Batch::where('deleted_at', '=', null)->get();
+        $batch = Batch::leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
+            ->where('batch.deleted_at', '=', null)
+            ->where('tahun_ajaran.deleted_at', '=', null)->get();
         $formAction = "/admin/siswa_baru/update_tanggal_pengumuman/2";
         $formAction2 = "/admin/siswa_baru/import";
         // return response($siswa_terverifikasi);
