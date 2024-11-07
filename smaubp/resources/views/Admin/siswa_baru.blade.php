@@ -9,7 +9,7 @@
                 </div>
                 <div class="container">
                     <a class="btn btn-info btn-fill" href="/admin/siswa_baru/create">Tambah</a>
-                    <a class="btn btn-info btn-fill" href="/batch">Gelombang Pendaftaran</a>
+                    <!-- <a class="btn btn-info btn-fill" href="/batch">Gelombang Pendaftaran</a> -->
                 </div>
                 <div class="content">
                     <form method="POST" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
@@ -84,7 +84,7 @@
                             aria-labelledby="simple-tab-0">
                             <div class="header_wrap">
                                 <br>
-                                <div class="form-floating">
+                                <!-- <div class="form-floating">
                                     <select class="form-select" id="filter-batch" aria-label="filter-batch"
                                         name="tahun_ajaran_id">
                                         <option value="all">All</option>
@@ -96,7 +96,7 @@
                                 </div>
                                 <br>
                                 <button class="btn btn-warning" onclick="FilterBatch('table-id', 'filter-batch', 'maxRows')">Filter</button>
-                                <br>
+                                <br> -->
                                 <br>
                                 <div class="num_rows">
                                     <div class="form-group"> <!--		Show Numbers Of Rows 		-->
@@ -183,7 +183,7 @@
                         </div>
                         <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
                             <div class="header_wrap">
-                                <br>
+                                <!-- <br>
                                 <div class="form-floating">
                                     <select class="form-select" id="filter-batch-2" aria-label="filter-batch"
                                         name="tahun_ajaran_id">
@@ -196,7 +196,7 @@
                                 </div>
                                 <br>
                                 <button class="btn btn-warning" onclick="FilterBatch('table-id-2', 'filter-batch-2', 'maxRows-2')">Filter</button>
-                                <br>
+                                <br> -->
                                 <br>
                                 <div class="num_rows">
 
