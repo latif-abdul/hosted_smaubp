@@ -125,7 +125,7 @@
                                 <thead>
                                     <th>No Pendaftaran</th>
                                     <th>Nama</th>
-                                    <th>Batch</th>
+                                    <!-- <th>Batch</th> -->
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -133,7 +133,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
-                                            <td>{{$santri->name}}</td>
+                                            <!-- <td>{{$santri->name}}</td> -->
                                             <td>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                                     class="fa-solid fa-eye"></i></a> -->
@@ -226,7 +226,7 @@
                                 <thead>
                                     <th>No Pendaftaran</th>
                                     <th>Nama</th>
-                                    <th>Batch</th>
+                                    <!-- <th>Batch</th> -->
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -234,7 +234,7 @@
                                         <tr>
                                             <td>{{$santri->no_pendaftaran}}</td>
                                             <td>{{$santri->nama_lengkap}}</td>
-                                            <td>{{$santri->name}}</td>
+                                            <!-- <td>{{$santri->name}}</td> -->
                                             <td>
                                                 <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
                                                         class="fa-solid fa-eye"></i></a>
