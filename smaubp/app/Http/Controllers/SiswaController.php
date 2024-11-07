@@ -214,7 +214,7 @@ class SiswaController extends Controller
     public function pengumuman(Request $request)
     {
         $siswa = Santris::where('no_pendaftaran', $request->no_pendaftaran)->first();
-        $pengumuman = Batch::find($siswa->batch_id);
+        $pengumuman = Pengumuman::find(2);
         if ($pengumuman->tanggal_pengumuman <= Carbon::now()) {
             if ($siswa === null) {
                 $st = 'Mohon Maaf';
