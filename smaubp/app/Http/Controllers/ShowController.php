@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArtikelSantri;
+use App\Models\Batch;
 use App\Models\Galeri;
 use App\Models\PencapaianAlumni;
 use App\Models\Sambutan;
@@ -31,7 +32,8 @@ class ShowController extends Controller
         $alumni = PencapaianAlumni::all();
         $dir = new DirectoryIterator(public_path('logo kampus'));
         $dir2 = new DirectoryIterator(public_path('Tahfidzul Qur_an'));
-        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni', 'dir', 'dir2'));
+        $batch = Batch::leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')->where('batch.deleted_at', '=', null)->where('tahun_ajaran.status', '=', 'active')->get();
+        return view('index', compact('artikel', 'slideshow', 'galeri', 'sambutan', 'alumni', 'dir', 'dir2', 'batch'));
         // foreach ($dir as $fileinfo){
         //     if(!$fileinfo->isDot()){
         //         var_dump($fileinfo->getFilename());
@@ -65,5 +67,10 @@ class ShowController extends Controller
             'Content-Type: application/pdf',
           );
         return Response::download(public_path($request->path), 'Brosur 2024 SMAU BP Amanatul Ummah.pdf', $headers);
+    }
+
+    public function ppdb(){
+        $batch = Batch::leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')->where('batch.deleted_at', '=', null)->where('tahun_ajaran.status', '=', 'active')->get();
+        return view('ppdb', compact(['batch']));
     }
 }

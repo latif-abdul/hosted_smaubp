@@ -40,9 +40,7 @@ Route::get('/ektra', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
-Route::get('/ppdb', function () {
-    return view('ppdb');
-})->name('kontak');
+Route::get('/ppdb', [ShowController::class, 'ppdb'])->name('kontak');
 Route::get('/form', function () {
     return view('form');
 })->name('form');

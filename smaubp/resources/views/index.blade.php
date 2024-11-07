@@ -169,9 +169,12 @@
                                 <tr class="row-1 odd">
                                     <th class="column-1">Jadwal</th>
                                     <!-- <th class="column2">Jalur Prestasi</th> -->
-                                    <th class="column-3">Tes Tulis Gel. 1</th>
-                                    <th class="column-4">Tes Tulis Gel. 2</th>
-                                    <th class="column-5">Tes Tulis Gel. 3</th>
+                                     @foreach ($batch as $gelombang)
+                                     <th class="column-3">{{$gelombang->name}}</th>
+                                     @endforeach
+                                   
+                                    <!-- <th class="column-4">Tes Tulis Gel. 2</th>
+                                    <th class="column-5">Tes Tulis Gel. 3</th> -->
                                 </tr>
                             </thead>
                             <tbody class="row-hover">
@@ -180,18 +183,24 @@
                                         <strong>Waktu Pendaftaran</strong>
                                     </td>
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">10 Juli &#8211;19 Oktober 2024</td>
-                                    <td class="column-4">20 Oktober 2024 &#8211;1 Maret 2025</td>
-                                    <td class="column-5">2 Maret &#8211;29 Juni 2025</td>
+                                     @foreach ($batch as $gelombang)
+                                     <td class="column-3">{{Carbon\Carbon::parse($gelombang->date_from)->isoFormat('D MMMM Y')}} &#8211;{{Carbon\Carbon::parse($gelombang->date_to)->isoFormat('D MMMM Y')}}</td>
+                                     @endforeach
+                                    
+                                    <!-- <td class="column-4">20 Oktober 2024 &#8211;1 Maret 2025</td>
+                                    <td class="column-5">2 Maret &#8211;29 Juni 2025</td> -->
                                 </tr>
                                 <tr class="row-3 odd">
                                     <td class="column-1">
                                         <strong>Pelaksanaan Ujian</strong>
                                     </td>
+                                    @foreach ($batch as $gelombang)
+                                    <td class="column-3">{{Carbon\Carbon::parse($gelombang->tanggal_tes)->isoFormat('D MMMM Y')}}</td>
+                                    @endforeach
                                     <!-- <td class="column-2">Coming Soon</td> -->
-                                    <td class="column-3">20 Oktober 2024</td>
-                                    <td class="column-4">2 Maret 2025</td>
-                                    <td class="column-5">29 Juni 2025</td>
+                                    
+                                    <!-- <td class="column-4">2 Maret 2025</td>
+                                    <td class="column-5">29 Juni 2025</td> -->
                                 </tr>
                                 <!-- <tr class="row-4 even">
                                                                             <td class="column-1">
