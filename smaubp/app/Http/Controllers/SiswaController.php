@@ -24,15 +24,17 @@ class SiswaController extends Controller
     {
         $siswa = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
             ->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
-            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran_id')
+            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
             ->where('daful.id_santris', '=', null)
+            ->where('santris.deleted_at', '=', null)
             ->where('batch.deleted_at', '=', null)
             ->where('tahun_ajaran.deleted_at', '=', null)
             ->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
         $daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
             ->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
-            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran_id')
+            ->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
             ->where('daful.id_santris', '!=', null)
+            ->where('santris.deleted_at', '=', null)
             ->where('batch.deleted_at', '=', null)
             ->where('tahun_ajaran.deleted_at', '=', null)
             ->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
@@ -190,7 +192,8 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        Santris::find($id)->delete();
+        $santri = Santris::find($id);
+        $santri->update(['deleted_at' => Carbon::now()]);
         return back()->with('delete', 'Successfully delete');
     }
 

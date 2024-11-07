@@ -115,7 +115,8 @@
                                     </div>
                                 </div>
                                 <div class="tb_search">
-                                    <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                                    <input type="text" id="search_input_all"
+                                        onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
@@ -135,18 +136,24 @@
                                             <td>{{$santri->nama_lengkap}}</td>
                                             <!-- <td>{{$santri->name}} {{$santri->tahun_ajaran}}</td> -->
                                             <td>
+                                                <form method="POST" action="/admin/siswa_baru/{{$santri->id}}">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <a class="btn btn-primary"
+                                                        href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                            class="fa-solid fa-pen-to-square"></i></a>
+                                                    <button class="btn btn-danger" type="submit"><i
+                                                            class="fa-solid fa-trash"></i></button>
+                                                    <a class="btn btn-success"
+                                                        href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                            class="fa-brands fa-whatsapp"></i></a>
+                                                    <a class="btn btn-info"
+                                                        href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                            class="fa-solid fa-file-arrow-down"></i></a>
+                                                </form>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                                    class="fa-solid fa-eye"></i></a> -->
-                                                <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
-                                                        class="fa-solid fa-trash"></i></a>
-                                                <a class="btn btn-success"
-                                                    href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
-                                                        class="fa-brands fa-whatsapp"></i></a>
-                                                <a class="btn btn-info"
-                                                    href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
-                                                        class="fa-solid fa-file-arrow-down"></i></a>
+                                                                                class="fa-solid fa-eye"></i></a> -->
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -216,7 +223,8 @@
                                     </div>
                                 </div>
                                 <div class="tb_search">
-                                    <input type="text" id="search_input_all_2" onkeyup="FilterkeyWord_all_table('table-id-2', 'search_input_all_2', 'maxRows-2')"
+                                    <input type="text" id="search_input_all_2"
+                                        onkeyup="FilterkeyWord_all_table('table-id-2', 'search_input_all_2', 'maxRows-2')"
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
@@ -236,18 +244,21 @@
                                             <td>{{$santri->nama_lengkap}}</td>
                                             <!-- <td>{{$santri->name}} {{$santri->tahun_ajaran}}</td> -->
                                             <td>
-                                                <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                        class="fa-solid fa-eye"></i></a>
-                                                <a class="btn btn-primary" href="/admin/siswa_baru/{{$santri->id}}/edit"><i
-                                                        class="fa-solid fa-pen-to-square"></i></a>
-                                                <a class="btn btn-danger" href="/admin/siswa_baru/{{$santri->id}}/delete"><i
-                                                        class="fa-solid fa-trash"></i></a>
-                                                <a class="btn btn-success"
-                                                    href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
-                                                        class="fa-brands fa-whatsapp"></i></a>
-                                                <!-- <a class="btn btn-info"
-                                                                href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
-                                                                    class="fa-solid fa-file-arrow-down"></i></a> -->
+                                                <form method="POST" action="/admin/siswa_baru/{{$santri->id}}">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <a class="btn btn-primary"
+                                                        href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                            class="fa-solid fa-pen-to-square"></i></a>
+                                                    <button class="btn btn-danger" type="submit"><i
+                                                            class="fa-solid fa-trash"></i></button>
+                                                    <a class="btn btn-success"
+                                                        href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                            class="fa-brands fa-whatsapp"></i></a>
+                                                    <a class="btn btn-info"
+                                                        href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                            class="fa-solid fa-file-arrow-down"></i></a>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
