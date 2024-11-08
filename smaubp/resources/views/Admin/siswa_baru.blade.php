@@ -7,11 +7,9 @@
                 <div class="header">
                     <h4 class="title">Siswa Baru</h4>
                 </div>
-                <div class="container">
+                <div class="content">
                     <a class="btn btn-info btn-fill" href="/admin/siswa_baru/create">Tambah</a>
                     <!-- <a class="btn btn-info btn-fill" href="/batch">Gelombang Pendaftaran</a> -->
-                </div>
-                <div class="content">
                     <form method="POST" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
                         @method('PUT')
                         @csrf
@@ -152,7 +150,7 @@
                                                             class="fa-solid fa-file-arrow-down"></i></a>
                                                 </form>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                                                class="fa-solid fa-eye"></i></a> -->
+                                                                                        class="fa-solid fa-eye"></i></a> -->
 
                                             </td>
                                         </tr>
