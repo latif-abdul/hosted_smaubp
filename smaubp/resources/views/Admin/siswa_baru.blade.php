@@ -245,6 +245,8 @@
                                                 <form method="POST" action="/admin/siswa_baru/{{$santri->id}}">
                                                     @method('DELETE')
                                                     @csrf
+                                                    <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
+                                                                                        class="fa-solid fa-eye"></i></a>
                                                     <a class="btn btn-primary"
                                                         href="/admin/siswa_baru/{{$santri->id}}/edit"><i
                                                             class="fa-solid fa-pen-to-square"></i></a>
