@@ -34,10 +34,11 @@
                             Terverifikasi
                         </label>
                     </div>
-                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->akta_kelahiran}}">Download File</a>
+                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->akta_kelahiran}}">Download
+                        File</a>
                 </div>
                 <div class="col-md-6">
-                <label class="">
+                    <label class="">
                         Kartu Keluarga
                     </label>
                     <div class="row">
@@ -54,7 +55,8 @@
                             Terverifikasi
                         </label>
                     </div>
-                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->kartu_keluarga}}">Download File</a>
+                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->kartu_keluarga}}">Download
+                        File</a>
                 </div>
             </div>
             <div class="row">
@@ -79,7 +81,7 @@
                     <a class=" btn btn-success" href="/admin/daful/download/{{$daful->skl}}">Download File</a>
                 </div> -->
                 <div class="col-md-6">
-                <label class="">
+                    <label class="">
                         Foto
                     </label>
                     <div class="row">
@@ -99,7 +101,7 @@
                     <a class=" btn btn-success" href="/admin/daful/download/{{$daful->foto}}">Download File</a>
                 </div>
                 <div class="col-md-6">
-                <label class="">
+                    <label class="">
                         Bukti Transfer
                     </label>
                     <div class="row">
@@ -116,7 +118,8 @@
                             Terverifikasi
                         </label>
                     </div>
-                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->bukti_transfer}}">Download File</a>
+                    <a class=" btn btn-success" href="/admin/daful/download/{{$daful->bukti_transfer}}">Download
+                        File</a>
                 </div>
             </div>
             <div class="row">
@@ -166,6 +169,12 @@
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">
                     {{ session()->get('success') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
+            @if (session()->has('failed'))
+                <div class="alert alert-danger" id="successAlert">
+                    {{ session()->get('failed') }}
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
             @endif

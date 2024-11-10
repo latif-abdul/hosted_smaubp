@@ -125,10 +125,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <select class="form-select" id="floatingSelect"
-                                    aria-label="Tahun Ajaran" name="tahun_ajaran_id">
+                                <select class="form-select" id="floatingSelect" aria-label="Tahun Ajaran"
+                                    name="tahun_ajaran_id">
                                     @foreach ($tahunAjaran as $ta)
-                                    <option value="{{$ta->id}}" {{{old('batch_id', isset($batch->batch_id) && $batch->tahun_ajaran_id == $ta->id ? 'selected' : '')}}}>{{$ta->tahun_ajaran}}</option>
+                                        <option value="{{$ta->id}}" {{{old('batch_id', isset($batch->batch_id) && $batch->tahun_ajaran_id == $ta->id ? 'selected' : '')}}}>{{$ta->tahun_ajaran}}
+                                        </option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Tahun Ajaran</label>
@@ -145,6 +146,12 @@
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">
                     {{ session()->get('success') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
+            @if (session()->has('failed'))
+                <div class="alert alert-danger" id="successAlert">
+                    {{ session()->get('failed') }}
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
             @endif

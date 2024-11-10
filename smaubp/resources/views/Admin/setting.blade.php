@@ -93,7 +93,7 @@
                     <div class="col-md-1">
                         <a class="btn btn-danger" onclick="remove({{$ss->id}})">-</a>
                     </div>
-                    <hr style="width:95%";>
+                    <hr style="width:95%" ;>
                 </div>
             @endforeach
         </div>
@@ -109,6 +109,18 @@
             </div>
         </div>
     </form>
+    @if (session()->has('success'))
+        <div class="alert alert-success" id="successAlert">
+            {{ session()->get('success') }}
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+        </div>
+    @endif
+    @if (session()->has('failed'))
+        <div class="alert alert-danger" id="successAlert">
+            {{ session()->get('failed') }}
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+        </div>
+    @endif
 </div>
 <script>
     counter = 0;
@@ -306,7 +318,7 @@
         inputId.type = "hidden";
         inputId.name = "id[]";
 
-        var hr =document.createElement("hr");
+        var hr = document.createElement("hr");
         hr.style = "width:95%";
 
         // Add the image field div to the container

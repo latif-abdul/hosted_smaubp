@@ -95,7 +95,7 @@
                         </div>
                     @endif
                     @if (session()->has('error'))
-                        <div class="alert alert-danger show" id="successAlert">
+                        <div class="alert alert-danger" id="successAlert">
                             {{ session()->get('error') }}
                             <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                         </div>

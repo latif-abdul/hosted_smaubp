@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Batch;
+use App\Models\ErrorLog;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use App\Models\Santris;
@@ -132,7 +133,7 @@ class SiswaController extends Controller
                 ->header('Content-Type', 'text/plain');
             // return response($response->no)
         } catch (\Exception $e) {
-            return back()->with('failed', $e->getMessage());
+            return back()->with('failed', 'Gagal menyimpan data siswa '+$e->getCode());
         }
     }
 
@@ -183,7 +184,13 @@ class SiswaController extends Controller
             return redirect()->back()->with('success', 'Santri updated successfully')
                 ->header('Content-Type', 'text/plain');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', $e->getMessage());
+            // return response($e->getTraceAsString());
+            ErrorLog::create([
+                'url' => url()->current(),
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+            return redirect()->back()->with('failed', 'Gagal menyimpan data siswa '+$e->getCode());
         }
     }
 

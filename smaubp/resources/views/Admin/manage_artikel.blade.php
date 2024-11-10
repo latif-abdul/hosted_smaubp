@@ -86,8 +86,7 @@
                     <p class="small my-2">Drag &amp; Drop background image(s) inside dashed region<br><i>or</i></p>
 
                     <input id="upload_image_background" data-post-name="image_background"
-                        data-post-url="{{$formAction}}"
-                        class="position-absolute invisible" type="file" multiple
+                        data-post-url="{{$formAction}}" class="position-absolute invisible" type="file" multiple
                         accept="image/jpeg, image/png, image/svg+xml" name="gambar[]" />
 
                     <label class="btn btn-info mb-3" style="color:white;" for="upload_image_background">Choose
@@ -95,30 +94,30 @@
 
                     <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0">
                         @isset($gambar)
-                        <script>
-                            const dataTransfer = new DataTransfer();
-                        </script>
-                        @foreach ($gambar as $img)
-                            <img class="upload_img mt-2" alt="3.jpeg" src="{{url('/uploads/' . $img->gambar)}}">
                             <script>
-                                $(document).ready(function () {
-                                    fetch("{{url('/uploads/' . $img->gambar)}}")
-                                        .then((res) => {
-                                            console.log(testPass)
-                                            dataTransfer.items.add(res);
-                                        })
-                                        .catch((e) => console.error(e));
-                                    // const myFile = new File('{{$img->gambar}}');
-                                    // const reader = new FileReader();
-
-                                    // // Now let's create a DataTransfer to get a FileList
-                                    // const dataTransfer = new DataTransfer();
-                                    
-                                    // // fileInput.files = dataTransfer.files;
-
-                                });
+                                const dataTransfer = new DataTransfer();
                             </script>
-                        @endforeach
+                            @foreach ($gambar as $img)
+                                <img class="upload_img mt-2" alt="3.jpeg" src="{{url('/uploads/' . $img->gambar)}}">
+                                <script>
+                                    $(document).ready(function () {
+                                        fetch("{{url('/uploads/' . $img->gambar)}}")
+                                            .then((res) => {
+                                                console.log(testPass)
+                                                dataTransfer.items.add(res);
+                                            })
+                                            .catch((e) => console.error(e));
+                                        // const myFile = new File('{{$img->gambar}}');
+                                        // const reader = new FileReader();
+
+                                        // // Now let's create a DataTransfer to get a FileList
+                                        // const dataTransfer = new DataTransfer();
+
+                                        // // fileInput.files = dataTransfer.files;
+
+                                    });
+                                </script>
+                            @endforeach
                             <script>
                                 handleFiles(dataTransfer);
                             </script>
@@ -142,6 +141,12 @@
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">
                     {{ session()->get('success') }}
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            @endif
+            @if (session()->has('failed'))
+                <div class="alert alert-danger" id="successAlert">
+                    {{ session()->get('failed') }}
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                 </div>
             @endif
