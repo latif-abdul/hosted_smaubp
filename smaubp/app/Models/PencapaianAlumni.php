@@ -16,5 +16,6 @@ class PencapaianAlumni extends Model
         'universitas',
         'prodi',
         'perolehan_hafalan',
+        'deleted_at',
     ];
 }

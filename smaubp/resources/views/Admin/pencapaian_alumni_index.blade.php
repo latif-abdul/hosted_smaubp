@@ -21,7 +21,8 @@
                             <input type="file" name="file" required="required">
                         </div>
                         <button type="submit" class="btn btn-primary">Import</button>
-                        <a class=" btn btn-success" href="/template/Template pencapaian alumni.xlsx">Download Template</a>
+                        <a class=" btn btn-success" href="/template/Template pencapaian alumni.xlsx">Download
+                            Template</a>
 
                     </form>
 
@@ -53,8 +54,9 @@
                             </div>
                         </div>
                         <div class="tb_search">
-                        <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
-                        placeholder="Search.." class="form-control">
+                            <input type="text" id="search_input_all"
+                                onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                                placeholder="Search.." class="form-control">
                         </div>
                     </div>
                     <table class="table table-striped table-class" id="table-id">
@@ -71,10 +73,16 @@
                                     <td>{{$santri->name}}</td>
                                     <td>{{$santri->universitas}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="/admin/pencapaian_alumni/{{$santri->id}}/edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="/admin/pencapaian_alumni/{{$santri->id}}/delete"><i
-                                                class="fa-solid fa-trash"></i></a>
+                                        <form method="POST" action="/admin/pencapaian_alumni/{{$santri->id}}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a class="btn btn-primary"
+                                                href="/admin/pencapaian_alumni/{{$santri->id}}/edit"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <button class="btn btn-danger"
+                                                type="submit"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

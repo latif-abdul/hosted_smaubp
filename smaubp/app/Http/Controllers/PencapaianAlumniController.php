@@ -5,6 +5,7 @@ use App\Imports\PencapaianAlumniImports;
 use App\Models\PencapaianAlumni;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PencapaianAlumniController extends Controller
 {
@@ -13,7 +14,7 @@ class PencapaianAlumniController extends Controller
      */
     public function index()
     {
-        $siswa = PencapaianAlumni::all();
+        $siswa = PencapaianAlumni::where('deleted_at', '=', null)->get();
         $formAction = '/admin/pencapaian_alumni/import';
         return view("Admin.pencapaian_alumni_index", compact('siswa', 'formAction'));
     }
@@ -80,7 +81,8 @@ class PencapaianAlumniController extends Controller
      */
     public function destroy(string $id)
     {
-        PencapaianAlumni::find($id)->delete();
+        $pencapaianAlumni = PencapaianAlumni::find($id);
+        $pencapaianAlumni->update(['deleted_at' => Carbon::now()]);
         return back()->with('delete', 'Successfully delete');
     }
 
