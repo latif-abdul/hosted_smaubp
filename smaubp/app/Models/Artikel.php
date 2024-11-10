@@ -15,6 +15,7 @@ class Artikel extends Model
         'judul',
         'penulis',
         'artikel',
+        'deleted_at',
     ];
 
     public function comment()

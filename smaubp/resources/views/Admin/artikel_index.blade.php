@@ -30,8 +30,9 @@
                             </div>
                         </div>
                         <div class="tb_search">
-                        <input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
-                        placeholder="Search.." class="form-control">
+                            <input type="text" id="search_input_all"
+                                onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                                placeholder="Search.." class="form-control">
                         </div>
                     </div>
                     <table class="table table-striped table-class" id="table-id">
@@ -48,12 +49,17 @@
                                     <td>{{$art->judul}}</td>
                                     <td>{{$art->penulis}}</td>
                                     <td>
-                                        <a class="btn btn-secondary" href="{{$base_url}}/{{$art->id}}"><i
-                                                class="fa-solid fa-eye"></i></a>
-                                        <a class="btn btn-primary" href="{{$base_url}}/{{$art->id}}/edit"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger" href="{{$base_url}}/{{$art->id}}/delete"><i
-                                                class="fa-solid fa-trash"></i></a>
+                                        <form method="POST" action="{{$base_url}}/{{$art->id}}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a class="btn btn-secondary" href="{{$base_url}}/{{$art->id}}"><i
+                                                    class="fa-solid fa-eye"></i></a>
+                                            <a class="btn btn-primary" href="{{$base_url}}/{{$art->id}}/edit"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <button class="btn btn-danger" type="submit"><i
+                                                    class="fa-solid fa-trash"></i></button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach

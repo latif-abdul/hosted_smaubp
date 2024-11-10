@@ -15,6 +15,7 @@ class ArtikelSantri extends Model
         'judul',
         'penulis',
         'artikel',
+        'deleted_at',
     ];
 
     public function comment_santri()

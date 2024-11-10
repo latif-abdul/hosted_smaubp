@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Artikel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class ArtikelController extends Controller
 {
@@ -15,7 +16,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::all();
+        $artikel = Artikel::where('deleted_at', '=', null)->get();
         $title = "Artikel";
         $base_url = "/admin/artikel";
         return view("Admin.artikel_index", compact("artikel", "title", "base_url"));
@@ -57,7 +58,7 @@ class ArtikelController extends Controller
         //     $artikel->save();
         // }
 
-        return back()->with('success', 'Santri created successfully')
+        return back()->with('success', 'Artikel created successfully')
             ->header('Content-Type', 'text/plain');
     }
 
@@ -130,7 +131,8 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        Artikel::find($id)->delete();
+        $artikel = Artikel::find($id);
+        $artikel->update(['deleted_at' => Carbon::now()]);
         return back()->with('delete', 'Successfully delete');
     }
 
