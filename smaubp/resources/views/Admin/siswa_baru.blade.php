@@ -150,25 +150,14 @@
                                                             class="fa-solid fa-file-arrow-down"></i></a>
                                                 </form>
                                                 <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                                                        class="fa-solid fa-eye"></i></a> -->
+                                                                                                                class="fa-solid fa-eye"></i></a> -->
 
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            @if (session()->has('delete'))
-                                <div class="alert alert-success" id="successAlert">
-                                    {{ session()->get('delete') }}
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                                </div>
-                            @endif
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger" id="successAlert">
-                                    {{ session()->get('error') }}
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                                </div>
-                            @endif
+
 
                             <!--		Start Pagination -->
                             <!-- <div class='pagination-container'> -->
@@ -246,7 +235,7 @@
                                                     @method('DELETE')
                                                     @csrf
                                                     <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
-                                                                                        class="fa-solid fa-eye"></i></a>
+                                                            class="fa-solid fa-eye"></i></a>
                                                     <a class="btn btn-primary"
                                                         href="/admin/siswa_baru/{{$santri->id}}/edit"><i
                                                             class="fa-solid fa-pen-to-square"></i></a>
@@ -264,18 +253,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            @if (session()->has('delete'))
-                                <div class="alert alert-success" id="successAlert">
-                                    {{ session()->get('delete') }}
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                                </div>
-                            @endif
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger" id="successAlert">
-                                    {{ session()->get('error') }}
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                                </div>
-                            @endif
+
 
                             <!--		Start Pagination -->
                             <!-- <div class='pagination-container'> -->
@@ -298,7 +276,28 @@
                     </div>
                     <br>
 
+                    @if (session()->has('delete'))
+                        <div class="alert alert-success" id="successAlert">
+                            {{ session()->get('delete') }}
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
+                    @endif
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger" id="successAlert">
+                            {{ session()->get('error') }}
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
+                    @endif
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger" id="successAlert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

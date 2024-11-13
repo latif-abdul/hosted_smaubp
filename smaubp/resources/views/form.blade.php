@@ -182,6 +182,17 @@
           <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
           </div>
         @endif
+        @if ($errors->any())
+                <div class="alert alert-danger" id="successAlert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @if ($errors->has('email'))
+                    @endif
+                </div>
+            @endif
             </div>
           </form>
         </div>

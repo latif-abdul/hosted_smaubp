@@ -81,7 +81,7 @@ class SiswaController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:santris',
             'nama_lengkap' => 'required|string|max:255',
-            'jenis_kelamin' => 'required|in:OP,OL',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'asal_sekolah' => 'required|string|max:255',
@@ -94,17 +94,17 @@ class SiswaController extends Controller
             'pekerjaan_ibu' => 'required|string|max:255',
             'penghasilan_ayah' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
             'penghasilan_ibu' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
-            'jalur_masuk' => 'required|in:reguler',
+            'jalur_masuk' => 'required|in:reguler, prestasi',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // if ($validator->fails()) {
-        //     return $validator;
-        //     // return redirect()->back()
-        //     //     ->withErrors($validator)
-        //     //     ->withInput();
-        // }
+        if ($validator->fails()) {
+            // return response($validator->errors());
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         try {
             $siswa = Santris::create($request->all());
             $siswa->no_wa = $request->nomor_hp_ayah;
@@ -133,7 +133,7 @@ class SiswaController extends Controller
                 ->header('Content-Type', 'text/plain');
             // return response($response->no)
         } catch (\Exception $e) {
-            return back()->with('failed', 'Gagal menyimpan data siswa '+$e->getCode());
+            return back()->with('failed', 'Gagal menyimpan data siswa ' + $e->getCode());
         }
     }
 
@@ -161,6 +161,33 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:santris',
+            'nama_lengkap' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
+            'asal_sekolah' => 'required|string|max:255',
+            'alamat_sekolah' => 'required|string|max:255',
+            'nama_ayah' => 'required|string|max:255',
+            'nama_ibu' => 'required|string|max:255',
+            'nomor_hp_ayah' => 'required|string|max:255',
+            'nomor_hp_ibu' => 'required|string|max:255',
+            'pekerjaan_ayah' => 'required|string|max:255',
+            'pekerjaan_ibu' => 'required|string|max:255',
+            'penghasilan_ayah' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
+            'penghasilan_ibu' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
+            'jalur_masuk' => 'required|in:reguler, prestasi',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            // return response($validator->errors());
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         try {
             // DB::connection()->enableQueryLog();
             $siswa = Santris::find($id)->update($request->all());
@@ -190,7 +217,7 @@ class SiswaController extends Controller
                 'message' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
-            return redirect()->back()->with('failed', 'Gagal menyimpan data siswa '+$e->getCode());
+            return redirect()->back()->with('failed', 'Gagal menyimpan data siswa ' + $e->getCode());
         }
     }
 
@@ -225,7 +252,7 @@ class SiswaController extends Controller
 
             return redirect()->away($whatsappUrl);
         } else {
-            return response()->json(["Harap isi No Whatsapp dahulu"]);
+            return redirect()->back()->withErrors(["Harap isi No Whatsapp dahulu"]);
         }
         // return redirect()->away($whatsappUrl);
     }
@@ -301,6 +328,36 @@ class SiswaController extends Controller
     public function downloadPDF($id)
     {
         $siswa = Santris::find($id);
+
+        $validator = Validator::make($siswa->toArray(), [
+            'email' => 'required',
+            'nama_lengkap' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'asal_sekolah' => 'required',
+            'alamat_sekolah' => 'required',
+            'nama_ayah' => 'required',
+            'nama_ibu' => 'required',
+            'nomor_hp_ayah' => 'required',
+            'nomor_hp_ibu' => 'required',
+            'pekerjaan_ayah' => 'required',
+            'pekerjaan_ibu' => 'required',
+            'penghasilan_ayah' => 'required',
+            'penghasilan_ibu' => 'required',
+            'jalur_masuk' => 'required',
+            'foto' => 'nullable',
+            'bukti_pembayaran' => 'nullable',
+        ]);
+
+        if ($validator->fails()) {
+            // return response($validator->errors());
+            return redirect()->back()
+                ->withErrors($validator);
+            // return redirect()->back()
+            //     ->with('error', $validator->errors());
+                
+        }
 
         if ($siswa->tanggal_lahir != null) {
             $tanggal_lahir = Carbon::parse($siswa->tanggal_lahir)->isoFormat('D MMMM Y');
