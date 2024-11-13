@@ -24,59 +24,59 @@
             <div class="content mb-3">
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" class="form-control" name="email" required>
+                <input type="email" id="email" class="form-control" name="email" required value="{{{old('email', isset($siswa->email) ? $siswa->email : '')}}}">
               </div>
 
               <div class="form-group">
                 <label for="nama_lengkap">Nama Lengkap (kapital dan tanpa disingkat) *</label>
-                <input type="text" id="nama_lengkap" class="form-control" name="nama_lengkap" required>
+                <input type="text" id="nama_lengkap" class="form-control" name="nama_lengkap" required value="{{{old('nama_lengkap', isset($siswa->nama_lengkap) ? $siswa->nama_lengkap : '')}}}">
               </div>
 
               <div class="form-group">
                 <label for="jenis_kelamin">Jenis Kelamin *</label><br>
-                <input type="radio" id="OP" name="jenis_kelamin" value="laki-laki" required>
+                <input type="radio" id="OP" name="jenis_kelamin" value="laki-laki" {{{old('jenis_kelamin', isset($siswa->jenis_kelamin) && $siswa->jenis_kelamin == "laki-laki" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Laki-Laki</label>
-                <input type="radio" id="OL" name="jenis_kelamin" value="perempuan" required>
+                <input type="radio" id="OL" name="jenis_kelamin" value="perempuan" {{{old('jenis_kelamin', isset($siswa->jenis_kelamin) && $siswa->jenis_kelamin == "perempuan" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OL">Perempuan</label>
-              </div>
+            </div>
 
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="tempat_lahir">Tempat Lahir *</label>
-                    <input type="text" id="tempat_lahir" class="form-control" name="tempat_lahir" required>
+                    <input type="text" id="tempat_lahir" class="form-control" name="tempat_lahir" required value="{{{old('tempat_lahir', isset($siswa->tempat_lahir) ? $siswa->tempat_lahir : '')}}}">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="tanggal_lahir">Tanggal Lahir *</label>
-                    <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir" required>
+                    <input type="date" id="tanggal_lahir" class="form-control" name="tanggal_lahir" required value="{{{old('tanggal_lahir', isset($siswa->tanggal_lahir) ? $siswa->tanggal_lahir : '')}}}">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="asal_sekolah">Asal Sekolah *</label>
-                <input type="text" id="asal_sekolah" class="form-control" name="asal_sekolah" required>
+                <input type="text" id="asal_sekolah" class="form-control" name="asal_sekolah" required value="{{{old('asal_sekolah', isset($siswa->asal_sekolah) ? $siswa->asal_sekolah : '')}}}">
               </div>
 
               <div class="form-group">
                 <label for="alamat_sekolah">Alamat Sekolah *</label>
-                <input type="text" id="alamat_sekolah" class="form-control" name="alamat_sekolah" required>
+                <input type="text" id="alamat_sekolah" class="form-control" name="alamat_sekolah" required value="{{{old('alamat_sekolah', isset($siswa->alamat_sekolah) ? $siswa->alamat_sekolah : '')}}}">
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nama_ayah">Nama Ayah/ Wali *</label>
-                    <input type="text" id="nama_ayah" class="form-control" name="nama_ayah" required>
+                    <input type="text" id="nama_ayah" class="form-control" name="nama_ayah" required value="{{{old('nama_ayah', isset($siswa->nama_ayah) ? $siswa->nama_ayah : '')}}}">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nama_ibu">Nama Ibu *</label>
-                    <input type="text" id="nama_ibu" class="form-control" name="nama_ibu" required>
+                    <input type="text" id="nama_ibu" class="form-control" name="nama_ibu" required value="{{{old('nama_ibu', isset($siswa->nama_ibu) ? $siswa->nama_ibu : '')}}}">
                   </div>
                 </div>
               </div>
@@ -85,14 +85,14 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nomor_hp_ayah">Nomor HP Ayah/ Wali *</label>
-                    <input type="number" id="nomor_hp_ayah" class="form-control" name="nomor_hp_ayah" required>
+                    <input type="number" id="nomor_hp_ayah" class="form-control" name="nomor_hp_ayah" required value="{{{old('nomor_hp_ayah', isset($siswa->nomor_hp_ayah) ? $siswa->nomor_hp_ayah : '')}}}">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nomor_hp_ibu">Nomor HP Ibu *</label>
-                    <input type="number" id="nomor_hp_ibu" class="form-control" name="nomor_hp_ibu" required>
+                    <input type="number" id="nomor_hp_ibu" class="form-control" name="nomor_hp_ibu" required value="{{{old('nomor_hp_ibu', isset($siswa->nomor_hp_ibu) ? $siswa->nomor_hp_ibu : '')}}}">
                   </div>
                 </div>
               </div>
@@ -101,13 +101,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="pekerjaan_ayah">Pekerjaan Ayah/ Wali *</label>
-                    <input type="text" id="pekerjaan_ayah" class="form-control" name="pekerjaan_ayah" required>
+                    <input type="text" id="pekerjaan_ayah" class="form-control" name="pekerjaan_ayah" required value="{{{old('pekerjaan_ayah', isset($siswa->pekerjaan_ayah) ? $siswa->pekerjaan_ayah : '')}}}">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="pekerjaan_ibu">Pekerjaan Ibu *</label>
-                    <input type="text" id="pekerjaan_ibu" class="form-control" name="pekerjaan_ibu" required>
+                    <input type="text" id="pekerjaan_ibu" class="form-control" name="pekerjaan_ibu" required value="{{{old('pekerjaan_ibu', isset($siswa->pekerjaan_ibu) ? $siswa->pekerjaan_ibu : '')}}}">
                   </div>
                 </div>
 
@@ -117,34 +117,42 @@
                   <div class="form-group">
                     <label for="penghasilan_ayah">Penghasilan Ayah *</label>
                     <select id="penghasilan_ayah" class="form-control" name="penghasilan_ayah" required>
-                      <option value="0-1.000.000">0-1.000.000</option>
-                      <option value="1.000.000-3.000.000">1.000.000-3.000.000</option>
-                      <option value="3.000.000-6.000.000">3.000.000-6.000.000</option>
-                      <option value="6.000.000-10.000.000">6.000.000-10.000.000</option>
-                      <option value=">10.000.000">> 10.000.000</option>
-                    </select>
+                            <option value="0-1.000.000" {{{old('penghasilan_ayah', isset($siswa->penghasilan_ayah) && $siswa->penghasilan_ayah == "0-1.000.000" ? 'selected' : '')}}}>0-1.000.000</option>
+                            <option value="1.000.000-3.000.000" {{{old('penghasilan_ayah', isset($siswa->penghasilan_ayah) && $siswa->penghasilan_ayah == "1.000.000-3.000.000" ? 'selected' : '')}}}>1.000.000-3.000.000
+                            </option>
+                            <option value="3.000.000-6.000.000" {{{old('penghasilan_ayah', isset($siswa->penghasilan_ayah) && $siswa->penghasilan_ayah == "3.000.000-6.000.000" ? 'selected' : '')}}}>
+                                3.000.000-6.000.000</option>
+                            <option value="6.000.000-10.000.000" {{{old('penghasilan_ayah', isset($siswa->penghasilan_ayah) && $siswa->penghasilan_ayah == "6.000.000-10.000.000" ? 'selected' : '')}}}>
+                                6.000.000-10.000.000</option>
+                            <option value=">10.000.000" {{{old('penghasilan_ayah', isset($siswa->penghasilan_ayah) && $siswa->penghasilan_ayah == ">10.000.000" ? 'selected' : '')}}}>> 10.000.000
+                            </option>
+                        </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="penghasilan_ibu">Penghasilan Ibu *</label>
                     <select id="penghasilan_ibu" class="form-control" name="penghasilan_ibu" required>
-                      <option value="0-1.000.000">0-1.000.000</option>
-                      <option value="1.000.000-3.000.000">1.000.000-3.000.000</option>
-                      <option value="3.000.000-6.000.000">3.000.000-6.000.000</option>
-                      <option value="6.000.000-10.000.000">6.000.000-10.000.000</option>
-                      <option value=">10.000.000">> 10.000.000</option>
-                    </select>
+                            <option value="0-1.000.000" {{{old('penghasilan_ibu', isset($siswa->penghasilan_ibu) && $siswa->penghasilan_ibu == "0-1.000.000" ? 'selected' : '')}}}>0-1.000.000</option>
+                            <option value="1.000.000-3.000.000" {{{old('penghasilan_ibu', isset($siswa->penghasilan_ibu) && $siswa->penghasilan_ibu == "1.000.000-3.000.000" ? 'selected' : '')}}}>
+                                1.000.000-3.000.000
+                            </option>
+                            <option value="3.000.000-6.000.000" {{{old('penghasilan_ibu', isset($siswa->penghasilan_ibu) && $siswa->penghasilan_ibu == "3.000.000-6.000.000" ? 'selected' : '')}}}>
+                                3.000.000-6.000.000</option>
+                            <option value="6.000.000-10.000.000" {{{old('penghasilan_ibu', isset($siswa->penghasilan_ibu) && $siswa->penghasilan_ibu == "6.000.000-10.000.000" ? 'selected' : '')}}}>
+                                6.000.000-10.000.000</option>
+                            <option value=">10.000.000" {{{old('penghasilan_ibu', isset($siswa->penghasilan_ibu) && $siswa->penghasilan_ibu == ">10.000.000" ? 'selected' : '')}}}>> 10.000.000</option>
+                        </select>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="jalur_masuk">Jalur Masuk *</label><br>
-                <input type="radio" id="OP" name="jalur_masuk" value="reguler" required>
+                <input type="radio" id="OP" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Reguler</label>
-                <input type="radio" id="OP" name="jalur_masuk" value="prestasi" required>
+                <input type="radio" id="OP" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Prestasi</label>
-              </div>
+            </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="file-field">
