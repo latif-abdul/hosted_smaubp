@@ -133,7 +133,7 @@ class SiswaController extends Controller
                 ->header('Content-Type', 'text/plain');
             // return response($response->no)
         } catch (\Exception $e) {
-            return back()->with('failed', 'Gagal menyimpan data siswa ' + $e->getCode());
+            return back()->with('failed', 'Gagal menyimpan data siswa '.$e->getCode());
         }
     }
 
