@@ -21,7 +21,7 @@
                 </div>
                 @if($st == "Selamat")
                     <ol>
-                        <strong>Waktu daftar ulang mulai 27 Oktober - 10 November 2024. </strong>
+                        <strong>Waktu daftar ulang mulai 2 – 10 Maret 2025. </strong>
                         <br>
                         <br>
                         Rincian pembayaran:

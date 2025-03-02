@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class DafulController extends Controller
 {
@@ -52,13 +53,20 @@ class DafulController extends Controller
         // } else {
         $daful = Daful::create(["id_santris" => $santri->id]);
 
-        // $this->validate($request, [
-        //     'akta_kelahiran' => 'required|mimes:jpeg,jpg,png',
-        //     'kartu_keluarga' => 'required|mimes:jpeg,jpg,png',
-        //     'skl' => 'required|mimes:jpeg,jpg,png',
-        //     'bukti_transfer' => 'required|mimes:jpeg,jpg,png',
-        //     'foto' => 'required|mimes:jpeg,jpg,png',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'akta_kelahiran' => 'required|mimes:jpeg,jpg,png|max:2048',
+            'kartu_keluarga' => 'required|mimes:jpeg,jpg,png|max:2048',
+            // 'skl' => 'required|mimes:jpeg,jpg,png',
+            'bukti_transfer' => 'required|mimes:jpeg,jpg,png|max:2048',
+            'foto' => 'required|mimes:jpeg,jpg,png|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            // return response($validator->errors());
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         if ($request->hasFile('akta_kelahiran')) {
             $daful->akta_kelahiran = $santri->nama_lengkap . time() . '-' . $request->file('akta_kelahiran')->getClientOriginalName();

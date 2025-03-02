@@ -133,6 +133,11 @@ class SiswaController extends Controller
                 ->header('Content-Type', 'text/plain');
             // return response($response->no)
         } catch (\Exception $e) {
+            ErrorLog::create([
+                'url' => url()->current(),
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return back()->with('failed', 'Gagal menyimpan data siswa '.$e->getCode());
         }
     }
