@@ -185,7 +185,7 @@
                     <div class="row">
                     <div class="col-md">
                     <label>Sertifikat</label>
-                    <input type="file" class="form-control" name="sertifikat" required>
+                    <input type="file" class="form-control" name="sertifikat">
                 </div>  
                 </div>
                 </div>
