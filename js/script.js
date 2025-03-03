@@ -53,3 +53,15 @@ window.addEventListener('load', () => {
   });
 })
 
+$(document).ready(function () {
+
+  $("#upload-sertifikat").hide();
+
+  $("input[name='jalur_masuk']").click(function () {
+
+      if ($('#prestasi').is(':checked')) { $("#upload-sertifikat").show(); } 
+
+      else { $("#upload-sertifikat").hide(); }
+  });
+});
+
