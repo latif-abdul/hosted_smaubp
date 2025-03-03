@@ -210,9 +210,9 @@ class SiswaController extends Controller
             }
 
             if ($request->hasFile('sertifikat')) {
-                $siswa->sertifikat = time() . '-' . $request->file('sertifikat')->getClientOriginalName();
-                $request->file('sertifikat')->move('uploads', $siswa->sertifikat);
-                $siswa->save();
+                $sertifikat = time() . '-' . $request->file('sertifikat')->getClientOriginalName();
+                $request->file('sertifikat')->move('uploads', $sertifikat);
+                Santris::find($id)->update(['sertifikat' => $sertifikat]);
             }
 
             if ($request->hasFile('foto')) {
