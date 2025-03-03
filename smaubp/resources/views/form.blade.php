@@ -148,11 +148,19 @@
               </div>
               <div class="form-group">
                 <label for="jalur_masuk">Jalur Masuk *</label><br>
-                <input type="radio" id="OP" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
+                <input type="radio" id="reguler" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Reguler</label>
-                <input type="radio" id="OP" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
+                <input type="radio" id="prestasi" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Prestasi</label>
             </div>
+            <div class="row" id="upload-sertifikat">
+                <div class="col-md-6">
+                  <div class="file-field">
+                    <label>Sertifikat</label>
+                    <input type="file" class="form-control" name="sertifikat" required>
+                  </div>
+                </div>
+                </div><br>
               <div class="row">
                 <div class="col-md-6">
                   <div class="file-field">

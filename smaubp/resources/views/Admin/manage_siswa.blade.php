@@ -1,13 +1,13 @@
 @extends('Admin.app')
 @section('content')
 <div class="card">
-    <form method="post" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
-        @if(isset($siswa)) @method('PUT') @else @method('POST') @endif
-        @csrf
-        <div class="header">
-            <h2 class="title">PENDAFTARAN SANTRI</h2>
-        </div>
-        <!-- <p>SELAMAT DATANG CALON GENERASI SMART QUR'ANI !</p>
+	<form method="post" action="{{$formAction}}" enctype="multipart/form-data" id="myForm">
+		@if(isset($siswa)) @method('PUT') @else @method('POST') @endif
+		@csrf
+		<div class="header">
+			<h2 class="title">PENDAFTARAN SANTRI</h2>
+		</div>
+		<!-- <p>SELAMAT DATANG CALON GENERASI SMART QUR'ANI !</p>
   
   <ol>
     <li>Silakan melakukan pembayaran formulir online sebesar Rp 400.000 ke rekening BSI (Bank Syariah Mandiri) 7073341967 a.n SITI MUSIRROH (SMAU BP AU PACET)</li>
@@ -165,126 +165,146 @@
             </div>
             <div class="form-group">
                 <label for="jalur_masuk">Jalur Masuk *</label><br>
-                <input type="radio" id="OP" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
+                <input type="radio" id="reguler" name="jalur_masuk" value="reguler" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "reguler" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Reguler</label>
-                <input type="radio" id="OP" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
+                <input type="radio" id="prestasi" name="jalur_masuk" value="prestasi" {{{old('jalur_masuk', isset($siswa->jalur_masuk) && $siswa->jalur_masuk == "prestasi" ? 'checked=' . '"' . 'checked' . '"' : '')}}} required>
                 <label for="OP">Prestasi</label>
             </div>
-            <div class="row">
+            
+            <div class="row" id="upload-sertifikat">
                 <div class="col-md-6">
-                    <div class="row">
+                @if(isset($siswa->sertifikat))
+                <div class="row">
                         <div class="col-md">
-                            @if(isset($siswa->foto))
-                                <img src="/uploads/{{$siswa->foto}}" width="80%">
-                            @endif
+                            
+                                <img src="/uploads/{{$siswa->sertifikat}}" width="80%">
+                            
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label>Foto</label>
-                                <input type="file" class="form-control" name="foto">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md">
-                            @if(isset($siswa->bukti_pembayaran))
-                                <img src="/uploads/{{$siswa->bukti_pembayaran}}" width="80%">
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-group">
-                                <label>Bukti Pembayaran</label>
-                                <input type="file" class="form-control" name="bukti_pembayaran">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="status"
-                    {{{old('status', isset($siswa->status) && $siswa->status == "1" ? 'checked' : '')}}}>
-                <label class="form-check-label" for="defaultCheck1">
-                    Terverifikasi
-                </label>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Saved</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
-            <a href="/admin/siswa_baru" class="btn btn-primary btn-fill">Kembali</a>
-            @if (session()->has('success'))
-                <div class="alert alert-success" id="successAlert">
-                    {{ session()->get('success') }}
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                </div>
-            @endif
-            @if (session()->has('failed'))
-                <div class="alert alert-danger" id="successAlert">
-                    {{ session()->get('failed') }}
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
-                </div>
-            @endif
-            @if ($errors->any())
-                <div class="alert alert-danger" id="successAlert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @if ($errors->has('email'))
                     @endif
+                    <div class="row">
+                    <div class="col-md">
+                    <label>Sertifikat</label>
+                    <input type="file" class="form-control" name="sertifikat" required>
+                </div>  
                 </div>
-            @endif
-            <!-- <
-             script>
-                // const url = '{{$formAction}}';
+                </div>
+                </div><br>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md">
+					@if(isset($siswa->foto))
+						<img src="/uploads/{{$siswa->foto}}" width="80%">
+					@endif
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md">
+					<div class="form-group">
+						<label>Foto</label>
+						<input type="file" class="form-control" name="foto">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md">
+					@if(isset($siswa->bukti_pembayaran))
+						<img src="/uploads/{{$siswa->bukti_pembayaran}}" width="80%">
+					@endif
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md">
+					<div class="form-group">
+						<label>Bukti Pembayaran</label>
+						<input type="file" class="form-control" name="bukti_pembayaran">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="status"
+			{{{old('status', isset($siswa->status) && $siswa->status == "1" ? 'checked' : '')}}}>
+		<label class="form-check-label" for="defaultCheck1">
+			Terverifikasi
+		</label>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Saved</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                $('#myForm').on('submit', (function (e) {
-                    e.preventDefault();
-                    let formData = new FormData(this);
-                    $.ajax({
-                        type: "{{{isset($siswa) ? 'PUT' : 'POST'}}}",
-                        url: '{{$formAction}}',
-                        processData: false,
-                        contentType: false,
-                        // contentType: 'multipart/form-data',
-                        cache: false,
-                        data: formData,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
-                        },
-                        success: function (data, status, xhr) {
-                            if (xhr.status == 200) {
-                                alert("Successfully sent to database");
-                            }
-                        }, error: function () {
-                            alert("Could not send to database");
-                        }
-                    });
-                }));
-            </script> -->
-        </div>
-    </form>
+	<button type="submit" class="btn btn-primary btn-fill">Simpan</button>
+	<a href="/admin/siswa_baru" class="btn btn-primary btn-fill">Kembali</a>
+	@if (session()->has('success'))
+		<div class="alert alert-success" id="successAlert">
+			{{ session()->get('success') }}
+			<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+		</div>
+	@endif
+	@if (session()->has('failed'))
+		<div class="alert alert-danger" id="successAlert">
+			{{ session()->get('failed') }}
+			<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+		</div>
+	@endif
+	@if ($errors->any())
+		<div class="alert alert-danger" id="successAlert">
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+			@if ($errors->has('email'))
+			@endif
+		</div>
+	@endif
+	<!-- <
+		script>
+			// const url = '{{$formAction}}';
+
+			$('#myForm').on('submit', (function (e) {
+	e.preventDefault();
+	let formData = new FormData(this);
+	$.ajax({
+		type: "{{{isset($siswa) ? 'PUT' : 'POST'}}}",
+		url: '{{$formAction}}',
+		processData: false,
+		contentType: false,
+		// contentType: 'multipart/form-data',
+		cache: false,
+		data: formData,
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader('X-CSRF-TOKEN', "{{ csrf_token() }}");
+		},
+		success: function (data, status, xhr) {
+			if (xhr.status == 200) {
+				alert("Successfully sent to database");
+			}
+		}, error: function () {
+			alert("Could not send to database");
+		}
+	});
+	}));
+	</script> -->
+	</div>
+	</form>
 </div>
 @endsection

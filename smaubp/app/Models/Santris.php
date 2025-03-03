@@ -33,6 +33,7 @@ class Santris extends Model
         'no_wa',
         'batch_id',
         'deleted_at',
+        'sertifikat'
     ];
 
     public function daful()

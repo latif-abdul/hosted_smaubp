@@ -94,7 +94,8 @@ class SiswaController extends Controller
             'pekerjaan_ibu' => 'required|string|max:255',
             'penghasilan_ayah' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
             'penghasilan_ibu' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
-            'jalur_masuk' => 'required|in:reguler, prestasi',
+            'jalur_masuk' => 'required|in:reguler,prestasi',
+            'sertifikat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -114,6 +115,12 @@ class SiswaController extends Controller
 
             if (!Storage::exists('siswa_images')) {
                 Storage::makeDirectory('siswa_images');
+            }
+
+            if ($request->hasFile('sertifikat')) {
+                $siswa->sertifikat = time() . '-' . $request->file('sertifikat')->getClientOriginalName();
+                $request->file('sertifikat')->move('uploads', $siswa->sertifikat);
+                $siswa->save();
             }
 
             if ($request->hasFile('foto')) {
@@ -182,7 +189,8 @@ class SiswaController extends Controller
             'pekerjaan_ibu' => 'required|string|max:255',
             'penghasilan_ayah' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
             'penghasilan_ibu' => 'required|in:0-1.000.000,1.000.000-3.000.000,3.000.000-6.000.000,6.000.000-10.000.000,>10.000.000',
-            'jalur_masuk' => 'required|in:reguler, prestasi',
+            'jalur_masuk' => 'required|in:reguler,prestasi',
+            'sertifikat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -199,6 +207,12 @@ class SiswaController extends Controller
 
             if (!Storage::exists('siswa_images')) {
                 Storage::makeDirectory('siswa_images');
+            }
+
+            if ($request->hasFile('sertifikat')) {
+                $siswa->sertifikat = time() . '-' . $request->file('sertifikat')->getClientOriginalName();
+                $request->file('sertifikat')->move('uploads', $siswa->sertifikat);
+                $siswa->save();
             }
 
             if ($request->hasFile('foto')) {
