@@ -155,7 +155,7 @@ class SiswaController extends Controller
     public function show(string $id)
     {
         $siswa = Santris::where('id', $id)->first();
-        return view('', [$siswa]);
+        return view('Admin.manage_siswa', [$siswa]);
     }
 
     /**
