@@ -79,7 +79,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:santris',
+            // 'email' => 'required|email|unique:santris',
             'nama_lengkap' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:laki-laki,perempuan',
             'tempat_lahir' => 'required|string|max:255',
