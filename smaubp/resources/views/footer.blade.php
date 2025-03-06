@@ -13,7 +13,7 @@
         <i class="fab fa-instagram"></i>
     </a>
 
-    <a href="https://youtube.com/@sistrentv6209?si=Qv6vTCGA6LF3Ok2R" class="perIconBox yt">
+    <a href="https://youtube.com/@smaubpamanatulummah?si=dG5U8HmpPzs8FZ-U" class="perIconBox yt">
         <i class="fab fa-youtube"></i>
     </a>
     <!-- <a href="" class="perIconBox linkin">
