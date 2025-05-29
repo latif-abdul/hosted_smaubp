@@ -233,6 +233,18 @@
 			Terverifikasi
 		</label>
 	</div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-check form-switch" style="font-size:15pt">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Status Lolos</label>
+                <input type="hidden" name="status_lulus" value="0">
+                <input class="form-check-input" type="checkbox" role="switch"
+                    id="flexSwitchCheckDefault" name="status_lulus" value='1' {{{old('status_lulus', isset($siswa) && $siswa->status_lulus == 1 ? 'checked' : '')}}}>
+                
+            </div>
+        </div>
+    </div>
+    <br>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 		aria-hidden="true">

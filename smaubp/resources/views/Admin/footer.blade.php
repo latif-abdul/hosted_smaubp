@@ -11,8 +11,10 @@
 <script>
   getPagination('#table-id', '#pagination', '#maxRows', '#rows_count');
   getPagination('#table-id-2', '#pagination-2', '#maxRows-2', '#rows_count-2');
+  getPagination('#table-id-3', '#pagination-3', '#maxRows-3', '#rows_count-3');
   $('#maxRows').trigger('change');
   $('#maxRows-2').trigger('change');
+  $('#maxRows-3').trigger('change');
   function getPagination(table, pagination, maxRow, rowsCount) {
 
     $(maxRow).on('change', function () {

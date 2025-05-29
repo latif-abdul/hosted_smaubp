@@ -27,6 +27,16 @@ class SiswaController extends Controller
 			->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
 			->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
 			->where('daful.id_santris', '=', null)
+            ->where('santris.status_lulus', '=', 0)
+			->where('santris.deleted_at', '=', null)
+			->where('batch.deleted_at', '=', null)
+			->where('tahun_ajaran.deleted_at', '=', null)
+            ->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
+        $lolos = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
+			->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
+			->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
+			->where('daful.id_santris', '=', null)
+            ->where('santris.status_lulus', '=', 1)
 			->where('santris.deleted_at', '=', null)
 			->where('batch.deleted_at', '=', null)
 			->where('tahun_ajaran.deleted_at', '=', null)
@@ -62,7 +72,7 @@ class SiswaController extends Controller
 		$formAction2 = "/admin/siswa_baru/import";
         $formAction3 = "/admin/siswa_baru/import_lolos";
 		// return response($siswa_terverifikasi);
-		return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2', 'formAction3', 'daful', 'batch'));
+		return view("Admin.siswa_baru", compact('siswa', 'tanggal_pengumuman', 'formAction', 'formAction2', 'formAction3', 'daful', 'batch', 'lolos'));
 	}
 
 	/**
@@ -237,7 +247,7 @@ class SiswaController extends Controller
 				'message' => $e->getMessage(),
 				'trace' => $e->getTraceAsString(),
 			]);
-			return redirect()->back()->with('failed', 'Gagal menyimpan data siswa ' + $e->getCode());
+			return redirect()->back()->with('failed', 'Gagal menyimpan data siswa '.$e->getCode());
 		}
 	}
 

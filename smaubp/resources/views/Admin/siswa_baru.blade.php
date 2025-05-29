@@ -93,13 +93,14 @@
                                 role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">Pendaftar Baru</a>
                         </li>
                         <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab" href="#simple-tabpanel-2"
+                                role="tab" aria-controls="simple-tabpanel-2" aria-selected="false">Siswa lolos</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
                             <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab" href="#simple-tabpanel-1"
                                 role="tab" aria-controls="simple-tabpanel-1" aria-selected="false">Daftar Ulang</a>
                         </li>
-                        <!-- <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="simple-tab-2" data-bs-toggle="tab" href="#simple-tabpanel-2"
-                                role="tab" aria-controls="simple-tabpanel-2" aria-selected="false">Tab 3</a>
-                        </li> -->
+                        
                     </ul>
                     <div class="tab-content pt-5" id="tab-content">
                         <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
@@ -199,6 +200,102 @@
 
                             <!--  Developed By Yasser Mas -->
                         </div>
+                        <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
+                            <div class="header_wrap">
+                                <!-- <br>
+                                <div class="form-floating">
+                                    <select class="form-select" id="filter-batch" aria-label="filter-batch"
+                                        name="tahun_ajaran_id">
+                                        <option value="all">All</option>
+                                        @foreach ($batch as $ta)
+                                            <option value="{{$ta->name}} {{$ta->tahun_ajaran}}">{{$ta->name}} {{$ta->tahun_ajaran}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="filter-batch">Batch</label>
+                                </div>
+                                <br>
+                                <button class="btn btn-warning" onclick="FilterBatch('table-id', 'filter-batch', 'maxRows')">Filter</button>
+                                <br>
+                                <br> -->
+                                <div class="num_rows">
+                                    <div class="form-group"> <!--		Show Numbers Of Rows 		-->
+                                        <select class="form-control" name="state" id="maxRows-3">
+
+
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="70">70</option>
+                                            <option value="100">100</option>
+                                            <option value="5000">Show ALL Rows</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="tb_search">
+                                    <input type="text" id="search_input_all"
+                                        onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                                        placeholder="Search.." class="form-control">
+                                </div>
+                            </div>
+                            <table class="table table-striped table-class" id="table-id-3">
+
+
+                                <thead>
+                                    <th>No Pendaftaran</th>
+                                    <th>Nama</th>
+                                    <!-- <th>Batch</th> -->
+                                    <th>Action</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($lolos as $santri)
+                                        <tr>
+                                            <td>{{$santri->no_pendaftaran}}</td>
+                                            <td>{{$santri->nama_lengkap}}</td>
+                                            <!-- <td>{{$santri->name}} {{$santri->tahun_ajaran}}</td> -->
+                                            <td>
+                                                <form method="POST" action="/admin/siswa_baru/{{$santri->id}}">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <a class="btn btn-primary"
+                                                        href="/admin/siswa_baru/{{$santri->id}}/edit"><i
+                                                            class="fa-solid fa-pen-to-square"></i></a>
+                                                    <button class="btn btn-danger" type="submit"><i
+                                                            class="fa-solid fa-trash"></i></button>
+                                                    <a class="btn btn-success"
+                                                        href="/admin/siswa_baru/redirectToWhatsapp/{{$santri->id}}"><i
+                                                            class="fa-brands fa-whatsapp"></i></a>
+                                                    <a class="btn btn-info"
+                                                        href="/admin/siswa_baru/downloadpdf/{{$santri->id}}"><i
+                                                            class="fa-solid fa-file-arrow-down"></i></a>
+                                                </form>
+                                                <!-- <a class="btn btn-secondary" href="/admin/daful/{{$santri->id}}"><i
+                                                                                                                class="fa-solid fa-eye"></i></a> -->
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+
+                            <!--		Start Pagination -->
+                            <!-- <div class='pagination-container'> -->
+                            <nav>
+                                <ul class="pagination" id="pagination-3">
+                                    <!--	Here the JS Function Will Add the Rows -->
+                                </ul>
+                            </nav>
+                            <!-- </div> -->
+                            <div class="rows_count" id="rows_count-3">Showing 11 to 20 of 91 entries</div>
+
+                            <!-- 		End of Container -->
+
+
+
+                            <!--  Developed By Yasser Mas -->
+                            </div>
                         <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
                             <div class="header_wrap">
                                 <!-- <br>
@@ -295,8 +392,7 @@
 
                             <!--  Developed By Yasser Mas -->
                         </div>
-                        <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">Tab
-                            3 selected</div>
+                        
                     </div>
                     <br>
 
