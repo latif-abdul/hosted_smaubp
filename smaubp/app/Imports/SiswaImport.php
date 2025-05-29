@@ -20,6 +20,7 @@ class SiswaImport implements ToModel, WithStartRow
     
     public function model(array $row)
     {
+        // return new Santris()->where('no_pendaftaran', '=', $row[1])->update(['status_lulus' => true]);
         return new Santris([
             'no_pendaftaran' => $row[1],
             'nama_lengkap' => $row[2], 

@@ -42,7 +42,28 @@
 
 
                         {{ csrf_field() }}
+                        <label>Tambah Siswa</label><br>
+                        <label>Pilih file excel</label>
+                        <div class="form-group">
+                            <input type="file" name="file" required="required">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Import</button>
+                        <a class=" btn btn-success" href="/template/template import siswa.xlsx">Download Template</a>
 
+                    </form>
+
+                    @if (session()->has('success'))
+                        <div class="alert alert-success" id="successAlert">
+                            {{ session()->get('success') }}
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
+                    @endif
+
+                    <form method="post" action="{{$formAction3}}" enctype="multipart/form-data">
+
+
+                        {{ csrf_field() }}
+                        <label>Update Siswa Lolos</label><br>
                         <label>Pilih file excel</label>
                         <div class="form-group">
                             <input type="file" name="file" required="required">

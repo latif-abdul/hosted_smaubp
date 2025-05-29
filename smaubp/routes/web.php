@@ -86,7 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/siswa_baru/redirectToWhatsapp/{id}', [SiswaController::class, 'redirectToWhatsapp']);
     // Route::post('/admin/siswa_baru/update_tanggal_pengumuman/', [SiswaController::class, 'update_tanggal_pengumuman']);
     Route::put('/admin/siswa_baru/update_tanggal_pengumuman/{id}', [SiswaController::class, 'update_tanggal_pengumuman']);
-    Route::post('/admin/siswa_baru/import', [SiswaController::class, 'import_excel']);
+    Route::post('/admin/siswa_baru/import', [SiswaController::class, 'import_excel_tambah']);
+    Route::post('/admin/siswa_baru/import_lolos', [SiswaController::class, 'import_excel']);
     Route::get('/admin/siswa_baru/{id}/delete', [SiswaController::class, 'destroy']);
     Route::get('/admin/artikel/{id}/delete', [ArtikelController::class, 'destroy']);
     Route::get('/admin/daful/{id}', [DafulController::class, 'show']);
