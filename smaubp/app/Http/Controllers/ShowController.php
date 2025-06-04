@@ -27,7 +27,7 @@ class ShowController extends Controller
         // $optimizerChain->optimize($slideshowPath);
         $sambutan = Sambutan::all();
         // $artikel = Artikel::all()->sortByDesc('updated_at')->take(5);
-        $artikel = Artikel::with('images')->get()->sortByDesc('updated_at')->take(5);
+        $artikel = Artikel::with('images')->where('deleted_at', '=', null)->get()->sortByDesc('updated_at')->take(5);
         $galeri = Galeri::all()->take(6)->sortByDesc('updated_at');
         $alumni = PencapaianAlumni::all();
         $dir = new DirectoryIterator(public_path('logo kampus'));
@@ -44,14 +44,14 @@ class ShowController extends Controller
 
     public function show_artikel()
     {
-        $artikel = Artikel::with('images')->get()->sortByDesc('updated_at');
+        $artikel = Artikel::with('images')->where('deleted_at', '=', null)->get()->sortByDesc('updated_at');
         $base_url = "/artikel";
         return view('artikel', compact('artikel', 'base_url'));
     }
 
     public function show_artikel_santri()
     {
-        $artikel = ArtikelSantri::with('images')->get()->sortByDesc('updated_at');
+        $artikel = ArtikelSantri::with('images')->where('deleted_at', '=', null)->get()->sortByDesc('updated_at');
         $base_url = "/artikel_santri";
         // return response($artikel);
         return view('artikel', compact('artikel', 'base_url'));
