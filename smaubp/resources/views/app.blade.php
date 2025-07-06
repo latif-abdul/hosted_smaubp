@@ -4,10 +4,9 @@
     @include ('header')
 </head>
 <body style="@yield('bg')">
-    @include('navigation')
-    <main>
-    @yield('content')
-    </main>
-    @include('footer')
+    <div id="app">
+        <example-component></example-component>
+    </div>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

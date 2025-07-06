@@ -4,8 +4,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import './bootstrap';
+import './bootstrap.js';
 import { createApp } from 'vue';
+// import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import {createBootstrap} from 'bootstrap-vue-next';
+
+// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -16,7 +22,26 @@ import { createApp } from 'vue';
 const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
+import NavBar from './components/NavBar.vue';
+import Carousel from './components/Carousel.vue';
+import WelcomeMessage from './components/WelcomeMessage.vue';
+import Gallery from './components/Gallery.vue';
+import Table from './components/Table.vue';
+import TableRow from './components/TableRow.vue';
+import TableData from './components/TableData.vue';
+import Article from './components/Article.vue';
+import Marquee from './components/Marquee.vue';
 app.component('example-component', ExampleComponent);
+app.component('nav-bar', NavBar)
+app.component('carousel', Carousel)
+app.component('welcome-message', WelcomeMessage)
+app.component('gallery', Gallery)
+app.component('table-vue', Table)
+app.component('table-row', TableRow)
+app.component('table-data', TableData)
+app.component('article-vue', Article)
+app.component('marquee', Marquee)
+app.use(createBootstrap())
 
 /**
  * The following block of code may be used to automatically register your

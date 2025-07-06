@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [ShowController::class, 'index']);
+// Route::get('/', function () {
+//     return view('layouts/app');
+// });
 Route::get('/artikel/{id}', [ArtikelController::class, 'show2']);
 Route::get('/artikel_santri/{id}', [ArtikelSantriController::class, 'show2']);
 Route::get('/ekskul', function () {

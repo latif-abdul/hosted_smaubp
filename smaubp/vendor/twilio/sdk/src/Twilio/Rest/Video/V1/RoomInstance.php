@@ -40,15 +40,15 @@ use Twilio\Rest\Video\V1\Room\RoomRecordingList;
  * @property \DateTime|null $endTime
  * @property int|null $duration
  * @property string $type
- * @property int|null $maxParticipants
- * @property int|null $maxParticipantDuration
+ * @property int $maxParticipants
+ * @property int $maxParticipantDuration
  * @property int|null $maxConcurrentPublishedTracks
  * @property bool|null $recordParticipantsOnConnect
  * @property string[]|null $videoCodecs
  * @property string|null $mediaRegion
  * @property bool|null $audioOnly
- * @property int|null $emptyRoomTimeout
- * @property int|null $unusedRoomTimeout
+ * @property int $emptyRoomTimeout
+ * @property int $unusedRoomTimeout
  * @property bool|null $largeRoom
  * @property string|null $url
  * @property array|null $links
@@ -66,7 +66,7 @@ class RoomInstance extends InstanceResource
      * @param mixed[] $payload The response payload
      * @param string $sid The SID of the Room resource to fetch.
      */
-    public function __construct(Version $version, array $payload, string $sid = null)
+    public function __construct(Version $version, array $payload, ?string $sid = null)
     {
         parent::__construct($version);
 
