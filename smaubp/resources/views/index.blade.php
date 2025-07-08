@@ -1,23 +1,9 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>SMA-MAU BP Amanatul Ummah</title>
-			<link rel="stylesheet" href="{{url('css/style2.css')}}">
-			<link rel="stylesheet" href="{{ url( 'fonts/icomoon/style.css')}}">
-			<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-			<link href="{{ mix('css/app.css') }}" rel="stylesheet">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.min.css">
-			<link rel="stylesheet" href="css/owl.theme.default.min.css">
-				<link href="{{url('css/swiper-bundle.min.css')}}" rel="stylesheet">
-	</head>
-	<body>
-		<div id="app">
-			<nav-bar></nav-bar>
-				<carousel class="hero"></carousel>
+@extends('app')
+@section('content')
+				<carousel class="hero">
+                    <carousel-image url="https://picsum.photos/1000/400" label1="Best Place to Travel" label2="Japan"></carousel-image>
+                    <carousel-image url="https://picsum.photos/1000/400" label1="Best Place to Travel" label2="Japan"></carousel-image>
+                </carousel>
 					<div class="col-md-9 ms-auto me-auto">
 						<h3 align="center" style="margin-top: 50px">Welcome</h3>
 					<p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit pellentesque eleifend in mi 
@@ -80,36 +66,20 @@
 								</table-row>
 								</template>
 								</table-vue>
-                                <center style="margin-top: 50px"><a class="btn btn-primary load_more" href="#">View More</a></center>
+                                <center style="margin-top: 50px"><a class="primary-button load_more" href="#">View More</a></center>
             </div>
-			</div>
-			</div>
-
-			<script src="{{ mix('js/app.js') }}"></script>
-			<script src="http://code.jquery.com/jquery.js"></script>
-			<script src="js/jquery.min.js"></script>
-			<script src="js/popper.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/owl.carousel.min.js"></script>
-				<script src="{{url('js/glightbox.min.js')}}"></script>
-				<script src="{{url('js/isotope.pkgd.min.js')}}"></script>
-				<script src="{{url('js/swiper-bundle.min.js')}}"></script>
-				<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-				<script src="js/script2.js"></script>
-
-			<!-- <script src="js/scrollCue.min.js"></script>
-			<script>scrollCue.init();</script> -->
-
-			<!-- Custom Js -->
-			<!-- <script src="js/custom.js"></script> -->
-
-			<!-- Add JS counter lib -->
-			<!-- <script src="js/jquery.waypoints.min.js"></script>
-			<script src="js/jquery.counterup.min.js"></script> -->
-
-			<!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-			<!-- <script src="{{url('js/glightbox.min.js')}}"></script>
-			<script src="{{url('js/isotope.pkgd.min.js')}}"></script>
-			<script src="{{url('js/swiper-bundle.min.js')}}"></script> -->
-	</body>
-</html>
+                <counter style="margin-top:  50px">
+                    <counter-item>
+                        <template #number>100</template>
+                        <template #label>Lorem ipsum</template>
+                    </counter-item>
+                    <counter-item>
+                        <template #number>200</template>
+                        <template #label>Lorem ipsum</template>
+                    </counter-item>
+                    <counter-item>
+                        <template #number>300</template>
+                        <template #label>Lorem ipsum</template>
+                    </counter-item>
+                </counter>
+@endsection

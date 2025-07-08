@@ -31,6 +31,12 @@ import TableRow from './components/TableRow.vue';
 import TableData from './components/TableData.vue';
 import Article from './components/Article.vue';
 import Marquee from './components/Marquee.vue';
+import Counter from './components/Counter.vue';
+import CounterItem from './components/CounterItem.vue';
+import Footer from './components/Footer.vue';
+import CarouselImage from './components/CarouselImage.vue';
+import ArticleDetail from './components/ArticleDetail.vue';
+import Comment from './components/Comment.vue';
 app.component('example-component', ExampleComponent);
 app.component('nav-bar', NavBar)
 app.component('carousel', Carousel)
@@ -41,6 +47,12 @@ app.component('table-row', TableRow)
 app.component('table-data', TableData)
 app.component('article-vue', Article)
 app.component('marquee', Marquee)
+app.component('counter', Counter)
+app.component('counter-item', CounterItem)
+app.component('footer-vue', Footer)
+app.component('carousel-image', CarouselImage)
+app.component('article-detail', ArticleDetail)
+app.component('comment', Comment)
 app.use(createBootstrap())
 
 /**

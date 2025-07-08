@@ -1,131 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
+$(function() {
+  var siteSticky = function() {
+		
+		if ($( ".js-sticky-header" ).parent().next().hasClass("hero")){
+			$(".js-sticky-header").sticky({topSpacing:0});
+		}
+		else{
+			$(".sticky-wrapper").addClass("is-sticky");
+			$(".js-sticky-header").css({"width": "1920px", "position": "fixed", "top": "0px", "z-index": "auto"})
+		}
+	};
+	siteSticky();
 
-    // --- Helper function for selecting elements ---
-    // This is a common pattern in vanilla JS to mimic jQuery's powerful selectors.
-    // For single elements:
-    const qs = (selector, parent = document) => parent.querySelector(selector);
-    // For multiple elements:
-    const qsa = (selector, parent = document) => parent.querySelectorAll(selector);
+	var siteMenuClone = function() {
 
-    // --- siteSticky Function ---
-    // Note: The jQuery .sticky() plugin needs a vanilla JS replacement.
-    // I'll leave a placeholder for it.
-    const siteSticky = function() {
-        // You need a vanilla JavaScript sticky header solution here.
-        // A common approach is to listen to scroll events and add/remove a class.
-        // For example:
-        const stickyHeader = qs(".js-sticky-header");
-        if (stickyHeader) {
-            // A simple example for a fixed header when scrolled past a certain point
-            // This is NOT a full replacement for the jQuery .sticky() plugin,
-            // which often handles dynamic offsetting and more.
-            // You might need to look for a specific 'vanilla js sticky header' library
-            // or implement more complex logic.
-
-            const observer = new IntersectionObserver(
-                ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
-                { threshold: [1] }
-            );
-            observer.observe(stickyHeader);
-
-            // If you need it to be fixed at the top with 0px spacing,
-            // you'd typically just apply CSS:
-            // .js-sticky-header {
-            //     position: sticky;
-            //     top: 0;
-            //     z-index: 1000; /* Ensure it stays on top */
-            // }
-            // or use a library that replicates jQuery.sticky's behavior.
-        }
-    };
-    siteSticky();
+		$('.js-clone-nav').each(function() {
+			var $this = $(this);
+			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
+		});
 
 
-    // --- siteMenuClone Function ---
-    const siteMenuClone = function() {
-        // Clone navigation
-        qsa('.js-clone-nav').forEach(function(el) {
-            const clonedEl = el.cloneNode(true); // true for deep clone
-            clonedEl.setAttribute('class', 'site-nav-wrap'); // Set class
-            qs('.site-mobile-menu-body').appendChild(clonedEl); // Append to mobile menu body
+		setTimeout(function() {
+			
+			var counter = 0;
+      $('.site-mobile-menu .has-children').each(function(){
+        var $this = $(this);
+        
+        $this.prepend('<span class="arrow-collapse collapsed">');
+
+        $this.find('.arrow-collapse').attr({
+          'data-toggle' : 'collapse',
+          'data-target' : '#collapseItem' + counter,
         });
 
-        setTimeout(function() {
-            let counter = 0;
-            qsa('.site-mobile-menu .has-children').forEach(function(el) {
-                const arrowCollapse = document.createElement('span');
-                arrowCollapse.classList.add('arrow-collapse', 'collapsed'); // Add classes
-                el.prepend(arrowCollapse); // Prepend the span
-
-                arrowCollapse.setAttribute('data-toggle', 'collapse');
-                arrowCollapse.setAttribute('data-target', '#collapseItem' + counter);
-
-                const ulElement = qs('ul', el); // Find direct child <ul>
-                if (ulElement) { // Ensure ulElement exists before manipulating
-                    ulElement.setAttribute('class', 'collapse'); // Set class
-                    ulElement.setAttribute('id', 'collapseItem' + counter);
-                }
-
-                counter++;
-            });
-        }, 1000); // This setTimeout is a bit of a hack; consider if it's truly needed or if a mutation observer is better.
-
-        // Toggle arrow-collapse active class and Bootstrap collapse (if used)
-        document.body.addEventListener('click', function(e) {
-            if (e.target.classList.contains('arrow-collapse')) {
-                const target = e.target;
-                const collapseElement = qs('.collapse', target.closest('li')); // Find the collapse element within the closest li
-                if (collapseElement && collapseElement.classList.contains('show')) {
-                    target.classList.remove('active');
-                } else {
-                    target.classList.add('active');
-                }
-                e.preventDefault();
-            }
+        $this.find('> ul').attr({
+          'class' : 'collapse',
+          'id' : 'collapseItem' + counter,
         });
 
-        // Window resize handling
-        window.addEventListener('resize', function() {
-            const w = window.innerWidth;
-            const body = qs('body');
+        counter++;
 
-            if (w > 768) {
-                if (body.classList.contains('offcanvas-menu')) {
-                    body.classList.remove('offcanvas-menu');
-                }
-            }
-        });
+      });
 
-        // Toggle mobile menu
-        document.body.addEventListener('click', function(e) {
-            if (e.target.classList.contains('js-menu-toggle')) {
-                e.preventDefault();
-                const body = qs('body');
-                const menuToggle = e.target;
+    }, 1000);
 
-                if (body.classList.contains('offcanvas-menu')) {
-                    body.classList.remove('offcanvas-menu');
-                    menuToggle.classList.remove('active');
-                } else {
-                    body.classList.add('offcanvas-menu');
-                    menuToggle.classList.add('active');
-                }
-            }
-        });
+		$('body').on('click', '.arrow-collapse', function(e) {
+      var $this = $(this);
+      if ( $this.closest('li').find('.collapse').hasClass('show') ) {
+        $this.removeClass('active');
+      } else {
+        $this.addClass('active');
+      }
+      e.preventDefault();  
+      
+    });
 
-        // Click outside offcanvas to close
-        document.addEventListener('mouseup', function(e) {
-            const container = qs(".site-mobile-menu");
-            // Check if the click target is NOT the container and NOT a descendant of the container
-            if (container && !container.contains(e.target)) {
-                const body = qs('body');
-                if (body.classList.contains('offcanvas-menu')) {
-                    body.classList.remove('offcanvas-menu');
-                }
-            }
-        });
-    };
-    siteMenuClone();
+		$(window).resize(function() {
+			var $this = $(this),
+				w = $this.width();
+
+			if ( w > 768 ) {
+				if ( $('body').hasClass('offcanvas-menu') ) {
+					$('body').removeClass('offcanvas-menu');
+				}
+			}
+		})
+
+		$('body').on('click', '.js-menu-toggle', function(e) {
+			var $this = $(this);
+			e.preventDefault();
+
+			if ( $('body').hasClass('offcanvas-menu') ) {
+				$('body').removeClass('offcanvas-menu');
+				$this.removeClass('active');
+			} else {
+				$('body').addClass('offcanvas-menu');
+				$this.addClass('active');
+			}
+		}) 
+
+		// click outisde offcanvas
+		$(document).mouseup(function(e) {
+	    var container = $(".site-mobile-menu");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+	      if ( $('body').hasClass('offcanvas-menu') ) {
+					$('body').removeClass('offcanvas-menu');
+				}
+	    }
+		});
+	}; 
+	siteMenuClone();
 
 });
 

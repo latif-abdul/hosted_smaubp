@@ -1,5 +1,4 @@
 let mix = require('laravel-mix');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()

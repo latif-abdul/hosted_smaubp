@@ -2,12 +2,10 @@
 <script setup>
 import NavItem from './NavItem.vue';
 // import $ from jQuery;
-console.log('mashookkk')
 
 </script>
 
 <template>
-	<div class="navbar" style="padding-top: 0rem;">
 		<div class="site-mobile-menu">
 			<div class="site-mobile-menu-header">
 				<div class="site-mobile-menu-close mt-3">
@@ -16,8 +14,9 @@ console.log('mashookkk')
 			</div>
 			<div class="site-mobile-menu-body"></div>
 		</div>
-
-		<header class="site-navbar" role="banner">
+    
+    <div class="sticky-wrapper" id="sticky-wrapper" style="height: 60px;">
+		<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
             <div class="container">
 				<div class="row align-items-center">
 
