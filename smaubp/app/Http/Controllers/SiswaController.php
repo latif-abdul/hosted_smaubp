@@ -121,9 +121,11 @@ class SiswaController extends Controller
 			$siswa = Santris::create($request->all());
 			$siswa->no_wa = $request->nomor_hp_ayah;
 			$batch = Batch::where('deleted_at', '=', null)->where('date_from', '<=', Carbon::now())->where('date_to', '>=', Carbon::now())->first();
-			$siswa->batch_id = $batch->id;
+			if ($batch){
+				$siswa->batch_id = $batch->id;
+			}
 			$siswa->save();
-
+			
 			if (!Storage::exists('siswa_images')) {
 				Storage::makeDirectory('siswa_images');
 			}
