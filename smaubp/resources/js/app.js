@@ -37,6 +37,12 @@ import Footer from './components/Footer.vue';
 import CarouselImage from './components/CarouselImage.vue';
 import ArticleDetail from './components/ArticleDetail.vue';
 import Comment from './components/Comment.vue';
+import FormPengumuman from './components/FormPengumuman.vue';
+import Input from './components/Input.vue';
+import InputFile from './components/InputFile.vue';
+import InputRadio from './components/InputRadio.vue';
+import InputDate from './components/InputDate.vue';
+import Select from './components/Select.vue';
 app.component('example-component', ExampleComponent);
 app.component('nav-bar', NavBar)
 app.component('carousel', Carousel)
@@ -53,6 +59,12 @@ app.component('footer-vue', Footer)
 app.component('carousel-image', CarouselImage)
 app.component('article-detail', ArticleDetail)
 app.component('comment', Comment)
+app.component('pengumuman', FormPengumuman)
+app.component('input-vue', Input)
+app.component('input-file', InputFile)
+app.component('input-radio', InputRadio)
+app.component('input-date', InputDate)
+app.component('select-vue', Select)
 app.use(createBootstrap())
 
 /**

@@ -3,47 +3,31 @@
 <div class="container">
     <form method="POST" action="{{$formAction}}" enctype="multipart/form-data">
         @csrf
-        <div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h2>DAFTAR ULANG SISWA</h2>
+        <div style="margin-top: 100px">
+            <h2 style="margin-top: 50px">DAFTAR ULANG SISWA</h2>
             <h6>Format Upload File JPEG, JPG, PNG</h6>
             <br>
         </div>
         <div class="content">
-            <div class="row">
+            <div class="row line">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="no_pendaftaran">Nomor Pendaftaran</label>
-                        <input type="text" id="no_pendaftaran" class="form-control" name="no_pendaftaran" required>
-                    </div>
+                    <input-vue name="no_pendaftaran" label="Nomor Pendaftaran"></input-vue>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="no_wa">Nomor Whatsapp Aktif yang bisa dihubungi</label>
-                        <input type="number" id="no_wa" class="form-control" name="no_wa" required>
-                    </div>
+                    <input-vue label="Nomor Whatsapp Aktif yang bisa dihubungi" name="no_wa"></input-vue>
                 </div>
             </div>
-            <div class="row">
+            <div class="row line">
                 <div class="col-md-6">
-                    <div class="file-field">
-                        <label>Akta Kelahiran</label>
-                        <input type="file" class="form-control" name="akta_kelahiran" required>
-                    </div>
+                    <input-file label="Akta Kelahiran" name="akta_kelahiran"></input-vue>
                 </div>
                 <div class="col-md-6">
-                    <div class="file-field">
-                        <label>Kartu Keluarga</label>
-                        <input type="file" class="form-control" name="kartu_keluarga" required>
-                    </div>
+                    <input-file label="Kartu Keluarga" name="kartu_keluarga"></input-vue>
                 </div>
             </div>
             <br>
-            <div class="row">
+            <div class="row line">
                 <!-- <div class="col-md-6">
                     <div class="file-field">
                         <label>Surat Keterangan Lulus (SKL) atau halaman biodata rapor</label>
@@ -51,16 +35,10 @@
                     </div>
                 </div> -->
                 <div class="col-md-6">
-                    <div class="file-field">
-                        <label>Bukti transfer pembayaran daftar ulang</label>
-                        <input type="file" class="form-control" name="bukti_transfer" required>
-                    </div>
+                    <input-file label="Bukti transfer pembayaran daftar ulang" name="bukti_transfer"></input-vue>
                 </div>
                 <div class="col-md-6">
-                    <div class="file-field">
-                        <label>Pas Foto berwarna</label>
-                        <input type="file" class="form-control" name="foto" required>
-                    </div>
+                    <input-file label="Pas Foto berwarna" name="foto"></input-vue>
                 </div>
             </div>
             <br>
@@ -73,7 +51,7 @@
                 </div>
             </div>
             <br> -->
-            <button type="submit" class="btn btn-primary btn-fill">Simpan</button>
+            <button type="submit" class="primary-button">Simpan</button>
             @if (session()->has('success'))
                 <div class="alert alert-success" id="successAlert">
                     {{ session()->get('success') }}
@@ -93,7 +71,5 @@
             @endif
         </div>
     </form>
-</div>
-</div>
 </div>
 @endsection

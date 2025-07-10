@@ -18,6 +18,10 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+.line{
+    border-bottom: 1px solid #e5e5e5;
+}
+
  .primary-button {
      padding: 9px 45px;
      border: none;

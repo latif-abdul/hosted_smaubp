@@ -27,17 +27,17 @@ import NavItem from './NavItem.vue';
 						<nav class=" navbar site-navigation position-relative text-right" role="navigation">
 
 							<ul class="navbar-nav ms-auto site-menu js-clone-nav d-none d-lg-block" style="margin-right: 0px;margin-left: auto;">
-								<NavItem href="." name="Home" isActive="active"></NavItem>
-                                <NavItem href="." name="Kegiatan Sekolah"></NavItem>
-                                <NavItem href="." name="PPDB"></NavItem>
-                                <NavItem href="." name="Artikel" isDropdown>
-                                    <li><a href="#">Artikel</a></li>
-                                    <li><a href="#">Artikel Santri</a></li>
+								<NavItem href="/" name="Home" isActive="active"></NavItem>
+                                <NavItem href="#" name="Kegiatan Sekolah"></NavItem>
+                                <NavItem href="/ppdb" name="PPDB"></NavItem>
+                                <NavItem href="" name="Artikel" isDropdown>
+                                    <li><a href="/artikel">Artikel</a></li>
+                                    <li><a href="/artikel_santri">Artikel Santri</a></li>
                                 </NavItem>
-                                <NavItem href="." name="Galeri"></NavItem>
-                                <NavItem href="." name="More" isDropdown>
+                                <NavItem href="/galleries" name="Galeri"></NavItem>
+                                <NavItem href="#" name="More" isDropdown>
                                     <li><a href="#">Tentang Kami</a></li>
-                                    <li><a href="#">Absensi</a></li>
+                                    <li><a href="https://klikpresensi.my.id/">Absensi</a></li>
                                 </NavItem>
 
 							</ul>

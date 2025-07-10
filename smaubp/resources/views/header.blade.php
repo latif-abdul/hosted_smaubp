@@ -29,3 +29,4 @@
 		<link rel="stylesheet" href="css/owl.theme.default.min.css">
 			<link href="{{url('css/swiper-bundle.min.css')}}" rel="stylesheet">
             <link href="{{url('css/fa.min.css')}}" rel="stylesheet">
+			<link href="{{url('css/select2.min.css')}}" rel="stylesheet">
