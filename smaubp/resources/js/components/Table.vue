@@ -1,11 +1,12 @@
 <script setup>
-    // defineProps({
-    //     class : String
-    // })
+    defineProps({
+        class : String,
+        id: String
+    })
 </script>
 
 <template>
-<table data-vertable="ver1">
+<table data-vertable="ver1" :class :id>
 	<thead>
 		<slot name="head"/>
 	</thead>

@@ -1,17 +1,13 @@
-<template>
-<div class="marquee-block">
-                <div class="marquee-inner to-left">
-                    <!-- Set 1 -->
-                    <div class="marquee-group">
-                        <slot/>
-                    </div>
+<script setup>
+    defineProps({
+        src: String
+    })
+</script>
 
-                    <!-- Set 2 (Duplicate for smooth loop) -->
-                    <div class="marquee-group">
-                        <slot/>
-                    </div>
-                </div>
-            </div>
+<template>
+    <div class="marquee-item">
+                            <img :src alt="">
+                        </div>
 </template>
 
 <style scoped>

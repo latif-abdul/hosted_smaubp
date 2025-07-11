@@ -1,16 +1,16 @@
 <script setup>
 defineProps({
-    width : Number,
-    height: Number
+    src: String,
+    label: String
 })
 </script>
 
 <template>
-<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+<div class="col-lg-4 col-md-6 portfolio-item filter-app" style="margin-top:20px">
 	<div class="portfolio-wrap">
-		<img :src="'https://picsum.photos/'+width+'/'+height" class="img-fluid" alt="">
+		<img :src alt="" class="img-fluid">
 		<div class="portfolio-info">
-			<h4>Lorem ipsum</h4>
+			<h4>{{ label }}</h4>
 		</div>
 	</div>
 	</div>

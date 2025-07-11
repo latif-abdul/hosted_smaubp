@@ -6,6 +6,21 @@
 </div>
 
 <div class="container artikel">
-    <article-vue></article-vue>
+    <h2 style="margin-top: 50px">Postingan Terbaru</h2>
+    <article-vue>
+        @foreach ($artikel as $art)
+					@foreach($art->images as $img)
+                    @if ($loop->first)
+                        <article-index 
+							src="/uploads/{{$img->gambar}}" 
+							author="{{$art->penulis}}" 
+							post-date="{{Carbon\Carbon::parse($art->created_at)->isoFormat('D MMMM Y')}}" 
+							title="{{$art->judul}}" 
+							href="/artikel/{{$art->id}}"></article-index>
+                    @endif
+
+                @endforeach
+				@endforeach
+    </article-vue>
 </div>
 @endsection

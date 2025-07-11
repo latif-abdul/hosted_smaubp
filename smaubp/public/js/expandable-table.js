@@ -1,10 +1,11 @@
 var originalLength = 4; // orginal length = 4
 
-$('table tr:lt(' + originalLength + ')').addClass('active');
+$('#tablepress-1 tr:lt(' + originalLength + ')').addClass('active');
 var rowCount = $('table tr').length;
 
 var hidden = true;
-var $table = $('table').find('tbody');
+var $table = $('#tablepress-1').find('tbody');
+$table.find('tr:lt(' + rowCount + ')').hide();
 $table.find('tr:lt(' + (originalLength) + ')').show();
 $('a.load_more').on('click', function(e) {
   e.preventDefault();

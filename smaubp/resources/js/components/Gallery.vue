@@ -8,11 +8,7 @@
         <section id="portfolio" class="portfolio">
             <div class="container">
                 <div class="row portfolio-container">
-                    <GalleryItem width=200 height=500></GalleryItem>
-                    <GalleryItem width=300 height=400></GalleryItem>
-                    <GalleryItem width=400 height=300></GalleryItem>
-                    <GalleryItem width=400 height=300></GalleryItem>
-                    <GalleryItem width=400 height=300></GalleryItem>
+                    <slot/>
                 </div>
             </div>
         </section>

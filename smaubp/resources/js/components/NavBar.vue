@@ -20,10 +20,17 @@ import NavItem from './NavItem.vue';
             <div class="container">
 				<div class="row align-items-center">
 
-					<div class="col-11 col-xl-2">
-						<h1 class="mb-0 site-logo"><a href="" class="text-white mb-0">SMA Unggulan BP Amanatul Ummah</a></h1>
+					<div class="col-11 col-xl-3">
+						<div class="row">
+							<div class="col-3">
+						<img src="images/logo.png" style="width: 50px;">
+						</div>
+						<div class="col-9">
+						<h1 class="mb-0 site-logo"><a href="" class="mb-0">SMA Unggulan BP Amanatul Ummah</a></h1>
+					</div>	
 					</div>
-					<div class="col-12 col-md-10 d-none d-xl-block">
+					</div>
+					<div class="col-12 col-md-9 d-none d-xl-block">
 						<nav class=" navbar site-navigation position-relative text-right" role="navigation">
 
 							<ul class="navbar-nav ms-auto site-menu js-clone-nav d-none d-lg-block" style="margin-right: 0px;margin-left: auto;">
@@ -51,5 +58,7 @@ import NavItem from './NavItem.vue';
 </template>
 
 <style lang="css" scoped>
-
+.is-sticky{
+	color: black;
+}
 </style>

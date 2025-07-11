@@ -7,45 +7,27 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 pr-md-5">
-            <a href="#" class="footer-site-logo d-block mb-4">Colorlib</a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.</p>
+            <a href="#" class="footer-site-logo d-block mb-4">Hubungi Kami</a>
+            <p>Jl. KH. Abdul Chalim, no.1 Desa Kembangbelor, Kecamatan Pacet, Kabupaten Mojokerto, 61374</p>
           </div>
           <div class="col-md">
             <h3>Discover</h3>
             <ul class="list-unstyled nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="#">Kegiatan Sekolah</a></li>
+              <li><a href="/ppdb">PPDB</a></li>
+              <li><a href="/artikel">Artikel</a></li>
+              <li><a href="/galleries">Galeri</a></li>
             </ul>
           </div>
-          <div class="col-md">
-            <h3>About</h3>
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Clients</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Journal</a></li>
-            </ul>
-          </div>
-          <div class="col-md">
-            <h3>Help</h3>
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms &amp; Conditions</a></li>
-              <li><a href="#">Partners</a></li>
-            </ul>
-          </div>
+          
           <div class="col-md">
             <h3>Follow Us</h3>
             <ul class="social list-unstyled">
-              <li><a href="#" class="pl-0"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-              <li><a href="#"><span class="icon-pinterest"></span></a></li>
-              <li><a href="#"><span class="icon-dribbble"></span></a></li>
+              <li><a href="https://www.instagram.com/official_smaubp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="pl-0"><span class="icon-instagram"></span></a></li>
+              <li><a href="https://api.whatsapp.com/send?phone=6282336576055"><span class="icon-whatsapp"></span></a></li>
+              <li><a href="https://youtube.com/@smaubpamanatulummah?si=dG5U8HmpPzs8FZ-U"><span class="icon-youtube"></span></a></li>
+              <li><a href="https://www.tiktok.com/@smaubpamanatulummah?_t=8oTv5ZSsQ8v&_r=1"><span class="fab fa-tiktok"></span></a></li>
             </ul>
           </div>
         </div> 
@@ -53,7 +35,7 @@
         <div class="row ">
           <div class="col-12 text-center">
             <div class="copyright mt-5 pt-5">
-              <p><small>© 2019—2020 All Rights Reserved.</small></p>
+              <p><small>© 2025 All Rights Reserved.</small></p>
             </div>
           </div>
         </div> 

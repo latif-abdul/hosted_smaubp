@@ -21,6 +21,7 @@
 				<script src="{{url('js/swiper-bundle.min.js')}}"></script>
 				<script src="{{url('js/select2.min.js')}}"></script>
 				<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+				<script src="{{url('js/expandable-table.js')}}"></script>
 				<script src="js/script2.js"></script>
 </body>
 </html>

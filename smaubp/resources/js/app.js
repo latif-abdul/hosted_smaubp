@@ -43,16 +43,22 @@ import InputFile from './components/InputFile.vue';
 import InputRadio from './components/InputRadio.vue';
 import InputDate from './components/InputDate.vue';
 import Select from './components/Select.vue';
+import GalleryItem from './components/GalleryItem.vue';
+import ArticleIndex from './components/ArticleIndex.vue';
+import MarqueeItem from './components/MarqueeItem.vue';
 app.component('example-component', ExampleComponent);
 app.component('nav-bar', NavBar)
 app.component('carousel', Carousel)
 app.component('welcome-message', WelcomeMessage)
 app.component('gallery', Gallery)
+app.component('gallery-item', GalleryItem)
 app.component('table-vue', Table)
 app.component('table-row', TableRow)
 app.component('table-data', TableData)
 app.component('article-vue', Article)
+app.component('article-index', ArticleIndex)
 app.component('marquee', Marquee)
+app.component('marquee-item', MarqueeItem)
 app.component('counter', Counter)
 app.component('counter-item', CounterItem)
 app.component('footer-vue', Footer)

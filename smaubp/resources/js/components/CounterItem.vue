@@ -1,5 +1,5 @@
 <template>
-    <div id="illdy_counter-4" class="col-sm-4 col-xs-12 widget_illdy_counter">
+    <div id="illdy_counter-4" class="col-sm-3 col-xs-12 widget_illdy_counter">
                 <span class="counter-number" data-from="1" data-to="260" data-speed="2000" data-refresh-interval="100"><slot name="number"/></span>
                 <span class="counter-description"><slot name="label"/></span>
             </div>
@@ -10,10 +10,9 @@
     margin-top: 40px;
 }
 
-.widget_illdy_counter:nth-child(1), #counter .widget_illdy_counter:nth-child(2), #counter .widget_illdy_counter:nth-child(3) {
+.widget_illdy_counter:nth-child(1), #counter .widget_illdy_counter:nth-child(2), #counter .widget_illdy_counter:nth-child(3), #counter .widget_illdy_counter:nth-child(4) {
     margin-top: 0;
 }
-
 
 .counter-number {
     width: 100%;

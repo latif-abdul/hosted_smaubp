@@ -1,8 +1,11 @@
 <script setup>
+defineProps({
+    url: String
+})
 </script>
 
 <template>
-    <section id="counter" class="front-page-section" style="background-image: url(https://149842022.v2.pressablecdn.com/illdy/wp-content/themes/illdy/layout/images/front-page/front-page-counter.jpg);background-color:#000000;">
+    <section id="counter" class="front-page-section" :style="'background-image: url('+url+');background-color:#000000; '">
 	<div class="counter-overlay"></div>
 	<div class="container">
 		<div class="row inline-columns">
@@ -34,6 +37,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
+    /* display: none; */
 }
 </style>
