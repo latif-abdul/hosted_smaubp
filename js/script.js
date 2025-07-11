@@ -5,7 +5,7 @@ $(document).ready(function () {
     item: 1,
     slideMargin: 0,
     loop: true,
-    pause: 15000,
+    pause: 10000,
   });
 });
 

@@ -164,7 +164,7 @@ th {
 }
 
 .upload_img {
-  width: calc(33.333% - (2rem / 3));
+  /* width: calc(33.333% - (2rem / 3)); */
   object-fit: contain;
 }
 
@@ -278,4 +278,45 @@ img.profile-photo-sm {
   width: 100%;
   z-index: 0;
   margin-top: 80px;
+}
+
+.file-delete {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  display: flex;
+  width: 24px;
+  color: initial;
+  background-color: #6eb4ff00;
+  font-size: large;
+  justify-content: center;
+  margin-right: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(144, 163, 203, 0.2);
+    border-radius: 10px;
+  }
+
+  &>span {
+    transform: rotate(45deg);
+  }
+
+  .upload_img .btn {
+
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .preview{
+    width : calc(33.333% - (2rem / 3));
+  }
 }
