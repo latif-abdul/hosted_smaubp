@@ -11,7 +11,7 @@
 <template>
     <div class="col-md-4">
 			<div class="post">
-				<a class="post-img" href="blog-post.html">
+				<a class="post-img" :href>
                     <div class="container-fluid">
                     <img :src alt="" style="width:100%;">
                     </div>

@@ -52,7 +52,7 @@
 							<div class="main-post">
 								<h3>{{ title }}</h3>
                                 <figure class="figure-img">
-									<img class="img-responsive" :src="url" alt="">
+									<img class="img-responsive" :src="src" alt="" style="width:100%">
 									<!-- <figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption> -->
 								</figure>
 								<slot name="body"/>
