@@ -27938,6 +27938,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'Comment',
+  props: {
+    id: String
+  },
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    new Vue({
+      el: '#comment',
+      data: function data() {
+        return {
+          info: null
+        };
+      },
+      mounted: function mounted() {
+        var _this = this;
+        axios.get('/get_comment/' + id).then(function (response) {
+          return _this.info = response;
+        });
+      }
+    });
+    var __returned__ = {};
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Counter.vue?vue&type=script&setup=true&lang=js":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Counter.vue?vue&type=script&setup=true&lang=js ***!
@@ -28699,8 +28743,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" comments "), _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"section-row\" data-v-54ded044><div class=\"section-title\" data-v-54ded044><h2 data-v-54ded044>3 Comments</h2></div><div class=\"post-comments\" data-v-54ded044><!-- comment --><div class=\"media\" data-v-54ded044><div class=\"media-left\" data-v-54ded044><img class=\"media-object\" src=\"https://picsum.photos/200/300\" alt=\"\" data-v-54ded044></div><div class=\"media-body\" data-v-54ded044><div class=\"media-heading\" data-v-54ded044><h4 data-v-54ded044>John Doe</h4><span class=\"time\" data-v-54ded044>March 27, 2018 at 8:00 am</span><a href=\"#\" class=\"reply\" data-v-54ded044>Reply</a></div><p data-v-54ded044>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><!-- comment --><div class=\"media\" data-v-54ded044><div class=\"media-left\" data-v-54ded044><img class=\"media-object\" src=\"https://picsum.photos/200/300\" alt=\"\" data-v-54ded044></div><div class=\"media-body\" data-v-54ded044><div class=\"media-heading\" data-v-54ded044><h4 data-v-54ded044>John Doe</h4><span class=\"time\" data-v-54ded044>March 27, 2018 at 8:00 am</span><a href=\"#\" class=\"reply\" data-v-54ded044>Reply</a></div><p data-v-54ded044>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div><!-- /comment --></div></div><!-- /comment --><!-- comment --><div class=\"media\" data-v-54ded044><div class=\"media-left\" data-v-54ded044><img class=\"media-object\" src=\"https://picsum.photos/200/300\" alt=\"\" data-v-54ded044></div><div class=\"media-body\" data-v-54ded044><div class=\"media-heading\" data-v-54ded044><h4 data-v-54ded044>John Doe</h4><span class=\"time\" data-v-54ded044>March 27, 2018 at 8:00 am</span><a href=\"#\" class=\"reply\" data-v-54ded044>Reply</a></div><p data-v-54ded044>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div><!-- /comment --></div></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /comments "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" reply "), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"section-row\" data-v-54ded044><div class=\"section-title\" data-v-54ded044><h2 data-v-54ded044>Leave a reply</h2><p data-v-54ded044>your email address will not be published. required fields are marked *</p></div><form class=\"post-reply\" data-v-54ded044><div class=\"row\" data-v-54ded044><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Name *</span><input class=\"input\" type=\"text\" name=\"name\" data-v-54ded044></div></div><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Email *</span><input class=\"input\" type=\"email\" name=\"email\" data-v-54ded044></div></div><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Website</span><input class=\"input\" type=\"text\" name=\"website\" data-v-54ded044></div></div><div class=\"col-md-12\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><textarea class=\"input\" name=\"message\" placeholder=\"Message\" data-v-54ded044></textarea></div><button class=\"primary-button\" data-v-54ded044>Submit</button></div></div></form></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /reply ")], 64 /* STABLE_FRAGMENT */);
+var _hoisted_1 = {
+  "class": "section-row",
+  id: "comment"
+};
+var _hoisted_2 = {
+  "class": "post-comments"
+};
+var _hoisted_3 = {
+  "class": "media"
+};
+var _hoisted_4 = {
+  "class": "media-body"
+};
+var _hoisted_5 = {
+  "class": "media-heading"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" comments "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "section-title"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "3 Comments")], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" comment "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.info, function (i) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [_cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": "media-left"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "media-object",
+      src: "https://picsum.photos/200/300",
+      alt: ""
+    })], -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(i) + " ", 1 /* TEXT */), _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "John Doe", -1 /* CACHED */)), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+      "class": "time"
+    }, "March 27, 2018 at 8:00 am", -1 /* CACHED */)), _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: "#",
+      "class": "reply"
+    }, "Reply", -1 /* CACHED */))]), _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" comment "), _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"media\" data-v-54ded044><div class=\"media-left\" data-v-54ded044><img class=\"media-object\" src=\"https://picsum.photos/200/300\" alt=\"\" data-v-54ded044></div><div class=\"media-body\" data-v-54ded044><div class=\"media-heading\" data-v-54ded044><h4 data-v-54ded044>John Doe</h4><span class=\"time\" data-v-54ded044>March 27, 2018 at 8:00 am</span><a href=\"#\" class=\"reply\" data-v-54ded044>Reply</a></div><p data-v-54ded044>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /comment ")])]);
+  }), 256 /* UNKEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /comment "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" comment "), _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"media\" data-v-54ded044><div class=\"media-left\" data-v-54ded044><img class=\"media-object\" src=\"https://picsum.photos/200/300\" alt=\"\" data-v-54ded044></div><div class=\"media-body\" data-v-54ded044><div class=\"media-heading\" data-v-54ded044><h4 data-v-54ded044>John Doe</h4><span class=\"time\" data-v-54ded044>March 27, 2018 at 8:00 am</span><a href=\"#\" class=\"reply\" data-v-54ded044>Reply</a></div><p data-v-54ded044>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /comment ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /comments "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" reply "), _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"section-row\" data-v-54ded044><div class=\"section-title\" data-v-54ded044><h2 data-v-54ded044>Leave a reply</h2><p data-v-54ded044>your email address will not be published. required fields are marked *</p></div><form class=\"post-reply\" data-v-54ded044><div class=\"row\" data-v-54ded044><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Name *</span><input class=\"input\" type=\"text\" name=\"name\" data-v-54ded044></div></div><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Email *</span><input class=\"input\" type=\"email\" name=\"email\" data-v-54ded044></div></div><div class=\"col-md-4\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><span data-v-54ded044>Website</span><input class=\"input\" type=\"text\" name=\"website\" data-v-54ded044></div></div><div class=\"col-md-12\" data-v-54ded044><div class=\"form-group\" data-v-54ded044><textarea class=\"input\" name=\"message\" placeholder=\"Message\" data-v-54ded044></textarea></div><button class=\"primary-button\" data-v-54ded044>Submit</button></div></div></form></div>", 1)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /reply ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -59095,7 +59170,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n/*----------------------------*\\\n\tcomments\n\\*----------------------------*/\n.post-comments .media[data-v-54ded044] {\n     padding-top: 15px;\n     border-top: 1px solid #eceef2;\n}\n.post-comments .media[data-v-54ded044]:nth-child(1) {\n     padding-top: 0px;\n     border-top: none;\n}\n.post-comments .media .media-left[data-v-54ded044] {\n     margin-right: 15px;\n     width: 70px;\n    height: 70px;\n    overflow: hidden;\n    /* padding: 0em; */\n    border-radius: 50%;\n}\n.post-comments .media .media-left .media-object[data-v-54ded044] {\n     width: 100%;\n     /* border-radius: 50%; */\n     padding-bottom: 20px;\n}\n.post-comments .media .media-body .media-heading h4[data-v-54ded044] {\n     text-transform: capitalize;\n}\n.post-comments .media .media-body .media-heading .time[data-v-54ded044] {\n     font-size: 13px;\n     margin-right: 15px;\n     color: #a7b3c6;\n}\n.post-comments .media .media-body .media-heading .reply[data-v-54ded044] {\n     font-size: 13px;\n     color: #a7b3c6;\n     transition: 0.2s color;\n}\n.post-comments .media .media-body .media-heading .reply[data-v-54ded044]:hover, .post-comments .media .media-body .media-heading .reply[data-v-54ded044]:focus {\n     color: #212631;\n     text-decoration: none;\n}\n/*----------------------------*\\\n\ttypography\n\\*----------------------------*/\nbody[data-v-54ded044] {\n     font-family: 'Nunito', sans-serif;\n     font-size: 16px;\n     font-weight: 300;\n     color: #3d455c;\n     margin: 0;\n     padding: 0;\n     overflow-x: hidden;\n}\nh1[data-v-54ded044], h2[data-v-54ded044], h3[data-v-54ded044], h4[data-v-54ded044] {\n     font-family: 'Nunito Sans', sans-serif;\n     font-weight: 700;\n     color: #212631;\n     margin: 0px 0px 15px;\n}\nh1[data-v-54ded044] {\n     font-size: 34px;\n}\nh2[data-v-54ded044] {\n     font-size: 28px;\n}\nh3[data-v-54ded044] {\n     font-size: 23px;\n}\nh4[data-v-54ded044] {\n     font-size: 16px;\n}\na[data-v-54ded044] {\n     font-weight: 600;\n     color: #212631;\n     text-decoration: none;\n}\na[data-v-54ded044]:hover, a[data-v-54ded044]:focus{\n     color: #212631;\n     text-decoration: underline;\n     outline: none;\n}\np[data-v-54ded044] {\n     margin: 0px 0px 20px;\n}\nul[data-v-54ded044],ol[data-v-54ded044]{\n     margin: 0;\n     padding: 0;\n     list-style: none\n}\nul.list-style[data-v-54ded044], ol.list-style[data-v-54ded044] {\n     padding-left: 15px;\n     margin-bottom: 10px;\n}\nul.list-style[data-v-54ded044] {\n     list-style-type: disc;\n}\nol.list-style[data-v-54ded044] {\n     list-style-type: decimal;\n}\nblockquote.blockquote[data-v-54ded044] {\n     position:relative;\n     border-left:0;\n     font-weight:600;\n     margin-bottom:10px;\n\t padding: 20px;\n}\nblockquote.blockquote[data-v-54ded044]:before {\n     content: \"``\";\n     font-family: 'Nunito Sans', sans-serif;\n     display: block;\n     position: absolute;\n     left: -5px;\n     top: 5px;\n     font-size: 240px;\n     line-height: 200px;\n     color: #eceef2;\n     letter-spacing: -30px;\n     z-index: -2;\n}\nfigure.figure-img[data-v-54ded044] {\n     margin-bottom:20px;\n}\nfigure.figure-img figcaption[data-v-54ded044] {\n     padding-top:5px;\n     font-size: 13px;\n     font-weight:600;\n}\n.input[data-v-54ded044] {\n     height: 40px;\n     border: 2px solid #eceef2;\n     width: 100%;\n     padding: 0px 15px;\n     transition: 0.2s border;\n}\n.input[data-v-54ded044]:focus {\n     border-color: #3d455c;\n}\ntextarea.input[data-v-54ded044] {\n     height: 90px;\n     padding: 15px;\n}\n.primary-button[data-v-54ded044] {\n     padding: 9px 45px;\n     border: none;\n     background-color: #212631;\n     font-weight: 600;\n     text-transform: uppercase;\n     font-size: 13px;\n     color: #fff;\n     transition: 0.2s opacity;\n}\n.primary-button[data-v-54ded044]:hover,.primary-button[data-v-54ded044]:focus {\n     color: #fff;\n     opacity: 0.9;\n}\n.section[data-v-54ded044] {\n     padding-top: 40px;\n}\n.section.section-grey[data-v-54ded044] {\n     background-color: #fbfbfd;\n     border-bottom: 1px solid #eceef2;\n     border-top: 1px solid #eceef2;\n}\n.section .section-title[data-v-54ded044] {\n     margin-bottom: 40px;\n}\n.section .section-title h2[data-v-54ded044] {\n     text-transform: capitalize;\n     font-size: 28px;\n}\n.section-row[data-v-54ded044] {\n     margin-bottom:40px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n/*----------------------------*\\\n\tcomments\n\\*----------------------------*/\n.post-comments .media[data-v-54ded044] {\n\t\tpadding-top: 15px;\n\t\tborder-top: 1px solid #eceef2;\n}\n.post-comments .media[data-v-54ded044]:nth-child(1) {\n\t\tpadding-top: 0px;\n\t\tborder-top: none;\n}\n.post-comments .media .media-left[data-v-54ded044] {\n\t\tmargin-right: 15px;\n\t\twidth: 70px;\n\t\theight: 70px;\n\t\toverflow: hidden;\n\t\t/* padding: 0em; */\n\t\tborder-radius: 50%;\n}\n.post-comments .media .media-left .media-object[data-v-54ded044] {\n\t\twidth: 100%;\n\t\t/* border-radius: 50%; */\n\t\tpadding-bottom: 20px;\n}\n.post-comments .media .media-body .media-heading h4[data-v-54ded044] {\n\t\ttext-transform: capitalize;\n}\n.post-comments .media .media-body .media-heading .time[data-v-54ded044] {\n\t\tfont-size: 13px;\n\t\tmargin-right: 15px;\n\t\tcolor: #a7b3c6;\n}\n.post-comments .media .media-body .media-heading .reply[data-v-54ded044] {\n\t\tfont-size: 13px;\n\t\tcolor: #a7b3c6;\n\t\ttransition: 0.2s color;\n}\n.post-comments .media .media-body .media-heading .reply[data-v-54ded044]:hover, .post-comments .media .media-body .media-heading .reply[data-v-54ded044]:focus {\n\t\tcolor: #212631;\n\t\ttext-decoration: none;\n}\n/*----------------------------*\\\n\ttypography\n\\*----------------------------*/\nbody[data-v-54ded044] {\n\tfont-family: 'Nunito', sans-serif;\n\tfont-size: 16px;\n\tfont-weight: 300;\n\tcolor: #3d455c;\n\tmargin: 0;\n\tpadding: 0;\n\toverflow-x: hidden;\n}\nh1[data-v-54ded044], h2[data-v-54ded044], h3[data-v-54ded044], h4[data-v-54ded044] {\n\t\tfont-family: 'Nunito Sans', sans-serif;\n\t\tfont-weight: 700;\n\t\tcolor: #212631;\n\t\tmargin: 0px 0px 15px;\n}\nh1[data-v-54ded044] {\n\t\tfont-size: 34px;\n}\nh2[data-v-54ded044] {\n\t\tfont-size: 28px;\n}\nh3[data-v-54ded044] {\n\t\tfont-size: 23px;\n}\nh4[data-v-54ded044] {\n\t\tfont-size: 16px;\n}\na[data-v-54ded044] {\n\t\tfont-weight: 600;\n\t\tcolor: #212631;\n\t\ttext-decoration: none;\n}\na[data-v-54ded044]:hover, a[data-v-54ded044]:focus{\n\t\tcolor: #212631;\n\t\ttext-decoration: underline;\n\t\toutline: none;\n}\np[data-v-54ded044] {\n\t\tmargin: 0px 0px 20px;\n}\nul[data-v-54ded044],ol[data-v-54ded044]{\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\tlist-style: none\n}\nul.list-style[data-v-54ded044], ol.list-style[data-v-54ded044] {\n\t\tpadding-left: 15px;\n\t\tmargin-bottom: 10px;\n}\nul.list-style[data-v-54ded044] {\n\t\tlist-style-type: disc;\n}\nol.list-style[data-v-54ded044] {\n\t\tlist-style-type: decimal;\n}\nblockquote.blockquote[data-v-54ded044] {\n\t\tposition:relative;\n\t\tborder-left:0;\n\t\tfont-weight:600;\n\t\tmargin-bottom:10px;\n\t\tpadding: 20px;\n}\nblockquote.blockquote[data-v-54ded044]:before {\n\t\tcontent: \"``\";\n\t\tfont-family: 'Nunito Sans', sans-serif;\n\t\tdisplay: block;\n\t\tposition: absolute;\n\t\tleft: -5px;\n\t\ttop: 5px;\n\t\tfont-size: 240px;\n\t\tline-height: 200px;\n\t\tcolor: #eceef2;\n\t\tletter-spacing: -30px;\n\t\tz-index: -2;\n}\nfigure.figure-img[data-v-54ded044] {\n\t\tmargin-bottom:20px;\n}\nfigure.figure-img figcaption[data-v-54ded044] {\n\t\tpadding-top:5px;\n\t\tfont-size: 13px;\n\t\tfont-weight:600;\n}\n.input[data-v-54ded044] {\n\t\theight: 40px;\n\t\tborder: 2px solid #eceef2;\n\t\twidth: 100%;\n\t\tpadding: 0px 15px;\n\t\ttransition: 0.2s border;\n}\n.input[data-v-54ded044]:focus {\n\t\tborder-color: #3d455c;\n}\ntextarea.input[data-v-54ded044] {\n\t\theight: 90px;\n\t\tpadding: 15px;\n}\n.primary-button[data-v-54ded044] {\n\t\tpadding: 9px 45px;\n\t\tborder: none;\n\t\tbackground-color: #212631;\n\t\tfont-weight: 600;\n\t\ttext-transform: uppercase;\n\t\tfont-size: 13px;\n\t\tcolor: #fff;\n\t\ttransition: 0.2s opacity;\n}\n.primary-button[data-v-54ded044]:hover,.primary-button[data-v-54ded044]:focus {\n\t\tcolor: #fff;\n\t\topacity: 0.9;\n}\n.section[data-v-54ded044] {\n\t\tpadding-top: 40px;\n}\n.section.section-grey[data-v-54ded044] {\n\t\tbackground-color: #fbfbfd;\n\t\tborder-bottom: 1px solid #eceef2;\n\t\tborder-top: 1px solid #eceef2;\n}\n.section .section-title[data-v-54ded044] {\n\t\tmargin-bottom: 40px;\n}\n.section .section-title h2[data-v-54ded044] {\n\t\ttext-transform: capitalize;\n\t\tfont-size: 28px;\n}\n.section-row[data-v-54ded044] {\n\t\tmargin-bottom:40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -61607,21 +61682,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Comment_vue_vue_type_template_id_54ded044_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Comment.vue?vue&type=template&id=54ded044&scoped=true */ "./resources/js/components/Comment.vue?vue&type=template&id=54ded044&scoped=true");
-/* harmony import */ var _Comment_vue_vue_type_style_index_0_id_54ded044_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Comment.vue?vue&type=style&index=0&id=54ded044&scoped=true&lang=css */ "./resources/js/components/Comment.vue?vue&type=style&index=0&id=54ded044&scoped=true&lang=css");
-/* harmony import */ var _Users_abdullatif_Documents_GitHub_hosted_smaubp_public_html_smaubp_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _Comment_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Comment.vue?vue&type=script&setup=true&lang=js */ "./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _Comment_vue_vue_type_style_index_0_id_54ded044_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Comment.vue?vue&type=style&index=0&id=54ded044&scoped=true&lang=css */ "./resources/js/components/Comment.vue?vue&type=style&index=0&id=54ded044&scoped=true&lang=css");
+/* harmony import */ var _Users_abdullatif_Documents_GitHub_hosted_smaubp_public_html_smaubp_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-const script = {}
+
+
 
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,_Users_abdullatif_Documents_GitHub_hosted_smaubp_public_html_smaubp_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(script, [['render',_Comment_vue_vue_type_template_id_54ded044_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-54ded044"],['__file',"resources/js/components/Comment.vue"]])
+const __exports__ = /*#__PURE__*/(0,_Users_abdullatif_Documents_GitHub_hosted_smaubp_public_html_smaubp_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Comment_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Comment_vue_vue_type_template_id_54ded044_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-54ded044"],['__file',"resources/js/components/Comment.vue"]])
 /* hot reload */
 if (false) // removed by dead control flow
 {}
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Comment_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Comment_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Comment.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Comment.vue?vue&type=script&setup=true&lang=js");
+ 
 
 /***/ }),
 

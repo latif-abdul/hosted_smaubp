@@ -2,7 +2,7 @@
 @section('content')
 <article-detail>
 	<template #comment>
-		<comment></comment>
+		<comment id="{{ $artikel->id }}"></comment>
 	</template>
 </article-detail>
 @endsection
