@@ -23,7 +23,7 @@ import NavItem from './NavItem.vue';
 					<div class="col-11 col-xl-3">
 						<div class="row">
 							<div class="col-3">
-						<img src="images/logo.png" style="width: 50px;">
+						<img src="/images/logo.png" style="width: 50px;">
 						</div>
 						<div class="col-9">
 						<h1 class="mb-0 site-logo"><a href="" class="mb-0">SMA Unggulan BP Amanatul Ummah</a></h1>
