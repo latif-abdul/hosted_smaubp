@@ -19,6 +19,7 @@
 <meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>SMA-MAU BP Amanatul Ummah</title>
 		<link rel="stylesheet" href="{{url('css/style2.css')}}">
 		<link rel="stylesheet" href="{{ url( 'fonts/icomoon/style.css')}}">

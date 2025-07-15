@@ -8,7 +8,7 @@
         {!!$artikel->artikel!!}
     </template>
 	<template #comment>
-		<comment id="{{ $artikel->id }}"></comment>
+		<comment id="{{ $artikel->id }}" comment-url="{{ $comment_url }}"></comment>
 	</template>
 </article-detail>
 @endif

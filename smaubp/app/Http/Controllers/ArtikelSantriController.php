@@ -83,7 +83,8 @@ class ArtikelSantriController extends Controller
         if ($artikel === null) {
             return view('artikel_not_found')->with('failed', 'Artikel Not Found');
         }
-        return view('perArtikel', compact('artikel', 'gambar', 'comment_url'));
+        $artikel_santri = true;
+        return view('perArtikel', compact('artikel', 'gambar', 'comment_url', 'artikel_santri'));
         // return response($gambar);
     }
 
@@ -146,6 +147,18 @@ class ArtikelSantriController extends Controller
     public function getComment(string $id)
     {
         $comment = CommentSantri::where('id_artikel', $id)->where('id_comment', null)->with('reply')->get();
+        return response()->json($data = $comment, $status = 200);
+    }
+
+    public function getReply(string $id)
+    {
+        $comment = Comment::where('id_comment', $id)->get();
+        return response()->json($data = $comment, $status = 200);
+    }
+
+    public function getCommentById(string $id)
+    {
+        $comment = Comment::where('id', $id)->get();
         return response()->json($data = $comment, $status = 200);
     }
 

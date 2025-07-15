@@ -16,7 +16,7 @@
 							author="{{$art->penulis}}" 
 							post-date="{{Carbon\Carbon::parse($art->created_at)->isoFormat('D MMMM Y')}}" 
 							title="{{$art->judul}}" 
-							href="/artikel/{{$art->id}}"></article-index>
+							href="{{$base_url}}/{{$art->id}}"></article-index>
                     @endif
 
                 @endforeach

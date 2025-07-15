@@ -62,8 +62,12 @@ Route::post('/daftar', [SiswaController::class, 'store']);
 Route::get('/galleries', [GaleriController::class, 'show_all']);
 Route::post('/post_comment', [ArtikelController::class, 'postComment']);
 Route::get('/get_comment/{id}', [ArtikelController::class, 'getComment']);
+Route::get('/get_comment_by_id/{id}', [ArtikelController::class, 'getCommentById']);
+Route::get('/get_reply/{id}', [ArtikelController::class, 'getReply']);
 Route::post('/post_comment_santri', [ArtikelSantriController::class, 'postComment']);
 Route::get('/get_comment_santri/{id}', [ArtikelSantriController::class, 'getComment']);
+Route::get('/get_reply_santri/{id}', [ArtikelSantriController::class, 'getReply']);
+Route::get('/get_comment_by_id_santri/{id}', [ArtikelSantriController::class, 'getCommentById']);
 Route::get('/program_tahfidz', [ShowController::class, 'program_tahfidz']);
 Route::get('/download_file', [ShowController::class, 'download']);
 // Route::post('/artikel/{id}', [ArtikelController::class])

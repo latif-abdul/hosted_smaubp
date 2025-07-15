@@ -1,93 +1,16 @@
 <script setup>
-import { ref, onMounted } from 'vue';
 import moment from 'moment'
-import { computed } from 'vue';
-import EmptyComponent from './EmptyComponent.vue';
-import CommentItem from './CommentItem.vue';
+import { ref } from 'vue';
+    defineProps({
+        // postedAt: String,
+        comment: Object,
+        // activeReplyCommentId: { // Prop to check if THIS comment's form should be open
+        //     type: [Number, null], // Can be a number (comment id) or null
+        //     default: null
+        // }
+        });
 
-const props = defineProps({
-	id: String,
-    commentUrl: String
-})
-
-console.log(props.artikel_santri)
-
-const name = ref('')
-const email = ref('')
-const comment = ref('')
-
-const comments = ref([]); // Reactive data to store the fetched comments
-const loading = ref(true); // To show a loading indicator
-const error = ref(null); // To store any error messages
-
-let token = document.head.querySelector('meta[name="csrf-token"]');
-console.log(token)
-
-// const isoDateString = ref("2024-08-07T09:22:09.000000Z");
-// const m = moment.utc(isoDateString.value);
-// console.log(m.format("MMMM DD, YYYY hh:mm A"));
-
-const get_url = ref('/get_comment'+props.commentUrl)
-const post_url = ref('/post_comment'+props.commentUrl)
-const fetchcomments = async () => {
-    console.log('run')
-	try {
-		const response = await fetch(get_url.value+'/'+props.id); // Make the GET request
-		if (!response.ok) { // Check if the request was successful (status 200-299)
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-		const data = await response.json(); // Parse the JSON response
-		comments.value = data; // Update the reactive data
-	} catch (err) {
-		error.value = err.message; // Store the error message
-		console.error('Error fetching comments:', err);
-	} finally {
-		loading.value = false; // Hide loading indicator regardless of success or failure
-	}
-};
-
-const postComment = async () => {
-  loading.value = true;
-//   comment.value = ''; // Clear previous messages
-
-  try {
-    const response = await fetch(post_url.value, {
-      method: 'POST', // Specify the HTTP method
-      headers: {
-        'Content-Type': 'application/json', // Indicate that you're sending JSON
-        'X-CSRF-TOKEN' : token.content,
-      },
-      body: JSON.stringify({ // Convert your data to a JSON string
-        name: name.value,
-        email: email.value,
-        comment: comment.value,
-        id_artikel: props.id,
-        // In a real app, you might send more fields like password, etc.
-      }),
-    });
-
-    if (!response.ok) {
-      // Handle HTTP errors (e.g., 400, 401, 500)
-      const errorData = await response.json().catch(() => ({})); // Try to parse error response body
-      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json(); // Parse the successful response
-    console.log('User created:', data);
-    // message.value = `Comment '${data.name}' posted successfully with ID: ${data.id}`;
-    comments.value.push(data)
-    // Optionally clear the form after successful submission
-    name.value = '';
-    email.value = '';
-    comment.value = '';
-
-  } catch (error) {
-    console.error('Error creating user:', error);
-    // message.value = `Error creating user: ${error.message || 'An unexpected error occurred.'}`;
-  } finally {
-    loading.value = false;
-  }
-};
+const isHidden = ref(true)
 
 const formattedDateMoment = function(isoDateString){
   if (!isoDateString) return '';
@@ -119,64 +42,26 @@ const formattedDateMoment = function(isoDateString){
   }
 };
 
-
-// Call the fetchcomments function when the component is mounted
-onMounted(() => {
-	fetchcomments();
-}); 
-
 </script>
 
 <template>
-	<!-- comments -->
-		<div class="section-row" id="comment">
-			<div class="section-title">
-				<h2>{{ comments.length }} Comment(s)</h2>
-			</div>
+    <div class="media">
+        <div class="media-left">
+            <img class="media-object" src="https://picsum.photos/200/300" alt="">
+        </div>
+        <div class="media-body">
+            <div class="media-heading">
+                <h4>{{ comment.name }}</h4>
+                <span class="time">{{ formattedDateMoment(String(comment.created_at)) }}</span>
+            </div>
+            <p>{{ comment.comment }}</p>
 
-			<div class="post-comments">
-				<!-- comment -->
-                 <CommentItem v-for="i in comments" :comments="i" :url="post_url" :id></CommentItem>
-			
-				<!-- /comment -->
-			</div>
-		</div>
-		<!-- /comments -->
-
-		<!-- reply -->
-		<div class="section-row">
-			<div class="section-title">
-				<h2>Leave a reply</h2>
-				<p>your email address will not be published. required fields are marked *</p>
-			</div>
-			<form class="post-reply">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<span>Name *</span>
-							<input class="input" type="text" v-model="name" name="name">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<span>Email *</span>
-							<input class="input" type="email" v-model="email" name="email">
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="form-group">
-							<textarea class="input" v-model="comment" name="comment" placeholder="Comment"></textarea>
-						</div>
-						<button @click.prevent="postComment()" class="primary-button">Submit</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!-- /reply -->
+            <!-- <comment-item v-if="comment.reply" v-for="reply in comment.reply" :comment="comment"></comment-item> -->
+        </div>
+    </div>
 </template>
 
 <style scoped>
-
 /*----------------------------*\
 	comments
 \*----------------------------*/

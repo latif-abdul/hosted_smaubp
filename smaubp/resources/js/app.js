@@ -46,6 +46,8 @@ import Select from './components/Select.vue';
 import GalleryItem from './components/GalleryItem.vue';
 import ArticleIndex from './components/ArticleIndex.vue';
 import MarqueeItem from './components/MarqueeItem.vue';
+import CommentItem from './components/CommentItem.vue';
+import CommentForm from './components/CommentForm.vue';
 app.component('example-component', ExampleComponent);
 app.component('nav-bar', NavBar)
 app.component('carousel', Carousel)
@@ -65,6 +67,8 @@ app.component('footer-vue', Footer)
 app.component('carousel-image', CarouselImage)
 app.component('article-detail', ArticleDetail)
 app.component('comment', Comment)
+app.component('comment-item', CommentItem)
+app.component('comment-form', CommentForm)
 app.component('pengumuman', FormPengumuman)
 app.component('input-vue', Input)
 app.component('input-file', InputFile)
