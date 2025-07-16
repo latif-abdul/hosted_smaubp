@@ -10,7 +10,7 @@
         @include ('footer')
 		{{ mix('js/app.js') }}
     </div>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ url(mix('js/app.js')) }}"></script>
 			<script src="http://code.jquery.com/jquery.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
 			<script src="js/jquery.min.js"></script>
