@@ -6,7 +6,7 @@ $(function() {
 	}
 	else{
 		$(".sticky-wrapper").addClass("is-sticky");
-		$(".js-sticky-header").css({"width": "1920px", "position": "fixed", "top": "0px", "z-index": "auto"})
+		$(".js-sticky-header").css({"position": "fixed", "top": "0px", "z-index": "auto"})
 	}
 	};
 	siteSticky();
