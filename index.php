@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+if (file_exists($maintenance = __DIR__.'/smaubp/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
@@ -31,7 +31,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/smaubp/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__.'/smaubp/bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
@@ -53,3 +53,20 @@ $response = $kernel->handle(
 )->send();
 
 $kernel->terminate($request, $response);
+
+/*
+|--------------------------------------------------------------------------
+| Turn On The Lights
+|--------------------------------------------------------------------------
+|
+| We need to illuminate PHP development, so let us turn on the lights.
+| This bootstraps the framework and gets it ready for use, then it
+| will load up this application so that we can run it and send
+| the responses back to the browser and delight our users.
+|
+*/
+
+// set the public path to this directory
+$app->bind('path.public', function() {
+    return __DIR__;
+});
