@@ -8,6 +8,7 @@
         @include ('navigation')
         @yield('content')
         @include ('footer')
+		{{ mix('js/app.js') }}
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
 			<script src="http://code.jquery.com/jquery.js"></script>
