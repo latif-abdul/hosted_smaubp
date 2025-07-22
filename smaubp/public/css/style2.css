@@ -71,7 +71,8 @@ navbar {
 
 p {
 	color: #b3b3b3;
-	font-weight: 300; }
+	font-weight: 300; 
+  font-size: 18pt}
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -8652,7 +8653,7 @@ h1, h2, h3, h4, h5,
           z-index: 0;
           color: rgba(255, 255, 255, 0.9); }
         .owl-carousel.home-slider .slider-item .slider-text h1 {
-          font-size: 9vw;
+          font-size: 4vw;
           font-weight: 800;
           text-transform: uppercase;
           color: #fff;
@@ -8661,7 +8662,7 @@ h1, h2, h3, h4, h5,
             .owl-carousel.home-slider .slider-item .slider-text h1 {
               font-size: 50px; } }
         .owl-carousel.home-slider .slider-item .slider-text h2 {
-          font-size: 16px;
+          font-size: 32px;
           text-transform: uppercase;
           letter-spacing: 2px;
           font-family: "Poppins", Arial, sans-serif;
@@ -8810,8 +8811,9 @@ h1, h2, h3, h4, h5,
 .business_item p{
     color:#333333;
     line-height: 2rem;
-    font-size:14px;
-    font-weight: 500;
+    font-size:18pt;
+    font-weight: 300;
+    line-height: 2;
 }
 .business_item .business_btn{
     margin-left:-10px;

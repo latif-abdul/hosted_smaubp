@@ -2,7 +2,7 @@
 @section('content')
 				<carousel class="hero">
 					@foreach($slideshow as $ss)
-                    <carousel-image url="{{url('uploads/' . $ss->gambar)}}" label1="{{$ss->text_1}}" label2="{{$ss->text_2}}"></carousel-image>
+                    <carousel-image url="{{url('uploads/' . $ss->gambar)}}" label1="{{$ss->text_1}}" label2="{{$ss->text_2}}" align="{{ ($loop->index + 1) % 2 == 1 ? 'left': 'right'}}"></carousel-image>
 					@endforeach
                 </carousel>
 					<div class="col-md-9 ms-auto me-auto">

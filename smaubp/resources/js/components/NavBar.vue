@@ -1,8 +1,38 @@
 
 <script setup>
+import { onBeforeMount, onMounted, ref } from 'vue';
 import NavItem from './NavItem.vue';
-// import $ from jQuery;
+const props = defineProps({
+	url: String
+})
 
+console.log(props.url)
+// import $ from jQuery;
+const isActive = ref({
+	'/' : 'deactive',
+	'kegiatan_sekolah' : 'deactive',
+	'ppdb' : 'deactive',
+	'artikel' : 'deactive',
+	'galleries' : 'deactive',
+	'more' : 'deactive',
+})
+
+const split_url = (url) => {
+	let splitted = url.split('/')
+	if (splitted.length > 3){
+		return splitted[3]
+	}
+	else{
+		return '/'
+	}
+}
+
+const active = () => {
+	isActive.value[split_url(props.url)] = 'active'
+}
+
+active();
+console.log(isActive.value)
 </script>
 
 <template>
@@ -34,15 +64,15 @@ import NavItem from './NavItem.vue';
 						<nav class=" navbar site-navigation position-relative text-right" role="navigation">
 
 							<ul class="navbar-nav ms-auto site-menu js-clone-nav d-none d-lg-block" style="margin-right: 0px;margin-left: auto;">
-								<NavItem href="/" name="Home" isActive="active"></NavItem>
-                                <NavItem href="#" name="Kegiatan Sekolah"></NavItem>
-                                <NavItem href="/ppdb" name="PPDB"></NavItem>
-                                <NavItem href="" name="Artikel" isDropdown>
+								<NavItem id='home' href="/" name="Home" :isActive="isActive['/']" @deactive="deactive()"></NavItem>
+                                <NavItem id='kegiatan_sekolah' href="#" :isActive="isActive['kegiatan_sekolah']" name="Kegiatan Sekolah"></NavItem>
+                                <NavItem id='ppdb' href="/ppdb" :isActive="isActive['ppdb']" name="PPDB"></NavItem>
+                                <NavItem id='artikel' href="" :isActive="isActive['artikel']" name="Artikel" isDropdown>
                                     <li><a href="/artikel">Artikel</a></li>
                                     <li><a href="/artikel_santri">Artikel Santri</a></li>
                                 </NavItem>
-                                <NavItem href="/galleries" name="Galeri"></NavItem>
-                                <NavItem href="#" name="More" isDropdown>
+                                <NavItem id='gallery' href="/galleries" :isActive="isActive['galleries']" name="Galeri"></NavItem>
+                                <NavItem id='more' :isActive="isActive['more']" href="#" name="More" isDropdown>
                                     <li><a href="#">Tentang Kami</a></li>
                                     <li><a href="https://klikpresensi.my.id/">Absensi</a></li>
                                 </NavItem>

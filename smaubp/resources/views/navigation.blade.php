@@ -1,1 +1,1 @@
-<nav-bar></nav-bar>
+<nav-bar url="{{ url()->current() }}"></nav-bar>
