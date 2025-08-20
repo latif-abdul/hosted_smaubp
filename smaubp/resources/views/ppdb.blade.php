@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td>18.30-20.30</td>
-                        <td>Pembelajaran Tahfidzul Qur'an</td>
+                        <td>Pembelajaran Tahfidzul Qur'an dan Sholat Isya'</td>
                     </tr>
                     <tr>
                         <td>20.30-21.00</td>
