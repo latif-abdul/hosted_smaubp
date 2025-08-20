@@ -7,14 +7,14 @@
 <meta name="description" content="">
 
 <title>SMA-MAU BP Amanatul Ummah</title>
-<script type="application/ld+json">
+<!-- <script type="application/ld+json">
 	{
 		"@context" : "https://www.smaubp-tahfidz.sch.id",
 		"@type" : "WebSite",
 		"name" : "SMA MAU BP Amanatul Ummah",
 		"url" : "https://www.smaubp-tahfidz.sch.id"
 	}
-</script>
+</script> -->
 <link rel="shortcut icon" href="{{url('images/logo.png')}}" type="image/x-icon">
 <meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
