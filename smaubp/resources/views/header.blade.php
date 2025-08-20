@@ -11,7 +11,7 @@
     {
       "@context" : "https://www.smaubp-tahfidz.sch.id",
       "@type" : "WebSite",
-      "name" : "SMA MAU BP Amanatul Ummah",
+      "name" : "SMA MA Unggulan BP Amanatul Ummah",
       "url" : "https://www.smaubp-tahfidz.sch.id"
     }
 </script>
