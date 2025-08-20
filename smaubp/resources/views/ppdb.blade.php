@@ -99,7 +99,7 @@
                     </tr>
                     <tr>
                         <td>07.30-12.10</td>
-                        <td>Kegiatan Belajar Akademik Formal dan Mu'adalah</td>
+                        <td>Kegiatan Belajar Akademik Formal</td>
                     </tr>
                     <tr>
                         <td>12.10-12.30</td>
@@ -110,28 +110,28 @@
                         <td>Makan Siang</td>
                     </tr>
                     <tr>
-                        <td>13.00-13.30</td>
-                        <td>Apel Siang</td>
+                        <td>13.00-14.30</td>
+                        <td>Tidur Siang</td>
                     </tr>
                     <tr>
-                        <td>13.30-16.00</td>
-                        <td>Kegiatan Belajar Tahfidzul Qur'an</td>
+                        <td>14.00-15.00</td>
+                        <td>Bersih Diri</td>
                     </tr>
                     <tr>
-                        <td>16.00-17.30</td>
-                        <td>Bersih Diri dan Sholat Ashar</td>
+                        <td>15.00-15.30</td>
+                        <td>Sholat Ashar Berjama'ah</td>
                     </tr>
                     <tr>
-                        <td>17.30-18.00</td>
-                        <td>Sholat Magrib</td>
+                        <td>15.00-17.00</td>
+                        <td>Pembelajaran Mu'adalah</td>
                     </tr>
                     <tr>
-                        <td>18.00-19.00</td>
-                        <td>Pengajian Kitab & Sholat Isya'</td>
+                        <td>17.00-18.30</td>
+                        <td>Pengajian Kitab Kuning dan Sholat Magrib</td>
                     </tr>
                     <tr>
-                        <td>19.00-20.30</td>
-                        <td>Pelajaran Mu'adalah Malam</td>
+                        <td>18.30-20.30</td>
+                        <td>Pembelajaran Tahfidzul Qur'an</td>
                     </tr>
                     <tr>
                         <td>20.30-21.00</td>
