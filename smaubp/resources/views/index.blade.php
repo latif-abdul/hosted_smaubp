@@ -28,10 +28,10 @@
 
 
 <div class="sambutan container">
-    <h1>WELCOME TO SMA UNggulan Berbasis Pesantren Amanatul Ummah</h1>
+    <h1>WELCOME TO SMA Unggulan Berbasis Pesantren Amanatul Ummah</h1>
     <h1>“Sekolahnya Para Champions”</h1>
     <p>
-        “SMA-MA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an” menjamin murid
+        “SMA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan “Tahfidzul Qur’an” menjamin murid
         muridnya menghafal Al Qur’an , lulus 100% berklasifisi “A”, serta lulusannya diterima di Perguruan Tinggi
         Favorit sesuai pilihannya, baik di dalam negeri maupun luar negeri. Proses pembelajaran menggunakan sistem yang
         kompetitif, penuh kejujuran, dan rasa percaya diri, dalam bentuk dauroh, try out, dan pembahasan tuntas.”
