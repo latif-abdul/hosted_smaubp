@@ -92,16 +92,16 @@
 
             <div class="misi">
                 <!-- <h5></h5> -->
-                <p>Pelaksanaan program tahfidzul qur’an di SMAU BP dilaksanakan secara komprehensif setiap hari Senin –
+                <p>Pelaksanaan program tahfidzul qur’an di SMA Unggulan BP dilaksanakan secara komprehensif setiap hari Senin –
                     Jum’at
                     dengan
-                    menerapkan 3 metode yaitu; tartil, tahfidz dan taqrir. Dari metode tersebut, santri SMAU BP mampu
+                    menerapkan 3 metode yaitu; tartil, tahfidz dan taqrir. Dari metode tersebut, santri SMA Unggulan BP mampu
                     menerapkan
                     metodologi
                     pembelajaran yang ketat dan bertanggung jawab. Alhamdulilah dengan penerapan metode ini, terlihat
                     peningkatan
                     jumlah santri
-                    yang mampu menghafal 30 juz. Pada tahun 2024 SMAU BP Amanatul Ummah mewisuda sejumlah 79 santri
+                    yang mampu menghafal 30 juz. Pada tahun 2024 SMA Unggulan BP Amanatul Ummah mewisuda sejumlah 79 santri
                     kategori 30 Juz,
                     92 santri kategori
                     15 Juz, 62 santri kategori 9 Juz</p>
