@@ -16,7 +16,7 @@
               <ol>
                 <li>Silakan melakukan pembayaran formulir online sebesar Rp 450.000 ke rekening BSI (Bank Syariah
                   Indonesia)
-                  8080000139 a.n SMA MA BP AMANATUL UMMAH PACET</li>
+                  8080000139 a.n PSB SMA MA BP AMANATUL UMMAH PACET</li>
                 <li>Isikan data santri, upload bukti pembayaran dan berkas-berkas yang diperlukan.</li>
                 <li>Submit formulir dan tunggu verifikasi admin.</li>
               </ol>
