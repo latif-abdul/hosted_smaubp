@@ -1,5 +1,5 @@
 <!-- </div> -->
-<footer class="footer" style="position: fixed;bottom: 0;width:100%">
+<footer class="footer" style="bottom: 0;width:100%">
   <div class="container-fluid">
     <p class="copyright pull-right">
       &copy;
