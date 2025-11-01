@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/smaubp/vendor
 .env
 .env.backup
 .env.production

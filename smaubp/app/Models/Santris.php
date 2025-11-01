@@ -34,7 +34,24 @@ class Santris extends Model
         'batch_id',
         'deleted_at',
         'sertifikat',
-        'status_lulus'
+        'status_lulus',
+        'nik',
+        'nisn',
+        'anak_ke',
+        'jumlah_saudara',
+        'tinggi_badan',
+        'berat_badan',
+        'nomor_kk',
+        'ttl_ayah',
+        'nik_ayah',
+        'ttl_ibu',
+        'nik_ibu',
+        'alamat_ortu',
+        'dusun',
+        'desa',
+        'kecamatan',
+        'kabupaten_kota',
+        'provinsi',
     ];
 
     public function daful()

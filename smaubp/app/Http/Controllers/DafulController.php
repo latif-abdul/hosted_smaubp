@@ -41,7 +41,7 @@ class DafulController extends Controller
         if(!$santri){
             return redirect()->back()->with('failed', 'No Pendaftaran tidak ditemukan');
         }
-        $santri2 = $santri->update(['no_wa' => $request->no_wa]);
+        $santri2 = $santri->update($request->all());
         $queries = DB::getQueryLog();
         // $santri->update(["no_wa"=> $request->no_wa]);
         // $existing_daful = Daful::find($santri->id)
@@ -55,6 +55,8 @@ class DafulController extends Controller
         //     return back()->with('success', 'Daftar ulang telah diverifikasi');
         // } else {
         $daful = Daful::create(["id_santris" => $santri->id]);
+
+        $updateTtl = 
 
         $validator = Validator::make($request->all(), [
             'akta_kelahiran' => 'required|mimes:jpeg,jpg,png|max:2048',
@@ -123,7 +125,9 @@ class DafulController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $siswa = Santris::find($id);
+        $formAction = "/daful";
+        return view("daful", compact("formAction", "siswa"));
     }
 
     /**
