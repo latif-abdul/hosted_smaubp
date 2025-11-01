@@ -438,7 +438,7 @@
 
 <!-- JS: load wilayah lists from wilayah.id and populate dependent selects -->
 <script>
-document.addEventListener("DOMContentLoaded",) function() {
+document.addEventListener("DOMContentLoaded", function() {
     const alamat = document.getElementById('alamat');
     const alamatOrtu = document.getElementById('alamat_ortu');
     const alamatSekolah = document.getElementById('alamat_sekolah');
@@ -446,7 +446,7 @@ document.addEventListener("DOMContentLoaded",) function() {
     alamat.value = "{{ $siswa->alamat ?? '' }}";
     alamatOrtu.value = "{{ $siswa->alamat_ortu ?? '' }}";
     alamatSekolah.value = "{{ $siswa->alamat_sekolah ?? '' }}";
-}
+})
 document.addEventListener('DOMContentLoaded', function () {
     const provinsiEl = document.getElementById('provinsi');
     const kabupatenEl = document.getElementById('kabupaten_kota');
