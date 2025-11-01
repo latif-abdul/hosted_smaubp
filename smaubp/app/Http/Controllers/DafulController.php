@@ -37,7 +37,7 @@ class DafulController extends Controller
      */
     public function store(Request $request)
     {
-        $santri = Santris::find($request->id, 'id' )->first();
+        $santri = Santris::find($request->id)->first();
         if(!$santri){
             return redirect()->back()->with('failed', 'No Pendaftaran tidak ditemukan');
         }
