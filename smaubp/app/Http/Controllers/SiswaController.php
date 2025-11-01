@@ -80,7 +80,7 @@ class SiswaController extends Controller
 		*/
 	public function create()
 	{
-		$formAction = "/admin/siswa_baru";
+		$formAction = "siswa_baru.store";
 		return view("Admin.manage_siswa", compact(['formAction']));
 	}
 
@@ -176,9 +176,9 @@ class SiswaController extends Controller
 		*/
 	public function edit(string $id)
 	{
-		$formAction = "/admin/siswa_baru/$id";
+		$formAction = "siswa_baru.update";
 		$siswa = Santris::where('id', $id)->first();
-		return view('Admin.manage_siswa', compact(['siswa', 'formAction']));
+		return view('Admin.manage_siswa', compact(['siswa', 'formAction', 'id']));
 	}
 
 	/**
@@ -206,6 +206,7 @@ class SiswaController extends Controller
 			'sertifikat' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
 			'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			'bukti_pembayaran' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			'no_pendaftaran' => 'required|unique:App\Models\Santris,no_pendaftaran',
 		]);
 
 		if ($validator->fails()) {
@@ -315,8 +316,8 @@ class SiswaController extends Controller
 			$color = 'warning';
 			$msg = 'Pengumuman akan diumumkan pada tanggal ' . Carbon::parse($pengumuman->tanggal_pengumuman)->isoFormat('D MMMM Y');
 		}
-		;
-		return view("pengumuman", compact(['msg', 'st', 'color']));
+		$id = $siswa ? $siswa->id : null;
+		return view("pengumuman", compact(['msg', 'st', 'color', 'id']));
 	}
 
 	public function update_tanggal_pengumuman(Request $request, string $id)

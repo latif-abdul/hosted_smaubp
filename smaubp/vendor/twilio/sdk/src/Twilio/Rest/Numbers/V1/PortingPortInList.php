@@ -18,6 +18,7 @@ namespace Twilio\Rest\Numbers\V1;
 
 use Twilio\Exceptions\TwilioException;
 use Twilio\ListResource;
+use Twilio\Values;
 use Twilio\Version;
 
 
@@ -43,14 +44,15 @@ class PortingPortInList extends ListResource
     /**
      * Create the PortingPortInInstance
      *
+     * @param NumbersV1PortingPortInCreate $numbersV1PortingPortInCreate
      * @return PortingPortInInstance Created PortingPortInInstance
      * @throws TwilioException When an HTTP error occurs.
      */
-    public function create(): PortingPortInInstance
+    public function create(NumbersV1PortingPortInCreate $numbersV1PortingPortInCreate): PortingPortInInstance
     {
 
-        $data = $body->toArray();
-        $headers['Content-Type'] = 'application/json';
+        $headers = Values::of(['Content-Type' => 'application/json', 'Accept' => 'application/json' ]);
+        $data = $numbersV1PortingPortInCreate->toArray();
         $payload = $this->version->create('POST', $this->uri, [], $data, $headers);
 
         return new PortingPortInInstance(
