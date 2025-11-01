@@ -27,7 +27,7 @@ use Twilio\Version;
  * @property string|null $accountSid
  * @property string|null $workspaceSid
  * @property array[]|null $taskQueueData
- * @property int $taskQueueResponseCount
+ * @property int|null $taskQueueResponseCount
  * @property string|null $url
  */
 class TaskQueueBulkRealTimeStatisticsInstance extends InstanceResource

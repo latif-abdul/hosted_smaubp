@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2025 Justin Hileman
+ * (c) 2012-2023 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,7 +11,6 @@
 
 namespace Psy\Command;
 
-use Psy\ConfigPaths;
 use Psy\Input\FilterOptions;
 use Psy\Output\ShellOutput;
 use Psy\Readline\Readline;
@@ -27,8 +26,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class HistoryCommand extends Command
 {
-    private FilterOptions $filter;
-    private Readline $readline;
+    private $filter;
+    private $readline;
 
     /**
      * {@inheritdoc}
@@ -126,7 +125,7 @@ HELP
         }
 
         if ($save = $input->getOption('save')) {
-            $output->writeln(\sprintf('Saving history in %s...', ConfigPaths::prettyPath($save)));
+            $output->writeln(\sprintf('Saving history in %s...', $save));
             \file_put_contents($save, \implode(\PHP_EOL, $history).\PHP_EOL);
             $output->writeln('<info>History saved.</info>');
         } elseif ($input->getOption('replay')) {
@@ -136,8 +135,7 @@ HELP
 
             $count = \count($history);
             $output->writeln(\sprintf('Replaying %d line%s of history', $count, ($count !== 1) ? 's' : ''));
-
-            $this->getShell()->addInput($history);
+            $this->getApplication()->addInput($history);
         } elseif ($input->getOption('clear')) {
             $this->clearHistory();
             $output->writeln('<info>History cleared.</info>');
@@ -158,12 +156,12 @@ HELP
      *
      * @param string $range
      *
-     * @return int[] [ start, end ]
+     * @return array [ start, end ]
      */
     private function extractRange(string $range): array
     {
         if (\preg_match('/^\d+$/', $range)) {
-            return [(int) $range, (int) $range + 1];
+            return [$range, $range + 1];
         }
 
         $matches = [];
@@ -208,7 +206,7 @@ HELP
                 throw new \InvalidArgumentException('Please specify an integer argument for --tail');
             }
 
-            $start = \count($history) - (int) $tail;
+            $start = \count($history) - $tail;
             $length = (int) $tail + 1;
         } else {
             return $history;

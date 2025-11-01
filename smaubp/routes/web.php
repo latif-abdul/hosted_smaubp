@@ -54,7 +54,6 @@ Route::get('/pdf/{id}', [SiswaController::class, 'pdf'])->name('pdf');
 
 Route::post('/pengumuman', [SiswaController::class, 'pengumuman']);
 Route::get('/daful', [DafulController::class, 'index']);
-Route::get('/daful/{id}', [DafulController::class, 'edit']);
 Route::post('/daful', [DafulController::class, 'store']);
 Route::post('/daftar', [SiswaController::class, 'store']);
 Route::get('/galleries', [GaleriController::class, 'show_all']);
@@ -107,4 +106,3 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::match(['get','options'], '/wilayah/proxy', [WilayahProxyController::class, 'proxy']);

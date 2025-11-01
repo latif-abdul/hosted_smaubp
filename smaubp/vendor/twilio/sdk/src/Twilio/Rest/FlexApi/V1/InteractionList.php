@@ -63,12 +63,9 @@ class InteractionList extends ListResource
                 Serialize::jsonObject($options['routing']),
             'InteractionContextSid' =>
                 $options['interactionContextSid'],
-            'WebhookTtid' =>
-                $options['webhookTtid'],
         ]);
 
-        $headers = Values::of(['Content-Type' => 'application/x-www-form-urlencoded', 'Accept' => 'application/json' ]);
-        $payload = $this->version->create('POST', $this->uri, [], $data, $headers);
+        $payload = $this->version->create('POST', $this->uri, [], $data);
 
         return new InteractionInstance(
             $this->version,

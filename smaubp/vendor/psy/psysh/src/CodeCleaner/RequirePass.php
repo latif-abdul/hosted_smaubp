@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2025 Justin Hileman
+ * (c) 2012-2023 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Include_;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Name\FullyQualified as FullyQualifiedName;
-use PhpParser\Node\Scalar\Int_;
 use PhpParser\Node\Scalar\LNumber;
 use Psy\Exception\ErrorException;
 use Psy\Exception\FatalErrorException;
@@ -26,7 +25,7 @@ use Psy\Exception\FatalErrorException;
  */
 class RequirePass extends CodeCleanerPass
 {
-    private const REQUIRE_TYPES = [Include_::TYPE_REQUIRE, Include_::TYPE_REQUIRE_ONCE];
+    private static $requireTypes = [Include_::TYPE_REQUIRE, Include_::TYPE_REQUIRE_ONCE];
 
     /**
      * {@inheritdoc}
@@ -36,7 +35,7 @@ class RequirePass extends CodeCleanerPass
     public function enterNode(Node $origNode)
     {
         if (!$this->isRequireNode($origNode)) {
-            return null;
+            return;
         }
 
         $node = clone $origNode;
@@ -50,15 +49,10 @@ class RequirePass extends CodeCleanerPass
          *
          *   $foo = require \Psy\CodeCleaner\RequirePass::resolve($bar)
          */
-        // @todo Remove LNumber once we drop support for PHP-Parser 4.x
-        $arg = \class_exists('PhpParser\Node\Scalar\Int_') ?
-            new Int_($origNode->getStartLine()) :
-            new LNumber($origNode->getStartLine());
-
         $node->expr = new StaticCall(
             new FullyQualifiedName(self::class),
             'resolve',
-            [new Arg($origNode->expr), new Arg($arg)],
+            [new Arg($origNode->expr), new Arg(new LNumber($origNode->getStartLine()))],
             $origNode->getAttributes()
         );
 
@@ -125,7 +119,7 @@ class RequirePass extends CodeCleanerPass
 
     private function isRequireNode(Node $node): bool
     {
-        return $node instanceof Include_ && \in_array($node->type, self::REQUIRE_TYPES);
+        return $node instanceof Include_ && \in_array($node->type, self::$requireTypes);
     }
 
     private static function getIncludePath(): array

@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2025 Justin Hileman
+ * (c) 2012-2023 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -31,7 +31,7 @@ use Psy\Command\TimeitCommand;
  */
 class TimeitVisitor extends NodeVisitorAbstract
 {
-    private int $functionDepth = 0;
+    private $functionDepth;
 
     /**
      * {@inheritdoc}
@@ -41,8 +41,6 @@ class TimeitVisitor extends NodeVisitorAbstract
     public function beforeTraverse(array $nodes)
     {
         $this->functionDepth = 0;
-
-        return null;
     }
 
     /**
@@ -57,15 +55,13 @@ class TimeitVisitor extends NodeVisitorAbstract
         if ($node instanceof FunctionLike) {
             $this->functionDepth++;
 
-            return null;
+            return;
         }
 
         // replace any top-level `return` statements with a `markEnd` call
         if ($this->functionDepth === 0 && $node instanceof Return_) {
             return new Return_($this->getEndCall($node->expr), $node->getAttributes());
         }
-
-        return null;
     }
 
     /**
@@ -78,8 +74,6 @@ class TimeitVisitor extends NodeVisitorAbstract
         if ($node instanceof FunctionLike) {
             $this->functionDepth--;
         }
-
-        return null;
     }
 
     /**
@@ -126,7 +120,7 @@ class TimeitVisitor extends NodeVisitorAbstract
      *
      * @param Expr|null $arg
      */
-    private function getEndCall(?Expr $arg = null): StaticCall
+    private function getEndCall(Expr $arg = null): StaticCall
     {
         if ($arg === null) {
             $arg = NoReturnValue::create();

@@ -30,21 +30,25 @@ use Symfony\Contracts\Service\ResetInterface;
  */
 class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterface
 {
+    protected ?LoggerInterface $logger;
+    protected Stopwatch $stopwatch;
+
     /**
      * @var \SplObjectStorage<WrappedListener, array{string, string}>|null
      */
     private ?\SplObjectStorage $callStack = null;
+    private EventDispatcherInterface $dispatcher;
     private array $wrappedListeners = [];
     private array $orphanedEvents = [];
+    private ?RequestStack $requestStack;
     private string $currentRequestHash = '';
 
-    public function __construct(
-        private EventDispatcherInterface $dispatcher,
-        protected Stopwatch $stopwatch,
-        protected ?LoggerInterface $logger = null,
-        private ?RequestStack $requestStack = null,
-        protected readonly ?\Closure $disabled = null,
-    ) {
+    public function __construct(EventDispatcherInterface $dispatcher, Stopwatch $stopwatch, ?LoggerInterface $logger = null, ?RequestStack $requestStack = null)
+    {
+        $this->dispatcher = $dispatcher;
+        $this->stopwatch = $stopwatch;
+        $this->logger = $logger;
+        $this->requestStack = $requestStack;
     }
 
     public function addListener(string $eventName, callable|array $listener, int $priority = 0): void
@@ -104,9 +108,6 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
 
     public function dispatch(object $event, ?string $eventName = null): object
     {
-        if ($this->disabled?->__invoke()) {
-            return $this->dispatcher->dispatch($event, $eventName);
-        }
         $eventName ??= $event::class;
 
         $this->callStack ??= new \SplObjectStorage();
@@ -114,7 +115,7 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
         $currentRequestHash = $this->currentRequestHash = $this->requestStack && ($request = $this->requestStack->getCurrentRequest()) ? spl_object_hash($request) : '';
 
         if (null !== $this->logger && $event instanceof StoppableEventInterface && $event->isPropagationStopped()) {
-            $this->logger->debug(\sprintf('The "%s" event is already stopped. No listeners have been called.', $eventName));
+            $this->logger->debug(sprintf('The "%s" event is already stopped. No listeners have been called.', $eventName));
         }
 
         $this->preProcess($eventName);
@@ -259,7 +260,7 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
             $this->wrappedListeners[$eventName][] = $wrappedListener;
             $this->dispatcher->removeListener($eventName, $listener);
             $this->dispatcher->addListener($eventName, $wrappedListener, $priority);
-            $this->callStack[$wrappedListener] = [$eventName, $this->currentRequestHash];
+            $this->callStack->attach($wrappedListener, [$eventName, $this->currentRequestHash]);
         }
     }
 
@@ -283,7 +284,7 @@ class TraceableEventDispatcher implements EventDispatcherInterface, ResetInterfa
             if ($listener->wasCalled()) {
                 $this->logger?->debug('Notified event "{event}" to listener "{listener}".', $context);
             } else {
-                unset($this->callStack[$listener]);
+                $this->callStack->detach($listener);
             }
 
             if (null !== $this->logger && $skipped) {

@@ -18,20 +18,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <label class="">
-                        Tempat Lahir
-                    </label>
-                    <p>{{$daful->santri->tempat_lahir}}</p>
-                </div>
-                <div class="col-md-6">
-                    <label class="">
-                        Tanggal Lahir
-                    </label>
-                    <p>{{$daful->santri->tanggal_lahir}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="">
                         Akta Kelahiran
                     </label>
                     <div class="row">

@@ -20,27 +20,23 @@ use Twilio\Exceptions\TwilioException;
 use Twilio\InstanceContext;
 use Twilio\Rest\Numbers\V1\BulkEligibilityList;
 use Twilio\Rest\Numbers\V1\EligibilityList;
-use Twilio\Rest\Numbers\V1\PortingAllPortInList;
 use Twilio\Rest\Numbers\V1\PortingPortInList;
 use Twilio\Rest\Numbers\V1\PortingPortInPhoneNumberList;
 use Twilio\Rest\Numbers\V1\PortingPortabilityList;
 use Twilio\Rest\Numbers\V1\PortingWebhookConfigurationList;
 use Twilio\Rest\Numbers\V1\PortingWebhookConfigurationDeleteList;
-use Twilio\Rest\Numbers\V1\SigningRequestConfigurationList;
-use Twilio\Rest\Numbers\V1\WebhookList;
+use Twilio\Rest\Numbers\V1\PortingWebhookConfigurationFetchList;
 use Twilio\Version;
 
 /**
  * @property BulkEligibilityList $bulkEligibilities
  * @property EligibilityList $eligibilities
- * @property PortingAllPortInList $portingAllPortIns
  * @property PortingPortInList $portingPortIns
  * @property PortingPortInPhoneNumberList $portingPortInPhoneNumber
  * @property PortingPortabilityList $portingPortabilities
  * @property PortingWebhookConfigurationList $portingWebhookConfigurations
  * @property PortingWebhookConfigurationDeleteList $portingWebhookConfigurationsDelete
- * @property SigningRequestConfigurationList $signingRequestConfigurations
- * @property WebhookList $webhook
+ * @property PortingWebhookConfigurationFetchList $portingWebhookConfigurationFetch
  * @method \Twilio\Rest\Numbers\V1\BulkEligibilityContext bulkEligibilities(string $requestId)
  * @method \Twilio\Rest\Numbers\V1\PortingPortInContext portingPortIns(string $portInRequestSid)
  * @method \Twilio\Rest\Numbers\V1\PortingPortInPhoneNumberContext portingPortInPhoneNumber(string $portInRequestSid, string $phoneNumberSid)
@@ -51,14 +47,12 @@ class V1 extends Version
 {
     protected $_bulkEligibilities;
     protected $_eligibilities;
-    protected $_portingAllPortIns;
     protected $_portingPortIns;
     protected $_portingPortInPhoneNumber;
     protected $_portingPortabilities;
     protected $_portingWebhookConfigurations;
     protected $_portingWebhookConfigurationsDelete;
-    protected $_signingRequestConfigurations;
-    protected $_webhook;
+    protected $_portingWebhookConfigurationFetch;
 
     /**
      * Construct the V1 version of Numbers
@@ -85,14 +79,6 @@ class V1 extends Version
             $this->_eligibilities = new EligibilityList($this);
         }
         return $this->_eligibilities;
-    }
-
-    protected function getPortingAllPortIns(): PortingAllPortInList
-    {
-        if (!$this->_portingAllPortIns) {
-            $this->_portingAllPortIns = new PortingAllPortInList($this);
-        }
-        return $this->_portingAllPortIns;
     }
 
     protected function getPortingPortIns(): PortingPortInList
@@ -135,20 +121,12 @@ class V1 extends Version
         return $this->_portingWebhookConfigurationsDelete;
     }
 
-    protected function getSigningRequestConfigurations(): SigningRequestConfigurationList
+    protected function getPortingWebhookConfigurationFetch(): PortingWebhookConfigurationFetchList
     {
-        if (!$this->_signingRequestConfigurations) {
-            $this->_signingRequestConfigurations = new SigningRequestConfigurationList($this);
+        if (!$this->_portingWebhookConfigurationFetch) {
+            $this->_portingWebhookConfigurationFetch = new PortingWebhookConfigurationFetchList($this);
         }
-        return $this->_signingRequestConfigurations;
-    }
-
-    protected function getWebhook(): WebhookList
-    {
-        if (!$this->_webhook) {
-            $this->_webhook = new WebhookList($this);
-        }
-        return $this->_webhook;
+        return $this->_portingWebhookConfigurationFetch;
     }
 
     /**
