@@ -1,7 +1,7 @@
 @extends('Admin.app')
 @section('content')
 <div class="container-fluid">
-    <form method="POST" action="{{route($formAction)}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route($formAction, $siswa->id ?? null)}}" enctype="multipart/form-data">
         @csrf
         @if(isset($siswa)) @method('PUT') @else @method('POST') @endif
         <div>
