@@ -52,6 +52,7 @@ class Santris extends Model
         'kecamatan',
         'kabupaten_kota',
         'provinsi',
+        'alamat'
     ];
 
     public function daful()
