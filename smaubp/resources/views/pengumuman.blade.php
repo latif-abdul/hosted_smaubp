@@ -47,7 +47,7 @@
 
                         <ol>
                             <li>Pembayaran tunai dilayani di kantor SMAU BP Amanatul Ummah, area Gedung GBI PP. Amanatul Ummah Pacet</li>
-                            <li>Pembayaran melalui rekening Bank Syari'ah Indonesia (BSI) 8080000139 atas nama PSB SMA MA BP AMANATUL UMMAH PACET</li>
+                            <li>Pembayaran transfer melalui rekening Bank Syari'ah Indonesia (BSI) 8080000139 atas nama PSB SMA MA BP AMANATUL UMMAH PACET</li>
                             <li>Bukti transfer dikirim melalui WhatsApp Ustadzah Dini 0858-5199-9088</li>
                         </ol>
                         <br><br>
