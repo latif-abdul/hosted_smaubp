@@ -13,6 +13,7 @@
 
             <!-- Data Santri -->
             <h4>Data Santri</h4>
+            <input type="hidden" value="{{ $santri->id ?? $siswa->id ?? '' }}" name="id">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
