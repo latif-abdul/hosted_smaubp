@@ -147,7 +147,7 @@
                     <div class="form-group">
                         <label for="provinsi">Provinsi</label>
                         <select id="provinsi" name="provinsi" class="form-control" required>
-                            <option value="">{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}</option>
+                            <option value="{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}">{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}</option>
                         </select>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                     <div class="form-group">
                         <label for="kabupaten_kota">Kota / Kabupaten</label>
                         <select id="kabupaten_kota" name="kabupaten_kota" class="form-control" required>
-                            <option value="">{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}</option>
+                            <option value="{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}">{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}</option>
                         </select>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                     <div class="form-group">
                         <label for="kecamatan">Kecamatan</label>
                         <select id="kecamatan" name="kecamatan" class="form-control" required>
-                            <option value="">{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}</option>
+                            <option value="{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}">{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}</option>
                         </select>
                     </div>
                 </div>
@@ -176,19 +176,19 @@
                     <div class="form-group">
                         <label for="desa">Kelurahan / Desa</label>
                         <select id="desa" name="desa" class="form-control" required>
-                            <option value="">{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}</option>
+                            <option value="{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}">{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="form-group">
                         <label for="dusun">Dusun</label>
                         <select id="dusun" name="dusun" class="form-control">
                             <option value="">{{ old('dusun', $santri->dusun ?? $siswa->dusun ?? 'Pilih kelurahan dahulu') }}</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <hr>
@@ -376,11 +376,71 @@
 
             <hr>
 
-            <!-- System / Misc -->
-            <h4>System / File Uploads</h4>
-
+            <!-- Jalur Masuk (select) -->
+            <h4>Jalur Masuk</h4>
             <div class="row">
                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="jalur_masuk">Pilih Jalur Masuk</label>
+                        <select id="jalur_masuk" name="jalur_masuk" class="form-control">
+                            @php($jalurOld = old('jalur_masuk', $santri->jalur_masuk ?? $siswa->jalur_masuk ?? ''))
+                            <option value="">Pilih</option>
+                            <option value="reguler" {{ $jalurOld == 'reguler' ? 'selected' : '' }}>Reguler</option>
+                            <option value="prestasi" {{ $jalurOld == 'prestasi' ? 'selected' : '' }}>Prestasi</option>
+                            <option value="lainnya" {{ $jalurOld == 'lainnya' ? 'selected' : '' }}>Lainnya</option>
+                        </select>
+                        <small class="form-text text-muted">Pilih "Prestasi" untuk mengunggah sertifikat.</small>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Status Lolos (slider checkbox) -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="status_lulus">Status Lolos</label>
+                        <div>
+                            {{-- hidden default to ensure 0 when unchecked --}}
+                            <input type="hidden" name="status_lulus" value="0">
+                            <label class="switch">
+                                <input type="checkbox"
+                                       id="status_lulus_toggle"
+                                       name="status_lulus"
+                                       value="1"
+                                       {{ (old('status_lulus', $santri->status_lulus ?? $siswa->status_lulus ?? 0) ? 'checked' : '') }}>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <small class="form-text text-muted">Centang jika peserta dinyatakan lolos.</small>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* simple slider style */
+                .switch { position: relative; display: inline-block; width: 46px; height: 24px; }
+                .switch input { opacity: 0; width: 0; height: 0; }
+                .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .2s; border-radius: 24px; }
+                .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .2s; border-radius: 50%; }
+                .switch input:checked + .slider { background-color: #4CAF50; }
+                .switch input:checked + .slider:before { transform: translateX(22px); }
+            </style>
+
+            <script>
+                // initialize sertifikat visibility (already present) and keep minimal logic for status if needed
+                document.addEventListener('DOMContentLoaded', function () {
+                    // if you also want to show a label/text when toggled, add logic here
+                });
+            </script>
+
+            <hr>
+
+            <!-- System / Misc -->
+            <h4>System / File Uploads</h4>
+            <div class="row">
+                <div class="col-md-4">
                     <div class="col-md">
                         @if(isset($siswa->bukti_pembayaran))
                             <img src="/uploads/{{$siswa->bukti_pembayaran}}" width="80%">
@@ -392,7 +452,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="col-md">
                         @if(isset($siswa->foto))
                             <img src="/uploads/{{$siswa->foto}}" width="80%">
@@ -400,10 +460,22 @@
                     </div>
                     <div class="file-field">
                         <label>Pas Foto berwarna</label>
-                        <input type="file" class="form-control" name="foto" accept="image/*" required>
+                        <input type="file" class="form-control" name="foto" accept="image/*" {{ isset($siswa) ? '' : 'required' }}>
                     </div>
                 </div>
 
+                <!-- Sertifikat: hidden unless jalur_masuk == prestasi -->
+                <div class="col-md-4" id="sertifikat_field" style="display: none;">
+                    <div class="col-md">
+                        @if(isset($siswa->sertifikat))
+                            <img src="/uploads/{{$siswa->sertifikat}}" width="80%">
+                        @endif
+                    </div>
+                    <div class="file-field">
+                        <label>Sertifikat (unggah jika jalur Prestasi)</label>
+                        <input type="file" class="form-control" name="sertifikat" accept="image/*,application/pdf">
+                    </div>
+                </div>
             </div>
 
             <br>
@@ -437,7 +509,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const kabupatenEl = document.getElementById('kabupaten_kota');
     const kecamatanEl = document.getElementById('kecamatan');
     const desaEl = document.getElementById('desa');
-    const dusunEl = document.getElementById('dusun');
+    // const dusunEl = document.getElementById('dusun');
+    const dusunEl = '';
 
     // proxy endpoint on this app that forwards requests to wilayah.id and adds CORS header
     const PROXY = '/wilayah/proxy?endpoint=';
@@ -658,6 +731,28 @@ document.addEventListener('DOMContentLoaded', function () {
         if (formEl) {
             formEl.addEventListener('submit', updateTtlIbu);
         }
+    })();
+
+    // show/hide sertifikat input depending on jalur_masuk value
+    (function () {
+        const jalurEl = document.getElementById('jalur_masuk');
+        const sertifikatField = document.getElementById('sertifikat_field');
+        if (!jalurEl || !sertifikatField) return;
+
+        function toggleSertifikat() {
+            const val = jalurEl.value;
+            if (val === 'prestasi') {
+                sertifikatField.style.display = '';
+            } else {
+                sertifikatField.style.display = 'none';
+            }
+        }
+
+        // initial state (in case backend already set prestasi)
+        toggleSertifikat();
+
+        // change handler
+        jalurEl.addEventListener('change', toggleSertifikat);
     })();
 });
 </script>

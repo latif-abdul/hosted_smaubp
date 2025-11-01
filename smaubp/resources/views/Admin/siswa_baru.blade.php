@@ -234,8 +234,8 @@
                                     </div>
                                 </div>
                                 <div class="tb_search">
-                                    <input type="text" id="search_input_all"
-                                        onkeyup="FilterkeyWord_all_table('table-id', 'search_input_all', 'maxRows')"
+                                    <input type="text" id="search_input_all_3"
+                                        onkeyup="FilterkeyWord_all_table('table-id-3', 'search_input_all_3', 'maxRows-3')"
                                         placeholder="Search.." class="form-control">
                                 </div>
                             </div>
