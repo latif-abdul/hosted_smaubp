@@ -114,7 +114,8 @@ class DafulController extends Controller
             return back()->with("error", $santri->nama_lengkap . " belum melakukan daftar ulang");
         } else {
         $formAction = "/admin/daful/" . $daful->id;
-        return view('Admin.show_daful', compact('daful', 'formAction'));
+        $carbon = Carbon::class;
+        return view('Admin.show_daful', compact('daful', 'formAction', 'carbon'));
         };
     }
 
@@ -153,5 +154,13 @@ class DafulController extends Controller
     {
         $today = Carbon::now()->isoFormat('D MMMM Y');
         return Excel::download(new DafulExport, 'Daftar Ulang '.$today.'.xlsx');
+    }
+
+    public function format_ttl($raw) {
+        if (empty($raw)) return '-';
+        $parts = explode(',', $raw, 2);
+        $place = trim($parts[0] ?? '');
+        $date = isset($parts[1]) ? ltrim($parts[1]) : '';
+        return $place . ($date !== '' ? ',' . Carbon::parse($date)->isoFormat('D MMMM Y') : '');
     }
 }

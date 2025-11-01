@@ -1,12 +1,12 @@
 <!-- </div> -->
-<footer class="footer" style="bottom: 0;width:100%">
+<!-- <footer class="footer" style="position:absolute; relative: 0;width:100%">
   <div class="container-fluid">
     <p class="copyright pull-right">
       &copy;
       <script>document.write(new Date().getFullYear())</script> <a href="/admin">ICT Amanatul Ummah</a>
     </p>
   </div>
-</footer>
+</footer> -->
 <script src="{{url('js/demo.js')}}"></script>
 <script>
   getPagination('#table-id', '#pagination', '#maxRows', '#rows_count');
