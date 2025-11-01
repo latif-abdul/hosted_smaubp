@@ -37,7 +37,7 @@ class DafulController extends Controller
      */
     public function store(Request $request)
     {
-        $santri = Santris::where("no_pendaftaran", '==',$request->no_pendaftaran)->first();
+        $santri = Santris::find($request->id, 'id' )->first();
         if(!$santri){
             return redirect()->back()->with('failed', 'No Pendaftaran tidak ditemukan');
         }
@@ -55,8 +55,6 @@ class DafulController extends Controller
         //     return back()->with('success', 'Daftar ulang telah diverifikasi');
         // } else {
         $daful = Daful::create(["id_santris" => $santri->id]);
-
-        $updateTtl = 
 
         $validator = Validator::make($request->all(), [
             'akta_kelahiran' => 'required|mimes:jpeg,jpg,png|max:2048',
