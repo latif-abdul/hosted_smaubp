@@ -35,7 +35,7 @@ class SiswaController extends Controller
         $lolos = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
 			->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
 			->leftJoin('tahun_ajaran', 'batch.tahun_ajaran_id', '=', 'tahun_ajaran.id')
-			->where('daful.id_santris', '=', null)
+			->where('daful.id_santris', '=', null)->orWhereNotNull('daful.id_santris')->where('daful.deleted_at', '!=', null)
             ->where('santris.status_lulus', '=', 1)
 			->where('santris.deleted_at', '=', null)
 			->where('batch.deleted_at', '=', null)
