@@ -40,6 +40,7 @@ class SiswaController extends Controller
 			->where('santris.deleted_at', '=', null)
 			->where('batch.deleted_at', '=', null)
 			->where('tahun_ajaran.deleted_at', '=', null)
+			->where('daful.deleted_at', '!=', null)
 			->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
 		$daful = Santris::leftJoin('daful', 'daful.id_santris', '=', 'santris.id')
 			->leftJoin('batch', 'santris.batch_id', '=', 'batch.id')
@@ -48,6 +49,7 @@ class SiswaController extends Controller
 			->where('santris.deleted_at', '=', null)
 			->where('batch.deleted_at', '=', null)
 			->where('tahun_ajaran.deleted_at', '=', null)
+			->where('daful.deleted_at', '=', null)
 			->distinct()->get(['santris.id', 'no_pendaftaran', 'nama_lengkap', 'batch.name', 'tahun_ajaran.tahun_ajaran']);
 		// $siswa_terverifikasi = $siswa->daful()
 		// ->where("verifikasi_akta_kelahiran", 1)
