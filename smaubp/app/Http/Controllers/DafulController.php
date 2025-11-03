@@ -54,7 +54,7 @@ class DafulController extends Controller
         // if ($existing_daful) {
         //     return back()->with('success', 'Daftar ulang telah diverifikasi');
         // } else {
-        $daful = Daful::create(["id_santris" => $santri->id]);
+        
 
         $validator = Validator::make($request->all(), [
             'akta_kelahiran' => 'required|mimes:jpeg,jpg,png|max:2048',
@@ -70,6 +70,7 @@ class DafulController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
+        $daful = Daful::create(["id_santris" => $santri->id]);
 
         if ($request->hasFile('akta_kelahiran')) {
             $daful->akta_kelahiran = $santri->nama_lengkap . time() . '-' . $request->file('akta_kelahiran')->getClientOriginalName();
