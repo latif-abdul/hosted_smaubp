@@ -147,7 +147,7 @@
                     <div class="form-group">
                         <label for="provinsi">Provinsi</label>
                         <select id="provinsi" name="provinsi" class="form-control" required>
-                            <option code="" value="">{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}</option>
+                            <option code="" value="{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}">{{ old('provinsi', $santri->provinsi ?? $siswa->provinsi ?? 'Memuat...') }}</option>
                         </select>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                     <div class="form-group">
                         <label for="kabupaten_kota">Kota / Kabupaten</label>
                         <select id="kabupaten_kota" name="kabupaten_kota" class="form-control" required>
-                            <option code="" value="">{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}</option>
+                            <option code="" value="{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}">{{ old('kabupaten_kota', $santri->kabupaten_kota ?? $siswa->kabupaten_kota ?? 'Pilih provinsi dahulu') }}</option>
                         </select>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                     <div class="form-group">
                         <label for="kecamatan">Kecamatan</label>
                         <select id="kecamatan" name="kecamatan" class="form-control" required>
-                            <option code="" value="">{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}</option>
+                            <option code="" value="{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}">{{ old('kecamatan', $santri->kecamatan ?? $siswa->kecamatan ?? 'Pilih kota dahulu') }}</option>
                         </select>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                     <div class="form-group">
                         <label for="desa">Kelurahan / Desa</label>
                         <select id="desa" name="desa" class="form-control" required>
-                            <option code="" value="">{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}</option>
+                            <option code="" value="{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}">{{ old('desa', $santri->desa ?? $siswa->desa ?? 'Pilih kecamatan dahulu') }}</option>
                         </select>
                     </div>
                 </div>
