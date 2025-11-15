@@ -117,21 +117,8 @@
     </table>
   </section>
 
-  <section class="section">
-    <h3>Berkas</h3>
-    <table>
-      <tr>
-        <td class="col-2"><strong>Foto</strong></td>
-        <td class="col-3">:
           @if(!empty($base64_foto))<img class="foto" src="{{ $base64_foto }}" alt="Foto">@else - @endif
-        </td>
-      </tr>
-      <tr><td><strong>Akta Kelahiran</strong></td><td>: {{ $daful->akta_kelahiran ?? ($siswa->akta_kelahiran ?? '-') }}</td></tr>
-      <tr><td><strong>Kartu Keluarga</strong></td><td>: {{ $daful->kartu_keluarga ?? ($siswa->kartu_keluarga ?? '-') }}</td></tr>
-      <tr><td><strong>SKL</strong></td><td>: {{ $daful->skl ?? '-' }}</td></tr>
-      <tr><td><strong>Bukti Pembayaran</strong></td><td>: {{ $daful->bukti_pembayaran ?? ($siswa->bukti_pembayaran ?? '-') }}</td></tr>
-      <tr><td><strong>Sertifikat (jika prestasi)</strong></td><td>: {{ $daful->sertifikat ?? ($siswa->sertifikat ?? '-') }}</td></tr>
-    </table>
+ 
   </section>
 
   <p class="footer">Mojokerto, {{ $today ?? date('d-m-Y') }}</p>
