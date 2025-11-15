@@ -59,9 +59,7 @@
       <tr><td><strong>Anak ke / Jumlah Saudara</strong></td><td>: {{ $siswa->anak_ke ?? '-' }} / {{ $siswa->jumlah_saudara ?? '-' }}</td></tr>
       <tr><td><strong>Tinggi / Berat</strong></td><td>: {{ $siswa->tinggi_badan ?? '-' }} cm / {{ $siswa->berat_badan ?? '-' }} kg</td></tr>
       <tr><td><strong>Nomor KK</strong></td><td>: {{ $siswa->nomor_kk ?? '-' }}</td></tr>
-      <tr><td><strong>Tahun Lulus</strong></td><td>: {{ $siswa->tahun_lulus ?? '-' }}</td></tr>
-      <tr><td><strong>Status Lulus</strong></td><td>: {{ (isset($siswa->status_lulus) && $siswa->status_lulus) ? 'Lolos' : 'Tidak Lolos' }}</td></tr>
-      <tr><td><strong>Batch ID</strong></td><td>: {{ $siswa->batch_id ?? '-' }}</td></tr>
+      
     </table>
   </section>
 
@@ -73,7 +71,6 @@
       <tr><td><strong>Kabupaten / Kota</strong></td><td>: {{ $siswa->kabupaten_kota ?? '-' }}</td></tr>
       <tr><td><strong>Kecamatan</strong></td><td>: {{ $siswa->kecamatan ?? '-' }}</td></tr>
       <tr><td><strong>Kelurahan / Desa</strong></td><td>: {{ $siswa->desa ?? '-' }}</td></tr>
-      <tr><td><strong>Dusun</strong></td><td>: {{ $siswa->dusun ?? '-' }}</td></tr>
       <tr><td><strong>Alamat Orang Tua</strong></td><td>: {{ $siswa->alamat_ortu ?? '-' }}</td></tr>
     </table>
   </section>
@@ -112,7 +109,7 @@
     <h3>ASAL SEKOLAH</h3>
     <table>
       <tr><td class="col-2"><strong>Asal Sekolah</strong></td><td class="col-3">: {{ $siswa->asal_sekolah ?? '-' }}</td></tr>
-      <tr><td><strong>Nama Sekolah</strong></td><td>: {{ $siswa->nama_sekolah ?? '-' }}</td></tr>
+      <tr><td><strong>Tahun Lulus</strong></td><td>: {{ $siswa->tahun_lulus ?? '-' }}</td></tr>
       <tr><td><strong>Alamat Sekolah</strong></td><td>: {{ $siswa->alamat_sekolah ?? '-' }}</td></tr>
     </table>
   </section>
