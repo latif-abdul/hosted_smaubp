@@ -91,14 +91,14 @@
     <table>
       <tr><td class="col-2"><strong>Nama Ayah</strong></td><td class="col-3">: {{ $siswa->nama_ayah ?? '-' }}</td></tr>
       <tr><td><strong>NIK Ayah</strong></td><td>: {{ $siswa->nik_ayah ?? '-' }}</td></tr>
-      <tr><td><strong>TTL Ayah</strong></td><td>: {{ $ayah_place }}{{ $ayah_date ? ', '.$ayah_date : '' }}</td></tr>
+      <tr><td><strong>Tempat Tanggal Lahir Ayah</strong></td><td>: {{ $ayah_place }}{{ $ayah_date ? ', '.$ayah_date : '' }}</td></tr>
       <tr><td><strong>No. HP Ayah</strong></td><td>: {{ $siswa->nomor_hp_ayah ?? '-' }}</td></tr>
       <tr><td><strong>Pekerjaan Ayah</strong></td><td>: {{ $siswa->pekerjaan_ayah ?? '-' }}</td></tr>
       <tr><td><strong>Penghasilan Ayah</strong></td><td>: {{ $siswa->penghasilan_ayah ?? '-' }}</td></tr>
 
       <tr><td class="col-2"><strong>Nama Ibu</strong></td><td class="col-3">: {{ $siswa->nama_ibu ?? '-' }}</td></tr>
       <tr><td><strong>NIK Ibu</strong></td><td>: {{ $siswa->nik_ibu ?? '-' }}</td></tr>
-      <tr><td><strong>TTL Ibu</strong></td><td>: {{ $ibu_place }}{{ $ibu_date ? ', '.$ibu_date : '' }}</td></tr>
+      <tr><td><strong>Tempat Tanggal Lahir Ibu</strong></td><td>: {{ $ibu_place }}{{ $ibu_date ? ', '.$ibu_date : '' }}</td></tr>
       <tr><td><strong>No. HP Ibu</strong></td><td>: {{ $siswa->nomor_hp_ibu ?? '-' }}</td></tr>
       <tr><td><strong>Pekerjaan Ibu</strong></td><td>: {{ $siswa->pekerjaan_ibu ?? '-' }}</td></tr>
       <tr><td><strong>Penghasilan Ibu</strong></td><td>: {{ $siswa->penghasilan_ibu ?? '-' }}</td></tr>
