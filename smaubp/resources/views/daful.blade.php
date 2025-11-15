@@ -361,6 +361,12 @@
                         <input type="text" id="asal_sekolah" name="asal_sekolah" class="form-control" value="{{ old('asal_sekolah', $santri->asal_sekolah ?? $siswa->asal_sekolah ?? '') }}">
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="tahun_lulus">Tahun Lulus</label>
+                        <input type="number" id="tahun_lulus" name="tahun_lulus" class="form-control" value="{{ old('tahun_lulus', $santri->tahun_lulus ?? $siswa->tahun_lulus ?? '') }}" placeholder="contoh: 2024">
+                    </div>
+                </div>
             </div>
 
             <div class="row">
