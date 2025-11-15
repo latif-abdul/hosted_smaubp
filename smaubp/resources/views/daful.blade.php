@@ -230,7 +230,6 @@
                             <input type="date" id="ttl_ayah_date" class="form-control" value="{{ $ttlAyahDate }}">
                             <input type="hidden" id="ttl_ayah" name="ttl_ayah" value="{{ $ttlAyahRaw }}">
                         </div>
-                        <small class="form-text text-muted">Format tersimpan: "Tempat, YYYY-MM-DD"</small>
                     </div>
                 </div>
             </div>
@@ -305,7 +304,6 @@
                             <input type="date" id="ttl_ibu_date" class="form-control" value="{{ $ttlIbuDate }}">
                             <input type="hidden" id="ttl_ibu" name="ttl_ibu" value="{{ $ttlIbuRaw }}">
                         </div>
-                        <small class="form-text text-muted">Format tersimpan: "Tempat, YYYY-MM-DD"</small>
                     </div>
                 </div>
             </div>
