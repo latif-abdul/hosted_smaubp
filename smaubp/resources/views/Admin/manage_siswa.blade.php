@@ -287,7 +287,7 @@
 
                 <!-- replaced TTL Ibu single text with combined place + date -->
                 @php
-                    $ttlIbuRaw = old('ttl_ibu', $santri->ttl_ibu ?? $siswa->ttl_ibu ?? '');
+                    $ttlIbuRaw = old('ttl_ibu', $siswa->ttl_ibu );
                     $ttlIbuPlace = '';
                     $ttlIbuDate = '';
                     if ($ttlIbuRaw) {
@@ -303,7 +303,7 @@
                         <div class="input-group">
                             <input type="text" id="ttl_ibu_place" class="form-control" placeholder="Tempat lahir" value="{{ $ttlIbuPlace }}">
                             <input type="date" id="ttl_ibu_date" class="form-control" value="{{ $ttlIbuDate }}">
-                            <input type="hidden" id="ttl_ibu" name="ttl_ibu" value="{{ $ttlIbuRaw }}">
+                            <input type="hidden" id="ttl_ibu" name="ttl_ibu" value="{{ $siswa->ttl_ibu}}">
                         </div>
                         <small class="form-text text-muted">Format tersimpan: "Tempat, YYYY-MM-DD"</small>
                     </div>

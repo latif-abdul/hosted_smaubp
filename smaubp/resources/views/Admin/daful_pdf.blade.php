@@ -60,6 +60,7 @@
       <tr><td><strong>Tinggi / Berat</strong></td><td>: {{ $siswa->tinggi_badan ?? '-' }} cm / {{ $siswa->berat_badan ?? '-' }} kg</td></tr>
       <tr><td><strong>Nomor KK</strong></td><td>: {{ $siswa->nomor_kk ?? '-' }}</td></tr>
       <tr><td><strong>Tahun Lulus</strong></td><td>: {{ $siswa->tahun_lulus ?? '-' }}</td></tr>
+      <tr><td><strong>Jalur Masuk</strong></td><td>: {{ $siswa->jalur_masuk ?? '-' }}</td></tr>
       <tr><td><strong>Status Lulus</strong></td><td>: {{ (isset($siswa->status_lulus) && $siswa->status_lulus) ? 'Lolos' : 'Tidak Lolos' }}</td></tr>
       <tr><td><strong>Batch ID</strong></td><td>: {{ $siswa->batch_id ?? '-' }}</td></tr>
     </table>
