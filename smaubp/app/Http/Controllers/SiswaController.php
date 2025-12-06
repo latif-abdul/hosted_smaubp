@@ -362,7 +362,7 @@ class SiswaController extends Controller
 
         collect(head($data))
             ->each(function ($row, $key) {
-                Santris::where('no_pendaftaran', '=', $row[1])
+                Santris::where('no_pendaftaran', '=', (string)$row[1])
                     ->update(['status_lulus' => true]);
             });
             // alihkan halaman kembali
