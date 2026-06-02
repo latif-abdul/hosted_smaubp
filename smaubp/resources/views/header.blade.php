@@ -1,20 +1,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=7">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="keywords" content="">
-<meta name="description" content="">
 
-<title>SMA-MAU BP Amanatul Ummah</title>
+{{-- SEO Meta Tags --}}
+<title>SMA Unggulan Berbasis Pesantren Amanatul Ummah - Tahfidzul Qur'an</title>
+<meta name="description" content="SMA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan Tahfidzul Qur'an. Menjamin murid-muridnya menghafal Al-Qur'an, lulus 100% berkualifikasi A, serta diterima di Perguruan Tinggi Favorit.">
+<meta name="keywords" content="SMA Unggulan, Pesantren Amanatul Ummah, Tahfidzul Quran, SMA BP, sekolah Islam, pesantren Mojokerto, PPDB, pendaftaran siswa baru">
+<meta name="author" content="SMA Unggulan BP Amanatul Ummah">
+<meta name="robots" content="index, follow">
+
+{{-- Canonical URL --}}
+<link rel="canonical" href="https://smaubp-tahfidz.sch.id{{ request()->getPathInfo() }}">
+
+{{-- Open Graph Tags --}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="SMA Unggulan Berbasis Pesantren Amanatul Ummah">
+<meta property="og:description" content="Sekolahnya Para Champions — Program unggulan Tahfidzul Qur'an, lulus 100% berkualifikasi A, diterima di Perguruan Tinggi Favorit.">
+<meta property="og:url" content="https://smaubp-tahfidz.sch.id{{ request()->getPathInfo() }}">
+<meta property="og:site_name" content="SMA Unggulan BP Amanatul Ummah">
+<meta property="og:image" content="{{ url('images/logo.png') }}">
+<meta property="og:locale" content="id_ID">
+
+{{-- Twitter Card --}}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SMA Unggulan Berbasis Pesantren Amanatul Ummah">
+<meta name="twitter:description" content="Sekolahnya Para Champions — Program unggulan Tahfidzul Qur'an.">
+<meta name="twitter:image" content="{{ url('images/logo.png') }}">
+
+{{-- JSON-LD Structured Data --}}
 <script type="application/ld+json">
     {
-      "@context" : "https://www.smaubp-tahfidz.sch.id",
-      "@type" : "WebSite",
+      "@context" : "https://schema.org",
+      "@type" : "EducationalOrganization",
       "name" : "SMA MA Unggulan BP Amanatul Ummah",
-      "url" : "https://www.smaubp-tahfidz.sch.id"
+      "url" : "https://smaubp-tahfidz.sch.id",
+      "description" : "SMA Unggulan Berbasis Pesantren Amanatul Ummah dengan program unggulan Tahfidzul Qur'an",
+      "address" : {
+        "@type" : "PostalAddress",
+        "streetAddress" : "Jl. KH. Abdul Chalim, no.1 Desa Kembangbelor, Kecamatan Pacet",
+        "addressLocality" : "Mojokerto",
+        "addressRegion" : "Jawa Timur",
+        "postalCode" : "61374",
+        "addressCountry" : "ID"
+      },
+      "telephone" : "(0321) 6855337",
+      "email" : "officialsmaubp@gmail.com"
     }
 </script>
+
 <link rel="stylesheet" href="{{url('css/style.css')}}">
 <link rel="shortcut icon" href="{{url('images/logo.png')}}" type="image/x-icon">
 
@@ -38,9 +72,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script> -->
 
 
 <!-- lightslider -->
@@ -54,29 +85,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"
     integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<style>
-    /* #loader {
-        border: 12px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 12px solid #444444;
-        width: 70px;
-        height: 70px;
-        animation: spin 1s linear infinite;
-    }
-
-    .center {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
-
-    @keyframes spin {
-        100% {
-            transform: rotate(360deg);
-        }
-    } */
-</style>
