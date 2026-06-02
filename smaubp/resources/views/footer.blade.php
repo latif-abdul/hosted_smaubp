@@ -115,6 +115,3 @@
 <script src="{{url('js/glightbox.min.js')}}"></script>
 <script src="{{url('js/isotope.pkgd.min.js')}}"></script>
 <script src="{{url('js/swiper-bundle.min.js')}}"></script>
-</body>
-
-</html>
