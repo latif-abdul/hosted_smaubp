@@ -104,6 +104,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('setting', function(){});
     Route::post('/admin/pencapaian_alumni/import', [PencapaianAlumniController::class, 'import_excel']);
     Route::get('/export_daful', [DafulController::class, 'export_excel']);
+    Route::get('/template/{filename}', function ($filename) {
+        if (file_exists('/template/'.$filename)) {
+            return response()->download('/template/'.$filename);
+        } else {
+            abort(404, 'File tidak ditemukan.');
+        }
+    });
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
