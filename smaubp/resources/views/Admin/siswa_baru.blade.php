@@ -49,7 +49,7 @@
                             <input type="file" name="file" required="required">
                         </div>
                         <button type="submit" class="btn btn-primary">Import</button>
-                        <a class=" btn btn-success" href="/template/template import siswa.xlsx">Download Template</a>
+                        <a class=" btn btn-success" href="{{url('/template/template import siswa.xlsx')}}">Download Template</a>
 
                     </form>
 
@@ -71,7 +71,7 @@
                             <input type="file" name="file" required="required">
                         </div>
                         <button type="submit" class="btn btn-primary">Import</button>
-                        <a class=" btn btn-success" href="/template/template import siswa.xlsx">Download Template</a>
+                        <a class=" btn btn-success" href="{{url('/template/template import siswa.xlsx')}}">Download Template</a>
 
                     </form>
 
